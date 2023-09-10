@@ -1,2 +1,0 @@
-# MathematicianNight
-MathematicianNight
