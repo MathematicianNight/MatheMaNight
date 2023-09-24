@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 20237;
 
-// 서버 생성&실행
+// 서버 생성
 const app = express();
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
@@ -11,7 +11,7 @@ app.listen(port, () => {
 
 // 미들웨어 추가
 app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
-app.use(express.json());
+app.use(express.json()); ///
 
 // 변수 선언
 const like_count = 0;
