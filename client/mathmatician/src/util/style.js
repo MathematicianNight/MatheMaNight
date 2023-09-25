@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+// import { css } from "@emotion/css";
 
 export const Colors = {
   Black: "#222222",
@@ -8,4 +8,5 @@ export const Colors = {
 
 export const Images = {
   flower_above: "/assets/images/flower_above.svg",
+  background_fix: "../asset/images/background_gra.svg",
 };
