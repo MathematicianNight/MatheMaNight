@@ -17,7 +17,10 @@ function App() {
       style={{
         backgroundImage: `url(${background_fix})`,
         width: "100%",
-        height: "844px",
+        minHeight: "100vh",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <Routes style="background: ">
