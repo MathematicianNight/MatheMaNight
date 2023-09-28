@@ -7,6 +7,9 @@ router.get('/', (req, res) => {
   res.json(likeCnt);
 });
 
-router.post('/upcount', (req, res) => {});
+router.post('/upcount', (req, res) => {
+  likeCnt++;
+  res.json('likeCnt is update');
+});
 
 module.exports = router;
