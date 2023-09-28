@@ -10,8 +10,6 @@ const options = {
 };
 
 // Middleware
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing
 app.use(cors(options));
 
 // Run server
@@ -19,15 +17,6 @@ const port = 4000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-// Declare variable
-const like_count = 0;
-const questions = [];
-const invitationData = {
-  likeCnt: like_count,
-  questions: questions,
-  questionsLength: questions.length,
-};
 
 //-- API --//
 // Get handler
