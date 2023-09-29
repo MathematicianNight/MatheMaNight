@@ -92,14 +92,14 @@ export const QnaContainer = styled.div`
         }
       }
     }
-    & > .pagination {
+    & > .pagination-wrapper {
       margin-top: 13px;
       display: flex;
       flex-direction: row;
       gap: 1rem;
       align-items: center;
       justify-content: center;
-      & > button {
+      & > .pagination-active {
         width: 16px;
         height: 16px;
         border-radius: 50%;
@@ -111,9 +111,19 @@ export const QnaContainer = styled.div`
         font-size: 10px;
         font-family: "SUITE", sans-serif;
       }
+      & > .pagination {
+        width: 16px;
+        height: 16px;
+        background: transparent;
+        border: none;
+        color: ${Colors.White};
+        padding: 0;
+        font-size: 10px;
+        font-family: "SUITE", sans-serif;
+      }
     }
     & > .qna-create {
-      margin-top: 1.4rem;
+      margin-top: 1.45rem;
       text-align: center;
       display: flex;
       justify-content: center;

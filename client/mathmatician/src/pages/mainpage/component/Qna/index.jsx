@@ -113,9 +113,14 @@ const Index = () => {
             </>
           ))}
         </div>
-        <div className="pagination">
-          <button>1</button>
-          <button>2</button>
+        <div className="pagination-wrapper">
+          {/* @todo 페이지네이션 연결 */}
+          <button className="pagination-active">1</button>
+          <button className="pagination">2</button>
+          <button className="pagination">3</button>
+
+          <button className="pagination">4</button>
+          <button className="pagination">5</button>
         </div>
         <div className="qna-create">
           <button>
