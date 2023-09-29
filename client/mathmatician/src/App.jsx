@@ -1,4 +1,5 @@
 import "./GlobalStyle.css";
+import "./asset/fonts/fonts.css";
 import { Route, Routes } from "react-router-dom";
 
 //Route
@@ -7,10 +8,22 @@ import About from "./pages/about/page/index";
 import Hellokitty from "./pages/test/hellokitty";
 import Violet from "./pages/test/violet";
 
+//Images
+import { Images } from "../src/util/style";
+
 function App() {
   return (
-    <>
-      <Routes>
+    <div
+      style={{
+        backgroundImage: `url(${Images.background_fix})`,
+        width: "100%",
+        minHeight: "100vh",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <Routes style="background: ">
         <Route path="/" element={<MainPage />} />
         <Route path="/hellokitty" element={<Hellokitty />} />
         <Route path="/violet" element={<Violet />} />
