@@ -13,8 +13,13 @@ const db = mysql.createPool({
 });
 
 router.get('/', (req, res) => {
-  const sqlQuery = 'SELECT * FROM qna;';
-  db.query(sqlQuery, (err, result) => {
+  const page = req.query.page || 1; // page: page_number, default = 1
+  const pageSize = 7;
+
+  const offset = (page - 1) * pageSize; // offset: page start_data_number
+
+  const sqlQuery = 'SELECT * FROM qna LIMIT ? OFFSET ?;';
+  db.query(sqlQuery, [pageSize, offset], (err, result) => {
     if (err) {
       console.error(err);
       res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
