@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { QnaContainer } from "../Qna/style";
 import { Images } from "../../../../util/style";
@@ -51,6 +51,7 @@ const Index = () => {
     setSearch(e.target.value);
   };
 
+  // @definition qna 검색기능 함수
   const filterTitle = qnaData.filter((qna) => {
     return qna.question
       .replace(" ", "")
@@ -58,6 +59,7 @@ const Index = () => {
       .includes(search.toLowerCase().replace(" ", ""));
   });
 
+  // @definition 이미 열려있으면 닫고, 안열려있으면 열고 다른 거 모두
   const handleToggle = (id) => {
     if (id === openId) {
       setOpenId(null);
@@ -68,7 +70,7 @@ const Index = () => {
 
   return (
     <QnaContainer>
-      <div className="qna-wrapper">
+      <div className={`qna-wrapper`}>
         <div className="qna-title">Q&A</div>
         <div className="qna-search-wrapper">
           <img src={Images.search_icon} alt="searchImg" />

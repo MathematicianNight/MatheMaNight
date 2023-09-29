@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../../../util/style";
+import { Colors, Images } from "../../../../util/style";
 import "../../../../asset/fonts/fonts.css";
 
 export const QnaContainer = styled.div`
   color: ${Colors.White};
-  margin-top: 111px;
   font-family: "SUITE", sans-serif;
 
   & > .qna-wrapper {
-    padding: 0 34px;
+    padding: 111px 34px;
+
     & > .qna-title {
       color: ${Colors.White};
       font-size: 25px;
