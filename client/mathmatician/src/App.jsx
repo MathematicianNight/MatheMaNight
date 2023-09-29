@@ -25,11 +25,11 @@ function App() {
     >
       <Routes style="background: ">
         <Route path="/" element={<MainPage />} />
-        <Route path="/hellokitty" element={<Hellokitty />} /> {/*테스트용*/}
-        <Route path="/violet" element={<Violet />} /> {/*테스트용*/}
+        <Route path="/hellokitty" element={<Hellokitty />} />
+        <Route path="/violet" element={<Violet />} />
         <Route path="/aboutus" element={<About />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
