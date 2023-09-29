@@ -1,4 +1,5 @@
 import "./GlobalStyle.css";
+import "./asset/fonts/fonts.css";
 import { Route, Routes } from "react-router-dom";
 
 //Route
@@ -8,14 +9,13 @@ import Hellokitty from "./pages/test/hellokitty";
 import Violet from "./pages/test/violet";
 
 //Images
-// import { Images } from "../src/util/style";
-import background_fix from "./asset/images/background_gra.svg";
+import { Images } from "../src/util/style";
 
 function App() {
   return (
     <div
       style={{
-        backgroundImage: `url(${background_fix})`,
+        backgroundImage: `url(${Images.background_fix})`,
         width: "100%",
         minHeight: "100vh",
         backgroundAttachment: "fixed",
