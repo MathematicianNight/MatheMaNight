@@ -80,6 +80,7 @@ export const CreateModalContainer = styled.div`
         color: white;
         margin-top: 10px;
         cursor: pointer;
+        border: none;
       }
     }
   }
