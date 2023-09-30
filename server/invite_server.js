@@ -1,6 +1,7 @@
 // module
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 
 const options = {
@@ -11,22 +12,72 @@ const options = {
 
 // Middleware
 app.use(cors(options));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// swagger
+const { swaggerUi, specs } = require('./swagger/swagger');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Run server
 const port = 4000;
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+/**
+ * 파라미터 변수 뜻
+ * req : request 요청
+ * res : response 응답
+ */
+
+/**
+ * @path {GET} http://localhost:4000/
+ * @description 요청 데이터 값이 없고 반환 값이 있는 GET Method
+ */
+app.get('/', (req, res) => {
+  //Hello World 데이터 반환
+  res.send('Hello World');
+});
+
 //-- API --//
 // Get handler
-const greeting = require('./routes/greeting.js');
-const like_api = require('./routes/like_api.js');
-const aboutus = require('./routes/aboutus.js');
-const question_api = require('./routes/question_api.js');
+const greeting = require('./routers/greeting.js');
+const like_api = require('./routers/like_api.js');
+const aboutus = require('./routers/aboutus.js');
+const question_api = require('./routers/question_api.js');
 
 // Using handler
+
+/**
+ * @swagger
+ * tags:
+ *   name: Greeting
+ *   description: 인사말
+ */
 app.use('/greeting', greeting);
+
+/**
+ * @swagger
+ * tags:
+ *   name: Like
+ *   description: 좋아요 기능
+ */
 app.use('/like', like_api);
+
+/**
+ * @swagger
+ * tags:
+ *   name: AboutUs
+ *   description: 만든 사람들
+ */
 app.use('/aboutus', aboutus);
+
+/**
+ * @swagger
+ * tags:
+ *   name: QnA
+ *   description: 수밤에 관한 질의응답
+ */
 app.use('/question', question_api);
