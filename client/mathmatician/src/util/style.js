@@ -19,4 +19,6 @@ export const Images = {
   pen_icon: "/assets/images/pen_icon.svg",
   star_qna_group1: "/assets/images/star_qna_group1.svg",
   star_qna_group2: "/assets/images/star_qna_group2.svg",
+  question_icon: "/assets/images/question.svg",
+  cancle_button: "/assets/images/cancel_button.svg",
 };
