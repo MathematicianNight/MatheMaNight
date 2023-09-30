@@ -4,6 +4,15 @@ import { CreateModalContainer } from "../qnaCreateModal/style";
 import { Images } from "../../../../util/style";
 
 const Index = ({ handleCloseModal }) => {
+  const [text, setText] = useState("");
+
+  // @definition 입력 값이 25자 이하인 경우에만 상태 업데이트
+  const handleChange = (e) => {
+    if (e.target.value.length <= 25) {
+      setText(e.target.value);
+    }
+  };
+
   return (
     <CreateModalContainer>
       <div className="ModalContainer">
@@ -30,6 +39,8 @@ const Index = ({ handleCloseModal }) => {
             type="text"
             placeholder="25자 이내로 작성 가능합니다."
             className="modal-input"
+            value={text}
+            onChange={handleChange}
           />
           <button className="modal-button" onClick={handleCloseModal}>
             완료
