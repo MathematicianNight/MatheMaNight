@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { QnaContainer } from "../Qna/style";
 import { Images } from "../../../../util/style";
 import useQnaData from "../../hooks/useQnaData";
+import QnaCreateModal from "../qnaCreateModal/index";
 
 const Index = () => {
   // const [qnaData, setQnaData] = useState([
@@ -76,8 +77,15 @@ const Index = () => {
     }
   };
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
   return (
     <QnaContainer>
+      {isModalOpen && <QnaCreateModal handleCloseModal={handleCloseModal} />}
       <div className={`qna-wrapper`}>
         <div className="qna-title">Q&A</div>
         <div className="qna-search-wrapper">
@@ -138,7 +146,7 @@ const Index = () => {
           ))}
         </div>
         <div className="qna-create">
-          <button>
+          <button onClick={handleCloseModal}>
             질문 작성하기
             <img
               src={Images.pen_icon}
