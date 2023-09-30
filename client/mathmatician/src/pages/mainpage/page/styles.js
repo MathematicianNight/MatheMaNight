@@ -1,26 +1,26 @@
 import styled from '@emotion/styled';
-import { Colors, Images } from '../../../utils/style';
+import { Images, Colors } from '../../../utils/style';
 
 export const MainpageContainer = styled.section`
-  width: ${window.innerWidth}px;
-  height: ${window.innerHeight}px;
-  margin: 0 auto;
-  background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%);
-  color: #FFFFFF;
+  border: 5px solid aqua;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 
+  background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%);
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
   overflow: auto scroll;
   scroll-snap-type: y mandatory;
-
-  .parent {
-    height: 4220px;
-    text-align: center;
-  }
+  color: ${Colors.white};
+  text-align: center;
 
   .child {
-    height: ${window.innerHeight}px;
-    font-size: 50px;
-    line-height: ${window.innerHeight}px;
+    border: 5px solid red;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     scroll-snap-align: start;
   }
-
 `;

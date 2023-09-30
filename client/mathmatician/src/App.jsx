@@ -1,7 +1,6 @@
 import "./GlobalStyle.css";
 import { Route, Routes } from "react-router-dom";
 
-//Route
 import MainPage from "./pages/mainpage/page/index";
 import About from "./pages/about/page/index";
 import Hellokitty from "./pages/test/hellokitty";
