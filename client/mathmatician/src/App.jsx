@@ -1,5 +1,5 @@
 import "./GlobalStyle.css";
-import "./asset/fonts/fonts.css";
+import "./assets/fonts/fonts.css";
 import { Route, Routes } from "react-router-dom";
 
 //Route
@@ -29,7 +29,7 @@ function App() {
         <Route path="/violet" element={<Violet />} />
         <Route path="/aboutus" element={<About />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
