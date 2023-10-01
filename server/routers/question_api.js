@@ -15,6 +15,24 @@ const db = mysql.createPool({
 // 학생회 비밀번호
 const SECRET_PASSWORD = '1111';
 
+/**
+ * @swagger
+ * paths:
+ *  /question:
+ *    get:
+ *      tags: [QnA]
+ *      summary: "질의응답 데이터 조회"
+ *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청"
+ *      responses:
+ *        "200":
+ *          description: 좋아요 정보
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: integer
+ *                description: "좋아요 개수"
+ *                example: 193
+ */
 router.get('/', (req, res) => {
   const page = req.query.page || 1; // page: page_number, default = 1
   const pageSize = 7;
@@ -32,6 +50,17 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * @swagger
+ * paths:
+ *  /question/create:
+ *    post:
+ *      tags: [QnA]
+ *      summary: "좋아요 개수 증가"
+ *      description: "POST 방식으로 좋아요 개수 증가"
+ *      requestBody:
+ *        required: false
+ */
 router.post('/create', (req, res) => {
   var post = req.body;
   var question = post.question;
@@ -52,6 +81,17 @@ router.post('/create', (req, res) => {
   });
 });
 
+/**
+ * @swagger
+ * paths:
+ *  /question/authenticate:
+ *    post:
+ *      tags: [QnA]
+ *      summary: "좋아요 개수 증가"
+ *      description: "POST 방식으로 좋아요 개수 증가"
+ *      requestBody:
+ *        required: false
+ */
 router.post('/authenticate', (req, res) => {
   const post = req.body;
   const password = post.password;
@@ -69,6 +109,17 @@ router.post('/authenticate', (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * paths:
+ *  /question/answer:
+ *    post:
+ *      tags: [QnA]
+ *      summary: "좋아요 개수 증가"
+ *      description: "POST 방식으로 좋아요 개수 증가"
+ *      requestBody:
+ *        required: false
+ */
 router.post('/answer', (req, res) => {
   var post = req.body;
   var anony_num = post.anony_num;
@@ -97,6 +148,17 @@ router.post('/answer', (req, res) => {
   });
 });
 
+/**
+ * @swagger
+ * paths:
+ *  /question/delete:
+ *    post:
+ *      tags: [QnA]
+ *      summary: "좋아요 개수 증가"
+ *      description: "POST 방식으로 좋아요 개수 증가"
+ *      requestBody:
+ *        required: false
+ */
 router.post('/delete', (req, res) => {
   var post = req.body;
   var anony_num = post.anony_num;
