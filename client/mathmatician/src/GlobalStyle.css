@@ -1,7 +1,7 @@
 @import "initial.css";
 
 .App {
-  color: #000;
+  font-size: 62.5%;
   width: 100%;
   /* height: auto; */
 }
