@@ -9,7 +9,7 @@ const MainPage = () => {
       <div className="parent">
         <div className="child Home">1페이지 - Home</div>
 
-        <div className="child Greetings">2페이지 - Greetings</div>
+        <div className="child Greetings"></div>
 
         <div className="child Details">3페이지 - Details</div>
 
