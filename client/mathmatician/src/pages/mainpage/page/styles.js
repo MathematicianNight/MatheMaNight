@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors, Images } from "../../../utils/style";
+import { Images, Colors } from "../../../util/style";
 
 export const MainpageContainer = styled.section`
   width: 100%;
@@ -13,7 +13,6 @@ export const MainpageContainer = styled.section`
 
   .child {
     height: 100%;
-    font-size: 2rem;
     min-height: ${window.innerHeight}px;
     // line-height: ${window.innerHeight}px;
     scroll-snap-align: start;

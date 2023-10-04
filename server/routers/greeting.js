@@ -18,6 +18,7 @@ const greeting = '안녕하세요';
  *            application/json:
  *              schema:
  *                type: string
+ *                description: "인사말"
  *                example:
  *                    "안녕하세요"
  */
