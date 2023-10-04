@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Colors, Images } from "../../../../util/style";
+import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 export const CreateModalContainer = styled.div`
@@ -14,9 +14,13 @@ export const CreateModalContainer = styled.div`
   justify-content: center;
   z-index: 999;
 
+  .bold {
+    font-weight: 700;
+  }
+
   & > .ModalContainer {
     border-radius: 15px;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
     min-width: 293px;
     height: 350px;
     background-color: ${Colors.White};
@@ -44,7 +48,7 @@ export const CreateModalContainer = styled.div`
       .modal-heading {
         font-size: 20px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
         line-height: normal;
         margin-bottom: 6px;
       }
@@ -67,8 +71,13 @@ export const CreateModalContainer = styled.div`
         border-radius: 6px;
         border: 1px solid #b3b3b3;
         width: 80%;
-        padding: 10px;
+        height: 25px;
+        padding: 0 10px;
         margin-bottom: 14px;
+      }
+      .modal-input::placeholder {
+        color: ${Colors.Gray02};
+        font-family: SUITE;
       }
 
       .modal-button {

@@ -9,7 +9,7 @@ import Hellokitty from "./pages/test/hellokitty";
 import Violet from "./pages/test/violet";
 
 //Images
-import { Images } from "../src/util/style";
+import { Images } from "./utils/style";
 
 function App() {
   return (

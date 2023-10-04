@@ -19,9 +19,9 @@ export const MainpageContainer = styled.section`
   }
 
   .QnA {
-    // min-height: ${window.innerHeight}px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: ${window.innerHeight}px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
   }
 `;
