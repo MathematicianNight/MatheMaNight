@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import { QnaContainer } from "../Qna/style";
-import { Images } from "../../../../util/style";
+import { Images } from "../../../../utils/style";
 import useQnaData from "../../hooks/useQnaData";
 import QnaCreateModal from "../qnaCreateModal/index";
+import AnswerModal from "../qnaAnswerModal/index";
 
 const Index = () => {
   //@definition 페이지네이션
-  const [currentPage, setCurrentPage] = useState(1); // Initialize currentPage to 1
+  const [currentPage, setCurrentPage] = useState(1);
   // const { qnaData, loading } = useQnaData(currentPage);
   const totalPages = 5;
   const handlePageChange = (page) => {
@@ -23,7 +24,7 @@ const Index = () => {
     {
       id: 2,
       question: "경품이 뭔지 궁금해요!!!",
-      answer: "경품은 다양한 상품과 상품권으로 구성되어 있습니다.",
+      answer: null,
     },
     {
       id: 3,
@@ -73,7 +74,11 @@ const Index = () => {
     if (id === openId) {
       setOpenId(null);
     } else {
-      setOpenId(id);
+      if (qnaData.find((qna) => qna.id === id)?.answer === null) {
+        setAnswerModalOpen(true);
+      } else {
+        setOpenId(id);
+      }
     }
   };
 
@@ -82,10 +87,21 @@ const Index = () => {
   const handleCloseModal = () => {
     setModalOpen(!isModalOpen);
   };
+  const handleAnswerModalClose = () => {
+    setAnswerModalOpen(!AnswerModalOpen);
+  };
+
+  const [AnswerModalOpen, setAnswerModalOpen] = useState(false);
 
   return (
     <QnaContainer>
       {isModalOpen && <QnaCreateModal handleCloseModal={handleCloseModal} />}
+      {AnswerModalOpen && (
+        <AnswerModal
+          handleCloseModal={handleAnswerModalClose}
+          title="답변 작성하기"
+        />
+      )}
       <div className={`qna-wrapper`}>
         <div className="qna-title">Q&A</div>
         <div className="qna-search-wrapper">
@@ -151,7 +167,7 @@ const Index = () => {
         </div>
         <div className="qna-create">
           <button onClick={handleCloseModal}>
-            질문 작성하기
+            <p>질문 작성하기</p>
             <img
               src={Images.pen_icon}
               alt={`qna-create`}

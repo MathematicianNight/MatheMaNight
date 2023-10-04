@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { Colors, Images } from "../../../../util/style";
+import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
-export const CreateModalContainer = styled.div`
+export const GreetingsContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@ export const CreateModalContainer = styled.div`
   justify-content: center;
   z-index: 999;
 
-  & > .ModalContainer {
+  & > .greetings-wrapper {
     border-radius: 15px;
     padding-bottom: 20px;
     min-width: 293px;

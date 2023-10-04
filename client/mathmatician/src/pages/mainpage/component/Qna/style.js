@@ -1,11 +1,18 @@
 import styled from "@emotion/styled";
-import { Colors, Images } from "../../../../util/style";
+import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 export const QnaContainer = styled.div`
   color: ${Colors.White};
   font-family: "SUITE", sans-serif;
   width: 100%;
+
+  @media (max-width: 375px) {
+    .qna-wrapper {
+      padding: 0rem 34px; // 화면 너비가 768px보다 작을 때 padding을 제거합니다.
+    }
+  }
+
   & > .qna-wrapper {
     padding: 7rem 34px;
     height: 100%;
@@ -41,7 +48,7 @@ export const QnaContainer = styled.div`
       }
     }
     & > .qna-contents-wrapper {
-      margin: 9px 11px;
+      margin: 0 11px 9px 11px;
       & > div {
         height: 56px;
         display: flex;
@@ -56,17 +63,17 @@ export const QnaContainer = styled.div`
         & > .qna-flex-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 11px;
           width: 100%;
           & > .qna-name {
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 600;
             height: 10px;
           }
           & > .qna-question {
             color: ${Colors.Gray01};
             font-size: 12px;
-            font-weight: 400;
+            font-weight: 200;
           }
         }
         & > .qna-togle-img {
@@ -112,6 +119,7 @@ export const QnaContainer = styled.div`
         padding: 0;
         font-size: 10px;
         font-family: "SUITE", sans-serif;
+        font-weight: 300;
       }
       & > .pagination {
         width: 16px;
@@ -122,6 +130,7 @@ export const QnaContainer = styled.div`
         padding: 0;
         font-size: 10px;
         font-family: "SUITE", sans-serif;
+        font-weight: 300;
       }
     }
     & > .qna-create {
@@ -130,20 +139,24 @@ export const QnaContainer = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+
       & > button {
+        padding: 0 12px;
         display: flex;
+
         justify-content: center;
         align-items: center;
-        width: 100px;
+        // width: 100
         height: 26px;
         border-radius: 19px;
         border: 1px solid ${Colors.White};
         background: transparent;
 
         color: ${Colors.White};
-        font-weight: 600;
+        font-weight: 400;
         font-size: 12px;
         font-family: "SUITE", sans-serif;
+        gap: 6px;
       }
     }
   }
