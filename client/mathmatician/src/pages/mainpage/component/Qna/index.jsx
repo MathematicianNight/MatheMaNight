@@ -88,18 +88,25 @@ const Index = () => {
     setModalOpen(!isModalOpen);
   };
   const handleAnswerModalClose = () => {
-    setAnswerModalOpen(!AnswerModalOpen);
+    setAnswerModalOpen(!answerModalOpen);
+  };
+  const handleFixAnswerModalClose = () => {
+    setFixModalOpen(!fixAnswerModalOpen);
   };
 
-  const [AnswerModalOpen, setAnswerModalOpen] = useState(false);
+  const [answerModalOpen, setAnswerModalOpen] = useState(false);
+  const [fixAnswerModalOpen, setFixModalOpen] = useState(false);
 
   return (
     <QnaContainer>
       {isModalOpen && <QnaCreateModal handleCloseModal={handleCloseModal} />}
-      {AnswerModalOpen && (
+      {answerModalOpen && (
+        <AnswerModal handleCloseModal={handleAnswerModalClose} title="작성" />
+      )}
+      {fixAnswerModalOpen && (
         <AnswerModal
-          handleCloseModal={handleAnswerModalClose}
-          title="답변 작성하기"
+          handleCloseModal={handleFixAnswerModalClose}
+          title="수정"
         />
       )}
       <div className={`qna-wrapper`}>
@@ -139,7 +146,7 @@ const Index = () => {
                 />
               </div>
               {openId === qna.id && (
-                <div className="qna-answer">
+                <div className="qna-answer" onClick={handleFixAnswerModalClose}>
                   <img
                     src={Images.urin_answer}
                     alt={`urin_answer`}

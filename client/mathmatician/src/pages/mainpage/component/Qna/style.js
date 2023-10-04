@@ -9,7 +9,7 @@ export const QnaContainer = styled.div`
 
   @media (max-width: 375px) {
     .qna-wrapper {
-      padding: 0rem 34px; // 화면 너비가 768px보다 작을 때 padding을 제거합니다.
+      padding: 0rem 34px;
     }
   }
 

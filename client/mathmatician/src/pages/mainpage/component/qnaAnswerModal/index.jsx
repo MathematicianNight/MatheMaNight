@@ -27,8 +27,10 @@ const Index = ({ handleCloseModal, title }) => {
         {!isPasswordCorrect ? (
           <div className="modal-content-false">
             <div className="modal-content-wrapper">
-              <p className="title">{title}</p>
-              <p className="sub-title">질문에 대한 답변을 작성하시겠습니까?</p>
+              <p className="title">답변 {title}하기</p>
+              <p className="sub-title">
+                질문에 대한 답변을 {title}하시겠습니까?
+              </p>
               <input
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
@@ -48,7 +50,7 @@ const Index = ({ handleCloseModal, title }) => {
         ) : (
           <div className="modal-content-true">
             <div className="modal-content-wrapper">
-              <p className="title">{title}</p>
+              <p className="title">답변 {title}하기</p>
               <p className="sub-title">질문에 대한 답변을 작성해 주세요.</p>
               <div className="textarea-wrapper">
                 <textarea
