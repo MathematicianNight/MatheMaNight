@@ -1,14 +1,16 @@
 import styled from "@emotion/styled";
-import { Images, Colors } from "../../util/style";
+import { Images, Colors } from "../../utils/style";
 
 const MainpageContainer = styled.section`
-  @font-face { // 폰트... 임시 방편으로 이렇게 처리... 나중에 방법 찾기...
-      font-family: 'SUIT-Regular';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+  @font-face {
+    // 폰트... 임시 방편으로 이렇게 처리... 나중에 방법 찾기...
+    font-family: "SUIT-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
   // font-family: 'DM Serif Display', serif;
   font-family: "SUIT-Regular", sans-serif;
   font-weight: 500;
@@ -16,17 +18,33 @@ const MainpageContainer = styled.section`
 
   @media (max-width: 575px) {
     width: 100%;
-    background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
+    background-image: linear-gradient(
+      180deg,
+      #0f0019 0%,
+      #140065 48.26%,
+      #987fff 100%
+    ); // background-image?
   }
   @media (min-width: 576px) {
     width: 576px;
-    background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
+    background-image: linear-gradient(
+      180deg,
+      #0f0019 0%,
+      #140065 48.26%,
+      #987fff 100%
+    ); // background-image?
     margin: 0 auto;
   }
   /* border: 3px solid aqua; box-sizing: border-box; // 나중에 삭제 */
   height: 100vh;
-  height: calc(var(--vh, 500vh) * 100); // height: ${({ viewportY }) => viewportY}px;
-  background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
+  height: calc(var(--vh, 500vh) * 100); // height: ${({ viewportY }) =>
+    viewportY}px;
+  background-image: linear-gradient(
+    180deg,
+    #0f0019 0%,
+    #140065 48.26%,
+    #987fff 100%
+  ); // background-image?
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
   overflow: auto scroll;
@@ -46,17 +64,14 @@ const MainpageContainer = styled.section`
     } */
   }
 
-
   & > .home-layout {
     // later...
   }
-
 
   & > .greetings-layout {
     /* border: 1px solid orange; box-sizing: border-box; // 나중에 삭제 */
     // later...
   }
-
 
   & > .details-layout {
     /* border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 */
@@ -74,14 +89,11 @@ const MainpageContainer = styled.section`
       & > .information-title {
         /* align-self: flex-start; */
       }
-
     }
     & > .program-wrapper {
       /* border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 */
-
     }
   }
-
 
   & > .morefunc-layout {
     /* border: 1px solid magenta; box-sizing: border-box; // 나중에 삭제 */
@@ -95,9 +107,9 @@ const MainpageContainer = styled.section`
       flex-direction: column;
 
       & > .morefunc-title {
-      /* border: 1px solid red; box-sizing: border-box; // 나중에 삭제 */
-      margin-top: 13%;
-      font-size: 1.6rem;
+        /* border: 1px solid red; box-sizing: border-box; // 나중에 삭제 */
+        margin-top: 13%;
+        font-size: 1.6rem;
       }
       & > .morefunc-description {
         /* border: 1px solid orange; box-sizing: border-box; // 나중에 삭제 */
@@ -145,7 +157,6 @@ const MainpageContainer = styled.section`
       }
     }
   }
-
 
   & > .qna-layout {
     /* border: 3px solid blue; box-sizing: border-box; // 나중에 삭제 */

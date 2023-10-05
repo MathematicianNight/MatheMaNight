@@ -16,6 +16,7 @@ export const Colors = {
 
 export const Images = {
   flower_above: "/assets/images/flower_above.svg",
+  flower_bellow: "/assets/images/flower_bellow.svg",
   background_fix: "/assets/images/background_gra.svg",
   urin_logo: "/assets/images/urin_logo.svg",
   search_icon: "/assets/images/search.svg",
