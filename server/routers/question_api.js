@@ -143,8 +143,8 @@ router.post('/authenticate', (req, res) => {
  *  /question/answer:
  *    post:
  *      tags: [QnA]
- *      summary: "답변 등록"
- *      description: "서버에게 답변 데이터를 전송하여 POST 방식으로 답변 등록"
+ *      summary: "답변 등록 또는 수정"
+ *      description: "서버에게 답변 데이터를 전송하여 POST 방식으로 답변 등록 또는 수정"
  *      requestBody:
  *        required: true
  *        content:

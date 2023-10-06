@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 let likeCnt = 0;
+let overCnt = false;
 
 /**
  * @swagger
@@ -17,12 +18,23 @@ let likeCnt = 0;
  *          content:
  *            application/json:
  *              schema:
- *                type: integer
- *                description: "좋아요 개수"
- *                example: 193
+ *                type: object
+ *                properties:
+ *                    likeCnt:
+ *                      type: integer
+ *                      description: "좋아요 수"
+ *                      example: 39
+ *                    overCnt:
+ *                      type: boolean
+ *                      description: "999개 이상인지 이하인지에 대한 참거짓"
+ *                      example: false
  */
 router.get('/', (req, res) => {
-  res.json(likeCnt);
+  const data = {
+    likeCnt: likeCnt,
+    overCnt: overCnt,
+  };
+  res.json(data);
 });
 
 /**
@@ -37,8 +49,13 @@ router.get('/', (req, res) => {
  *        required: false
  */
 router.post('/upcount', (req, res) => {
-  likeCnt++;
-  res.json('likeCnt is update');
+  if (likeCnt < 999) {
+    likeCnt++;
+    res.json('likeCnt is updated');
+  } else {
+    overCnt = true;
+    res.json('likeCnt is over then 999');
+  }
 });
 
 module.exports = router;

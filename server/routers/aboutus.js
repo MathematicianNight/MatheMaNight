@@ -3,18 +3,26 @@ const router = express.Router();
 
 const aboutUsData = [
   {
+    major: '정보보안암호수학과',
+    studentID: '20202110',
     name: '최하늘',
     part: 'Design',
   },
   {
+    major: '정보보안암호수학과',
+    studentID: '20202070',
     name: '김민정',
     part: 'Front-end',
   },
   {
+    major: '정보보안암호수학과',
+    studentID: '20212025',
     name: '강혜리',
     part: 'Front-end',
   },
   {
+    major: '정보보안암호수학과',
+    studentID: '20202101',
     name: '이수현',
     part: 'Back-end',
   },
@@ -36,6 +44,14 @@ const aboutUsData = [
  *              schema:
  *                type: object
  *                properties:
+ *                    major:
+ *                      type: string
+ *                      description: "전공"
+ *                      example: "정보보안암호수학과"
+ *                    studentID:
+ *                      type: string
+ *                      description: "학번"
+ *                      example: "20201234"
  *                    name:
  *                      type: string
  *                      description: "이름"
