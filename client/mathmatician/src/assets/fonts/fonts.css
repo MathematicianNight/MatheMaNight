@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&family=Single+Day&display=swap");
+@import url("https://webfontworld.github.io/sunn/SUIT.css");
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap'); */
+@import url("https://webfontworld.github.io/kt/YUniverse.css");
+
+. {
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Single Day", cursive;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 @import url("https://webfontworld.github.io/sunn/SUIT.css");
@@ -16,9 +26,3 @@
       url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.ttf') format("truetype");
   font-display: swap;
 }
-
-/* 이 부분(폰트 초기화? 부분)은 GlobalStyle.css로 옮기기...?
-* { 
-  font-family: "Noto Sans KR", sans-serif;
-  font-family: "Single Day", cursive;
-} */
