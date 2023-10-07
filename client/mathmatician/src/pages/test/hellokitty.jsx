@@ -7,6 +7,7 @@ import resizeViewportHeight from "../../utils/resizeViewportHeight";
 import MainpageContainer from "./hellokitty_style";
 import QnaComponent from "./../mainpage/component/Qna/index";
 
+
 const Hellokitty = () => {
   // const [currY, setCurrY] = useState(0);
   // const [viewportY, setViewportY] = useState(0);
