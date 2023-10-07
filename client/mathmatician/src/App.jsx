@@ -26,6 +26,7 @@ function App() {
     >
       <Routes style="background: ">
         <Route path="/" element={<MainPage />} />
+        <Route path="/oauthkakao" element={<LinkKakaoCalendar />} />
         <Route path="/hellokitty" element={<Hellokitty />} />
         <Route path="/violet" element={<Violet />} />
         <Route path="/aboutus" element={<About />} />
