@@ -1,10 +1,10 @@
+import { Route, Routes } from "react-router-dom";
 import "./GlobalStyle.css";
 import "./assets/fonts/fonts.css";
-import { Route, Routes } from "react-router-dom";
 
-import MainPage from "./pages/mainpage/page/index";
+import MainPage from "./pages/mainpage/page";
 import LinkKakaoCalendar from "./pages/kakaologin/page";
-import About from "./pages/about/page/index";
+import About from "./pages/about/page";
 import Hellokitty from "./pages/test/hellokitty";
 import Violet from "./pages/test/violet";
 

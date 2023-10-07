@@ -37,8 +37,7 @@ const MainpageContainer = styled.section`
   }
   /* border: 3px solid aqua; box-sizing: border-box; // 나중에 삭제 */
   height: 100vh;
-  height: calc(var(--vh, 500vh) * 100); // height: ${({ viewportY }) =>
-    viewportY}px;
+  height: calc(var(--vh, 500vh) * 100); // height: ${({ viewportY }) => viewportY}px;
   background-image: linear-gradient(
     180deg,
     #0f0019 0%,

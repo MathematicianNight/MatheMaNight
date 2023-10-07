@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Greetings from "../component/Greetings/index"; // 이전 내용 여기에 삽입
+import Greetings from "../component/Greetings/index";
 import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
-import QnaComponent from "../component/Qna/index"; // 이전 코드 여기에 삽입
+import QnaComponent from "../component/Qna/index";
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
@@ -15,7 +15,6 @@ const MainPage = () => {
     return () => window.removeEventListener('resize', resizeViewportHeight);
   }, []);
   
-  // 이전 내용 여기에 삽입
   /** @todo 임시데이터 나중에 인사말 연결 **/
   const message = `정보보안암호수학과를 이끌어 주시는
 재학생, 졸업생 여러분들 안녕하십니까
