@@ -95,7 +95,15 @@ const MainpageContainer = styled.section`
 
   // 페이지 2: 인사말
   & > .mainpage-greetings { 
-    // fill in this...
+    // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
+    height: 100%;
+    min-height: ${window.innerHeight}px;
+    // line-height: ${window.innerHeight}px;
+    scroll-snap-align: start;
+    & > .Greetings { // .child 안에 .Greetings가 있었어서 여기로 다시 옮김
+      height: 100%;
+      min-height: ${window.innerHeight}px;
+    }
   }
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
@@ -182,7 +190,17 @@ const MainpageContainer = styled.section`
 
   // 페이지 5: 질문과 답변
   & > .mainpage-qna {
-    // fill in this...
+    // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
+    height: 100%;
+    min-height: ${window.innerHeight}px;
+    // line-height: ${window.innerHeight}px;
+    scroll-snap-align: start;
+    & > .QnA {
+      min-height: ${window.innerHeight}px;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+    }
   }
 `;
 
