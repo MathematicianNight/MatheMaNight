@@ -1,3 +1,4 @@
+// import { css } from "@emotion/css";
 
 export const Colors = {
   Black: "#222222",
@@ -7,7 +8,10 @@ export const Colors = {
   Gray01: "#EAEAEA",
   Gray02: "#CACACA",
   Gray03: "#B3B3B3",
-
+  persianRed: "#C42C2C",
+  springGreen: "#02FF49",
+  codGrayOpacity60: "rgba(30, 30, 30, 0.60);",
+  blackOpacity70: "rgba(0, 0, 0, 0.70)",
   RawBlack: "#000000",
   RawGray: "#838383",
   PersianRed: "#C42C2C",
@@ -16,6 +20,7 @@ export const Colors = {
 
 export const Images = {
   flower_above: "/assets/images/flower_above.svg",
+  flower_bellow: "/assets/images/flower_bellow.svg",
   background_fix: "/assets/images/background_gra.svg",
   urin_logo: "/assets/images/urin_logo.svg",
   search_icon: "/assets/images/search.svg",
