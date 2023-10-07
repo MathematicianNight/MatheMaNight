@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import LaunchMapApp from "../mainpage/component/LaunchMapApp/index";
-import LaunchCalendarApp from "../mainpage/component/LaunchCalendarApp/index";
-import resizeViewportHeight from "../../util/resizeViewportHeight";
+import CalendarWidget from "../mainpage/component/CalendarWidget";
+import LikeWidget from "../mainpage/component/LikeWidget";
+import MapWidget from "../mainpage/component/MapWidget";
+import resizeViewportHeight from "../../utils/resizeViewportHeight";
 import MainpageContainer from "./hellokitty_style";
-import QnaComponent from "./../mainpage/component/Qna/index";
 
 const Hellokitty = () => {
+  const [isRedirected, setIsRedirected] = useState(false);
   // const [currY, setCurrY] = useState(0);
   // const [viewportY, setViewportY] = useState(0);
 
@@ -44,7 +43,6 @@ const Hellokitty = () => {
   } */
 
   return (
-    // <MainpageContainer onScroll={handleScroll}>
     <MainpageContainer>
       <div className="mainpage-section home-layout" >
         {/* fill in ... */}
@@ -72,9 +70,9 @@ const Hellokitty = () => {
           <div className="morefunc-title">More Functions</div>
           <div className="morefunc-description">위젯을 클릭하여 일정을 등록하고, 지도 앱을 통해 위치를 확인해 보세요.</div>
           <div className="morefunc-widgets-wrapper">
-            <div className="later1">헤헿</div>
-            <div className="later2">헤헿</div>
-            <LaunchMapApp />
+            <CalendarWidget />
+            <LikeWidget />
+            <MapWidget className="map-widget"/>
           </div>
           <div className="morefunc-aboutus-wrapper">
             <img
@@ -89,7 +87,7 @@ const Hellokitty = () => {
       </div>
 
       <div className="mainpage-section qna-layout">
-        <QnaComponent />
+        {/* fill in... */}
       </div>
     </MainpageContainer>
   );

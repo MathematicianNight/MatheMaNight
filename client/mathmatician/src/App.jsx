@@ -1,35 +1,20 @@
+import { Route, Routes } from "react-router-dom";
 import "./GlobalStyle.css";
 import "./assets/fonts/fonts.css";
-import { Route, Routes } from "react-router-dom";
 
-//Route
-import MainPage from "./pages/mainpage/page/index";
-import About from "./pages/about/page/index";
-import Hellokitty from "./pages/test/hellokitty";
+import MainPage from "./pages/mainpage/page";
+import LinkKakaoCalendar from "./pages/kakaologin/page";
+import About from "./pages/about/page";
 import Violet from "./pages/test/violet";
-
-//Images
-import { Images } from "../src/util/style";
 
 function App() {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${Images.background_fix})`,
-        width: "100%",
-        minHeight: "100vh",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Routes style="background: ">
-        <Route path="/" element={<MainPage />} />
-        <Route path="/hellokitty" element={<Hellokitty />} />
-        <Route path="/violet" element={<Violet />} />
-        <Route path="/aboutus" element={<About />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/oauthkakao" element={<LinkKakaoCalendar />} />
+      <Route path="/aboutus" element={<About />} />
+      <Route path="/violet" element={<Violet />} />
+    </Routes>
   );
 }
 

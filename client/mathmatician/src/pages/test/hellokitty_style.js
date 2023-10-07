@@ -1,19 +1,9 @@
 import styled from "@emotion/styled";
-import { Images, Colors } from "../../util/style";
+import { Images, Colors } from "../../utils/style";
+import "../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
-  @font-face { // 폰트... 임시 방편으로 이렇게 처리... 나중에 방법 찾기...
-      font-family: 'SUIT-Regular';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-  }
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-  // font-family: 'DM Serif Display', serif;
-  font-family: "SUIT-Regular", sans-serif;
-  font-weight: 500;
-  color: ${Colors.white};
-
+  border: 1.5px solid red; box-sizing: border-box;
   @media (max-width: 575px) {
     width: 100%;
     background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
@@ -23,43 +13,33 @@ const MainpageContainer = styled.section`
     background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
     margin: 0 auto;
   }
-  /* border: 3px solid aqua; box-sizing: border-box; // 나중에 삭제 */
   height: 100vh;
   height: calc(var(--vh, 500vh) * 100); // height: ${({ viewportY }) => viewportY}px;
-  background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%); // background-image?
-  /* background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
+  background-repeat: no-repeat; // background-attachment: fixed;도 줘야되나...?
   overflow: auto scroll;
-  scroll-snap-type: y mandatory;
-  /* scroll-behavior: smooth; */
+  scroll-snap-type: y mandatory; // 위에랑 이거 줄거면 scroll-behavior: smooth;는 필요없음
+
+  font-family: "SUIT-Regular", sans-serif;
+  font-weight: 500;
+  color: ${Colors.White};
 
   & > .mainpage-section {
-    /* border: 3px solid red; box-sizing: border-box; */
+    border: 1.5px solid aqua; box-sizing: border-box;
     width: 100%;
     height: 100%;
     scroll-snap-align: start;
-    /* @media (max-width: 575px) {
-    width: 100%;
-    }
-    @media (min-width: 576px) {
-    width: 576px;
-    } */
   }
-
 
   & > .home-layout {
     // later...
   }
 
-
   & > .greetings-layout {
-    /* border: 1px solid orange; box-sizing: border-box; // 나중에 삭제 */
     // later...
   }
 
-
-  & > .details-layout {
-    /* border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 */
+  /* & > .details-layout {
+    border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 
     width: 100%;
     height: 100%;
     display: flex;
@@ -67,80 +47,62 @@ const MainpageContainer = styled.section`
     align-items: center;
     justify-content: center;
     & > .information-wrapper {
-      /* border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 */
+      border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제
       width: 45%;
       height: 40%;
       width: 300px;
       & > .information-title {
-        /* align-self: flex-start; */
+        align-self: flex-start;
       }
-
     }
     & > .program-wrapper {
-      /* border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제 */
-
+      border: 3px solid yellow; box-sizing: border-box; // 나중에 삭제
     }
-  }
-
+  } */
 
   & > .morefunc-layout {
-    /* border: 1px solid magenta; box-sizing: border-box; // 나중에 삭제 */
-    height: 100%;
+    /* border: 1.5px solid magenta; box-sizing: border-box; */
+    height: 100%; 
     & > .morefunc-wrapper {
-      /* border: 1px solid white; box-sizing: border-box; // 나중에 삭제 */
+      /* border: 1.5px solid green; box-sizing: border-box; */
       width: 90%;
       height: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-
+      /* * {border: 1px solid greenyellow; box-sizing: border-box;} */
       & > .morefunc-title {
-      /* border: 1px solid red; box-sizing: border-box; // 나중에 삭제 */
-      margin-top: 13%;
-      font-size: 1.6rem;
+        font-size: 25px; // 반응형
+        margin-top: 13%;
       }
       & > .morefunc-description {
-        /* border: 1px solid orange; box-sizing: border-box; // 나중에 삭제 */
+        font-size: 11px; // 반응형
         margin-top: 3%;
-        font-size: 0.6rem;
       }
       & > .morefunc-widgets-wrapper {
-        /* border: 1px solid yellow; box-sizing: border-box; // 나중에 삭제 */
         margin-top: 6.5%;
-        height: 45%;
+        height: 50%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        align-content: space-between;
-        & > .later1 {
-          /* border: 1px solid greenyellow; box-sizing: border-box; // 나중에 삭제 */
-          width: 45%;
-          height: 46%;
-          margin-right: 3%;
-        }
-        & > .later2 {
-          /* border: 1px solid greenyellow; box-sizing: border-box; */
-          width: 45%;
-          height: 46%;
-        }
+        align-content: space-around;
       }
       & > .morefunc-aboutus-wrapper {
-        /* border: 1px solid red; box-sizing: border-box; // 나중에 삭제 */
-        height: 38%;
+        /* border: 1px solid red; box-sizing: border-box; */
+        /* * {border: 1px solid red; box-sizing: border-box;} */
+        height: 45%;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
         justify-content: space-around;
+        align-items: center;
+        text-align: center;
         & > img {
-          /* border: 1px solid aqua; box-sizing: border-box; // 나중에 삭제 */
           border-radius: 100%;
           width: 45%;
-          margin-bottom: -20%;
+          margin-bottom: -25%;
         }
         & > span {
-          /* border: 1px solid aqua; box-sizing: border-box; // 나중에 삭제 */
-          font-size: 1rem;
+          font-size: 15px;
         }
       }
     }

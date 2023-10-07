@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
-import { Images, Colors } from "../../../../util/style";
+import { Images, Colors } from "../../../../utils/style";
+import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
   /* border: 1px solid red; // 나중에 삭제 */
-  width: 91%; // ***** 반응형 *****
-  height: auto;
+  @media (max-height: 670px) {
+    width: 85%;
+    height: auto;
+  }
+  @media (min-height: 671px) and (max-height: 740px) {
+    width: 90%;
+    height: auto;
+  }
+
   border-radius: 7%;
   overflow: hidden;
   position: relative;

@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import MapContainer from "./style";
-import { Images, Colors } from "../../../../util/style";
+import { Images, Colors } from "../../../../utils/style";
 
 const openGoogleMap = () => {
   setTimeout(() => {
     window.location.href = "https://www.google.com/maps/search/?api=1&query=더블유파티";
-  }, 900);
+  }, 800);
 }
 const openNaverMap = () => {
   setTimeout(() => {
-    // window.location.href = "https://m.map.naver.com/map.naver?pinId=35643864";
-    window.location.href = "https://m.map.naver.com/search2/site.naver?query=더블유파티&sm=hty&style=v5&code=35643864";
+    window.location.href = "https://m.map.naver.com/map.naver?pinId=35643864";
   }, 800);
 }
 const openKakaoMap = () => {
@@ -49,7 +48,7 @@ const copyClipBoard = (content) => {
   }
 };
 
-const LaunchMapApp = () => {
+const MapWidget = () => {
   const [isBlurred, setIsBlurred] = useState(false);
 
   const showIcons = () => {
@@ -86,4 +85,4 @@ const LaunchMapApp = () => {
   );
 };
 
-export default LaunchMapApp;
+export default MapWidget;
