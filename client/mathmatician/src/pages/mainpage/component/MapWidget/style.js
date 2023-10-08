@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
 import { Images, Colors } from "../../../../utils/style";
+import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
   /* border: 1px solid red; // 나중에 삭제 */
-  width: 91%; // ***** 반응형 *****
-  height: auto;
+  @media (max-height: 670px) {
+    width: 85%;
+    height: auto;
+  }
+  @media (min-height: 671px) and (max-height: 740px) {
+    width: 90%;
+    height: auto;
+  }
+
   border-radius: 7%;
   overflow: hidden;
   position: relative;
@@ -12,9 +20,8 @@ const MapContainer = styled.div`
   /* margin-bottom: 3.5%; */
 
   @font-face {
-    font-family: "SUIT-Regular";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
-      format("woff2");
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
@@ -25,20 +32,17 @@ const MapContainer = styled.div`
     width: 100%;
     height: auto;
     & {
-      ${({ isBlurred }) =>
-        isBlurred
-          ? `
+      ${({ isBlurred }) => (isBlurred ? `
       transform: scale(1.38);
       background-color: rgba(30, 30, 30, 0.60);
       filter: blur(2.55px); // ***** 반응형 *****
       transition: all 1s;
-    `
-          : `
+    ` : `
       transform: scale(1.0);
       background-color: transparent;
       filter: none;
       transition: all 1s;
-    `}
+    `)}
     }
   }
 
@@ -52,7 +56,7 @@ const MapContainer = styled.div`
     bottom: 39%;
     left: 12%;
     right: 12%;
-    opacity: ${({ isBlurred }) => (isBlurred ? 1 : 0)};
+    opacity: ${({ isBlurred }) => isBlurred ? 1 : 0};
     transition: opacity 1.4s ease-in-out;
     display: flex; // 안에 자식 요소 위해서
     justify-content: space-around; // space-between?
@@ -62,19 +66,13 @@ const MapContainer = styled.div`
       /* border-radius: 20%; // ***** 반응형 ***** */
       margin: 0 4.3%;
       cursor: pointer; // 나중에 변경
-      pointer-events: ${({ isBlurred }) => (isBlurred ? "auto" : "none")};
+      pointer-events: ${({ isBlurred }) => isBlurred ? 'auto' : 'none'};
       transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
       // 효과 1: pc에서는 호버 및 클릭, 모바일에서는 클릭 시 아이콘이 잠깐 위로 올라갔다 내려옴
       @keyframes iconEffect {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-11px);
-        } // ***** 반응형 *****
-        100% {
-          transform: translateY(0);
-        }
+        0% {transform: translateY(0);}
+        50% {transform: translateY(-11px);} // ***** 반응형 *****
+        100% {transform: translateY(0);}
       }
       &:hover {
         animation: iconEffect 0.6s ease-in-out;
@@ -94,17 +92,17 @@ const MapContainer = styled.div`
     bottom: 19%;
     left: 6.3%;
     right: 6.3%;
-    opacity: ${({ isBlurred }) => (isBlurred ? 1 : 0)};
+    opacity: ${({ isBlurred }) => isBlurred ? 1 : 0};
     transition: opacity 1.4s ease-in-out;
     display: flex; // 안에 자식 요소 위해서
-    align-items: flex-end; // 없어도 되긴 함
+    align-items: flex-end;// 없어도 되긴 함
     justify-content: space-around; // around?
     font-family: "SUITE", sans-serif; // 여기서부턴 꾸미는거
     font-size: 10px; // ***** 반응형 ***** -> 아 왤케 안먹냐 ㅠ
     color: ${Colors.white};
     & > .copy-addr-button {
       color: ${Colors.springGreen};
-      pointer-events: ${({ isBlurred }) => (isBlurred ? "auto" : "none")};
+      pointer-events: ${({ isBlurred }) => isBlurred ? 'auto' : 'none'};
       cursor: pointer; // 나중에 변경?
       & > img {
         width: 30%;
@@ -112,7 +110,7 @@ const MapContainer = styled.div`
         vertical-align: top;
       }
     }
-    //=======================================
+  //=======================================
   }
 `;
 

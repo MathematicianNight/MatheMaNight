@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 뷰포트의 너비가 500 이상일 때, MainPage 컴포넌트의 width가 500px로 고정되므로, 좌우의 여백(흰 공간)을 임시 처리하기 위한 코드 */
+#root {
+  position: relative;
+}
+#root::before, #root::after {
+  content: '';
+  top: 0;
+  width: calc((100% - 500px) / 2);
+  height: 100vh;
+  background-image: linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+#root::before {left: 0;}
+#root::after {right: 0;}

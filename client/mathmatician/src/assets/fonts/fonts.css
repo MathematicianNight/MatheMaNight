@@ -7,3 +7,22 @@
   font-family: "Noto Sans KR", sans-serif;
   font-family: "Single Day", cursive;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+@import url("https://webfontworld.github.io/sunn/SUIT.css");
+@import url('https://webfontworld.github.io/TheJamsil/TheJamsil.css');
+@import url('https://webfontworld.github.io/kt/YUniverse.css');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+@font-face {
+  font-family: 'PyeongChangPeace';
+  font-weight: 300;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.ttf') format("truetype");
+  font-display: swap;
+}
