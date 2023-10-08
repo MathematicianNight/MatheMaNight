@@ -6,6 +6,7 @@ import Greetings from "../component/Greetings/index";
 
 const MainPage = () => {
   /** @todo 임시데이터 나중에 인사말 연결 **/
+
   const message = `정보보안암호수학과를 이끌어 주시는
 재학생, 졸업생 여러분들 안녕하십니까
 
