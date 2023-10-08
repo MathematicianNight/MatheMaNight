@@ -82,25 +82,30 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-morefunc">
-        <div className="morefunc-description">
-          <h1>More Functions</h1>
-          <p>
-          위젯을 클릭하여 일정을 등록하고,<br />
-          지도 앱을 통해 위치를 확인해 보세요.
-          </p>
-        </div>
-        <div className="widgets-wrapper">
-          <CalendarWidget />
-          <LikeWidget />
-          <MapWidget />
-        </div>
-        <div className="aboutus-wrapper">
-          <img src="http://via.placeholder.com/100x100" alt="our team logo image"/>
-          <span>만든 사람들 &#62;</span>
-        </div>
-        <div className="handy-invitation">
-          <span>간이 초대장</span>
-          <img src={Images.envelope_icon} alt="envelope icon" />
+        <div className="morefunc-wrapper">
+          <div className="morefunc-description">
+            <h1>More Functions</h1>
+            <p>
+            위젯을 클릭하여 일정을 등록하고,<br />
+            지도 앱을 통해 위치를 확인해 보세요.
+            </p>
+          </div>
+          <div className="widgets-wrapper">
+            <CalendarWidget />
+            <LikeWidget />
+            <MapWidget />
+          </div>
+          <div className="aboutus-wrapper">
+            <img src="http://via.placeholder.com/100x100" alt="our team logo image"/>
+            <span>만든 사람들 &#62;</span>
+          </div>
+          <div className="handy-invitation">
+            <span>간이 초대장</span>
+            <img
+              src={Images.envelope_icon}
+              alt="envelope icon image"
+            />
+          </div>
         </div>
       </div>
 

@@ -13,9 +13,9 @@ const CalendarWidget = () => {
 
   return (
     <CalendarContainer onClick={linkKakaoLogin}>
-      <div className="month">November</div>
-      <div className="day">24</div>
-      <div className="time">6pm</div>
+      <span className="month">November</span>
+      <span className="day">24</span>
+      <span className="time">6pm</span>
     </CalendarContainer>
   );
 }

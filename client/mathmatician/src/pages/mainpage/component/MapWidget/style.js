@@ -3,28 +3,19 @@ import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
-  /* border: 1px solid aqua; box-sizing: border-box; */
-  /* & > * {border: 1px solid red; box-sizing: border-box;} */
-  /* width: 94%; */
+  /* border: 1px solid aqua; */
+  &, & > * {box-sizing: border-box;}
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
   @media (max-width: 321px) { // 321 미만
-    width: 97%;
+    width: 94%;
   }
   @media (min-width: 321px) and (max-width: 391px) { // 321 이상 391 미만
-    width: 99%;
+    width: 95%;
   }
   @media (min-width: 391px) { // 391 이상
     width: 96%;
   }
-  grid-column: 1 / span 2;
-
-  /* @media (max-height: 670px) {
-    width: 85%;
-    height: auto;
-  }
-  @media (min-height: 671px) and (max-height: 740px) {
-    width: 90%;
-    height: auto;
-  } */
 
   border-radius: 7%;
   overflow: hidden;
