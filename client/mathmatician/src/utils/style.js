@@ -38,9 +38,13 @@ export const Images = {
   video_icon: "assets/images/video_icon.svg",
   gift_icon: "assets/images/gift_icon.svg",
   clap_icon: "assets/images/clap_icon.svg",
+  heart_bubble: "assets/images/heart_bubble.svg",
+  heart: "assets/images/heart.svg",
+  heart_shadow: "assets/images/heart_shadow.svg",
   location_drawing: "/assets/images/location_drawing.svg",
   google_map_icon: "/assets/images/google_map_icon.svg",
   naver_map_icon: "/assets/images/naver_map_icon.svg",
   kakao_map_icon: "/assets/images/kakao_map_icon.svg",
   copy_addr_icon: "/assets/images/copy_addr_icon.svg",
+  envelope_icon: "/assets/images/envelope_icon.svg",
 };

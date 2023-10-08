@@ -5,7 +5,7 @@ import "../../../assets/fonts/fonts.css";
 const MainpageContainer = styled.section`
   // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
   /* box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5), 5px 0 10px rgba(20, 20, 20, 0.5); */
-  /* border: 1.5px solid red; box-sizing: border-box; */
+  border: 1.5px solid red; box-sizing: border-box;
   @media (max-width: 501px) {width: 100%;} // 501 미만
   @media (min-width: 501px) { // 501 이상
     width: 500px;
@@ -13,12 +13,11 @@ const MainpageContainer = styled.section`
   }
   background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%);
   background-repeat: no-repeat;
-  height: 100vh;
-  /* height: calc(var(--vh, 1vh) * 100); */
-  overflow: auto scroll;
+  /* height: ${window.innerHeight}px; */
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: auto;
   scroll-snap-type: y mandatory;
   font-family: "SUIT", sans-serif;
-  font-size: 11px;
   color: ${Colors.White};
 
   // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
@@ -32,10 +31,10 @@ const MainpageContainer = styled.section`
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   & > .mainpage-home {
     & > .home-wrapper {
-      /* border: 1.5px solid red; box-sizing: border-box; */
+      border: 1.5px solid red; box-sizing: border-box;
       width: 90%;
-      /* height: 100%; */
-      height: calc(var(--vh, 1vh) * 100);
+      height: 100%;
+      /* height: calc(var(--vh, 1vh) * 100); */
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -129,63 +128,79 @@ const MainpageContainer = styled.section`
 
   // 페이지 4: 부가 기능
   & > .mainpage-morefunc {
-    /* border: 1.5px solid red; box-sizing: border-box; */
-    width: 90%;
-    height: calc(var(--vh, 1vh) * 100);
+    border: 1.5px solid red; box-sizing: border-box;
+    width: 84%;
+    height: 100%;
     margin: 0 auto;
-
-    & > h1 {font-size: 30px;}
-    & > span {
-      display: block;
-      font-size: 13px;
-      &:nth-child(3) {text-align: right;}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* & > .morefunc-description {
+      border: 1.5px solid red; box-sizing: border-box;
+      padding: 0 10px;
+      h1 {font-size: 24px; margin-bottom: 5px;}
+      p {font-size: 11px; line-height: 13.5px; margin-bottom: 14px;}
+    } */
+    @media (max-width: 321px) { // 321 미만
+      & > .morefunc-description {
+        padding: 0 10px;
+        h1 {font-size: 24px; margin-bottom: 5px;}
+        p {font-size: 11px; line-height: 13.5px; margin-bottom: 14px;}
+      }
     }
-    // 이전에 특정 기기에만 먹도록 적용된 스타일이라 다시 작성해야 함  
-    /* border: 1.5px solid magenta; box-sizing: border-box;
-    height: 100%; 
-    & > .morefunc-wrapper {
-      border: 1.5px solid green; box-sizing: border-box;
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
+
+    & > .widgets-wrapper {
+      /* border: 1.5px solid aqua; box-sizing: border-box; */
+      width: 100%;
+      align-self: center;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      place-items: center;
+      @media (max-width: 321px) { // 321 미만
+        gap: 8% 5%;
+        padding-bottom: 10px;
+      }
+      @media (min-width: 321px) and (max-width: 391px) { // 321 이상 391 미만
+        gap: 11% 6%;
+        padding-bottom: 15px;
+      }
+      @media (min-width: 391px) { // 391 이상
+        gap: 11% 4.5%;
+        padding-bottom: 11px;
+      }       
+    }
+    & > .aboutus-wrapper {
+      /* border: 1.5px solid yellow; box-sizing: border-box; */
+      /* & > * {border: 1.5px solid red; box-sizing: border-box} */
       display: flex;
       flex-direction: column;
-      * {border: 1px solid greenyellow; box-sizing: border-box;}
-      & > .morefunc-title {
-        font-size: 25px; // 반응형
-        margin-top: 13%;
+      align-items: center;
+      position: relative;
+      padding: 25px 0 10px 0;
+      & > img {
+        border-radius: 50%;
+        width: 40%;
       }
-      & > .morefunc-description {
-        font-size: 11px; // 반응형
-        margin-top: 3%;
+      & > span {
+        margin: 15px 0 0 5px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       }
-      & > .morefunc-widgets-wrapper {
-        margin-top: 6.5%;
-        height: 50%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-content: space-around;
+    }
+    & > .handy-invitation {
+      /* border: 1px solid yellow; box-sizing: border-box; */
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      & > img {
+        width: 15%;
       }
-      & > .morefunc-aboutus-wrapper {
-        border: 1px solid red; box-sizing: border-box;
-        * {border: 1px solid red; box-sizing: border-box;}
-        height: 45%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-        & > img {
-          border-radius: 100%;
-          width: 45%;
-          margin-bottom: -25%;
-        }
-        & > span {
-          font-size: 15px;
-        }
+      & > span {
+        font-family: 'PyeongChangPeace', sans-serif;
+        font-size: 12px;
+        margin-top: 7px;
       }
-    } */
+    }
   }
 
   // 페이지 5: 질문과 답변

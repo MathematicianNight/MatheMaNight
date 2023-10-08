@@ -4,6 +4,7 @@ import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
 import QnaComponent from "../component/Qna/index";
+
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
@@ -90,37 +91,26 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-morefunc">
-        <h1>More Functions</h1>
-        <span>위젯을 클릭하여 일정을 등록하고,</span>
-        <span>지도 앱을 통해 위치를 확인해 보세요.</span>
+        <div className="morefunc-description">
+          <h1>More Functions</h1>
+          <p>
+          위젯을 클릭하여 일정을 등록하고,<br />
+          지도 앱을 통해 위치를 확인해 보세요.
+          </p>
+        </div>
         <div className="widgets-wrapper">
           <CalendarWidget />
           <LikeWidget />
           <MapWidget />
         </div>
         <div className="aboutus-wrapper">
-          <img src="http://via.placeholder.com/164x164" alt="our team logo image"/>
-          <button>만든 사람들 &#62;</button>
+          <img src="http://via.placeholder.com/100x100" alt="our team logo image"/>
+          <span>만든 사람들 &#62;</span>
         </div>
-
-        {/* <div className="morefunc-wrapper">
-          <div className="morefunc-title">More Functions</div>
-          <div className="morefunc-description">위젯을 클릭하여 일정을 등록하고, 지도 앱을 통해 위치를 확인해 보세요.</div>
-          <div className="morefunc-widgets-wrapper">
-            <CalendarWidget />
-            <LikeWidget />
-            <MapWidget className="map-widget"/>
-          </div>
-          <div className="morefunc-aboutus-wrapper">
-            <img
-              src="http://via.placeholder.com/164x164"
-              alt="aboutus-logo"
-            />
-            <span>
-              만든 사람들 &#62;
-            </span>
-          </div>
-        </div> */}
+        <div className="handy-invitation">
+          <span>간이 초대장</span>
+          <img src={Images.envelope_icon} alt="envelope icon" />
+        </div>
       </div>
 
       <div className="mainpage-qna">

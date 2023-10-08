@@ -3,30 +3,33 @@ import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
-  /* border: 1px solid red; // 나중에 삭제 */
-  @media (max-height: 670px) {
+  /* border: 1px solid aqua; box-sizing: border-box; */
+  /* & > * {border: 1px solid red; box-sizing: border-box;} */
+  /* width: 94%; */
+  @media (max-width: 321px) { // 321 미만
+    width: 97%;
+  }
+  @media (min-width: 321px) and (max-width: 391px) { // 321 이상 391 미만
+    width: 99%;
+  }
+  @media (min-width: 391px) { // 391 이상
+    width: 96%;
+  }
+  grid-column: 1 / span 2;
+
+  /* @media (max-height: 670px) {
     width: 85%;
     height: auto;
   }
   @media (min-height: 671px) and (max-height: 740px) {
     width: 90%;
     height: auto;
-  }
+  } */
 
   border-radius: 7%;
   overflow: hidden;
   position: relative;
   margin: 0 auto;
-  /* margin-bottom: 3.5%; */
-
-  @font-face {
-    font-family: 'SUIT-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-  //=======================================
-
   & > .map-app-background {
     // 이미지 밑에 공간 뜨는거 둘 중 하나로 해결? 굳이...?
     width: 100%;
@@ -63,11 +66,11 @@ const MapContainer = styled.div`
     & > img {
       // 이미지 밑에 공간 뜨는거 해결...?
       /* border: 1px solid aqua; // 나중에 삭제 */
-      /* border-radius: 20%; // ***** 반응형 ***** */
+      border-radius: 12px;
       margin: 0 4.3%;
-      cursor: pointer; // 나중에 변경
       pointer-events: ${({ isBlurred }) => isBlurred ? 'auto' : 'none'};
       transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+
       // 효과 1: pc에서는 호버 및 클릭, 모바일에서는 클릭 시 아이콘이 잠깐 위로 올라갔다 내려옴
       @keyframes iconEffect {
         0% {transform: translateY(0);}
