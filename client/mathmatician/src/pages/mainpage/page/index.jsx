@@ -1,37 +1,122 @@
-import React, { useState } from "react";
-
-import { MainpageContainer } from "./styles";
-import QnaComponent from "../component/Qna/index";
+import { useState, useEffect } from "react";
 import Greetings from "../component/Greetings/index";
 import useGreetings from "../hooks/useGreetings";
+import CalendarWidget from "../component/CalendarWidget";
+import LikeWidget from "../component/LikeWidget";
+import MapWidget from "../component/MapWidget";
+import QnaComponent from "../component/Qna/index";
+import MainpageContainer from "./styles";
+import { Images, Colors } from "../../../utils/style";
+import resizeViewportHeight from "../../../utils/resizeViewportHeight";
+
 
 const MainPage = () => {
+  
   const message = useGreetings();
+  
 
   const messageLines =
     message && message.length > 0
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
+  useEffect(() => {
+    resizeViewportHeight();
+    window.addEventListener('resize', resizeViewportHeight);
+    return () => window.removeEventListener('resize', resizeViewportHeight);
+  }, []);
 
   return (
     <MainpageContainer>
-      <div className="parent">
-        <div className="child Home">1페이지 - Home</div>
+      <div className="mainpage-home">
+        <div className="home-wrapper">
+          <span>Wel</span>
+          <span>-come</span>
+          <span>to</span>
+          <div className="moon-back"></div>
+          <div className="moon-front"></div>
+          <img src={Images.eiffel_tower} alt="eiffer tower image" />
+          <div className="invitation-summary">
+            <span>40th</span>
+            <span>수학인의 밤</span>
+            <span>2023.11.24.18:00</span>
+            <span>더블유파티</span>
+          </div>
+        </div>
+      </div>
 
-        <div className="child">
+      <div className="mainpage-greetings">
           <div className="Greetings">
             <Greetings message={messageLines} />
           </div>
+      </div>
+
+      <div className="mainpage-details">
+        <div className="info-wrapper">
+          <h1>Information</h1>
+          <div className="invitation-date">
+            <span>
+              <img src={Images.calendar_icon} alt="calendar icon image" />날짜
+            </span>
+            2023.11.24.금
+          </div>
+          <div className="invitation-time">
+            <span>
+              <img src={Images.clock_icon} alt="clock icon image" />시간
+            </span>
+            저녁 6시
+          </div>
+          <div className="invitation-place">
+            <span>
+              <img src={Images.location_pin_icon} alt="location pin icon image" />장소
+            </span>
+            더블유파티
+            <span>서울 성북구 동소문로 284 길음 서희 스타힐스</span>            
+          </div>
+          <span>더 자세한 정보를 알고 싶으신 분은</span>
+          <span>아래의 부가 기능을 이용해주세요!</span>
+        </div>
+        <div className="program-wrapper">
+          {/* I'll fill in this later... */}
+        </div>
+      </div>
+
+      <div className="mainpage-morefunc">
+        <h1>More Functions</h1>
+        <span>위젯을 클릭하여 일정을 등록하고,</span>
+        <span>지도 앱을 통해 위치를 확인해 보세요.</span>
+        <div className="widgets-wrapper">
+          <CalendarWidget />
+          <LikeWidget />
+          <MapWidget />
+        </div>
+        <div className="aboutus-wrapper">
+          <img src="http://via.placeholder.com/164x164" alt="our team logo image"/>
+          <button>만든 사람들 &#62;</button>
         </div>
 
-        <div className="child Details">3페이지 - Details</div>
-
-        <div className="child MoreFunc">4페이지 - More Functions</div>
-
-        <div className="child">
-          <div className="QnA">
-            <QnaComponent />
+        {/* <div className="morefunc-wrapper">
+          <div className="morefunc-title">More Functions</div>
+          <div className="morefunc-description">위젯을 클릭하여 일정을 등록하고, 지도 앱을 통해 위치를 확인해 보세요.</div>
+          <div className="morefunc-widgets-wrapper">
+            <CalendarWidget />
+            <LikeWidget />
+            <MapWidget className="map-widget"/>
           </div>
+          <div className="morefunc-aboutus-wrapper">
+            <img
+              src="http://via.placeholder.com/164x164"
+              alt="aboutus-logo"
+            />
+            <span>
+              만든 사람들 &#62;
+            </span>
+          </div>
+        </div> */}
+      </div>
+
+      <div className="mainpage-qna">
+        <div className="QnA">
+          <QnaComponent />
         </div>
       </div>
     </MainpageContainer>
