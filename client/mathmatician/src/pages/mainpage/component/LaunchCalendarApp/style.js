@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { Images, Colors } from "../../../../util/style";
+import { Images, Colors } from "../../../../utils/style";
 
 const CalendarContainer = styled.section`
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap'); // 나중에 따로 모아서 처리해야 함 지금은 임시로...
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"); // 나중에 따로 모아서 처리해야 함 지금은 임시로...
 
   /* font-family: 'Noto Sans KR', sans-serif; */
 
@@ -17,8 +17,6 @@ const CalendarContainer = styled.section`
   border-radius: 7%; */
   /* overflow: hidden; */
   /* position: relative; */
-
-
 `;
 
 export default CalendarContainer;
