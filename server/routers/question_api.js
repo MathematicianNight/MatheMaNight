@@ -1,12 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../lib/db.js');
+const fs = require('fs');
+const data = fs.readFileSync('./lib/db.json');
+const conf = JSON.parse(data);
+const mysql = require('mysql');
 
 router.use(express.json()); // for parsing application/json
 router.use(express.urlencoded({ extended: true })); // for parsing
 
 // 학생회 비밀번호
 const SECRET_PASSWORD = '1111';
+
+const db = mysql.createConnection({
+  host: conf.host,
+  user: conf.user,
+  password: conf.password,
+  port: conf.port,
+  database: conf.database,
+});
+db.connect();
 
 /**
  * @swagger
@@ -118,7 +130,19 @@ router.post('/create', (req, res) => {
  *         application/json:
  *           schema:
  *             name: password
- *             type: integer
+ *             type: string
+ *      responses:
+ *        "200":
+ *          description: 비밀번호 확인
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                    success:
+ *                      type: boolean
+ *                      description: "비밀번호 일치 유무"
+ *                      example: true
  */
 router.post('/authenticate', (req, res) => {
   const post = req.body;
