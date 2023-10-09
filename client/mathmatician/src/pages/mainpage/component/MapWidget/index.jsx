@@ -71,7 +71,7 @@ const MapWidget = () => {
         src={Images.location_drawing}
       />
       <div className="open-map-app">
-          <img src={Images.google_map_icon} onClick={openGoogleMap} />
+          <img src={Images.google_map_icon} />
           <img src={Images.naver_map_icon} onClick={openNaverMap} />
           <img src={Images.kakao_map_icon} onClick={openKakaoMap} />
       </div>
