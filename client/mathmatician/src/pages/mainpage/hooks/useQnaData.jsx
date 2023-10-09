@@ -6,8 +6,8 @@ const useQnaData = (currentPage) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // const apiUrl = `http://localhost:4000/question?page=${currentPage}`;
-    const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
+    const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
+    // const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
 
     fetch(apiUrl, {
       method: "GET",
