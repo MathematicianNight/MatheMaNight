@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { GreetingsContainer } from "./style";
 import { Images } from "../../../../utils/style";
 
 const Index = ({ message }) => {
-  const specialIndices = [2, 6, 10, 12];
+  const specialIndices = [1, 4, 7, 9];
 
   return (
     <GreetingsContainer>

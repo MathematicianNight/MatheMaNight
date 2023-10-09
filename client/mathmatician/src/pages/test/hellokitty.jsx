@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import LaunchMapApp from "../mainpage/component/LaunchMapApp/index";
-import LaunchCalendarApp from "../mainpage/component/LaunchCalendarApp/index";
+// import LaunchMapApp from "../mainpage/component/LaunchMapApp/index";
+// import LaunchCalendarApp from "../mainpage/component/LaunchCalendarApp/index";
 import resizeViewportHeight from "../../utils/resizeViewportHeight";
 import MainpageContainer from "./hellokitty_style";
 import QnaComponent from "./../mainpage/component/Qna/index";
@@ -72,7 +72,7 @@ const Hellokitty = () => {
           <div className="morefunc-widgets-wrapper">
             <div className="later1">헤헿</div>
             <div className="later2">헤헿</div>
-            <LaunchMapApp />
+            {/* <LaunchMapApp /> */}
           </div>
           <div className="morefunc-aboutus-wrapper">
             <img src="http://via.placeholder.com/164x164" alt="aboutus-logo" />
