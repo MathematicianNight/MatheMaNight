@@ -9,13 +9,14 @@ export const GreetingsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   & > .greetings-wrapper {
     text-align: center;
     // text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
     font-family: "SUITE";
     font-size: 18px;
     font-style: normal;
-    font-weight: 200;
+    font-weight: 400;
     line-height: 22px;
 
     @media (max-width: 375px) {

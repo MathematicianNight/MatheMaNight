@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
-import Greetings from "../component/Greetings/index";
+
+//Hooks
 import useGreetings from "../hooks/useGreetings";
+
+//component
+import Greetings from "../component/Greetings/index";
 import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
@@ -9,22 +13,22 @@ import QnaComponent from "../component/Qna/index";
 
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
+
+// util
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
 
-
 const MainPage = () => {
-  
   const message = useGreetings();
-  
 
   const messageLines =
     message && message.length > 0
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
+
   useEffect(() => {
     resizeViewportHeight();
-    window.addEventListener('resize', resizeViewportHeight);
-    return () => window.removeEventListener('resize', resizeViewportHeight);
+    window.addEventListener("resize", resizeViewportHeight);
+    return () => window.removeEventListener("resize", resizeViewportHeight);
   }, []);
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
@@ -55,9 +59,9 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-greetings">
-          <div className="Greetings">
-            <Greetings message={messageLines} />
-          </div>
+        <div className="Greetings">
+          <Greetings message={messageLines} />
+        </div>
       </div>
 
       <div className="mainpage-details">
@@ -65,22 +69,28 @@ const MainPage = () => {
           <h1>Information</h1>
           <div className="invitation-date">
             <span>
-              <img src={Images.calendar_icon} alt="calendar icon image" />날짜
+              <img src={Images.calendar_icon} alt="calendar icon image" />
+              날짜
             </span>
             2023.11.24.금
           </div>
           <div className="invitation-time">
             <span>
-              <img src={Images.clock_icon} alt="clock icon image" />시간
+              <img src={Images.clock_icon} alt="clock icon image" />
+              시간
             </span>
             저녁 6시
           </div>
           <div className="invitation-place">
             <span>
-              <img src={Images.location_pin_icon} alt="location pin icon image" />장소
+              <img
+                src={Images.location_pin_icon}
+                alt="location pin icon image"
+              />
+              장소
             </span>
             더블유파티
-            <span>서울 성북구 동소문로 284 길음 서희 스타힐스</span>            
+            <span>서울 성북구 동소문로 284 길음 서희 스타힐스</span>
           </div>
           <span>더 자세한 정보를 알고 싶으신 분은</span>
           <span>아래의 부가 기능을 이용해주세요!</span>
