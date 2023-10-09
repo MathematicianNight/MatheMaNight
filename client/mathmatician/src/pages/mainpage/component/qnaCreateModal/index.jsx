@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 import { CreateModalContainer } from "../qnaCreateModal/style";
 import { Images } from "../../../../utils/style";
 
@@ -13,8 +13,25 @@ const Index = ({ handleCloseModal }) => {
     }
   };
 
+  const createQuestion = () => {
+    const apiUrl = "http://13.124.51.51:4000/question/create";
+    const questionData = {
+      question: text,
+    };
+    axios
+      .post(apiUrl, questionData)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    handleCloseModal();
+  };
+
   return (
     <CreateModalContainer>
+      a
       <div className="ModalContainer">
         <div className="modal-close-div" onClick={handleCloseModal}>
           <img
@@ -43,7 +60,7 @@ const Index = ({ handleCloseModal }) => {
             value={text}
             onChange={handleChange}
           />
-          <button className="modal-button" onClick={handleCloseModal}>
+          <button className="modal-button" onClick={createQuestion}>
             완료
           </button>
         </div>
