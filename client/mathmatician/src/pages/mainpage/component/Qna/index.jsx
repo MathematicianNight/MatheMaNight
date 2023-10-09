@@ -97,6 +97,19 @@ const Index = () => {
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
   const [fixAnswerModalOpen, setFixModalOpen] = useState(false);
 
+  const [bgAnimation, setBgAnimation] = useState(false);
+
+  useEffect(() => {
+    // 1초마다 배경 애니메이션 토글
+    const interval = setInterval(() => {
+      setBgAnimation((prev) => !prev);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <QnaContainer>
       {isModalOpen && <QnaCreateModal handleCloseModal={handleCloseModal} />}
@@ -109,7 +122,7 @@ const Index = () => {
           title="수정"
         />
       )}
-      <div className={`qna-wrapper`}>
+      <div className={`qna-wrapper ${bgAnimation ? "qna-on" : "qna-off"}`}>
         <div className="qna-title">Q&A</div>
         <div className="qna-search-wrapper">
           <img src={Images.search_icon} alt="searchImg" />
@@ -124,7 +137,7 @@ const Index = () => {
         <div className="qna-contents-wrapper">
           {filterTitle.map((qna, index) => (
             <>
-              <div key={index}>
+              <div key={index} className="qna-content-div">
                 <img
                   src={Images.urin_logo}
                   alt={`urin_logo_${index}`}

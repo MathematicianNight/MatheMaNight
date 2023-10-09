@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
+const maxwidth = "375";
+
 export const CreateModalContainer = styled.div`
   position: fixed;
   top: 0;
@@ -25,6 +27,10 @@ export const CreateModalContainer = styled.div`
     height: 350px;
     background-color: ${Colors.White};
     color: ${Colors.Black};
+    @media (max-width: ${maxwidth}px) {
+      width: 85%;
+      height: 48%;
+    }
 
     & > .modal-close-div {
       width: 100%;
@@ -43,6 +49,11 @@ export const CreateModalContainer = styled.div`
         width: 121px;
         height: 114.676px;
         margin: 0 0 18px 2rem;
+        @media (max-width: ${maxwidth}px) {
+          width: 110px;
+          height: 110px;
+          margin: 0 0 12px 2rem;
+        }
       }
 
       .modal-heading {
@@ -51,6 +62,9 @@ export const CreateModalContainer = styled.div`
         font-weight: 600;
         line-height: normal;
         margin-bottom: 6px;
+        @media (max-width: ${maxwidth}px) {
+          font-size: 15px;
+        }
       }
 
       .modal-description {
@@ -61,6 +75,9 @@ export const CreateModalContainer = styled.div`
         font-weight: 400;
         margin-bottom: 14px;
         line-height: normal;
+        @media (max-width: ${maxwidth}px) {
+          font-size: 10px;
+        }
       }
 
       .modal-description strong {
@@ -74,6 +91,11 @@ export const CreateModalContainer = styled.div`
         height: 25px;
         padding: 0 10px;
         margin-bottom: 14px;
+        @media (max-width: ${maxwidth}px) {
+          margin-bottom: 10px;
+          font-size: 11px;
+          height: 22px;
+        }
       }
       .modal-input::placeholder {
         color: ${Colors.Gray02};
@@ -90,6 +112,9 @@ export const CreateModalContainer = styled.div`
         margin-top: 10px;
         cursor: pointer;
         border: none;
+        @media (max-width: ${maxwidth}px) {
+          font-size: 11px;
+        }
       }
     }
   }

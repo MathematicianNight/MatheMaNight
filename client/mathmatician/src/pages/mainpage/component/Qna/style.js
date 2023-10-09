@@ -2,27 +2,74 @@ import styled from "@emotion/styled";
 import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
+const maxwidth = "375";
+
 export const QnaContainer = styled.div`
   color: ${Colors.White};
   font-family: "SUITE", sans-serif;
   width: 100%;
+  height: ${window.innerHeight}px;
 
-  @media (max-width: 375px) {
+  .bg-animation-on {
+    background-image: url(${Images.star_qna_group1});
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-position: center center;
+    transition: background ease-in-out 0.5s;
+    height: 100%;
+  }
+  .bg-animation-off {
+    background-image: url(${Images.star_qna_group2});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: linear 0.2s;
+  }
+  @media (max-width: ${maxwidth}px) {
     .qna-wrapper {
       padding: 0rem 34px;
     }
   }
+  .qna-on {
+    background-image: url(${Images.star_qna_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    transition: background ease-in-out 0.4s;
+  }
+  .qna-off {
+    background-image: url(${Images.star_qna_group2});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    transition: background ease-in-out 0.4s;
+  }
 
   & > .qna-wrapper {
-    padding: 7rem 34px;
-    height: 100%;
+    padding: 0 34px;
+    height: ${window.innerHeight}px;
 
+    @media (max-width: ${maxwidth}px) {
+      padding: 0 22px;
+    }
+    @media (min-width: 500px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     & > .qna-title {
       color: ${Colors.White};
       font-size: 25px;
       font-weight: 400;
       line-height: normal;
       margin-bottom: 45px;
+      padding-top: ${window.innerHeight / 7}px;
+      @media (max-width: ${maxwidth}px) {
+        padding-top: ${window.innerHeight / 14}px;
+        margin-bottom: 30px;
+        font-size: 22px;
+      }
+      @media (min-width: 500px) {
+        padding-top: 0px;
+      }
     }
     & > .qna-search-wrapper {
       height: 28px;
@@ -34,6 +81,9 @@ export const QnaContainer = styled.div`
       padding: 0 13px;
       flex-shrink: 0;
       align-items: center;
+      @media (max-width: ${maxwidth}px) {
+        height: 23px;
+      }
       & > img {
         height: 14px;
         width: 14px;
@@ -45,17 +95,24 @@ export const QnaContainer = styled.div`
         background-color: transparent;
         border: none;
         font-family: "SUITE", sans-serif;
+        @media (max-width: ${maxwidth}px) {
+          font-size: 12px;
+        }
       }
     }
     & > .qna-contents-wrapper {
       margin: 0 11px 9px 11px;
-      & > div {
+      & > .qna-content-div {
         height: 56px;
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 10.25px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        @media (max-width: ${maxwidth}px) {
+          height: 52px;
+        }
+
         & > .qna-contents-img {
           height: 31px;
           width: 31px;
@@ -65,15 +122,25 @@ export const QnaContainer = styled.div`
           flex-direction: column;
           gap: 11px;
           width: 100%;
+          @media (max-width: ${maxwidth}px) {
+            gap: 8px;
+          }
           & > .qna-name {
             font-size: 12px;
             font-weight: 600;
             height: 10px;
+            @media (max-width: ${maxwidth}px) {
+              font-size: 11px;
+              height: 8px;
+            }
           }
           & > .qna-question {
             color: ${Colors.Gray01};
             font-size: 12px;
             font-weight: 200;
+            @media (max-width: ${maxwidth}px) {
+              font-size: 10px;
+            }
           }
         }
         & > .qna-togle-img {
@@ -85,8 +152,12 @@ export const QnaContainer = styled.div`
         flex-direction: row;
         align-items: flex-start;
         padding: 13px 0 17px 0;
-        height: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        transition: 0.3s;
         gap: 10.25px;
+        @media (max-width: ${maxwidth}px) {
+          padding: 10px 0 14px 0;
+        }
         & > .qna-amswer-img {
           width: 30.478px;
           height: 16px;
@@ -98,6 +169,9 @@ export const QnaContainer = styled.div`
           line-height: 18px;
           color: ${Colors.Gray01};
           height: fit-content;
+          @media (max-width: ${maxwidth}px) {
+            font-size: 10px;
+          }
         }
       }
     }
