@@ -140,6 +140,7 @@ const MainpageContainer = styled.section`
     overflow: auto;
     display: grid;
     align-items: center;
+    position: relative;
     & > .morefunc-wrapper {
       /* border: 1px solid red; */
       & > div {
@@ -202,10 +203,12 @@ const MainpageContainer = styled.section`
         justify-content: flex-end;
         align-items: center;
         margin-bottom: 0;
-        & > span {
-          font-family: 'PyeongChangPeace', sans-serif;
-          font-size: 12px;
-          margin-top: 7px;
+        font-family: 'PyeongChangPeace', sans-serif;
+        font-size: 12px;
+        margin-top: 7px;
+        & > img {
+          margin-left: 5px;
+          margin-right: -20px;
         }
       }
     }

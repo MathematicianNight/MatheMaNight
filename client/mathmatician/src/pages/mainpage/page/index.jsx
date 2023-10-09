@@ -4,6 +4,7 @@ import useGreetings from "../hooks/useGreetings";
 import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
+import HandyInvitationModal from "../component/HandyInvitationModal";
 import QnaComponent from "../component/Qna/index";
 
 import MainpageContainer from "./styles";
@@ -25,6 +26,14 @@ const MainPage = () => {
     window.addEventListener('resize', resizeViewportHeight);
     return () => window.removeEventListener('resize', resizeViewportHeight);
   }, []);
+
+  const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
+  const openModal = () => {
+    setEnvelopeIconClicked(true);
+  }
+  const closeModal = () => {
+    setEnvelopeIconClicked(false);
+  }
 
   return (
     <MainpageContainer>
@@ -82,6 +91,7 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-morefunc">
+        {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
         <div className="morefunc-wrapper">
           <div className="morefunc-description">
             <h1>More Functions</h1>
@@ -100,10 +110,11 @@ const MainPage = () => {
             <span>만든 사람들 &#62;</span>
           </div>
           <div className="handy-invitation">
-            <span>간이 초대장</span>
+            간이 초대장
             <img
               src={Images.envelope_icon}
               alt="envelope icon image"
+              onClick={openModal}
             />
           </div>
         </div>

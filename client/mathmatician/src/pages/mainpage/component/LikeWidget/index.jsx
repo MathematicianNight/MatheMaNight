@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Images, Colors } from "../../../../utils/style";
 import LikeContainer from "./style";
 
+// public/assets 폴더에 heart.svg, heart_bubble.svg, heart_shadow.svg 이미지 저장해두었습니다.
 const LikeWidget = () => {
   const [count, setCount] = useState(0);
   const [on, setOn] = useState(true);
