@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
-import Greetings from "../component/Greetings/index";
+
+//Hooks
 import useGreetings from "../hooks/useGreetings";
+
+//component
+import Greetings from "../component/Greetings/index";
 import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
 import QnaComponent from "../component/Qna/index";
+
+// style
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
+
+// util
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
 
 const MainPage = () => {

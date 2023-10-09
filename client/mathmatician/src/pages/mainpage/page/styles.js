@@ -234,8 +234,9 @@ const MainpageContainer = styled.section`
     min-height: ${window.innerHeight}px;
     // line-height: ${window.innerHeight}px;
     scroll-snap-align: start;
+
     & > .QnA {
-      min-height: ${window.innerHeight}px;
+      height: ${window.innerHeight}px;
       // display: flex;
       // align-items: center;
       // justify-content: center;
