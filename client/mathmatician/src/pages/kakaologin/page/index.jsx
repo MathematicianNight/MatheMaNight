@@ -59,60 +59,45 @@ const LinkKakaoCalendar = () => {
     return res.json();
   }
 
-  // const getToken_ = async (token_link) => {
-  //   const response = await fetch(token_link, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-  //     }
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       if (data.access_token === undefined) {
-  //         alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 먼저 클릭해주세요.");
-  //         window.location.href = return_uri;
-  //         return -1;
-  //       }
-  //       else {
-  //         return data.access_token;          
-  //       }
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       return -1;
-  //     });
-  // }
-
-
   const code = new URL(window.location.href).searchParams.get('code');
   const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${code}&client_secret=${client_secret}`;
   try {
     getToken(token_uri).then(res => {
-      if (res.access_token === undefined) {
+      const token = res.access_token;
+      if (token === undefined) {
         alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 먼저 클릭해주세요.");
         window.location.href = return_uri;
       }
       else {
-        getSchedules(res.access_token).then(res => {
+        getSchedules(token).then(res => {
           const events = res.events;
           const count = [];
           events.map(event => {
             count.push(event.title);
           });
-        })
-        // window.location.href = return_uri;
+          if (count.includes('수학인의 밤')) {
+            alert("\"수학인의 밤\" 제목을 갖는 일정이 이미 존재합니다. 확인해 주세요.");
+            window.location.href = return_uri;
+          }
+          else {
+            try {
+              openCalendar(token, invitation_schedule).then(res => {
+                const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
+                window.location.href = return_uri;
+                if (check) {
+                  window.location.href = "https://calendar.kakao.com/";
+                }      
+              });
+            } 
+            catch (err) {
+              console.log(err);
+            }
+          }
+        });
       }
-    })
-    // const response = getToken(token_uri);
-    // if (response === null) {
-    //   alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 먼저 클릭해주세요.");
-    //   window.location.href = return_uri;
-    //   return;
-    // }
-    // else {
-    //   console.log(response);
-    // }
-  } catch (err) {
+    });
+  }
+  catch (err) {
     console.log(err);
   }
 
