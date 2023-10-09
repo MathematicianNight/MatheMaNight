@@ -1,0 +1,7 @@
+{
+  "host": "qna-table.cri1wvqixdyf.ap-northeast-2.rds.amazonaws.com",
+  "user": "root",
+  "password": "dltngus0303",
+  "port": "3306",
+  "database": "question"
+}
