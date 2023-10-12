@@ -5,7 +5,12 @@ const path = require('path');
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:5000'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'http://13.124.51.51:5000',
+  'http://13.124.51.51:4000',
+];
 
 const options = {
   origin: allowedOrigins, // 접근 권한을 부여하는 도메인
