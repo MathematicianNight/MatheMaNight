@@ -29,6 +29,7 @@ export const Images = {
   cancel_button: "/assets/images/cancel_button.svg",
   question_icon: "/assets/images/question.svg",
   speech_icon: "/assets/images/speech.svg",
+  clickheart: "/assets/images/clickheart_shadow.svg",
 
   eiffel_tower: "/assets/images/eiffel_tower.svg",
   calendar_icon: "/assets/images/calendar_icon.svg",
