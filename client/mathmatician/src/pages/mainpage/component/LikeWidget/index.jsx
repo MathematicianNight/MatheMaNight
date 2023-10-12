@@ -9,18 +9,16 @@ const LikeWidget = () => {
 
   return (
     <LikeContainer>
-      <div className="record-click">
-        <img src={Images.heart_bubble} alt="heart bubble image" />
-        <span>000</span>
+      <div className="like-wrapper">
+        <div className="like-heart">
+          <img src={Images.heart_bubble} alt="heart bubble image" />
+          <span>000</span>
+        </div>
+        <img src={Images.clickheart} alt="" />
+        <span className="title">수학인의 밤 좋아요</span>
       </div>
-      {/* {setInterval(() => {
-        setFront(!front)
-      }, 1500)} */}
-      {/* <img className={(front ? "on" : "off") + " front"} src={Images.heart} />
-      <img className={(front ? "off" : "on") + " back"} src={Images.heart_shadow} /> */}
-      {/* <span>수학인의 밤</span> */}
     </LikeContainer>
   );
-}
+};
 
 export default LikeWidget;
