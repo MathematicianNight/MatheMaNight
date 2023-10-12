@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const message = `정보보안암호수학과를 이끌어 주시는
-재학생, 졸업생 여러분들 안녕하십니까
+재학생, 졸업생 여러분들
+안녕하십니까
 
 벌써 2023년의 연말이 다가오고 있습니다.
 올해도 “제40회 수학인의 밤”을
