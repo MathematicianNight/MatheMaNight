@@ -1,6 +1,7 @@
 // module
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -20,11 +21,9 @@ const { swaggerUi, specs } = require('./swagger/swagger');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Run server
-const port = 4000;
+app.set('port', process.env.PORT || 4000);
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
 
 /**
  * 파라미터 변수 뜻
@@ -37,8 +36,12 @@ app.listen(port, () => {
  * @description 요청 데이터 값이 없고 반환 값이 있는 GET Method
  */
 app.get('/', (req, res) => {
-  //Hello World 데이터 반환
-  res.send('Hello World');
+  // 리액트 프로젝트 빌드 파일
+  res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 //-- API --//
