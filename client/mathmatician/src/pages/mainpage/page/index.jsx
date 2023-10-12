@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
-import Greetings from "../component/Greetings/index";
+
+//Hooks
 import useGreetings from "../hooks/useGreetings";
+
+//component
+import Greetings from "../component/Greetings/index";
 import CalendarWidget from "../component/CalendarWidget";
 import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
@@ -9,22 +13,22 @@ import QnaComponent from "../component/Qna/index";
 
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
+
+// util
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
 
-
 const MainPage = () => {
-  
   const message = useGreetings();
-  
 
   const messageLines =
     message && message.length > 0
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
+
   useEffect(() => {
     resizeViewportHeight();
-    window.addEventListener('resize', resizeViewportHeight);
-    return () => window.removeEventListener('resize', resizeViewportHeight);
+    window.addEventListener("resize", resizeViewportHeight);
+    return () => window.removeEventListener("resize", resizeViewportHeight);
   }, []);
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
@@ -55,9 +59,9 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-greetings">
-          <div className="Greetings">
-            <Greetings message={messageLines} />
-          </div>
+        <div className="Greetings">
+          <Greetings message={messageLines} />
+        </div>
       </div>
 
       <div className="mainpage-details">
