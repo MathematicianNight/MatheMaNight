@@ -5,8 +5,10 @@ const path = require('path');
 
 const app = express();
 
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:4000'];
+
 const options = {
-  origin: 'http://localhost:3000', // 접근 권한을 부여하는 도메인
+  origin: allowedOrigins, // 접근 권한을 부여하는 도메인
   credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
   optionsSuccessStatus: 200, // 응답 상태 200으로 설정
 };
@@ -21,9 +23,11 @@ const { swaggerUi, specs } = require('./swagger/swagger');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Run server
+// const port = 4000;
+
 app.set('port', process.env.PORT || 4000);
 
-app.use(express.static(path.join(__dirname, '../client/mathmatician/public')));
+app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
 
 /**
  * 파라미터 변수 뜻
@@ -37,14 +41,16 @@ app.use(express.static(path.join(__dirname, '../client/mathmatician/public')));
  */
 app.get('/', (req, res) => {
   // 리액트 프로젝트 빌드 파일
-  res.sendFile(
-    path.join(__dirname, '../client/mathmatician/public/index.html')
-  );
+  res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(app.get('port'), () => {
+  console.log(app.get('port'), '번 포트에서 대기중..');
 });
+
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 //-- API --//
 // Get handler
