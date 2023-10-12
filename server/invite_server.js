@@ -23,7 +23,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Run server
 app.set('port', process.env.PORT || 4000);
 
-app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
+app.use(express.static(path.join(__dirname, '../client/mathmatician/public')));
 
 /**
  * 파라미터 변수 뜻
@@ -37,7 +37,9 @@ app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
  */
 app.get('/', (req, res) => {
   // 리액트 프로젝트 빌드 파일
-  res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
+  res.sendFile(
+    path.join(__dirname, '../client/mathmatician/public/index.html')
+  );
 });
 
 app.listen(port, () => {
