@@ -47,6 +47,7 @@ const greeting = require('./routers/greeting.js');
 const like_api = require('./routers/like_api.js');
 const aboutus = require('./routers/aboutus.js');
 const question_api = require('./routers/question_api.js');
+const calendar = require('./routers/calendar.js');
 
 // Using handler
 
@@ -81,3 +82,11 @@ app.use('/aboutus', aboutus);
  *   description: 수밤에 관한 질의응답
  */
 app.use('/question', question_api);
+
+/**
+ * @swagger
+ * tags:
+ *   name: Calendar
+ *   description: 캘린더 저장
+ */
+app.use('/calendar', calendar);
