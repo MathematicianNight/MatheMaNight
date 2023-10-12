@@ -3,6 +3,7 @@ import MapContainer from "./style";
 import { Images, Colors } from "../../../../utils/style";
 
 const openGoogleMap = () => {
+  return;
   setTimeout(() => {
     window.location.href = "https://www.google.com/maps/search/?api=1&query=더블유파티";
   }, 800);
@@ -35,18 +36,20 @@ const fallbackCopyClipBoard = (content) => {
 };
 
 const copyClipBoard = (content) => {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(content)
-      .then(() => {
+  if (window.navigator.clipboard) {
+    window.navigator.clipboard.writeText(content)
+      .then(res => {
         alert('주소가 복사되었습니다.');
       })
-      .catch((err) => {
+      .catch(err => {
         fallbackCopyClipBoard(content);
       });
   } else {
     fallbackCopyClipBoard(content);
   }
 };
+
+const invitation_address = "서울 성북구 동소문로 284 길음 서희스타힐스";
 
 const MapWidget = () => {
   const [isBlurred, setIsBlurred] = useState(false);
@@ -62,24 +65,35 @@ const MapWidget = () => {
   }
 
   return (
-    <MapContainer
-      isBlurred={isBlurred}
-      onClick={showIcons}
-    >
+    <MapContainer isBlurred={isBlurred} onClick={showIcons}>
       <img 
-        className="map-app-background"
+        className="widget-background"
         src={Images.location_drawing}
+        alt="map of the party place"
       />
-      <div className="open-map-app">
-          <img src={Images.google_map_icon} />
-          <img src={Images.naver_map_icon} onClick={openNaverMap} />
-          <img src={Images.kakao_map_icon} onClick={openKakaoMap} />
+      <div className="map-apps-div">
+          <img
+            src={Images.googlemap_icon}
+            alt="google map app icon image"
+            onClick={openGoogleMap}
+          />
+          <img
+            src={Images.navermap_icon}
+            alt="naver map app icon image"
+            onClick={openNaverMap}
+          />
+          <img
+            src={Images.kakaomap_icon}
+            alt="kakao map app icon image"
+            onClick={openKakaoMap}
+          />
       </div>
-      <div className="copy-addr">
-        <span>서울 성북구 동소문로 284 길음 서희스타힐스</span>
-        <span className="copy-addr-button" onClick={() => copyClipBoard('서울 성북구 동소문로 284 길음 서희스타힐스')}>
-          <img src={Images.copy_addr_icon} /> 복사
-        </span>
+      <div className="addr-copy-div">
+        <span>{invitation_address}</span>
+        <div className="addr-copy-button" onClick={() => copyClipBoard(invitation_address)}>
+          <img src={Images.clipboard_icon} alt="clipboard icon image" />
+          <span>복사</span>
+        </div>
       </div>
     </MapContainer>
   );
