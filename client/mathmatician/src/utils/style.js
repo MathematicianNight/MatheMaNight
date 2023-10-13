@@ -18,7 +18,7 @@ export const Images = {
   flower_above: "/assets/images/flower_above.svg",
   flower_bellow: "/assets/images/flower_bellow.svg",
   background_fix: "/assets/images/background_gra.svg",
-  urin_logo: "/assets/images/urin_logo.svg",
+  urin_logo: "/assets/images/Urin_logo.svg",
   search_icon: "/assets/images/search.svg",
   toggle_icon: "/assets/images/toggle.svg",
   toggle_select: "/assets/images/toggle_select.svg",
