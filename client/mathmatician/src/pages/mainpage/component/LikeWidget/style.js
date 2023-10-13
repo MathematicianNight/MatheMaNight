@@ -35,7 +35,7 @@ const LikeContainer = styled.section`
       & > img {
         position: relative;
         margin-left: 15px;
-        right: 40%;
+        right: 35px;
       }
       & > span {
         position: relative; /* span을 절대 위치로 설정 */

@@ -30,6 +30,9 @@ export const Images = {
   question_icon: "/assets/images/question.svg",
   speech_icon: "/assets/images/speech.svg",
   clickheart: "/assets/images/clickheart_shadow.svg",
+  smile: "/assets/images/smile.svg",
+  smileplus: "/assets/images/smileplus.svg",
+  likeheart: "/assets/images/likeheart.svg",
 
   eiffel_tower: "/assets/images/eiffel_tower.svg",
   calendar_icon: "/assets/images/calendar_icon.svg",
