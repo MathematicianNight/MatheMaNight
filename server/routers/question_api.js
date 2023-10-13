@@ -84,9 +84,10 @@ router.get('/', (req, res) => {
       console.error(err);
       res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
     } else {
-      db.query(rowsQuery, (err, rows) => {
-        res.json({ table, rows });
-      });
+      // db.query(rowsQuery, (err, rows) => {
+      //   res.json({ table, rows });
+      // });
+      res.json(table);
     }
   });
 });
