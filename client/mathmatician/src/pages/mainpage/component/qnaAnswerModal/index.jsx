@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { AnswerModalContainer } from "./style";
 import { Images } from "../../../../utils/style";
+import axios from "axios";
 
-const Index = ({ handleCloseModal, title }) => {
+const Index = (props) => {
+  const { handleCloseModal, title, questionindex } = props;
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -21,6 +23,24 @@ const Index = ({ handleCloseModal, title }) => {
       setAnswer(e.target.value);
     }
   };
+
+  const createAnswer = () => {
+    const apiUrl = "http://13.124.51.51:4000/question/answer";
+    const questionData = {
+      anony_num: questionindex,
+      answer: answer,
+    };
+    axios
+      .post(apiUrl, questionData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    handleCloseModal();
+  };
+
   return (
     <AnswerModalContainer>
       <div className="ModalContainer">
@@ -58,14 +78,14 @@ const Index = ({ handleCloseModal, title }) => {
                   placeholder="120자 이내로 작성해주세요"
                   value={answer}
                   onChange={handleChange}
-                />{" "}
+                />
               </div>
             </div>
             <div className="button-group">
               <div className="button centerborder" onClick={handleCloseModal}>
                 취소
               </div>
-              <div className="button" onClick={handleConfirm}>
+              <div className="button" onClick={createAnswer}>
                 확인
               </div>
             </div>

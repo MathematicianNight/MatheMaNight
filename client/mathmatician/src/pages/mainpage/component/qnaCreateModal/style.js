@@ -24,12 +24,11 @@ export const CreateModalContainer = styled.div`
     border-radius: 15px;
     // padding-bottom: 20px;
     min-width: 293px;
-    height: 350px;
     background-color: ${Colors.White};
     color: ${Colors.Black};
-    @media (max-width: ${maxwidth}px) {
-      width: 85%;
-      height: 48%;
+    @media (max-width: 290px) {
+      width: 80%;
+      min-width: unset;
     }
 
     & > .modal-close-div {
@@ -109,9 +108,9 @@ export const CreateModalContainer = styled.div`
         height: 23px;
         flex-shrink: 0;
         color: white;
-        margin-top: 10px;
         cursor: pointer;
         border: none;
+        margin: 10px 0 20px 0;
         @media (max-width: ${maxwidth}px) {
           font-size: 11px;
         }

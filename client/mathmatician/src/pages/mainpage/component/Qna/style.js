@@ -46,24 +46,24 @@ export const QnaContainer = styled.div`
   & > .qna-wrapper {
     padding: 0 34px;
     height: ${window.innerHeight}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    @media (max-width: ${maxwidth}px) {
-      padding: 0 22px;
-    }
-    @media (min-width: 500px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    // @media (max-width: ${maxwidth}px) {
+    //   padding: 0 22px;
+    // }
+    // @media (min-width: 500px) {
+    // }
     & > .qna-title {
       color: ${Colors.White};
       font-size: 25px;
       font-weight: 400;
       line-height: normal;
       margin-bottom: 45px;
-      padding-top: ${window.innerHeight / 7}px;
+      // padding-top: ${window.innerHeight / 7}px;
       @media (max-width: ${maxwidth}px) {
-        padding-top: ${window.innerHeight / 14}px;
+        // padding-top: ${window.innerHeight / 14}px;
         margin-bottom: 30px;
         font-size: 22px;
       }
@@ -138,8 +138,16 @@ export const QnaContainer = styled.div`
             color: ${Colors.Gray01};
             font-size: 12px;
             font-weight: 200;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             @media (max-width: ${maxwidth}px) {
               font-size: 10px;
+            }
+            & > .speech-img {
+              width: 12px;
+              height: 12px;
+              padding: 2px 0 0 6px;
             }
           }
         }
