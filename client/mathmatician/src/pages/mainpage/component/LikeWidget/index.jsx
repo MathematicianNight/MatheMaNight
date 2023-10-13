@@ -16,9 +16,8 @@ const LikeWidget = () => {
       setlikemodalopen(false);
     }, 3000); // 5초 후에 애니메이션 종료
   };
-
   return (
-    <LikeContainer>
+    <LikeContainer likemodalopen={likemodalopen}>
       {likemodalopen && <Likemodal />}
       <div className="like-wrapper" onClick={startLikeAnimation}>
         <div className="like-heart">

@@ -2,8 +2,6 @@ import styled from "@emotion/styled";
 import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
-// 현재 작성되어 있는 css 모든 속성은 반응형 위해 작성한것이니 지켜주시면 감사하겠습니다 ....!
-// 참고로 모든 요소에 box-sizing 적용돼서 패딩, 보더까지 width/height 속성에 포함되니 이점 참고해주세요!
 const LikeContainer = styled.section`
   @keyframes heartAnimation {
     0% {
@@ -27,14 +25,13 @@ const LikeContainer = styled.section`
       opacity: 0;
     }
   }
-
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
   animation: fadeOut 0.8s 2.2s forwards;
   & > .center {
     display: flex;
