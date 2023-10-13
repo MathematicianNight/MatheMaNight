@@ -22,7 +22,7 @@ const invitation_schedule = {
  * paths:
  *  /calendar:
  *    get:
- *      tags: [calendar]
+ *      tags: [Calendar]
  *      summary: "캘린더 데이터 조회"
  *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청"
  *      responses:

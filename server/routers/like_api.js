@@ -51,10 +51,12 @@ router.get('/', (req, res) => {
 router.post('/upcount', (req, res) => {
   if (likeCnt < 999) {
     likeCnt++;
-    res.json('likeCnt is updated');
+    console.log('LikeCnt is upgrade!');
+    return res.redirect('http://localhost:5000');
   } else {
     overCnt = true;
-    res.json('likeCnt is over then 999');
+    console.log('LikeCnt is over');
+    return res.redirect('http://localhost:5000');
   }
 });
 
