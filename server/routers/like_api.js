@@ -52,11 +52,11 @@ router.post('/upcount', (req, res) => {
   if (likeCnt < 999) {
     likeCnt++;
     console.log('LikeCnt is upgrade!');
-    return res.redirect('http://localhost:5000');
+    return res.redirect('http://13.124.51.51:5000');
   } else {
     overCnt = true;
     console.log('LikeCnt is over');
-    return res.redirect('http://localhost:5000');
+    return res.redirect('http://13.124.51.51:5000');
   }
 });
 

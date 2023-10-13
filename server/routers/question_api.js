@@ -127,7 +127,7 @@ router.post('/create', (req, res) => {
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
       // res.json('success!');
-      return res.redirect('http://localhost:5000');
+      return res.redirect('http://13.124.51.51:5000');
     }
   });
 });
@@ -225,7 +225,7 @@ router.post('/answer', (req, res) => {
     }
 
     // res.json('success!');
-    return res.redirect('http://localhost:5000');
+    return res.redirect('http://13.124.51.51:5000');
   });
 });
 
@@ -261,7 +261,7 @@ router.post('/delete', (req, res) => {
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
       // res.json('success!');
-      return res.redirect('http://localhost:5000');
+      return res.redirect('http://13.124.51.51:5000');
     }
   });
 });
