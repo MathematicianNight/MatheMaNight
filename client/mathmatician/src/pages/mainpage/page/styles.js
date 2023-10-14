@@ -4,18 +4,23 @@ import "../../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
   // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
-  /* border: 1.5px solid red; box-sizing: border-box; */
-  box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5), 5px 0 10px rgba(20, 20, 20, 0.5);
-  @media (max-width: 501px) {width: 100%;} // 501 미만
+  box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5),
+    5px 0 10px rgba(20, 20, 20, 0.5);
+  @media (max-width: 501px) { // 501 미만
+    width: 100%;
+  }
   @media (min-width: 501px) { // 501 이상
     width: 500px;
     margin: 0 auto;
   }
-  background-image: linear-gradient(180deg, #0F0019 0%, #140065 48.26%, #987FFF 100%);
+  background-image: linear-gradient(
+    180deg,
+    #0f0019 0%,
+    #140065 48.26%,
+    #987fff 100%
+  );
   background-repeat: no-repeat;
-  /* height: 100vh; */
-  height: ${window.innerHeight}px;
-  /* height: calc(var(--vh, 1vh) * 100); */
+  height: 100vh;
   overflow: auto;
   scroll-snap-type: y mandatory;
   font-family: "SUITE", sans-serif;
@@ -32,88 +37,142 @@ const MainpageContainer = styled.section`
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   & > .mainpage-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     & > .home-wrapper {
-      /* border: 1.5px solid red; box-sizing: border-box; */
       width: 90%;
-      /* height: 100%; */
-      height: ${window.innerHeight}px;
-      /* height: calc(var(--vh, 1vh) * 100); */
-      margin: 0 auto;
+      height: auto;
+      margin: 0 5%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      & > span {
-        /* border: 1.5px solid aqua; box-sizing: border-box; */
+      & > p {
+        /* &, & * {border: 1.5px solid red; box-sizing: border-box;} */
+        box-sizing: border-box;
+        width: 330px;
+        padding-left: 4.6%;
+        text-align: left;
         font-family: "DM Serif Display", sans-serif;
-        font-size: 63px;
-        align-self: flex-start;
-        display: block;
-        margin-left: 18px;
+        font-size: 65px;
+        font-weight: 400;
+        line-height: 93%;
+        & > span {
+          display: block;
+          &.welcome-to {
+            margin: 2px 0 0 6px;
+          }
+        }
       }
       & > img {
-        /* border: 1.5px solid aqua; box-sizing: border-box;         */
         @media (max-height: 641px) {
           margin: -35px 0 5px 0;
           height: 41%;
         }
         @media (min-height: 641px) and (max-height: 751px) {
-          margin: -8px 0 17px 0;
-          height: 44%;
+          margin: -6px 0 15px 0;
+          border: 1px solid red;
+          height: 40%;
         }
         @media (min-height: 751px) and (max-height: 851px) {
-          margin: 5px 0 30px 0;
-          height: 48%;
+          border: 1px solid red;
+          height: 30%;
         }
         @media (min-height: 851px) {
-          margin: 17px 0 42px 0;
+          margin: 10px 0 35px 0;
           height: 50%;
         }
       }
       & > .invitation-summary {
-        /* border: 1.5px solid aqua; box-sizing: border-box; */
-        /* & > * {border: 1.5px solid red; box-sizing: border-box;} */
-        @media (max-width: 321px) {
-          width: 250px;
-        } // 321 미만
-        @media (min-width: 321px) and (max-width: 391px) {
-          width: 299px;
-        } // 321 이상 391 미만
-        @media (min-width: 391px) {
-          width: 347px;
-        } // 391 이상
-        & > span:nth-child(1) {
+        /* &, & * {border: 1.5px solid red; box-sizing: border-box;} */
+        width: 330px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr;
+        & > .invitation-running {
+          grid-row: 1 / 2;
+          grid-column: 1 / 3;
+          justify-self: end;
+          align-self: end;
           font-family: "EB Garamond", sans-serif;
+          font-weight: 400;
           font-size: 20px;
           color: #ff8383;
-          float: right;
-          padding: 0 11px 3px 0;
+          margin: 0 25px 6px 0;
         }
-        & > span:nth-child(2) {
+        & > .invitation-title {
+          grid-row: 2 / 3;
+          grid-column: 1 / 3;
+          justify-self: center;
+          align-self: center;
           font-family: "PyeongChangPeace", sans-serif;
-          @media (max-width: 321px) {
-            font-size: 50px;
-          } // 321 미만
-          @media (min-width: 321px) and (max-width: 391px) {
-            font-size: 60px;
-          } // 321 이상 391 미만
-          @media (min-width: 391px) {
-            font-size: 70px;
-          } // 391 이상
-          float: left;
+          font-weight: 300;
+          font-size: 60px;
+          text-shadow: 0 0 3.5px rgba(255, 255, 255, 0.9);
         }
-        & > span:nth-child(3) {
-          font-family: "SUIT", sans-serif;
+        & > .invitation-date {
+          grid-row: 3 / 4;
+          grid-column: 1 / 2;
+          justify-self: start;
+          align-self: start;
+          font-family: "SUITE", sans-serif;
           font-size: 15px;
-          float: left;
-          padding: 6px 0 0 6px;
+          font-weight: 400;
+          margin: 11px 0 0 24px;
         }
-        & > span:nth-child(4) {
+        & > .invitation-place {
+          grid-row: 3 / 4;
+          grid-column: 2 / 3;
+          justify-self: end;
+          align-self: start;
           font-family: "TheJamsil", sans-serif;
           font-weight: 300;
           font-size: 15px;
-          float: right;
-          padding: 6px 8px 0 0;
+          margin: 11px 24px 0 0;
+        }
+      }
+      @media (max-width: 325px) {
+        & > p {
+          width: 300px;
+          font-size: 58px;
+          padding-left: 7.5%;
+        }
+        & > .invitation-summary {
+          width: 300px;
+          & > .invitation-title {
+            font-size: 54px;
+          }
+        }
+      }
+      @media (min-width: 405px) {
+        & > p {
+          width: 370px;
+          font-size: 70px;
+          padding-left: 3%;
+        }
+        & > .invitation-summary {
+          width: 370px;
+          & > .invitation-running {
+            font-size: 24px;
+            margin: 0 20px 8px 0;
+          }
+          & > .invitation-title {
+            font-size: 70px;
+          }
+          & > .invitation-date {
+            font-size: 19px;
+            margin: 12px 0 0 20px;
+          }
+          & > .invitation-place {
+            font-size: 19px;
+            margin: 12px 20px 0 0;
+          }
+        }
+      }
+      @media (min-width: 470px) {
+        & > p {
+          padding-left: 1%;
         }
       }
     }
@@ -121,11 +180,11 @@ const MainpageContainer = styled.section`
 
   // 페이지 2: 인사말
   & > .mainpage-greetings {
-    // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
-    height: 100%;
-    min-height: ${window.innerHeight}px;
-    // line-height: ${window.innerHeight}px;
-    scroll-snap-align: start;
+  // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
+  height: 100%;
+  min-height: ${window.innerHeight}px;
+  // line-height: ${window.innerHeight}px;
+  scroll-snap-align: start;
     & > .Greetings {
       // .child 안에 .Greetings가 있었어서 여기로 다시 옮김
       height: 100%;
@@ -267,7 +326,6 @@ const MainpageContainer = styled.section`
     }
   }
 
-
   // 페이지 4: 부가 기능
   & > .mainpage-morefunc {
     &, & * {box-sizing: border-box;}
@@ -405,7 +463,6 @@ const MainpageContainer = styled.section`
     }
   }
 
-
   // 페이지 5: 질문과 답변
   & > .mainpage-qna {
     // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
@@ -413,9 +470,8 @@ const MainpageContainer = styled.section`
     min-height: ${window.innerHeight}px;
     // line-height: ${window.innerHeight}px;
     scroll-snap-align: start;
-
     & > .QnA {
-      height: ${window.innerHeight}px;
+      min-height: ${window.innerHeight}px;
       // display: flex;
       // align-items: center;
       // justify-content: center;

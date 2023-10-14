@@ -18,17 +18,20 @@ const MapContainer = styled.div`
     height: auto;
     vertical-align: bottom;
     & {
-      ${({ isBlurred }) => (isBlurred ? `
+      ${({ isBlurred }) =>
+        isBlurred
+          ? `
       transform: scale(1.38);
       background-color: rgba(30, 30, 30, 0.6);
       filter: blur(2.55px); // ***** 반응형 *****
       transition: all 1s;
-    ` : `
+    `
+          : `
       transform: scale(1.0);
       background-color: transparent;
       filter: none;
       transition: all 1s;
-    `)}
+    `}
     }
   }
   & > .map-apps-div { // 기본은 345px 이상 425px 미만

@@ -25,11 +25,13 @@ const MainPage = () => {
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
 
-  useEffect(() => {
+  // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
+  // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
+  /* useEffect(() => {
     resizeViewportHeight();
     window.addEventListener("resize", resizeViewportHeight);
     return () => window.removeEventListener("resize", resizeViewportHeight);
-  }, []);
+  }, []); */
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
@@ -43,17 +45,20 @@ const MainPage = () => {
     <MainpageContainer>
       <div className="mainpage-home">
         <div className="home-wrapper">
-          <span>Wel</span>
-          <span>-come</span>
-          <span>to</span>
-          <div className="moon-back"></div>
-          <div className="moon-front"></div>
-          <img src={Images.eiffel_tower} alt="eiffer tower image" />
+          <p>
+            <span className="welcome-wel">Wel</span>
+            <span className="welcome-come">-come</span>
+            <span className="welcome-to">to</span>
+          </p>
+          <img
+            src={Images.eiffel_tower}
+            alt="eiffer tower image"
+          />
           <div className="invitation-summary">
-            <span>40th</span>
-            <span>수학인의 밤</span>
-            <span>2023.11.24.18:00</span>
-            <span>더블유파티</span>
+            <span className="invitation-running">40th</span>
+            <span className="invitation-title">수학인의 밤</span>
+            <span className="invitation-date">2023.11.24.18:00</span>
+            <span className="invitation-place">더블유파티</span>
           </div>
         </div>
       </div>
