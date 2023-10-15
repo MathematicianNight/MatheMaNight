@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 //Hooks
 import useGreetings from "../hooks/useGreetings";
@@ -34,10 +35,15 @@ const MainPage = () => {
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
     setEnvelopeIconClicked(true);
-  }
+  };
   const closeModal = () => {
     setEnvelopeIconClicked(false);
-  }
+  };
+
+  const navigate = useNavigate();
+  const handlenavigate = () => {
+    navigate("/aboutus");
+  };
 
   return (
     <MainpageContainer>
@@ -101,13 +107,16 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-morefunc">
-        {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+        {envelopeIconClicked && (
+          <HandyInvitationModal closeModal={closeModal} />
+        )}
         <div className="morefunc-wrapper">
           <div className="morefunc-description">
             <h1>More Functions</h1>
             <p>
-            위젯을 클릭하여 일정을 등록하고,<br />
-            지도 앱을 통해 위치를 확인해 보세요.
+              위젯을 클릭하여 일정을 등록하고,
+              <br />
+              지도 앱을 통해 위치를 확인해 보세요.
             </p>
           </div>
           <div className="widgets-wrapper">
@@ -116,8 +125,11 @@ const MainPage = () => {
             <MapWidget />
           </div>
           <div className="aboutus-wrapper">
-            <img src="http://via.placeholder.com/100x100" alt="our team logo image"/>
-            <span>만든 사람들 &#62;</span>
+            <img
+              src="http://via.placeholder.com/100x100"
+              alt="our team logo image"
+            />
+            <span onClick={handlenavigate}>만든 사람들 &#62;</span>
           </div>
           <div className="handy-invitation">
             간이 초대장
