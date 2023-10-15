@@ -4,7 +4,7 @@ const useInvitationSchedule = () => {
   const [schedule, setSchedule] = useState({});
 
   useEffect(() => {
-    const req_url = "http://127.0.0.1:4000/schedule";
+    const req_url = "http://13.124.51.51:4000/calendar";
 
     fetch(req_url)
       .then(res => res.json())

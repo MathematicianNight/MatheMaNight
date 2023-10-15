@@ -30,7 +30,8 @@ const MainpageContainer = styled.section`
   // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
   & > [class^="mainpage"] {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    height: ${window.innerHeight}px;
     overflow: auto;
     scroll-snap-align: start;
   }
@@ -49,14 +50,12 @@ const MainpageContainer = styled.section`
       justify-content: center;
       align-items: center;
       & > p {
-        box-sizing: border-box;
-        width: 330px;
-        padding-left: 4.6%;
-        text-align: left;
+        width: 298px;
         font-family: "DM Serif Display", sans-serif;
         font-size: 65px;
         font-weight: 400;
         line-height: 93%;
+        text-align: left;
         & > span {
           display: block;
           &.welcome-to {
@@ -65,25 +64,26 @@ const MainpageContainer = styled.section`
         }
       }
       & > img {
-        @media (max-height: 641px) {
+        width: 150px;
+        /* width: 55%; */
+        /* @media (max-height: 641px) {
           margin: -35px 0 5px 0;
-          height: 41%;
+          width: 45%;
         }
         @media (min-height: 641px) and (max-height: 751px) {
           margin: -6px 0 15px 0;
-          height: 40%;
+          width: 45%;
         }
         @media (min-height: 751px) and (max-height: 851px) {
-          height: 30%;
+          width: 55%;
         }
         @media (min-height: 851px) {
           margin: 10px 0 35px 0;
-          height: 50%;
-        }
+          width: 60%;
+        } */
       }
       & > .invitation-summary {
-        /* &, & * {border: 1.5px solid red; box-sizing: border-box;} */
-        width: 330px;
+        width: 298px;
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-columns: 1fr 1fr;
@@ -96,7 +96,7 @@ const MainpageContainer = styled.section`
           font-weight: 400;
           font-size: 20px;
           color: #ff8383;
-          margin: 0 25px 6px 0;
+          margin: 0 9px 8px 0;
         }
         & > .invitation-title {
           grid-row: 2 / 3;
@@ -116,7 +116,7 @@ const MainpageContainer = styled.section`
           font-family: "SUITE", sans-serif;
           font-size: 15px;
           font-weight: 400;
-          margin: 11px 0 0 24px;
+          margin: 11px 0 0 8px;
         }
         & > .invitation-place {
           grid-row: 3 / 4;
@@ -126,17 +126,16 @@ const MainpageContainer = styled.section`
           font-family: "TheJamsil", sans-serif;
           font-weight: 300;
           font-size: 15px;
-          margin: 11px 24px 0 0;
+          margin: 11px 8px 0 0;
         }
       }
       @media (max-width: 325px) {
         & > p {
-          width: 300px;
+          width: 270px;
           font-size: 58px;
-          padding-left: 7.5%;
         }
         & > .invitation-summary {
-          width: 300px;
+          width: 270px;
           & > .invitation-title {
             font-size: 54px;
           }
@@ -144,32 +143,26 @@ const MainpageContainer = styled.section`
       }
       @media (min-width: 405px) {
         & > p {
-          width: 370px;
+          width: 348px;
           font-size: 70px;
-          padding-left: 3%;
         }
         & > .invitation-summary {
-          width: 370px;
+          width: 348px;
           & > .invitation-running {
             font-size: 24px;
-            margin: 0 20px 8px 0;
+            margin: 0 10px 11px 0;
           }
           & > .invitation-title {
             font-size: 70px;
           }
           & > .invitation-date {
             font-size: 19px;
-            margin: 12px 0 0 20px;
+            margin: 12px 0 0 9px;
           }
           & > .invitation-place {
             font-size: 19px;
-            margin: 12px 20px 0 0;
+            margin: 12px 9px 0 0;
           }
-        }
-      }
-      @media (min-width: 470px) {
-        & > p {
-          padding-left: 1%;
         }
       }
     }
@@ -193,8 +186,11 @@ const MainpageContainer = styled.section`
   & > .mainpage-details {
     box-sizing: border-box;
     display: grid;
-    grid-row-gap: 48px;
-    row-gap: 48px;
+    justify-items: center;
+    align-items: center;
+    /* grid-row-gap: 48px; */
+    /* row-gap: 48px; */
+    padding: 5% 0;
     font-family: "SUITE", sans-serif;
     font-weight: 400;
     & .highlight {
@@ -202,7 +198,6 @@ const MainpageContainer = styled.section`
       color: #FFDB58;
     }
     & > .info-wrapper {
-      align-self: end;
       width: 100%;
       min-width: 0;
       position: relative;
@@ -235,48 +230,13 @@ const MainpageContainer = styled.section`
         text-align: center;
         line-height: 12px;
       }
-      & > .info-date {
-        & > img {
-          width: 8.5px;
-          position: absolute;
-          top: 5px;
-          left: 6.2px;
-        }
-        & > span {
-          position: absolute;
-          top: 5.1px;
-          left: 18.5px;
-        }
-      }
-      & > .info-time {
-        & > img {
-          width: 9px;
-          position: absolute;
-          top: 4.5px;
-          left: 6px;
-        }
-        & > span {
-          position: absolute;
-          top: 5.5px;
-          left: 18.5px;
-        }
-      }
-      & > .info-place {
-        & > img {
-          width: 7px;
-          position: absolute;
-          top: 4px;
-          left: 6px;
-        }
-        & > span {
-          position: absolute;
-          top: 5.5px;
-          left: 17.5px;
-        }
+      & > div > img {
+        position: absolute;
+        top: 5px;
+        left: 8px;
       }
     }
     & > .program-wrapper {
-      align-self: start;
       width: 100%;
       min-width: 0;
       & > h1 {
@@ -288,12 +248,11 @@ const MainpageContainer = styled.section`
         position: relative;
         & > .content-chart {
           width: 1px;
-          /* height: 237px; */
           background-color: ${Colors.White};
           position: absolute;
           top: 10px;
-          left: 14.5px;
-          height: 90%;
+          left: 16px;
+          height: 89%;
         }
         & > li {
           list-style-image: url(${Images.circle});
@@ -311,8 +270,8 @@ const MainpageContainer = styled.section`
       }
     }
     @media (max-width: 325px) {
-      grid-row-gap: 0px;
-      row-gap: 0px;
+      grid-row-gap: 0;
+      row-gap: 0;
       & > .info-wrapper {
         & > h1 {
           font-size: 22px;
@@ -339,16 +298,12 @@ const MainpageContainer = styled.section`
         }
         & > .program-timetable {
           margin: 0 7%;
-          & > li > span {
-            font-size: 16px;
-          }
-          & > li > .highlight {
-            font-size: 13px;
-          }
         }
       }
     }
     @media (min-width: 400px) {
+      grid-row-gap: 30px;
+      row-gap: 30px;
       & > .info-wrapper {
         & > h1 {
           font-size: 28px;
@@ -366,13 +321,8 @@ const MainpageContainer = styled.section`
           font-size: 12px;
         }
       }
-      & > .program-wrapper {
-        & > h1 {
-          font-size: 28px;
-        }
-        & > .program-timetable > li > span {
-          font-size: 20px;
-        }
+      & > .program-wrapper > h1 {
+        font-size: 28px;
       }
     }
     @media (max-height: 755px) {

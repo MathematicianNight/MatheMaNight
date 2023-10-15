@@ -79,18 +79,15 @@ const MainPage = () => {
         <div className="info-wrapper">
           <h1>Information</h1>
           <div className="info-date">
-            <img src={Images.calendar_icon} alt="calendar icon image" />
-            <span>날짜</span>
+            <img src={Images.info_date_head} />
             <p>2023-11-24&#40;금&#41;</p>
           </div>
           <div className="info-time">
-            <img src={Images.clock_icon} alt="clock icon image" />
-            <span>시간</span>
+            <img src={Images.info_time_head} />
             <p>저녁 6시</p>
           </div>
           <div className="info-place">
-            <img src={Images.location_pin_icon} alt="location pin icon image icon image" />
-            <span>장소</span>
+            <img src={Images.info_place_head} />
             <p>
               더블유파티<br/>
               <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
