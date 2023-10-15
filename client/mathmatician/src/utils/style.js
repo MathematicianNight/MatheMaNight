@@ -18,7 +18,7 @@ export const Images = {
   flower_above: "/assets/images/flower_above.svg",
   flower_bellow: "/assets/images/flower_bellow.svg",
   background_fix: "/assets/images/background_gra.svg",
-  urin_logo: "/assets/images/urin_logo.svg",
+  urin_logo: "/assets/images/Urin_logo.svg",
   search_icon: "/assets/images/search.svg",
   toggle_icon: "/assets/images/toggle.svg",
   toggle_select: "/assets/images/toggle_select.svg",
@@ -30,6 +30,9 @@ export const Images = {
   question_icon: "/assets/images/question.svg",
   speech_icon: "/assets/images/speech.svg",
   clickheart: "/assets/images/clickheart_shadow.svg",
+  smile: "/assets/images/smile.svg",
+  smileplus: "/assets/images/smileplus.svg",
+  likeheart: "/assets/images/likeheart.svg",
 
   eiffel_tower: "/assets/images/eiffel_tower.svg",
   calendar_icon: "/assets/images/calendar_icon.svg",
