@@ -49,7 +49,6 @@ const MainpageContainer = styled.section`
       justify-content: center;
       align-items: center;
       & > p {
-        /* &, & * {border: 1.5px solid red; box-sizing: border-box;} */
         box-sizing: border-box;
         width: 330px;
         padding-left: 4.6%;
@@ -72,11 +71,9 @@ const MainpageContainer = styled.section`
         }
         @media (min-height: 641px) and (max-height: 751px) {
           margin: -6px 0 15px 0;
-          border: 1px solid red;
           height: 40%;
         }
         @media (min-height: 751px) and (max-height: 851px) {
-          border: 1px solid red;
           height: 30%;
         }
         @media (min-height: 851px) {
@@ -194,134 +191,197 @@ const MainpageContainer = styled.section`
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
   & > .mainpage-details {
-    &, & * {box-sizing: border-box};
-    .highlight {color: #ffdb5b};
+    box-sizing: border-box;
     display: grid;
-    @media (max-width: 321px) { // 321 미만
-      h1 {font-weight: 300; font-size: 22px}
-      & > .info-wrapper {
-        padding: 7.5% 9% 8.5%; // 세번째값 Information과 Program 사이의 간격
-        & > div {
-          height: 54px;
-          margin: 10px 0 10px; // 첫번째값 Information 밑의 간격
-          & > p {font-size: 15px;}
-        }
-      }
-      & > .program-wrapper {
-        padding: 0 9% 7.5%; // 세번째값 위 쿼리 padding의 첫번째값하고 같아야 함
-        & > div {margin-top: 14px}; // Program 밑의 간격
-      }
-    }
-    @media (min-width: 321px) and (max-width: 391px) { // 321 이상 391 미만
-      h1 {font-weight: 300; font-size: 24px;}
-      & > .info-wrapper {
-        padding: 8% 10.5% 11%;
-        & > div {
-          height: 61px;
-          margin: 10px 0 10px;
-          & > p {font-size: 16px;}
-        }
-      }
-      & > .program-wrapper {
-        padding: 0 10.5% 8%;
-        & > div {margin-top: 14px;}
-      }
-    }
-    @media (min-width: 391px) { // 391 이상
-      h1 {font-weight: 300; font-size: 27.5px;}
-      & > .info-wrapper {
-        padding: 8% 12% 10%;
-        & > div {
-          height: 68px;
-          margin: 10.5px 0 10.5px;
-        }
-      }
-      & > .program-wrapper {
-        padding: 0 12% 8%;
-        & > div {margin-top: 14px;}
-      }
-    }
-    @media (min-height: 800px) { // 870 이상
-      .info-wrapper {
-        padding-bottom: 13%;
-      }
+    grid-row-gap: 48px;
+    row-gap: 48px;
+    font-family: "SUITE", sans-serif;
+    font-weight: 400;
+    & .highlight {
+      font-size: 11px;
+      color: #FFDB58;
     }
     & > .info-wrapper {
-      width: 100%;
-      height: auto;
       align-self: end;
-      & > .info-date > .head {background-image: url(${Images.calendar_icon});}
-      & > .info-time > .head {background-image: url(${Images.clock_icon});}
-      & > .info-place > .head {background-image: url(${Images.location_pin_icon});}
-      & > [class^=info] {
+      width: 100%;
+      min-width: 0;
+      position: relative;
+      & > h1 {
+        font-size: 25px;
+        margin: 0 0 21px 10%
+      }
+      & > div {
         border: 1px solid ${Colors.White};
+        box-sizing: border-box;
+        margin: 0 10% 16px;
+        height: 72px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         text-align: center;
         position: relative;
-        & > .head {
-          height: 8.5px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-repeat: no-repeat;
-          background-size: contain;
-          margin: 5px 0 0 7px;
-          & > span {
-            font-size: 10px;
-            color: #adabff;
-            vertical-align: top;
-          }
+        & > span {
+          font-family: 'Bodoni Moda', sans-serif;
+          font-weight: 510;
+          font-size: 10px;
+          color: #ADABFF;
         }
         & > p {
-          align-self: center;
-          /* font-size: 16px; */
-          & > .highlight {
-            font-size: 10.2px;
-            color: #ffdb5b;
-          }
+          font-size: 18px;
         }
-      }
-      & > .info-date > .head {
-        span {margin-left: 11.5px;}
-      }
-      & > .info-time > .head {
-        span {margin-left: 11px;}
-      }
-      & > .info-place > .head {
-        height: 9px;
-        margin-left: 8px;
-        span {margin-left: 9.5px;}
       }
       & > p {
         text-align: center;
-        font-size: 10.2px;
-        @media (max-width: 359px) { // 360 미만
-          & > span {
-            display: block;
-            line-height: 11.5px;
-          }
+        line-height: 12px;
+      }
+      & > .info-date {
+        & > img {
+          width: 8.5px;
+          position: absolute;
+          top: 5px;
+          left: 6.2px;
+        }
+        & > span {
+          position: absolute;
+          top: 5.1px;
+          left: 18.5px;
+        }
+      }
+      & > .info-time {
+        & > img {
+          width: 9px;
+          position: absolute;
+          top: 4.5px;
+          left: 6px;
+        }
+        & > span {
+          position: absolute;
+          top: 5.5px;
+          left: 18.5px;
+        }
+      }
+      & > .info-place {
+        & > img {
+          width: 7px;
+          position: absolute;
+          top: 4px;
+          left: 6px;
+        }
+        & > span {
+          position: absolute;
+          top: 5.5px;
+          left: 17.5px;
         }
       }
     }
     & > .program-wrapper {
-      width: 100%;
-      height: auto;
       align-self: start;
+      width: 100%;
+      min-width: 0;
+      & > h1 {
+        font-size: 25px;
+        margin: 0 0 26px 10%
+      }
       & > .program-timetable {
-        display: flex;
-        & > img {height: 100%;}
-        & > ul > li {
-          font-size: 16px;
-          margin: 0 0 26% 20px;
-          &.end {margin-bottom: 0;}
+        margin: 0 10%;
+        position: relative;
+        & > .content-chart {
+          width: 1px;
+          /* height: 237px; */
+          background-color: ${Colors.White};
+          position: absolute;
+          top: 10px;
+          left: 14.5px;
+          height: 90%;
+        }
+        & > li {
+          list-style-image: url(${Images.circle});
+          margin-left: 25px;
+          padding-left: 20px;
+          margin-bottom: 11%;
           & > span {
             display: block;
-            &.highlight {font-size: 14px; color: #ffdb5b;}
+            font-size: 18px;
           }
         }
+        & > .last-item {
+          margin-bottom: 0;
+        }
+      }
+    }
+    @media (max-width: 325px) {
+      grid-row-gap: 0px;
+      row-gap: 0px;
+      & > .info-wrapper {
+        & > h1 {
+          font-size: 22px;
+          margin-left: 7%;
+        }
+        & > div {
+          margin: 0 7% 14px;
+          & > p {
+            font-size: 16px;
+            & .highlight {
+              font-size: 10px;
+            }
+          }
+        }
+        & > p > span {
+          display: block;
+          font-size: 10px;
+        }
+      }
+      & > .program-wrapper {
+        & > h1 {
+          font-size: 22px;
+          margin-left: 7%;
+        }
+        & > .program-timetable {
+          margin: 0 7%;
+          & > li > span {
+            font-size: 16px;
+          }
+          & > li > .highlight {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    @media (min-width: 400px) {
+      & > .info-wrapper {
+        & > h1 {
+          font-size: 28px;
+        }
+        & > div {
+          margin-bottom: 20px;
+          & > p {
+            font-size: 20px;
+            & > .highlight {
+              font-size: 12px;
+            }
+          }
+        }
+        & > p > span {
+          font-size: 12px;
+        }
+      }
+      & > .program-wrapper {
+        & > h1 {
+          font-size: 28px;
+        }
+        & > .program-timetable > li > span {
+          font-size: 20px;
+        }
+      }
+    }
+    @media (max-height: 755px) {
+      grid-row-gap: 35px;
+      row-gap: 35px;
+    }
+    @media (min-height: 885px) {
+      & > .info-wrapper > div {
+        height: 82px
       }
     }
   }

@@ -36,6 +36,7 @@ export const Images = {
   clock_icon: "/assets/images/clock_icon.svg",
   location_pin_icon: "/assets/images/location_pin_icon.svg",
   content_chart: "/assets/images/content_chart.svg",
+  circle: "/assets/images/circle.svg",
   dinner_icon: "assets/images/dinner_icon.svg",
   ceremony_icon: "assets/images/ceremony_icon.svg",
   video_icon: "assets/images/video_icon.svg",
