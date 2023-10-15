@@ -3,14 +3,16 @@ import "../../../../assets/fonts/fonts.css";
 import { Images, Colors } from "../../../../utils/style";
 
 const ModalContainer = styled.div`
-  border: 3px solid red;
+  border: 1.5px solid red;
+  &, & > * {box-sizing: border-box;}
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+
 `;
 
 export default ModalContainer;

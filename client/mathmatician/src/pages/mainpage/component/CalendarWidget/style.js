@@ -18,7 +18,7 @@ const CalendarContainer = styled.section`
   .month {
     color: ${Colors.PersianRed};
     align-self: flex-start;
-    margin: -3px 0 -4px 12px;
+    margin: -7px 0 0px 12px;
   }
   .day {
     color: ${Colors.RawBlack};

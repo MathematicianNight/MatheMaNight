@@ -5,6 +5,9 @@ import { Images, Colors } from "../../../../utils/style";
 const HandyInvitationModal = ({ closeModal }) => {
   return (
     <ModalContainer>
+      <div>
+        
+      </div>
       이게 모달
       <button onClick={closeModal}>이거누를때만닫힘</button>
     </ModalContainer>

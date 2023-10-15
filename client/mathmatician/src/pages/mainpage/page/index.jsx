@@ -26,11 +26,13 @@ const MainPage = () => {
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
 
-  useEffect(() => {
+  // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
+  // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
+  /* useEffect(() => {
     resizeViewportHeight();
     window.addEventListener("resize", resizeViewportHeight);
     return () => window.removeEventListener("resize", resizeViewportHeight);
-  }, []);
+  }, []); */
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
@@ -49,17 +51,20 @@ const MainPage = () => {
     <MainpageContainer>
       <div className="mainpage-home">
         <div className="home-wrapper">
-          <span>Wel</span>
-          <span>-come</span>
-          <span>to</span>
-          <div className="moon-back"></div>
-          <div className="moon-front"></div>
-          <img src={Images.eiffel_tower} alt="eiffer tower image" />
+          <p>
+            <span className="welcome-wel">Wel</span>
+            <span className="welcome-come">-come</span>
+            <span className="welcome-to">to</span>
+          </p>
+          <img
+            src={Images.eiffel_tower}
+            alt="eiffer tower image"
+          />
           <div className="invitation-summary">
-            <span>40th</span>
-            <span>수학인의 밤</span>
-            <span>2023.11.24.18:00</span>
-            <span>더블유파티</span>
+            <span className="invitation-running">40th</span>
+            <span className="invitation-title">수학인의 밤</span>
+            <span className="invitation-date">2023.11.24.18:00</span>
+            <span className="invitation-place">더블유파티</span>
           </div>
         </div>
       </div>
@@ -73,36 +78,54 @@ const MainPage = () => {
       <div className="mainpage-details">
         <div className="info-wrapper">
           <h1>Information</h1>
-          <div className="invitation-date">
-            <span>
-              <img src={Images.calendar_icon} alt="calendar icon image" />
-              날짜
-            </span>
-            2023.11.24.금
+          <div className="info-date">
+            <img src={Images.calendar_icon} alt="calendar icon image" />
+            <span>날짜</span>
+            <p>2023-11-24&#40;금&#41;</p>
           </div>
-          <div className="invitation-time">
-            <span>
-              <img src={Images.clock_icon} alt="clock icon image" />
-              시간
-            </span>
-            저녁 6시
+          <div className="info-time">
+            <img src={Images.clock_icon} alt="clock icon image" />
+            <span>시간</span>
+            <p>저녁 6시</p>
           </div>
-          <div className="invitation-place">
-            <span>
-              <img
-                src={Images.location_pin_icon}
-                alt="location pin icon image"
-              />
-              장소
-            </span>
-            더블유파티
-            <span>서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+          <div className="info-place">
+            <img src={Images.location_pin_icon} alt="location pin icon image icon image" />
+            <span>장소</span>
+            <p>
+              더블유파티<br/>
+              <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+            </p>
           </div>
-          <span>더 자세한 정보를 알고 싶으신 분은</span>
-          <span>아래의 부가 기능을 이용해주세요!</span>
+          <p>
+            <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
+            <span><span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!</span>
+          </p>
         </div>
         <div className="program-wrapper">
-          {/* I'll fill in this later... */}
+          <h1>Program</h1>
+          <ul className="program-timetable">
+            <div className="content-chart"></div>
+            <li>
+              <span>식사</span>
+              <span className="highlight">dinner</span>
+            </li>
+            <li>
+              <span>개회식</span>
+              <span className="highlight">openning ceremony</span>
+            </li>
+            <li>
+              <span>수학과 영상 시청</span>
+              <span className="highlight">watching video clips</span>
+            </li>
+            <li>
+              <span>경품 추첨</span>
+              <span className="highlight">prize draw</span>
+            </li>
+            <li className="last-item">
+              <span>폐회식</span>
+              <span className="highlight">closing ceremony</span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -114,25 +137,24 @@ const MainPage = () => {
           <div className="morefunc-description">
             <h1>More Functions</h1>
             <p>
-              위젯을 클릭하여 일정을 등록하고,
-              <br />
-              지도 앱을 통해 위치를 확인해 보세요.
+              <span>위젯을 클릭하여 일정을 등록하고,&nbsp;</span>
+              <span>지도 앱을 통해 위치를 확인해 보세요.</span>
             </p>
           </div>
-          <div className="widgets-wrapper">
+          <div className="morefunc-widgets">
             <CalendarWidget />
             <LikeWidget />
             <MapWidget />
           </div>
-          <div className="aboutus-wrapper">
+          <div className="morefunc-aboutus">
             <img
               src="http://via.placeholder.com/100x100"
               alt="our team logo image"
             />
             <span onClick={handlenavigate}>만든 사람들 &#62;</span>
           </div>
-          <div className="handy-invitation">
-            간이 초대장
+          <div className="morefunc-handy-invitation">
+            <span>간이 초대장</span>
             <img
               src={Images.envelope_icon}
               alt="envelope icon image"
