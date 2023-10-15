@@ -33,6 +33,12 @@ export const Images = {
   smile: "/assets/images/smile.svg",
   smileplus: "/assets/images/smileplus.svg",
   likeheart: "/assets/images/likeheart.svg",
+  aboutus: "/assets/images/aboutusback.svg",
+  aboutus_logo: "/assets/images/ico-aboutus-logo.svg",
+  aboutus_frendLogo: "/assets/images/ico-aboutus-frendLogo.svg",
+  aboutus_object1: "/assets/images/ico-aboutus-object1.svg",
+  aboutus_minjeong: "/assets/images/ico-aboutus-minjeong.svg",
+  aboutus_hellokitty: "/assets/images/ico-aboutus-hellokitty.svg",
 
   eiffel_tower: "/assets/images/eiffel_tower.svg",
   calendar_icon: "/assets/images/calendar_icon.svg",

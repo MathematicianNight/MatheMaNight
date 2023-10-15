@@ -9,6 +9,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5000',
   'http://43.201.8.13:5000',
+  'http://43.201.8.13',
 ];
 
 const options = {
@@ -96,3 +97,4 @@ app.use('/question', question_api);
  *   description: 캘린더 저장
  */
 app.use('/calendar', calendar);
+

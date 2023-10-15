@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 //Hooks
 import useGreetings from "../hooks/useGreetings";
@@ -36,10 +37,15 @@ const MainPage = () => {
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
     setEnvelopeIconClicked(true);
-  }
+  };
   const closeModal = () => {
     setEnvelopeIconClicked(false);
-  }
+  };
+
+  const navigate = useNavigate();
+  const handlenavigate = () => {
+    navigate("/aboutus");
+  };
 
   return (
     <MainpageContainer>
@@ -124,7 +130,9 @@ const MainPage = () => {
       </div>
 
       <div className="mainpage-morefunc">
-        {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+        {envelopeIconClicked && (
+          <HandyInvitationModal closeModal={closeModal} />
+        )}
         <div className="morefunc-wrapper">
           <div className="morefunc-description">
             <h1>More Functions</h1>
@@ -139,8 +147,11 @@ const MainPage = () => {
             <MapWidget />
           </div>
           <div className="morefunc-aboutus">
-            <img src="http://via.placeholder.com/164x164" alt="our team logo image"/>
-            <span>만든 사람들 &#62;</span>
+            <img
+              src="http://via.placeholder.com/100x100"
+              alt="our team logo image"
+            />
+            <span onClick={handlenavigate}>만든 사람들 &#62;</span>
           </div>
           <div className="morefunc-handy-invitation">
             <span>간이 초대장</span>

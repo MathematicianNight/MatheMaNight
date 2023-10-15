@@ -9,6 +9,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5000',
   'http://13.124.51.51:4000',
+  'http://13.124.51.51',
 ];
 
 const options = {

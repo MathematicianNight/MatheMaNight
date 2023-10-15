@@ -14,7 +14,7 @@ const LikeWidget = () => {
     setCount(count + 1);
     setTimeout(() => {
       setlikemodalopen(false);
-    }, 3000); // 5초 후에 애니메이션 종료
+    }, 3000);
   };
   return (
     <LikeContainer likemodalopen={likemodalopen}>
