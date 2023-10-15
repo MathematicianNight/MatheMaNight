@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 
-const useGreetings = () => {
-  const [greetingData, setGreetingData] = useState([]);
+const useLikes = ({ setCount }) => {
+  const [likeData, setLikeData] = useState(0);
 
   useEffect(() => {
-    const apiUrl = "http://13.124.51.51:4000/greeting";
+    const apiUrl = "http://13.124.51.51:4000/like";
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setGreetingData(data);
+        setLikeData(data.likeCnt);
+        setCount(data.likeCnt);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
-  return greetingData;
+  return likeData;
 };
 
-export default useGreetings;
+export default useLikes;
