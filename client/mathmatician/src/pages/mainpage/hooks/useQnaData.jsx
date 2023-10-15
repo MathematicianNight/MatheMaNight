@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const useQnaData = (currentPage) => {
   const [qnaData, setQnaData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [totalpages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
@@ -17,7 +18,8 @@ const useQnaData = (currentPage) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setQnaData(data);
+        setTotalPages(Math.ceil(data.rows[0].cnt / 5));
+        setQnaData(data.table);
         setLoading(false);
       })
       .catch((error) => {
@@ -26,7 +28,7 @@ const useQnaData = (currentPage) => {
       });
   }, [currentPage]);
 
-  return { qnaData, loading };
+  return { qnaData, loading, totalpages };
 };
 
 export default useQnaData;

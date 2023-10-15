@@ -184,35 +184,38 @@ export const QnaContainer = styled.div`
       }
     }
     & > .pagination-wrapper {
-      margin-top: 13px;
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
-      & > .pagination-active {
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        border: 1px solid ${Colors.White};
-        backdrop-filter: blur(2px);
-        background: transparent;
-        color: ${Colors.White};
-        padding: 0;
-        font-size: 10px;
-        font-family: "SUITE", sans-serif;
-        font-weight: 300;
-      }
-      & > .pagination {
-        width: 16px;
-        height: 16px;
-        background: transparent;
-        border: none;
-        color: ${Colors.White};
-        padding: 0;
-        font-size: 10px;
-        font-family: "SUITE", sans-serif;
-        font-weight: 300;
+      & > .pagination-group {
+        margin-top: 13px;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        & > .pagination-active {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          border: 1px solid ${Colors.White};
+          backdrop-filter: blur(2px);
+          background: transparent;
+          color: ${Colors.White};
+          padding: 0;
+          font-size: 10px;
+          font-family: "SUITE", sans-serif;
+          font-weight: 300;
+        }
+
+        & > .pagination {
+          width: 16px;
+          height: 16px;
+          background: transparent;
+          border: none;
+          color: ${Colors.White};
+          padding: 0;
+          font-size: 10px;
+          font-family: "SUITE", sans-serif;
+          font-weight: 300;
+        }
       }
     }
     & > .qna-create {
