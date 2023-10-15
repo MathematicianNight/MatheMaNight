@@ -10,8 +10,7 @@ import DeleteModal from "../qnaDeleteModal/index";
 const Index = () => {
   //@definition 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
-  const { qnaData, loading } = useQnaData(currentPage);
-  const totalPages = 3;
+  const { qnaData, loading, totalpages } = useQnaData(currentPage);
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -77,6 +76,35 @@ const Index = () => {
       clearInterval(interval);
     };
   }, []);
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 5);
+    }
+  };
+
+  // 다음 페이지로 이동
+  const nextPage = () => {
+    if (currentPage + 4 < totalpages) {
+      setCurrentPage(currentPage + 5);
+    }
+  };
+
+  const pageGroupSize = 5; // 한 그룹 당 페이지 수
+  const pageNumbers = Array.from(
+    { length: totalpages },
+    (_, index) => index + 1
+  );
+  const pageGroups = Array.from(
+    { length: Math.ceil(totalpages / pageGroupSize) },
+    (_, index) =>
+      pageNumbers.slice(
+        index * pageGroupSize,
+        index * pageGroupSize + pageGroupSize
+      )
+  );
+
+  const [currentPageGroupIndex, setCurrentPageGroupIndex] = useState(0);
 
   return (
     <QnaContainer>
@@ -167,19 +195,42 @@ const Index = () => {
           ))}
         </div>
         <div className="pagination-wrapper">
-          {/* @todo 페이지네이션 연결 */}
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              className={`pagination${
-                currentPage === index + 1 ? "-active" : ""
-              }`}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
+          {pageGroups.map(
+            (group, groupIndex) =>
+              groupIndex === currentPageGroupIndex && (
+                <div key={groupIndex} className="pagination-group">
+                  {groupIndex > 0 && (
+                    <button
+                      onClick={() => setCurrentPageGroupIndex(groupIndex - 1)}
+                      className="pagination"
+                    >
+                      &lt;
+                    </button>
+                  )}
+                  {group.map((pageNumber) => (
+                    <button
+                      key={pageNumber}
+                      className={`pagination${
+                        currentPage === pageNumber ? "-active" : ""
+                      }`}
+                      onClick={() => setCurrentPage(pageNumber)}
+                    >
+                      {pageNumber}
+                    </button>
+                  ))}
+                  {groupIndex < pageGroups.length - 1 && (
+                    <button
+                      onClick={() => setCurrentPageGroupIndex(groupIndex + 1)}
+                      className="pagination"
+                    >
+                      &gt;
+                    </button>
+                  )}
+                </div>
+              )
+          )}
         </div>
+
         <div className="qna-create">
           <button onClick={handleCloseModal}>
             <p>질문 작성하기</p>
