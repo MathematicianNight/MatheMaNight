@@ -77,8 +77,6 @@ const Index = () => {
     };
   }, []);
 
-  console.log(currentPage);
-
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 5);
@@ -105,7 +103,6 @@ const Index = () => {
         index * pageGroupSize + pageGroupSize
       )
   );
-  console.log(pageGroups);
 
   const [currentPageGroupIndex, setCurrentPageGroupIndex] = useState(0);
 
