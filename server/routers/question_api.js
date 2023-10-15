@@ -20,6 +20,8 @@ const db = mysql.createConnection({
 });
 db.connect();
 
+let rowsQuery = 'SELECT COUNT(anony_num) AS cnt FROM qna';
+
 /**
  * @swagger
  * paths:
@@ -42,22 +44,33 @@ db.connect();
  *              schema:
  *                type: object
  *                properties:
- *                    anony_num:
- *                      type: integer
- *                      description: "익명 번호"
- *                      example: 1
- *                    question:
- *                      type: string
- *                      description: "질문"
- *                      example: "나는 이런 것이 궁금해요!"
- *                    answer:
- *                      type: string
- *                      description: "답변"
- *                      example: Null
- *                    ans_bool:
- *                      type: boolean
- *                      description: "답변 유무"
- *                      example: 0
+ *                    table:
+ *                      type: object
+ *                      description: "질의응답"
+ *                      properties:
+ *                        anony_num:
+ *                          type: integer
+ *                          description: "익명 번호"
+ *                          example: 1
+ *                        question:
+ *                          type: string
+ *                          description: "질문"
+ *                          example: "나는 이런 것이 궁금해요!"
+ *                        answer:
+ *                          type: string
+ *                          description: "답변"
+ *                          example: Null
+ *                        ans_bool:
+ *                          type: boolean
+ *                          description: "답변 유무"
+ *                          example: 0
+ *                    rows:
+ *                      type: object
+ *                      description: "질문 개수"
+ *                      properties:
+ *                        cnt:
+ *                          type: integer
+ *                          example: 20
  */
 router.get('/', (req, res) => {
   const page = req.query.page || 1; // page: page_number, default = 1
@@ -66,12 +79,15 @@ router.get('/', (req, res) => {
   const offset = (page - 1) * pageSize; // offset: page start_data_number
 
   const sqlQuery = 'SELECT * FROM qna LIMIT ? OFFSET ?;';
-  db.query(sqlQuery, [pageSize, offset], (err, result) => {
+  db.query(sqlQuery, [pageSize, offset], (err, table) => {
     if (err) {
       console.error(err);
       res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
     } else {
-      res.json(result);
+      // db.query(rowsQuery, (err, rows) => {
+      //   res.json({ table, rows });
+      // });
+      res.json(table);
     }
   });
 });
@@ -111,7 +127,8 @@ router.post('/create', (req, res) => {
       console.error(err);
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
-      res.json('success!');
+      // res.json('success!');
+      return res.redirect('http://13.124.51.51:5000');
     }
   });
 });
@@ -208,7 +225,8 @@ router.post('/answer', (req, res) => {
         .send('행이 업데이트되지 않았습니다. anony_num을 찾을 수 없습니다.');
     }
 
-    res.json('success!');
+    // res.json('success!');
+    return res.redirect('http://13.124.51.51:5000');
   });
 });
 
@@ -243,7 +261,8 @@ router.post('/delete', (req, res) => {
       console.error(err);
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
-      res.json('success!');
+      // res.json('success!');
+      return res.redirect('http://13.124.51.51:5000');
     }
   });
 });
