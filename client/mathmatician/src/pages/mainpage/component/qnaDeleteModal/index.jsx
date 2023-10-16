@@ -8,8 +8,8 @@ const Index = (props) => {
   const [password, setPassword] = useState("");
   console.log(questionindex);
   const deleteAnswer = () => {
-    // const apiUrl = "http://13.124.51.51:4000/question/delete";
-    const apiUrl = "https://api.mathnight.site/question/delete";
+    const apiUrl = "http://13.124.51.51:4000/question/delete";
+    // const apiUrl = "https://api.mathnight.site/question/delete";
 
     const questionData = {
       anony_num: questionindex,
