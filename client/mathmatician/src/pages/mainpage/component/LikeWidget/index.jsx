@@ -41,7 +41,7 @@ const LikeWidget = () => {
       <div className="like-wrapper" onClick={startLikeAnimation}>
         <div className="like-heart">
           <img src={Images.heart_bubble} alt="heart bubble image" />
-          <span>{likeData}</span>
+          <span>{likeData + count}</span>
         </div>
         <img src={Images.clickheart} alt="" />
         <span className="title">수학인의 밤 좋아요</span>

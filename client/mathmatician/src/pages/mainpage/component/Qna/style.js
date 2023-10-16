@@ -102,6 +102,7 @@ export const QnaContainer = styled.div`
     }
     & > .qna-contents-wrapper {
       margin: 0 11px 9px 11px;
+
       & > .qna-content-div {
         height: 56px;
         display: flex;
