@@ -18,7 +18,8 @@ const LikeWidget = () => {
     setlikemodalopen(true);
     setCount(count + 1);
 
-    fetch("http://13.124.51.51:4000/like/upcount", {
+    // fetch("http://13.124.51.51:4000/like/upcount", {
+    fetch("https://api.mathnight.site/like/upcount", {
       method: "POST",
     })
       .then((response) => response.json())

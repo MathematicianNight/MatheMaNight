@@ -56,6 +56,7 @@ export const Images = {
   googlemap_icon: "/assets/images/googlemap_icon.svg",
   navermap_icon: "/assets/images/navermap_icon.svg",
   kakaomap_icon: "/assets/images/kakaomap_icon.svg",
+  kakaotalk_icon: "/assets/images/kakaotalk_icon.svg",
   clipboard_icon: "/assets/images/clipboard_icon.svg",
   envelope_icon: "/assets/images/envelope_icon.svg",
   handy_invitation: "/assets/images/handy_invitation.png",

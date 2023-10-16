@@ -3,7 +3,7 @@ import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
-  & {border: 1px solid aqua;}
+  /* & {border: 1px solid aqua;} */
   box-sizing: border-box;
   grid-row: 2 / 3;
   grid-column: 1 / 3;

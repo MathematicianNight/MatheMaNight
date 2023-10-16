@@ -188,84 +188,83 @@ const MainpageContainer = styled.section`
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
   & > .mainpage-details {
+    height: calc(var(--vh, 1vh) * 100);
     box-sizing: border-box;
     display: grid;
     justify-items: center;
-    align-items: center;
-    /* grid-row-gap: 48px; */
-    /* row-gap: 48px; */
-    padding: 5% 0;
+    padding: 3% 0; // 전체 위아래 여백
     font-family: "SUITE", sans-serif;
     font-weight: 400;
     & .highlight {
-      font-size: 11px;
+      font-size: 10px;
       color: #FFDB58;
     }
     & > .info-wrapper {
-      width: 100%;
-      min-width: 0;
+      align-self: end;
+      margin-bottom: -5px;
+      width: 100%; // min-width: 0;
       position: relative;
       & > h1 {
-        font-size: 25px;
-        margin: 0 0 21px 10%
+        font-size: 21px;
+        margin: 0 0 15px 12%;
       }
       & > div {
         border: 1px solid ${Colors.White};
         box-sizing: border-box;
-        margin: 0 10% 16px;
-        height: 72px;
+        margin: 0 12% 14px;
+        height: 62px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
-        & > span {
-          font-family: 'Bodoni Moda', sans-serif;
-          font-weight: 510;
-          font-size: 10px;
-          color: #ADABFF;
+        & > img {
+          width: 28px;
+          position: absolute;
+          top: 5px;
+          left: 8px;
         }
         & > p {
-          font-size: 18px;
+          font-size: 16px;
         }
       }
       & > p {
+        font-size: 10px;
         text-align: center;
         line-height: 12px;
       }
-      & > div > img {
-        position: absolute;
-        top: 5px;
-        left: 8px;
-      }
     }
     & > .program-wrapper {
-      width: 100%;
-      min-width: 0;
+      align-self: start;
+      margin-top: -5px;
+      width: 100%; // min-width: 0;
       & > h1 {
-        font-size: 25px;
-        margin: 0 0 26px 10%
+        font-size: 21px;
+        margin: 0 0 17px 12%
       }
       & > .program-timetable {
-        margin: 0 10%;
+        /* margin: 0 11%; */
         position: relative;
         & > .content-chart {
           width: 1px;
           background-color: ${Colors.White};
           position: absolute;
           top: 10px;
-          left: 16px;
-          height: 89%;
+          left: 53px;
+          height: 205px;
         }
         & > li {
           list-style-image: url(${Images.circle});
-          margin-left: 25px;
+          margin-left: 60px;
           padding-left: 20px;
-          margin-bottom: 11%;
+          margin-bottom: 21px;
           & > span {
             display: block;
-            font-size: 18px;
+            font-size: 16px;
+          }
+          & > .highlight {
+            font-size: 14px;
           }
         }
         & > .last-item {
@@ -374,12 +373,12 @@ const MainpageContainer = styled.section`
         justify-content: center;
         align-items: center;
         & > img {
-          border-radius: 50%;
+          /* border-radius: 50%; */
           width: 38%;
         }
         & > span {
           font-size: 19px;
-          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+          /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8); */
           margin: 18px 0 0 10px; // 로고랑 만든 사람들 사이 간격
         }
       }
