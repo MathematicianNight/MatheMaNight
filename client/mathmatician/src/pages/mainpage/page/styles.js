@@ -4,8 +4,6 @@ import "../../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
   // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
-  /* border: 1px solid red;
-  box-sizing: border-box; */
   box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5),
     5px 0 10px rgba(20, 20, 20, 0.5);
   @media (max-width: 501px) { // 501 미만
@@ -15,14 +13,9 @@ const MainpageContainer = styled.section`
     width: 500px;
     margin: 0 auto;
   }
-  /* background-image: linear-gradient(
-    180deg,
-    #0f0019 0%,
-    #140065 48.26%,
-    #987fff 100%
-  ); */
-  /* background-repeat: no-repeat; */
-  height: 100vh;
+  height: 100%;
+  border: 1px solid red;
+  box-sizing: border-box;
   overflow: auto;
   scroll-snap-type: y mandatory;
   font-family: "SUITE", sans-serif;
@@ -33,6 +26,8 @@ const MainpageContainer = styled.section`
   & > [class^="mainpage"] {
     width: 100%;
     height: 100%;
+    border: 1px solid aqua;
+    box-sizing: border-box;
     overflow: auto;
     scroll-snap-align: start;
   }
