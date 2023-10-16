@@ -12,22 +12,23 @@ const LinkKakaoCalendar = () => {
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
   const return_uri = "http://43.201.8.13";
 
-  const invitation_schedule = {
-    title: '수학인의 밤',
-    time: {
-      start_at: '2023-11-24T09:00:00Z',
-      end_at: '2023-11-24T12:00:00Z',
-      time_zone: 'Asia/Seoul'
-    },
-    description: '소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)',
-    location: {
-      name: '더블유파티',
-      location_id: 35643864,
-      address: '서울 성북구 동소문로 284 길음 서희스타힐스'
-    },
-    color: 'ROYAL_BLUE'
-  };
-  // const invitation_schedule = useInvitationSchedule();
+  // const invitation_schedule = {
+  //   title: '수학인의 밤',
+  //   time: {
+  //     start_at: '2023-11-24T09:00:00Z',
+  //     end_at: '2023-11-24T12:00:00Z',
+  //     time_zone: 'Asia/Seoul'
+  //   },
+  //   description: '소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)',
+  //   location: {
+  //     name: '더블유파티',
+  //     location_id: 35643864,
+  //     address: '서울 성북구 동소문로 284 길음 서희스타힐스'
+  //   },
+  //   color: 'ROYAL_BLUE'
+  // };
+  const invitation_schedule = useInvitationSchedule();
+  console.log(invitation_schedule);
 
   const getToken = async (token_uri) => {
     const res = await fetch(token_uri, {

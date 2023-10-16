@@ -4,6 +4,8 @@ import "../../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
   // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
+  border: 1px solid transparent;
+  box-sizing: border-box;
   box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5),
     5px 0 10px rgba(20, 20, 20, 0.5);
   @media (max-width: 501px) { // 501 미만
@@ -21,6 +23,7 @@ const MainpageContainer = styled.section`
   );
   background-repeat: no-repeat;
   height: 100vh;
+  /* height: calc(var(--vh, 1vh) * 100); */
   overflow: auto;
   scroll-snap-type: y mandatory;
   font-family: "SUITE", sans-serif;
@@ -30,14 +33,15 @@ const MainpageContainer = styled.section`
   // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
   & > [class^="mainpage"] {
     width: 100%;
-    /* height: 100%; */
-    height: ${window.innerHeight}px;
+    height: 100%;
     overflow: auto;
     scroll-snap-align: start;
   }
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   & > .mainpage-home {
+    /* border: 1px solid transparent;
+    box-sizing: border-box; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -338,31 +342,31 @@ const MainpageContainer = styled.section`
 
   // 페이지 4: 부가 기능
   & > .mainpage-morefunc {
-    &, & * {box-sizing: border-box;}
     display: grid;
     justify-items: center;
     align-items: center;
-    & > .morefunc-wrapper { // 기본은 325px 이상 405px 미만
-      /* border: 1px solid red; */
-      width: 100%;
-      padding: 7% 9%;
+    & > .morefunc-wrapper {
+      margin: 20px 30px 5px;
       & > .morefunc-description {
         & > h1 {
+          font-size: 25px;
           font-weight: 300;
-          font-size: 24px;
+          margin-bottom: 10px; // 제목 두줄 사이 간격
         }
         & > p {
-          font-size: 10px;
-          margin-top: 10px; // More Functions 밑의 간격
+          font-size: 11px;
+          font-weight: 400;
         }
       }
       & > .morefunc-widgets {
+        /* & {border:1px solid red; box-sizing: border-box;} */
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-        place-items: center;
-        grid-gap: 18px 18px; gap: 18px 18px;
-        margin: 8% 0 18% 0; // 위젯 기준으로 위아래 간격
+        place-items: stretch stretch;
+        grid-gap: 18px 18px;
+        gap: 18px 18px;
+        margin: 20px 0 50px 0; // 위젯 박스 위아래 간격
       }
       & > .morefunc-aboutus {
         display: flex;
@@ -371,7 +375,7 @@ const MainpageContainer = styled.section`
         align-items: center;
         & > img {
           border-radius: 50%;
-          width: 44%;
+          width: 38%;
         }
         & > span {
           font-size: 19px;
@@ -396,78 +400,6 @@ const MainpageContainer = styled.section`
           vertical-align: bottom;
           width: 15%;
           margin-right: -8px;
-        }
-      }
-      @media (max-width: 325px) { // 더 작아지면... 325px 미만
-        /* border: 1px solid red; */
-        padding: 5% 9%;
-        & > .morefunc-description {
-          & > h1 {font-size: 18px;}
-          & > p {
-            font-size: 10px;
-            margin-top: 8px;
-            & > span {
-              display: block;
-              line-height: 12px;
-            }
-          }
-        }
-        & > .morefunc-widgets {
-          grid-gap: 14px 14px; gap: 14px 14px;
-          margin: 7% 0 16% 0;
-        }
-        & > .morefunc-aboutus {
-          & > img {
-            width: 40%;
-          }
-          & > span {
-            font-size: 16px;
-          }
-        }
-        & > .morefunc-handy-invitation {
-          margin-top: 12%;
-          & > span {
-            font-size: 11px;
-            top: 30%;
-            right: 10%;
-          }
-          & > img {
-            width: 12%;
-          }
-        }
-      }
-      // 더 커지면... 405px 이상
-      @media (min-width: 405px) {
-        padding: 5% 10%;
-        & > .morefunc-description {
-          & > h1 {font-size: 28px;}
-          & > p {
-            font-size: 12px;
-            margin-top: 8px;
-          }
-        }
-        & > .morefunc-widgets {
-          grid-gap: 21px 21px; gap: 21px 21px;
-          margin: 10% 0 16% 0;
-        }
-        & > .morefunc-aboutus {
-          & > img {
-            width: 47%;
-          }
-          & > span {
-            font-size: 22px;
-          }
-        }
-        & > .morefunc-handy-invitation {
-          margin-top: 12%;
-          & > span {
-            font-size: 18px;
-            top: 37%;
-            right: 17%;
-          }
-          & > img {
-            width: 17%;
-          }
         }
       }
     }

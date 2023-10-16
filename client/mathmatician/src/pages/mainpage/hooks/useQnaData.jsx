@@ -7,8 +7,9 @@ const useQnaData = (currentPage) => {
   const [totalpages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
+    // const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
     // const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
+    const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
 
     fetch(apiUrl, {
       method: "GET",
