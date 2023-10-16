@@ -14,6 +14,12 @@ code {
 
 /* 뷰포트의 너비가 500 이상일 때, MainPage 컴포넌트의 width가 500px로 고정되므로, 좌우의 여백(흰 공간)을 임시 처리하기 위한 코드 */
 #root {
+  background-image: linear-gradient(
+    180deg,
+    #0f0019 0%,
+    #140065 48.26%,
+    #987fff 100%
+  );
   position: relative;
 }
 #root::before, #root::after {

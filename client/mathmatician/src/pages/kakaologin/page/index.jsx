@@ -6,29 +6,29 @@ import LoadingContainer from "./style";
 const LinkKakaoCalendar = () => {
   const client_id = "fc15512735978bce526493813fdf1451";
   const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
-  const redirect_uri = "http://43.201.8.13/oauthkakao";
+  const redirect_uri = "https://invite.mathnight.site/oauthkakao";
 
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
-  const return_uri = "http://43.201.8.13";
+  const return_uri = "https://invite.mathnight.site";
 
-  // const invitation_schedule = {
-  //   title: '수학인의 밤',
-  //   time: {
-  //     start_at: '2023-11-24T09:00:00Z',
-  //     end_at: '2023-11-24T12:00:00Z',
-  //     time_zone: 'Asia/Seoul'
-  //   },
-  //   description: '소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)',
-  //   location: {
-  //     name: '더블유파티',
-  //     location_id: 35643864,
-  //     address: '서울 성북구 동소문로 284 길음 서희스타힐스'
-  //   },
-  //   color: 'ROYAL_BLUE'
-  // };
-  const invitation_schedule = useInvitationSchedule();
-  console.log(invitation_schedule);
+  const invitation_schedule = {
+    title: '수학인의 밤',
+    time: {
+      start_at: '2023-11-24T09:00:00Z',
+      end_at: '2023-11-24T12:00:00Z',
+      time_zone: 'Asia/Seoul'
+    },
+    description: '소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)',
+    location: {
+      name: '더블유파티',
+      location_id: 35643864,
+      address: '서울 성북구 동소문로 284 길음 서희스타힐스'
+    },
+    color: 'ROYAL_BLUE'
+  };
+  // const invitation_schedule = useInvitationSchedule();
+  // console.log(invitation_schedule);
 
   const getToken = async (token_uri) => {
     const res = await fetch(token_uri, {
@@ -91,7 +91,7 @@ const LinkKakaoCalendar = () => {
           getSchedules(token).then(res => {
             const events = res.events;
             if (events === undefined) {
-              alert("\"카카오톡 > 톡캘린더 및 일정 생성, 조회, 편집/삭제\" 서비스 접근 권한이 부여되었습니다. 캘린더 위젯을 다시 클릭해주세요.");
+              alert("\"톡캘린더 및 일정 생성, 조회, 편집/삭제\" 접근 권한이 필요합니다. 캘린더 위젯을 다시 클릭하여 해당 항목에 동의해주세요.");
               window.location.href = return_uri;
             }
             else {
