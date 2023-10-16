@@ -20,6 +20,7 @@ code {
     #140065 48.26%,
     #987fff 100%
   );
+  background-repeat: no-repeat;
   position: relative;
 }
 #root::before, #root::after {

@@ -28,11 +28,11 @@ const MainPage = () => {
 
   // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
   // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
-  useEffect(() => {
-    resizeViewportHeight();
-    window.addEventListener("resize", resizeViewportHeight);
-    return () => window.removeEventListener("resize", resizeViewportHeight);
-  }, []);
+  // useEffect(() => {
+  //   resizeViewportHeight();
+  //   window.addEventListener("resize", resizeViewportHeight);
+  //   return () => window.removeEventListener("resize", resizeViewportHeight);
+  // }, []);
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
