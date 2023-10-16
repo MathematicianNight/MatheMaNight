@@ -3,7 +3,7 @@ import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
-  /* &, & * {border: 1px solid red;} */
+  & {border: 1px solid aqua;}
   box-sizing: border-box;
   grid-row: 2 / 3;
   grid-column: 1 / 3;
@@ -15,26 +15,23 @@ const MapContainer = styled.div`
   position: relative;
   & > .widget-background {
     width: 100%;
-    height: auto;
-    vertical-align: bottom;
-    & {
-      ${({ isBlurred }) =>
-        isBlurred
-          ? `
-      transform: scale(1.38);
-      background-color: rgba(30, 30, 30, 0.6);
-      filter: blur(2.55px); // ***** 반응형 *****
-      transition: all 1s;
-    `
-          : `
-      transform: scale(1.0);
-      background-color: transparent;
-      filter: none;
-      transition: all 1s;
-    `}
-    }
+    height: 100%;
+    ${({ isBlurred }) =>
+      isBlurred
+        ? `
+    transform: scale(1.4);
+    background-color: rgba(30, 30, 30, 0.6);
+    filter: blur(2.6px);
+    transition: all 1s;
+  `
+        : `
+    transform: scale(1.0);
+    background-color: transparent;
+    filter: none;
+    transition: all 1s;
+  `}
   }
-  & > .map-apps-div { // 기본은 345px 이상 425px 미만
+  & > .map-apps { // 기본은 345px 이상 425px 미만
     /* &, & * {border: 1px solid red;} */
     box-sizing: border-box;
     position: absolute;
@@ -64,7 +61,7 @@ const MapContainer = styled.div`
       }
     }
   }
-  & > .addr-copy-div { // 기본은 345px 이상 425px 미만
+  & > .addr-copy { // 기본은 345px 이상 425px 미만
     /* &, & * {border: 1px solid aqua;} */
     position: absolute;
     bottom: 20%;

@@ -4,7 +4,8 @@ const useGreetings = () => {
   const [greetingData, setGreetingData] = useState([]);
 
   useEffect(() => {
-    const apiUrl = "http://13.124.51.51:4000/greeting";
+    // const apiUrl = "http://13.124.51.51:4000/greeting";
+    const apiUrl = "https://api.mathnight.site/greeting";
 
     fetch(apiUrl)
       .then((response) => response.json())

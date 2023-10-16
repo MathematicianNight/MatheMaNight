@@ -11,7 +11,6 @@ const LikeContainer = styled.section`
   }
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  margin-right: 4.5px;
   width: 100%;
   height: 100%;
   border-radius: 19px;
@@ -48,6 +47,10 @@ const LikeContainer = styled.section`
         font-weight: 500;
         line-height: normal;
       }
+    }
+
+    & > img {
+      width: 50%;
     }
 
     & > .title {
