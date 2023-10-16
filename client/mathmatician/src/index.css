@@ -1,10 +1,19 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: -webkit-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: -moz-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: -o-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
 }
 
 code {
@@ -12,24 +21,23 @@ code {
     monospace;
 }
 
-/* 뷰포트의 너비가 500 이상일 때, MainPage 컴포넌트의 width가 500px로 고정되므로, 좌우의 여백(흰 공간)을 임시 처리하기 위한 코드 */
 #root {
-  background-image: linear-gradient(
-    180deg,
-    #0f0019 0%,
-    #140065 48.26%,
-    #987fff 100%
-  );
-  background-repeat: no-repeat;
+  height: 100%;
+  background: -webkit-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: -moz-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: -o-linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
+  background: linear-gradient(180deg, #0f0019 0%, #140065 48.26%, #987fff 100%);
   position: relative;
 }
 #root::before, #root::after {
   content: '';
   top: 0;
   width: calc((100% - 500px) / 2);
-  height: 100vh;
-  background-image: linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
-  background-repeat: no-repeat;
+  height: 100%;
+  background: -webkit-linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
+  background: -moz-linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
+  background: -o-linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
+  background: linear-gradient(180deg, #130028 0%, #0F004B 48.26%, #60539F 100%);
   position: absolute;
   top: 0;
   z-index: -1;
