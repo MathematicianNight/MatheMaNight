@@ -23,7 +23,7 @@ const MainpageContainer = styled.section`
   );
   background-repeat: no-repeat;
   height: 100vh;
-  /* height: calc(var(--vh, 1vh) * 100); */
+  height: calc(var(--vh, 1vh) * 100);
   overflow: auto;
   scroll-snap-type: y mandatory;
   font-family: "SUITE", sans-serif;

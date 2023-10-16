@@ -58,5 +58,5 @@ export const Images = {
   kakaomap_icon: "/assets/images/kakaomap_icon.svg",
   clipboard_icon: "/assets/images/clipboard_icon.svg",
   envelope_icon: "/assets/images/envelope_icon.svg",
-  handy_invitation: "/assets/images/handy_invitation.svg",
+  handy_invitation: "/assets/images/handy_invitation.png",
 };

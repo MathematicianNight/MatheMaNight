@@ -28,11 +28,11 @@ const MainPage = () => {
 
   // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
   // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
-  /* useEffect(() => {
+  useEffect(() => {
     resizeViewportHeight();
     window.addEventListener("resize", resizeViewportHeight);
     return () => window.removeEventListener("resize", resizeViewportHeight);
-  }, []); */
+  }, []);
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
@@ -135,7 +135,7 @@ const MainPage = () => {
             <h1>More Functions</h1>
             <p>
               <span>위젯을 클릭하여 일정을 등록하고,&nbsp;</span>
-              <span>지도 앱을 통해 위치를 확인해 보세요.</span>
+              <span>지도 앱을 열어 위치를 확인해 보세요.</span>
             </p>
           </div>
           <div className="morefunc-widgets">

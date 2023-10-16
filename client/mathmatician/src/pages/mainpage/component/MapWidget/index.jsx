@@ -71,24 +71,24 @@ const MapWidget = () => {
         src={Images.location_drawing}
         alt="map of the party place"
       />
-      <div className="map-apps-div">
-          <img
-            src={Images.googlemap_icon}
-            alt="google map app icon image"
-            onClick={openGoogleMap}
-          />
-          <img
-            src={Images.navermap_icon}
-            alt="naver map app icon image"
-            onClick={openNaverMap}
-          />
-          <img
-            src={Images.kakaomap_icon}
-            alt="kakao map app icon image"
-            onClick={openKakaoMap}
-          />
+      <div className="map-apps">
+        <img
+          src={Images.googlemap_icon}
+          alt="googlemap app icon"
+          onClick={openGoogleMap}
+        />
+        <img
+          src={Images.navermap_icon}
+          alt="navermap app icon"
+          onClick={openNaverMap}
+        />
+        <img
+          src={Images.kakaomap_icon}
+          alt="kakaomap app icon"
+          onClick={openKakaoMap}
+        />
       </div>
-      <div className="addr-copy-div">
+      <div className="addr-copy">
         <span>{invitation_address}</span>
         <div className="addr-copy-button" onClick={() => copyClipBoard(invitation_address)}>
           <img src={Images.clipboard_icon} alt="clipboard icon image" />
