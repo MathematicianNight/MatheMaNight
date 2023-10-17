@@ -6,17 +6,17 @@ const openGoogleMap = () => {
   return;
   setTimeout(() => {
     window.location.href = "https://www.google.com/maps/search/?api=1&query=더블유파티";
-  }, 800);
+  }, 700);
 }
 const openNaverMap = () => {
   setTimeout(() => {
     window.location.href = "https://m.map.naver.com/map.naver?pinId=35643864";
-  }, 800);
+  }, 700);
 }
 const openKakaoMap = () => {
   setTimeout(() => {
     window.location.href = "https://map.kakao.com/link/map/25779135";
-  }, 900);
+  }, 700);
 }
 
 const fallbackCopyClipBoard = (content) => {
@@ -67,11 +67,12 @@ const MapWidget = () => {
   return (
     <MapContainer isBlurred={isBlurred} onClick={showIcons}>
       <img 
-        className="widget-background"
+        className="widget-background-image"
         src={Images.location_drawing}
         alt="map of the party place"
       />
-      <div className="map-apps">
+      <div className="here"></div>
+      <div className="map-apps-div">
         <img
           src={Images.googlemap_icon}
           alt="googlemap app icon"
@@ -88,12 +89,17 @@ const MapWidget = () => {
           onClick={openKakaoMap}
         />
       </div>
-      <div className="addr-copy">
+      <div className="addr-copy-div">
         <span>{invitation_address}</span>
-        <div className="addr-copy-button" onClick={() => copyClipBoard(invitation_address)}>
+        <img 
+          src={Images.addr_copy_button}
+          alt="addr copy button icon"
+          onClick={() => {copyClipBoard(invitation_address)}}
+        />
+        {/* <div className="addr-copy-button" onClick={() => copyClipBoard(invitation_address)}>
           <img src={Images.clipboard_icon} alt="clipboard icon image" />
           <span>복사</span>
-        </div>
+        </div> */}
       </div>
     </MapContainer>
   );

@@ -28,11 +28,9 @@ const CalendarContainer = styled.section`
     margin-top: 1px;
   }
 
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
   width: 100%;
   height: 100%;
-  @media (max-width: 321px) {
+  /* @media (max-width: 321px) {
     line-height: 37px;
     .month {
       font-size: 15px;
@@ -67,7 +65,7 @@ const CalendarContainer = styled.section`
     .time {
       font-size: 30px;
     }
-  }
+  } */
 `;
 
 export default CalendarContainer;
