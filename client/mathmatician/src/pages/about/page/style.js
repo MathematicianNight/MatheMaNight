@@ -31,13 +31,40 @@ const AboutusContainer = styled.section`
     }
     & > .aboutus-detail {
       text-align: center;
+      padding: 10px 45px;
     }
     & > .aboutus-obj {
-      margin: 71px 0 80px 0;
-      display: flex;
+      margin: 91px 0 70px 0;
+      width: 100%;
+      height: 50px;
+      & > .obj1 {
+        float: right;
+        padding-right: 20px;
+      }
+    }
 
-      display: block;
-      padding-right: 46px;
+    & > .aboutus-our-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 55px;
+      & > .hyelee {
+        width: 206px;
+        height: 256px;
+        padding-right: 30px;
+      }
+      & > .minjeong {
+        width: 259px;
+        height: 256px;
+        flex-shrink: 0;
+      }
+      & > .suhyeon {
+        width: 264px;
+        height: 256px;
+        padding-right: 90px;
+        flex-shrink: 0;
+      }
     }
   }
 `;
