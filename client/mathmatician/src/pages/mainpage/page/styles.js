@@ -13,27 +13,38 @@ const MainpageContainer = styled.section`
     width: 500px;
     margin: 0 auto;
   }
+  width: 100%;
   height: 100%;
-  border: 1px solid red;
   box-sizing: border-box;
-  overflow: auto;
-  scroll-snap-type: y mandatory;
+  /* overflow: auto scroll; */
+  /* scroll-snap-type: y proximity; */
   font-family: "SUITE", sans-serif;
   font-size: 11px;
   color: ${Colors.White};
 
   // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
-  & > [class^="mainpage"] {
+  /* & > [class^="mainpage"] {
     width: 100%;
     height: 100%;
-    border: 1px solid aqua;
-    box-sizing: border-box;
-    overflow: auto;
     scroll-snap-align: start;
+  } */
+  & > .swiper {
+    width: 100%;
+    height: 100%;
+    & .swiper-slide {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  div[class^="mainpage"] {
+    width: 100%;
+    height: 100%;
   }
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
-  & > .mainpage-home {
+  .mainpage-home {
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -165,7 +176,7 @@ const MainpageContainer = styled.section`
   }
 
   // 페이지 2: 인사말
-  & > .mainpage-greetings {
+  .mainpage-greetings {
   // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
   height: 100%;
   min-height: ${window.innerHeight}px;
@@ -179,169 +190,222 @@ const MainpageContainer = styled.section`
   }
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
-  & > .mainpage-details {
+  .mainpage-details {
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     display: grid;
     justify-items: center;
-    padding: 3% 0; // 전체 위아래 여백
-    font-family: "SUITE", sans-serif;
-    font-weight: 400;
-    & .highlight {
-      font-size: 10px;
-      color: #FFDB58;
-    }
     & > .info-wrapper {
+      & .highlight {
+      font-size: 11px;
+      color: #FFDB58;
+      }
       align-self: end;
-      margin-bottom: -5px;
-      width: 100%; // min-width: 0;
-      position: relative;
+      width: 100%;
+      margin-bottom: 12%; // info랑 program 사이 간격
       & > h1 {
-        font-size: 21px;
-        margin: 0 0 15px 12%;
+        width: 80%;
+        margin: 0 auto 30px; // info 밑에 간격 8%
+        font-size: 25px;
       }
       & > div {
         border: 1px solid ${Colors.White};
         box-sizing: border-box;
-        margin: 0 12% 14px;
-        height: 62px;
+        width: 80%;
+        margin: 0 auto 4.5%; // 세 흰색 박스 사이 간격
+        height: 72px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
+        font-size: 18px;
         & > img {
-          width: 28px;
           position: absolute;
           top: 5px;
           left: 8px;
         }
-        & > p {
-          font-size: 16px;
-        }
       }
       & > p {
-        font-size: 10px;
+        font-size: 11px;
         text-align: center;
-        line-height: 12px;
+        @media (max-width: 315px) {
+          & > span {
+            display: block;
+          }
+        }
       }
     }
     & > .program-wrapper {
       align-self: start;
-      margin-top: -5px;
-      width: 100%; // min-width: 0;
+      width: 100%;
       & > h1 {
-        font-size: 21px;
-        margin: 0 0 17px 12%
+        width: 80%;
+        margin: 0 auto 35px; // info 밑에 간격 8%
+        font-size: 25px;
       }
       & > .program-timetable {
-        /* margin: 0 11%; */
-        position: relative;
-        & > .content-chart {
-          width: 1px;
-          background-color: ${Colors.White};
-          position: absolute;
-          top: 10px;
-          left: 53px;
-          height: 205px;
+        box-sizing: border-box;
+        width: 78%;
+        margin: 0 auto;
+        display: flex;
+        & > img {
+          height: 100%;
+          margin-top: 6px; // 차트 위에서 쪼끔 떨어뜨리는거
         }
-        & > li {
-          list-style-image: url(${Images.circle});
-          margin-left: 60px;
-          padding-left: 20px;
-          margin-bottom: 21px;
-          & > span {
-            display: block;
-            font-size: 16px;
+        & > ul {
+          padding-left: 30px; // 차트랑 목록 사이 간격
+          font-size: 18px;
+          & > li {
+            & > span {
+              display: block;
+            }
+            & > .highlight {
+              font-size: 15px;
+              color: #FFDB58;
+              margin-bottom: 35px; // 목록 수직 사이 간격 35
+            }
           }
-          & > .highlight {
-            font-size: 14px;
+          & > .list-last-item > .highlight {
+            margin-bottom: 0;
           }
-        }
-        & > .last-item {
-          margin-bottom: 0;
         }
       }
     }
-    @media (max-width: 325px) {
-      grid-row-gap: 0;
-      row-gap: 0;
+    @media (max-height: 590px) {
       & > .info-wrapper {
+        & .highlight {
+          font-size: 10px;
+        }
+        margin-bottom: 6%;
         & > h1 {
-          font-size: 22px;
-          margin-left: 7%;
+          width: 71%;
+          margin-bottom: 12px;
+          font-size: 20px;
         }
         & > div {
-          margin: 0 7% 14px;
-          & > p {
-            font-size: 16px;
-            & .highlight {
-              font-size: 10px;
-            }
+          width: 71%;
+          margin-bottom: 3.5%;
+          height: 54px;
+          font-size: 13px;
+          & > img {
+            width: 25px;
           }
         }
-        & > p > span {
-          display: block;
+        & > p {
           font-size: 10px;
         }
       }
       & > .program-wrapper {
         & > h1 {
-          font-size: 22px;
-          margin-left: 7%;
+          width: 71%;
+          margin-bottom: 15px;
+          font-size: 20px;
         }
         & > .program-timetable {
-          margin: 0 7%;
-        }
-      }
-    }
-    @media (min-width: 400px) {
-      grid-row-gap: 30px;
-      row-gap: 30px;
-      & > .info-wrapper {
-        & > h1 {
-          font-size: 28px;
-        }
-        & > div {
-          margin-bottom: 20px;
-          & > p {
-            font-size: 20px;
-            & > .highlight {
-              font-size: 12px;
+          width: 68%;
+          & > img {
+            height: 152px;
+            margin-top: 3px;
+          }
+          & > ul {
+            padding-left: 18px;
+            font-size: 13px;
+            & > li > .highlight {
+              font-size: 11px;
+              margin-bottom: 13px;
+            }
+            & > .list-last-item > .highlight {
+              margin-bottom: 0;
             }
           }
         }
-        & > p > span {
-          font-size: 12px;
+      }
+    }
+    @media (min-height: 590px) and (max-height: 770px) {
+      & > .info-wrapper {
+        & .highlight {
+          font-size: 10px;
+        }
+        margin-bottom: 8%;
+        & > h1 {
+          width: 75%;
+          margin-bottom: 16px;
+          font-size: 23px;
+        }
+        & > div {
+          width: 75%;
+          margin-bottom: 4%;
+          height: 62px;
+          font-size: 15px;
+          & > img {
+            width: 30px;
+          }
+        }
+        & > p {
+          font-size: 10px;
         }
       }
-      & > .program-wrapper > h1 {
-        font-size: 28px;
-      }
-    }
-    @media (max-height: 755px) {
-      grid-row-gap: 35px;
-      row-gap: 35px;
-    }
-    @media (min-height: 885px) {
-      & > .info-wrapper > div {
-        height: 82px
+      & > .program-wrapper {
+        & > h1 {
+          width: 75%;
+          margin-bottom: 22px;
+          font-size: 23px;
+        }
+        & > .program-timetable {
+          width: 72%;
+          & > img {
+            height: 200px;
+            margin-top: 5px;
+          }
+          & > ul {
+            padding-left: 23px;
+            font-size: 16px;
+            & > li > .highlight {
+              font-size: 13px;
+              margin-bottom: 20px;
+            }
+            & > .list-last-item > .highlight {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
   }
 
+  
   // 페이지 4: 부가 기능
-  & > .mainpage-morefunc {
-    display: grid;
-    justify-items: center;
-    align-items: center;
+  /* .morefunc-effect-a {
+    background-image: url(${Images.temp1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease-in-out;
+  }
+  .morefunc-effect-b {
+    background-image: url(${Images.temp2});
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease-in-out;
+  } */
+  .mainpage-morefunc {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     & > .morefunc-wrapper {
-      margin: 20px 30px 5px;
+      /* border: 1px solid red; */
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      margin: 64px 0 0; // 페이지 위 여백
       & > .morefunc-description {
+        padding-right: 24px; // 제목 왼쪽 간격 맞추기
         & > h1 {
           font-size: 25px;
           font-weight: 300;
-          margin-bottom: 10px; // 제목 두줄 사이 간격
+          margin-bottom: 14px; // 제목 밑에 간격
         }
         & > p {
           font-size: 11px;
@@ -349,54 +413,101 @@ const MainpageContainer = styled.section`
         }
       }
       & > .morefunc-widgets {
-        /* & {border:1px solid red; box-sizing: border-box;} */
+        /* &, & * {border:1px solid red; box-sizing: border-box;} */
         display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 155px 155px;
+        grid-template-columns: 155px 155px;
         place-items: stretch stretch;
-        grid-gap: 18px 18px;
-        gap: 18px 18px;
-        margin: 20px 0 50px 0; // 위젯 박스 위아래 간격
-      }
-      & > .morefunc-aboutus {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        & > img {
-          /* border-radius: 50%; */
-          width: 38%;
+        grid-gap: 22px 22px;
+        gap: 22px 22px;
+        margin: 28px 0 67px 0; // 위젯 박스 위아래 간격
+        & > .calendar-widget {
+          grid-row: 1 / 2;
+          grid-column: 1 / 2;
         }
-        & > span {
-          font-size: 19px;
-          /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8); */
+        & > .like-widget {
+          grid-row: 1 / 2;
+          grid-column: 2 / 3;
+        }
+        & > .map-widget {
+          grid-row: 2 / 3;
+          grid-column: 1 / 3;
+        }
+      }
+      /* & > .morefunc-aboutus {
+        text-align: center;
+        margin-bottom: 45px; // 만든사람들하고 간이 초대장 사이 간격
+        & > img {
+          border-radius: 50%;
+        }
+        @keyframes textEffect {
+          0% {text-shadow: 0 0 1px rgba(255, 255, 255, 0.1), 0 0 2px rgba(255, 255, 255, 0.1), 0 0 3px rgba(255, 255, 255, 0.1);}
+          100% {text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);}
+        }
+        & > p {
+          font-size: 20px;
           margin: 18px 0 0 10px; // 로고랑 만든 사람들 사이 간격
+          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
+          // animation: textEffect 1s ease-in infinite alternate;
         }
       }
       & > .morefunc-handy-invitation {
+        justify-self: stretch;
         text-align: right;
         position: relative;
-        margin-top: 14%; // 만든사람들하고 간이 초대장 사이 간격
         & > span {
           display: inline-block;
           vertical-align: baseline;
           font-family: 'PyeongChangPeace', sans-serif;
           font-size: 15px;
           position: absolute;
-          top: 35%;
-          right: 13%;
+          top: 13px;
+          right: 64px;
         }
         & > img {
+          width: 40px;
+          height: 40px;
+          margin-right: 23px;
           vertical-align: bottom;
-          width: 15%;
-          margin-right: -8px;
+        }
+      } */
+    }
+    /* @media (max-width: 330px) {
+      & > .morefunc-wrapper {
+        width: 260px;
+        & > .morefunc-description {
+          & > p {
+            font-size: 10px;
+          }
+        }
+        & > .morefunc-widgets {
+          width: 260px;
+          height: 260px;
+          grid-gap: 18px 18px;
+          gap: 18px 18px;
         }
       }
-    }
+    } */
+    /* @media (min-width: 330px) and (max-width: 370px) {
+      & > .morefunc-wrapper {
+        width: 290px;
+        & > .morefunc-description {
+          & > p {
+            font-size: 10px;
+          }
+        }
+        & > .morefunc-widgets {
+          width: 290px;
+          height: 290px;
+          grid-gap: 18px 18px;
+          gap: 18px 18px;
+        }
+      }
+    } */
   }
 
   // 페이지 5: 질문과 답변
-  & > .mainpage-qna {
+  .mainpage-qna {
     // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
     height: 100%;
     min-height: ${window.innerHeight}px;
