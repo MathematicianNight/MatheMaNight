@@ -101,9 +101,10 @@ export const QnaContainer = styled.div`
       }
     }
     & > .qna-contents-wrapper {
-      margin: 0 11px 9px 11px;
+      margin-bottom: 9px;
 
       & > .qna-content-div {
+        padding: 0 15px;
         height: 56px;
         display: flex;
         flex-direction: row;
