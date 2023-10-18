@@ -91,6 +91,58 @@ router.get('/', (req, res) => {
   });
 });
 
+// /**
+//  * @swagger
+//  * paths:
+//  *  /question/total:
+//  *    get:
+//  *      tags: [QnA]
+//  *      summary: 질의응답 모든 데이터 조회
+//  *      description: 서버에 데이터 보내지 않고 Get방식으로 요청
+//  *      responses:
+//  *        "200":
+//  *          description: 질문 정보
+//  *          content:
+//  *            application/json:
+//  *              schema:
+//  *                type: object
+//  *                properties:
+//  *                    anony_num:
+//  *                      type: integer
+//  *                      description: "익명 번호"
+//  *                      example: 1
+//  *                    question:
+//  *                      type: string
+//  *                      description: "질문"
+//  *                      example: "나는 이런 것이 궁금해요!"
+//  *                    answer:
+//  *                      type: string
+//  *                      description: "답변"
+//  *                      example: Null
+//  *                    ans_bool:
+//  *                      type: boolean
+//  *                      description: "답변 유무"
+//  *                      example: 0
+//  */
+// router.get('/', (req, res) => {
+//   const page = req.query.page || 1; // page: page_number, default = 1
+//   const pageSize = 7;
+
+//   const offset = (page - 1) * pageSize; // offset: page start_data_number
+
+//   const sqlQuery = 'SELECT * FROM qna LIMIT ? OFFSET ?;';
+//   db.query(sqlQuery, [pageSize, offset], (err, table) => {
+//     if (err) {
+//       console.error(err);
+//       res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
+//     } else {
+//       db.query(rowsQuery, (err, rows) => {
+//         res.json({ table, rows });
+//       });
+//     }
+//   });
+// });
+
 /**
  * @swagger
  * paths:
