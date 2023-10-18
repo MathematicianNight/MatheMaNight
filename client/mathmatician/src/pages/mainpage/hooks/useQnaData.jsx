@@ -1,7 +1,7 @@
 // useQnaData.js
 import { useState, useEffect } from "react";
 
-const useQnaData = (currentPage) => {
+const useQnaData = ({ currentPage }) => {
   const [qnaData, setQnaData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalpages, setTotalPages] = useState(0);
@@ -28,7 +28,7 @@ const useQnaData = (currentPage) => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, [currentPage]);
+  }, []);
 
   return { qnaData, loading, totalpages };
 };

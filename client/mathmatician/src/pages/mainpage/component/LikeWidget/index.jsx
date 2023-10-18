@@ -11,9 +11,6 @@ const LikeWidget = () => {
   const [count, setCount] = useState(0);
   const likeData = useLikes(setCount);
 
-  console.log(count);
-  console.log(likeData);
-
   const startLikeAnimation = () => {
     setlikemodalopen(true);
     setCount(count + 1);
@@ -34,6 +31,7 @@ const LikeWidget = () => {
       setlikemodalopen(false);
     }, 3000);
   };
+
   useEffect(() => {
     let toggleInterval;
 

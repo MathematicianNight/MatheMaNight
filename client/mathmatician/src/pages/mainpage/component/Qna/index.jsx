@@ -10,16 +10,51 @@ import DeleteModal from "../qnaDeleteModal/index";
 const Index = () => {
   //@definition 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
-  const { qnaData, loading, totalpages } = useQnaData(currentPage);
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+
   const [search, setSearch] = useState("");
   const [openId, setOpenId] = useState(null);
 
   const onChange = (e) => {
     setSearch(e.target.value);
   };
+  // const { qnaData, loading, totalpages } = useQnaData(currentPage);
+
+  const [qnaData, setQnaData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [totalpages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
+    // const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
+    // const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
+
+    fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTotalPages(Math.ceil(data.rows[0].cnt / 7));
+        console.log(data);
+        setQnaData(data.table);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  // const [qnaData, setQnaData] = useState([]);
+  // const [totalpages, setTotalPages] = useState(0);
+
+  // useEffect(() => {
+  //   const { qnaData, loading, totalpages } = useQnaData(currentPage);
+  //   setQnaData(qnaData);
+  //   setTotalPages(totalpages);
+  // }, [qnaData]);
 
   // @definition qna 검색기능 함수
   const filterTitle = qnaData.filter((qna) => {

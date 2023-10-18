@@ -42,6 +42,8 @@ export const Images = {
   aboutus_minjeong: "/assets/images/minjeong.svg",
   aboutus_hellokitty: "/assets/images/hyelee.svg",
   aboutus_suhyeon: "/assets/images/suhyeon.svg",
+  aboutus_sky: "/assets/images/haneul.svg",
+  line: "/assets/images/line.svg",
 
   eiffel_tower: "/assets/images/eiffel_tower.svg",
   info_date_head: "/assets/images/info_date_head.svg",

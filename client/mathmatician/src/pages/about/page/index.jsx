@@ -10,19 +10,25 @@ const index = () => {
           <img src={Images.aboutus_logo} alt="" />
           <img src={Images.aboutus_frendLogo} alt="" className="frendlogo" />
         </div>
-        <div className="aboutus-detail">
-          '청초한 절친'은 수학인의 밤 초대장 웹사이트를 만들기 위해 결성된
-          팀입니다.<br></br> 거꾸로 읽으면 '친절한 초청'입니다. <br></br>팀
-          이름에 프로젝트의 목적이 들어가 있으면 좋겠다고 생각해서 '청초한
-          절친'으로 짓게 되었습니다.
-        </div>
         <div className="aboutus-obj">
           <img src={Images.aboutus_object1} alt="" className="obj1" />
+        </div>
+        <div className="aboutus-detail">
+          '청초한 절친'은 수학인의 밤 초대장 웹사이트를 만들기 위해
+          결성되었습니다. 프로젝트의 목적을 재미나게 담아내고자 '친절한 초청’을
+          거꾸로 한 ‘청초한 절친’을 팀명으로 하였습니다.<br></br>
+          <br></br>웹사이트를 통해 '제40회 수학인의 밤' 행사에 대한 정보를
+          확인하시고, 행사에 참석하여 함께하는 기쁨을 느끼며 한 해를
+          마무리하시길 바랍니다. 감사합니다.
+        </div>
+        <div className="aboutus-line">
+          <img src={Images.line} />
         </div>
         <div className="aboutus-our-wrapper">
           <img src={Images.aboutus_hellokitty} alt="" className="hyelee" />
           <img src={Images.aboutus_minjeong} alt="" className="minjeong" />
           <img src={Images.aboutus_suhyeon} alt="" className="suhyeon" />
+          <img src={Images.aboutus_sky} alt="" className="haneul" />
         </div>
       </div>
     </AboutusContainer>
