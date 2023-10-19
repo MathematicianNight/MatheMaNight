@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 
+//style
 import { QnaContainer } from "../Qna/style";
 import { Images } from "../../../../utils/style";
+
+//Hooks
 import useQnaData from "../../hooks/useQnaData";
+import useSearchData from "../../hooks/useSearchData";
+
+// Component
 import QnaCreateModal from "../qnaCreateModal/index";
 import AnswerModal from "../qnaAnswerModal/index";
 import DeleteModal from "../qnaDeleteModal/index";
@@ -17,44 +23,7 @@ const Index = () => {
   const onChange = (e) => {
     setSearch(e.target.value);
   };
-  // const { qnaData, loading, totalpages } = useQnaData(currentPage);
-
-  const [qnaData, setQnaData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [totalpages, setTotalPages] = useState(0);
-
-  useEffect(() => {
-    const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
-    // const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
-    // const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
-
-    fetch(apiUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setTotalPages(Math.ceil(data.rows[0].cnt / 7));
-        console.log(data);
-        setQnaData(data.table);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  // const [qnaData, setQnaData] = useState([]);
-  // const [totalpages, setTotalPages] = useState(0);
-
-  // useEffect(() => {
-  //   const { qnaData, loading, totalpages } = useQnaData(currentPage);
-  //   setQnaData(qnaData);
-  //   setTotalPages(totalpages);
-  // }, [qnaData]);
+  const { qnaData, loading, totalpages } = useQnaData(currentPage);
 
   // @definition qna 검색기능 함수
   const filterTitle = qnaData.filter((qna) => {

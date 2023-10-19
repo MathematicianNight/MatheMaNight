@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { AnswerModalContainer } from "./style";
 import { Images } from "../../../../utils/style";
 import axios from "axios";
+import { Api } from "../../../../utils/api";
 
 const Index = (props) => {
   const { handleCloseModal, title, questionindex } = props;
@@ -25,15 +26,12 @@ const Index = (props) => {
   };
 
   const createAnswer = () => {
-    const apiUrl = "http://13.124.51.51:4000/question/answer";
-    // const apiUrl = "https://api.mathnight.site/question/answer";
-
     const questionData = {
       anony_num: questionindex,
       answer: answer,
     };
     axios
-      .post(apiUrl, questionData)
+      .post(Api.QnaAnswer, questionData)
       .then((response) => {
         console.log(response);
       })

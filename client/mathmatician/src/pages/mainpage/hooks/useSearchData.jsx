@@ -8,9 +8,9 @@ const useQnaData = (currentPage) => {
   const [totalpages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const apiUrl = `${Api.QnaGet}${currentPage}`;
+    const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
 
-    fetch(apiUrl, {
+    fetch(Api, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
