@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { QnaContainer } from "../Qna/style";
-import { Images } from "../../../../utils/style";
-import useQnaData from "../../hooks/useQnaData";
-import QnaCreateModal from "../qnaCreateModal/index";
-import AnswerModal from "../qnaAnswerModal/index";
-import DeleteModal from "../qnaDeleteModal/index";
+import { QnaContainer } from '../Qna/style';
+import { Images } from '../../../../utils/style';
+import useQnaData from '../../hooks/useQnaData';
+import QnaCreateModal from '../qnaCreateModal/index';
+import AnswerModal from '../qnaAnswerModal/index';
+import DeleteModal from '../qnaDeleteModal/index';
 
 const Index = () => {
   //@definition 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [openId, setOpenId] = useState(null);
 
   const onChange = (e) => {
@@ -24,14 +24,14 @@ const Index = () => {
   const [totalpages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
+    // const apiUrl = `http://13.124.51.51:4000/question?page=${currentPage}`;
     // const apiUrl = `/api?q=query&page=${currentPage}`; // 백엔드 엔드포인트에 맞게 수정
-    // const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
+    const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
 
     fetch(apiUrl, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
@@ -42,7 +42,7 @@ const Index = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setLoading(false);
       });
   }, []);
@@ -59,13 +59,13 @@ const Index = () => {
   // @definition qna 검색기능 함수
   const filterTitle = qnaData.filter((qna) => {
     return qna.question
-      .replace(" ", "")
+      .replace(' ', '')
       .toLowerCase()
-      .includes(search.toLowerCase().replace(" ", ""));
+      .includes(search.toLowerCase().replace(' ', ''));
   });
 
   // @definition 이미 열려있으면 닫고, 안열려있으면 열고 다른 거 모두
-  const [questionindex, setQuestionIndex] = useState("");
+  const [questionindex, setQuestionIndex] = useState('');
   const handleToggle = (id) => {
     if (id === openId) {
       setOpenId(null);
@@ -164,7 +164,7 @@ const Index = () => {
           questionindex={questionindex}
         />
       )}
-      <div className={`qna-wrapper ${bgAnimation ? "qna-on" : "qna-off"}`}>
+      <div className={`qna-wrapper ${bgAnimation ? 'qna-on' : 'qna-off'}`}>
         <div className="qna-title">Q&A</div>
         <div className="qna-search-wrapper">
           <img src={Images.search_icon} alt="searchImg" />
@@ -246,7 +246,7 @@ const Index = () => {
                     <button
                       key={pageNumber}
                       className={`pagination${
-                        currentPage === pageNumber ? "-active" : ""
+                        currentPage === pageNumber ? '-active' : ''
                       }`}
                       onClick={() => setCurrentPage(pageNumber)}
                     >

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { AnswerModalContainer } from "./style";
-import { Images } from "../../../../utils/style";
-import axios from "axios";
+import { AnswerModalContainer } from './style';
+import { Images } from '../../../../utils/style';
+import axios from 'axios';
 
 const Index = (props) => {
   const { handleCloseModal, title, questionindex } = props;
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState('');
 
   const handleConfirm = () => {
-    if (password === "1111") {
+    if (password === '1111') {
       setPasswordCorrect(true);
     } else {
       setPasswordCorrect(false);
@@ -25,8 +25,8 @@ const Index = (props) => {
   };
 
   const createAnswer = () => {
-    const apiUrl = "http://13.124.51.51:4000/question/answer";
-    // const apiUrl = "https://api.mathnight.site/question/answer";
+    // const apiUrl = "http://13.124.51.51:4000/question/answer";
+    const apiUrl = 'https://api.mathnight.site/question/answer';
 
     const questionData = {
       anony_num: questionindex,
