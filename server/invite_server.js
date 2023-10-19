@@ -34,6 +34,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
+app.get('/loading', (req, res) => {
+  // 로딩 페이지
+  res.redirect('https://invite.mathnigth.site');
+});
+
 app.listen(app.get('port'), () => {
   console.log(app.get('port'), '번 포트에서 대기중..');
 });

@@ -369,7 +369,7 @@ router.post('/delete', (req, res) => {
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
       // res.json('success!');
-      return res.redirect('https://invite.mathnight.site');
+      return res.redirect('https://invite.mathnight.site/loading');
     }
   });
 });
