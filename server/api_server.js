@@ -41,7 +41,7 @@ const port = 4000;
  */
 
 /**
- * @path {GET} http://localhost:4000/
+ * @path {GET} https://api.mathnight.site
  * @description 요청 데이터 값이 없고 반환 값이 있는 GET Method
  */
 app.get('/', (req, res) => {
