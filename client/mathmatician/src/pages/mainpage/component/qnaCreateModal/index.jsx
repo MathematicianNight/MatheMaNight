@@ -15,6 +15,8 @@ const Index = ({ handleCloseModal }) => {
 
   const createQuestion = () => {
     const apiUrl = "http://13.124.51.51:4000/question/create";
+    // const apiUrl = "https://api.mathnight.site/question/create";
+
     const questionData = {
       question: text,
     };

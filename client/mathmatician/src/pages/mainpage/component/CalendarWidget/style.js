@@ -18,7 +18,7 @@ const CalendarContainer = styled.section`
   .month {
     color: ${Colors.PersianRed};
     align-self: flex-start;
-    margin: -3px 0 -4px 12px;
+    margin: -7px 0 0px 12px;
   }
   .day {
     color: ${Colors.RawBlack};
@@ -28,12 +28,9 @@ const CalendarContainer = styled.section`
     margin-top: 1px;
   }
 
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
-  margin-left: 6.5px;
   width: 100%;
   height: 100%;
-  @media (max-width: 321px) {
+  /* @media (max-width: 321px) {
     line-height: 37px;
     .month {
       font-size: 15px;
@@ -68,7 +65,7 @@ const CalendarContainer = styled.section`
     .time {
       font-size: 30px;
     }
-  }
+  } */
 `;
 
 export default CalendarContainer;

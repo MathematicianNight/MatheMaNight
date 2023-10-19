@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Scrollbar } from 'swiper/modules';
+import "swiper/css";
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 //Hooks
 import useGreetings from "../hooks/useGreetings";
@@ -10,7 +16,6 @@ import LikeWidget from "../component/LikeWidget";
 import MapWidget from "../component/MapWidget";
 import HandyInvitationModal from "../component/HandyInvitationModal";
 import QnaComponent from "../component/Qna/index";
-
 import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
 
@@ -25,116 +30,189 @@ const MainPage = () => {
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
 
-  useEffect(() => {
-    resizeViewportHeight();
-    window.addEventListener("resize", resizeViewportHeight);
-    return () => window.removeEventListener("resize", resizeViewportHeight);
-  }, []);
+  // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
+  // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
+  // useEffect(() => {
+  //   resizeViewportHeight();
+  //   window.addEventListener("resize", resizeViewportHeight);
+  //   return () => window.removeEventListener("resize", resizeViewportHeight);
+  // }, []);
+
+  const [bgEffectToggle, setBgEffectToggle] = useState(false);
+  // useEffect(() => {
+  //   const handleBgEffectTogle = setInterval(() => {
+  //     setBgEffectToggle(!bgEffectToggle);
+  //   }, 1200);
+  //   return () => {
+  //     clearInterval(handleBgEffectTogle);
+  //   };
+  // }, []);
 
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
     setEnvelopeIconClicked(true);
-  }
+  };
   const closeModal = () => {
     setEnvelopeIconClicked(false);
-  }
+  };
+
+  const navigate = useNavigate();
+  const handlenavigate = () => {
+    navigate("/aboutus");
+  };
 
   return (
     <MainpageContainer>
-      <div className="mainpage-home">
-        <div className="home-wrapper">
-          <span>Wel</span>
-          <span>-come</span>
-          <span>to</span>
-          <div className="moon-back"></div>
-          <div className="moon-front"></div>
-          <img src={Images.eiffel_tower} alt="eiffer tower image" />
-          <div className="invitation-summary">
-            <span>40th</span>
-            <span>수학인의 밤</span>
-            <span>2023.11.24.18:00</span>
-            <span>더블유파티</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="mainpage-greetings">
-        <div className="Greetings">
-          <Greetings message={messageLines} />
-        </div>
-      </div>
-
-      <div className="mainpage-details">
-        <div className="info-wrapper">
-          <h1>Information</h1>
-          <div className="invitation-date">
-            <span>
-              <img src={Images.calendar_icon} alt="calendar icon image" />
-              날짜
-            </span>
-            2023.11.24.금
-          </div>
-          <div className="invitation-time">
-            <span>
-              <img src={Images.clock_icon} alt="clock icon image" />
-              시간
-            </span>
-            저녁 6시
-          </div>
-          <div className="invitation-place">
-            <span>
+      <Swiper
+        direction={'vertical'}
+        scrollbar={{
+          verticalClass: 'swiper-scrollbar-vertical',
+          hide: false
+        }}
+        verticalClass={'swiper-scrollbar-vertical'}
+        modules={[Scrollbar]}
+        // direction={'vertical'}
+        // pagination={{
+        //   clickable: true,
+        // }}
+        // modules={[Pagination]}
+      >
+        <SwiperSlide>
+          <div className="mainpage-home">
+            <div className="home-wrapper">
+              <p>
+                <span className="welcome-wel">Wel</span>
+                <span className="welcome-come">-come</span>
+                <span className="welcome-to">to</span>
+              </p>
               <img
-                src={Images.location_pin_icon}
-                alt="location pin icon image"
+                src={Images.eiffel_tower}
+                alt="eiffer tower image"
               />
-              장소
-            </span>
-            더블유파티
-            <span>서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+              <div className="invitation-summary">
+                <span className="invitation-running">40th</span>
+                <span className="invitation-title">수학인의 밤</span>
+                <span className="invitation-date">2023.11.24.18:00</span>
+                <span className="invitation-place">더블유파티</span>
+              </div>
+            </div>
           </div>
-          <span>더 자세한 정보를 알고 싶으신 분은</span>
-          <span>아래의 부가 기능을 이용해주세요!</span>
-        </div>
-        <div className="program-wrapper">
-          {/* I'll fill in this later... */}
-        </div>
-      </div>
+        </SwiperSlide>
 
-      <div className="mainpage-morefunc">
-        {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
-        <div className="morefunc-wrapper">
-          <div className="morefunc-description">
-            <h1>More Functions</h1>
-            <p>
-            위젯을 클릭하여 일정을 등록하고,<br />
-            지도 앱을 통해 위치를 확인해 보세요.
-            </p>
+        <SwiperSlide>
+          <div className="mainpage-greetings">
+            <div className="Greetings">
+              <Greetings message={messageLines} />
+            </div>
           </div>
-          <div className="widgets-wrapper">
-            <CalendarWidget />
-            <LikeWidget />
-            <MapWidget />
-          </div>
-          <div className="aboutus-wrapper">
-            <img src="http://via.placeholder.com/100x100" alt="our team logo image"/>
-            <span>만든 사람들 &#62;</span>
-          </div>
-          <div className="handy-invitation">
-            간이 초대장
-            <img
-              src={Images.envelope_icon}
-              alt="envelope icon image"
-              onClick={openModal}
-            />
-          </div>
-        </div>
-      </div>
+        </SwiperSlide>
 
-      <div className="mainpage-qna">
-        <div className="QnA">
-          <QnaComponent />
-        </div>
-      </div>
+        <SwiperSlide>
+          <div className="mainpage-details">
+            <div className="info-wrapper">
+              <h1>Information</h1>
+              <div className="info-date">
+                <img src={Images.info_date_head} />
+                <p>2023-11-24&#40;금&#41;</p>
+              </div>
+              <div className="info-time">
+                <img src={Images.info_time_head} />
+                <p>저녁 6시</p>
+              </div>
+              <div className="info-place">
+                <img src={Images.info_place_head} />
+                <p>
+                  더블유파티<br/>
+                  <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+                </p>
+              </div>
+              <p>
+                <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
+                <span><span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!</span>
+              </p>
+            </div>
+            <div className="program-wrapper">
+              <h1>Program</h1>
+              <div className="program-timetable">
+                <img src={Images.content_chart} />
+                <ul>
+                  <li>
+                    <span>식사</span>
+                    <span className="highlight">dinner</span>
+                  </li>
+                  <li>
+                    <span>개회식</span>
+                    <span className="highlight">openning ceremony</span>
+                  </li>
+                  <li>
+                    <span>수학과 영상 시청</span>
+                    <span className="highlight">watching video clips</span>
+                  </li>
+                  <li>
+                    <span>경품 추첨</span>
+                    <span className="highlight">prize draw</span>
+                  </li>
+                  <li className="list-last-item">
+                    <span>폐회식</span>
+                    <span className="highlight">closing ceremony</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={`mainpage-morefunc ${bgEffectToggle ? 'morefunc-effect-a' : 'morefunc-effect-b'}`}>
+            {envelopeIconClicked && (
+              <HandyInvitationModal closeModal={closeModal} />
+            )}
+            <div className="morefunc-wrapper">
+              <div className="morefunc-description">
+                <h1>More Functions</h1>
+                <p>
+                  <span>위젯을 클릭하여 일정을 등록하고,&nbsp;</span>
+                  <span>지도 앱을 열어 위치를 확인해 보세요.</span>
+                </p>
+              </div>
+              <div className="morefunc-widgets">
+                <div className="calendar-widget">
+                  <CalendarWidget />
+                </div>
+                <div className="like-widget">
+                  <LikeWidget />
+                </div>
+                <div className="map-widget">
+                  <MapWidget />
+                </div>
+              </div>
+              {/* <div className="morefunc-aboutus">
+                <img
+                  src="http://via.placeholder.com/164x164"
+                  alt="our team logo image"
+                />
+                <p onClick={handlenavigate}>만든 사람들 &#62;</p>
+              </div>
+              <div className="morefunc-handy-invitation">
+                <span>간이 초대장</span>
+                <img
+                  src={Images.envelope_icon}
+                  alt="envelope icon"
+                  onClick={openModal}
+                />
+              </div> */}
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className="mainpage-qna">
+            <div className="QnA">
+              <QnaComponent />
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </MainpageContainer>
   );
 };

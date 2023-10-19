@@ -26,6 +26,8 @@ const Index = (props) => {
 
   const createAnswer = () => {
     const apiUrl = "http://13.124.51.51:4000/question/answer";
+    // const apiUrl = "https://api.mathnight.site/question/answer";
+
     const questionData = {
       anony_num: questionindex,
       answer: answer,
