@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Api } from "../../../utils/api";
 
 const useQnaData = (currentPage) => {
+const useQnaData = (currentPage) => {
   const [qnaData, setQnaData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalpages, setTotalPages] = useState(0);
@@ -11,22 +12,25 @@ const useQnaData = (currentPage) => {
     const apiUrl = `${Api.QnaGet}${currentPage}`;
 
     fetch(apiUrl, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
       .then((data) => {
         setTotalPages(Math.ceil(data.result[0].cnt / 7));
         // console.log(data);
+        setTotalPages(Math.ceil(data.result[0].cnt / 7));
+        // console.log(data);
         setQnaData(data.table);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         setLoading(false);
       });
+  }, [currentPage]);
   }, [currentPage]);
 
   return { qnaData, loading, totalpages };
