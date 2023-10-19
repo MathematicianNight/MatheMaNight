@@ -4,6 +4,5 @@ export const Api = {
   QnaDelete: "https://api.mathnight.site/question/delete",
   QnaCreate: "http://api.mathnight.site/question/create",
   QnaAnswer: "https://api.mathnight.site/question/answer",
-  Qna
   Like: "https://api.mathnight.site/like",
 };
