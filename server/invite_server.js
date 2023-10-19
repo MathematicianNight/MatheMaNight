@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('/loading', (req, res) => {
   // 로딩 페이지
-  res.redirect('https://invite.mathnigth.site');
+  return res.redirect('https://invite.mathnigth.site');
 });
 
 app.listen(app.get('port'), () => {
