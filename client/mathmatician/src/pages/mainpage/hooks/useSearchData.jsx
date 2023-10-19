@@ -10,7 +10,7 @@ const useQnaData = (currentPage) => {
   useEffect(() => {
     const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
 
-    fetch(Api, {
+    fetch(apiUrl, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

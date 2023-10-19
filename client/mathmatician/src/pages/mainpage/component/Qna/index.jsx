@@ -37,6 +37,9 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
   const [totalpages, setTotalPages] = useState(0);
 
+  /**
+   *  @definition qna 데이터 호출
+   * */
   const getQnaData = () => {
     const apiUrl = `${Api.QnaGet}${currentPage}`;
 
@@ -59,6 +62,7 @@ const Index = () => {
       });
   };
 
+  // @detinition 검색 후 데이터 조정
   const getSearchData = () => {
     const apiParams = {
       result: search,
