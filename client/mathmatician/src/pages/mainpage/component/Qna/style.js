@@ -11,19 +11,19 @@ export const QnaContainer = styled.div`
   height: ${window.innerHeight}px;
 
   .bg-animation-on {
+    // width: 100vh;
     background-image: url(${Images.star_qna_group1});
     background-size: cover;
     background-repeat: no-repeat;
-    // background-position: center center;
-    transition: background ease-in-out 0.5s;
-    height: 100%;
+    background-position: center center;
   }
   .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
     background-image: url(${Images.star_qna_group2});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    transition: linear 0.2s;
   }
   @media (max-width: ${maxwidth}px) {
     .qna-wrapper {
@@ -34,13 +34,18 @@ export const QnaContainer = styled.div`
     background-image: url(${Images.star_qna_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    transition: background ease-in-out 0.4s;
+    background-position: center center;
+    // transition: background ease-in-out 0.4s;
   }
   .qna-off {
     background-image: url(${Images.star_qna_group2});
     background-repeat: no-repeat;
-    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    transition: background ease-in-out 0.4s;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    background-position: center center;
+    // background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: background ease-in-out 0.1s;
   }
 
   & > .qna-wrapper {
@@ -81,6 +86,7 @@ export const QnaContainer = styled.div`
       padding: 0 13px;
       flex-shrink: 0;
       align-items: center;
+
       @media (max-width: ${maxwidth}px) {
         height: 23px;
       }
