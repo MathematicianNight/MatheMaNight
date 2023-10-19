@@ -20,7 +20,13 @@ const db = mysql.createConnection({
 });
 db.connect();
 
-let rowsQuery = 'SELECT COUNT(anony_num) AS cnt FROM qna';
+// query문
+var checksql = 'SELECT * FROM qna LIMIT ? OFFSET ?; ';
+var cnt1sql = 'SELECT COUNT(anony_num) AS cnt FROM qna; ';
+var searchsql =
+  'SELECT * FROM ( SELECT * FROM qna WHERE question LIKE ? OR answer LIKE ? ) AS subtable LIMIT ? OFFSET ?; ';
+var cnt2sql =
+  'SELECT COUNT(anony_num) AS cnt FROM ( SELECT * FROM qna WHERE question LIKE ? OR answer LIKE ? ) AS subtable; ';
 
 /**
  * @swagger
@@ -64,7 +70,7 @@ let rowsQuery = 'SELECT COUNT(anony_num) AS cnt FROM qna';
  *                          type: boolean
  *                          description: "답변 유무"
  *                          example: 0
- *                    rows:
+ *                    result:
  *                      type: object
  *                      description: "질문 개수"
  *                      properties:
@@ -73,75 +79,125 @@ let rowsQuery = 'SELECT COUNT(anony_num) AS cnt FROM qna';
  *                          example: 20
  */
 router.get('/', (req, res) => {
-  const page = req.query.page || 1; // page: page_number, default = 1
-  const pageSize = 7;
+  try {
+    const page = req.query.page || 1; // page: page_number, default = 1
+    const pageSize = 7;
 
-  const offset = (page - 1) * pageSize; // offset: page start_data_number
+    const offset = (page - 1) * pageSize; // offset: page start_data_number
 
-  const sqlQuery = 'SELECT * FROM qna LIMIT ? OFFSET ?;';
-  db.query(sqlQuery, [pageSize, offset], (err, table) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
-    } else {
-      db.query(rowsQuery, (err, rows) => {
-        res.json({ table, rows });
-      });
-    }
-  });
+    var checksqls = mysql.format(checksql, [pageSize, offset]);
+    db.query(checksqls, (err, table) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
+      } else {
+        db.query(cnt1sql, (err, result) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send('데이터 개수 조회 중 오류가 발생했습니다.');
+          } else {
+            res.json({ table, result });
+          }
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-// /**
-//  * @swagger
-//  * paths:
-//  *  /question/total:
-//  *    get:
-//  *      tags: [QnA]
-//  *      summary: 질의응답 모든 데이터 조회
-//  *      description: 서버에 데이터 보내지 않고 Get방식으로 요청
-//  *      responses:
-//  *        "200":
-//  *          description: 질문 정보
-//  *          content:
-//  *            application/json:
-//  *              schema:
-//  *                type: object
-//  *                properties:
-//  *                    anony_num:
-//  *                      type: integer
-//  *                      description: "익명 번호"
-//  *                      example: 1
-//  *                    question:
-//  *                      type: string
-//  *                      description: "질문"
-//  *                      example: "나는 이런 것이 궁금해요!"
-//  *                    answer:
-//  *                      type: string
-//  *                      description: "답변"
-//  *                      example: Null
-//  *                    ans_bool:
-//  *                      type: boolean
-//  *                      description: "답변 유무"
-//  *                      example: 0
-//  */
-// router.get('/', (req, res) => {
-//   const page = req.query.page || 1; // page: page_number, default = 1
-//   const pageSize = 7;
+/**
+ * @swagger
+ * paths:
+ *  /question/search:
+ *    get:
+ *      tags: [QnA]
+ *      summary: 검색 결과 데이터 조회
+ *      description: 서버에 검색어와 페이지번호를 포함하여 Get방식으로 요청
+ *      parameters:
+ *        - in: query
+ *          name: result
+ *          schema:
+ *            type: string
+ *          description: 검색어
+ *        - in: query
+ *          name: page
+ *          schema:
+ *            type: integer
+ *          description: 페이지 번호
+ *      responses:
+ *        "200":
+ *          description: 검색 결과 정보
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                    table:
+ *                      type: object
+ *                      description: "질의응답"
+ *                      properties:
+ *                        anony_num:
+ *                          type: integer
+ *                          description: "익명 번호"
+ *                          example: 1
+ *                        question:
+ *                          type: string
+ *                          description: "질문"
+ *                          example: "나는 이런 것이 궁금해요!"
+ *                        answer:
+ *                          type: string
+ *                          description: "답변"
+ *                          example: Null
+ *                        ans_bool:
+ *                          type: boolean
+ *                          description: "답변 유무"
+ *                          example: 0
+ *                    result:
+ *                      type: object
+ *                      description: "검색 결과 개수"
+ *                      properties:
+ *                        cnt:
+ *                          type: integer
+ *                          example: 20
+ */
+router.get('/search', (req, res) => {
+  try {
+    const search = req.query.result || '';
+    const page = req.query.page || 1; // page: page_number, default = 1
+    const pageSize = 7;
 
-//   const offset = (page - 1) * pageSize; // offset: page start_data_number
+    const offset = (page - 1) * pageSize; // offset: page start_data_number
 
-//   const sqlQuery = 'SELECT * FROM qna LIMIT ? OFFSET ?;';
-//   db.query(sqlQuery, [pageSize, offset], (err, table) => {
-//     if (err) {
-//       console.error(err);
-//       res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
-//     } else {
-//       db.query(rowsQuery, (err, rows) => {
-//         res.json({ table, rows });
-//       });
-//     }
-//   });
-// });
+    var searchsqls = mysql.format(searchsql, [
+      '%' + search + '%',
+      '%' + search + '%',
+      pageSize,
+      offset,
+    ]);
+    db.query(searchsqls, (err, table) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
+      } else {
+        var cnt2sqls = mysql.format(cnt2sql, [
+          '%' + search + '%',
+          '%' + search + '%',
+        ]);
+        db.query(cnt2sqls, (err, result) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send('데이터 개수 조회 중 오류가 발생했습니다.');
+          } else {
+            res.json({ table, result });
+          }
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 /**
  * @swagger
