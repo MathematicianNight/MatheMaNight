@@ -2,6 +2,10 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
+const HTTPS = require('https');
+
+const port = 5000;
 
 const app = express();
 
@@ -13,7 +17,7 @@ const allowedOrigins = [
   'https://api.mathnight.site',
 ];
 
-const options = {
+const cors_options = {
   // origin: allowedOrigins, // 접근 권한을 부여하는 도메인
   // credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
   // optionsSuccessStatus: 200, // 응답 상태 200으로 설정
@@ -22,7 +26,7 @@ const options = {
   credentials: true,
 };
 
-app.use(cors(options));
+app.use(cors(cors_options));
 
 // Run server
 app.set('port', process.env.PORT || 5000);
@@ -34,11 +38,29 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
-app.get('/loading', (req, res) => {
-  // 로딩 페이지
-  return res.redirect('https://invite.mathnigth.site');
-});
+// app.get('/loading', (req, res) => {
+//   // 로딩 페이지
+//   return res.redirect('https://invite.mathnigth.site');
+// });
 
-app.listen(app.get('port'), () => {
-  console.log(app.get('port'), '번 포트에서 대기중..');
-});
+// 운영 환경일때만 적용
+if (process.env.NODE_ENV == 'production') {
+  try {
+    const option = {
+      ca: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/fullchain.pem'),
+      key: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/cert.pem'),
+    };
+
+    HTTPS.createServer(option, app).listen(port, () => {
+      console.log('HTTPS 서버가 실행되었습니다. 포트 :: ' + port);
+    });
+  } catch (err) {
+    console.log('HTTPS 서버가 실행되지 않습니다.');
+    console.log(err);
+  }
+} else {
+  app.listen(app.get('port'), () => {
+    console.log('HTTP 서버가 실행되었습니다. 포트 :: ' + app.get('port'));
+  });
+}
