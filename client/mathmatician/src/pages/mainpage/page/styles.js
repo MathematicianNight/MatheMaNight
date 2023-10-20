@@ -6,10 +6,12 @@ const MainpageContainer = styled.section`
   // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
   box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5),
     5px 0 10px rgba(20, 20, 20, 0.5);
-  @media (max-width: 501px) { // 501 미만
+  @media (max-width: 501px) {
+    // 501 미만
     width: 100%;
   }
-  @media (min-width: 501px) { // 501 이상
+  @media (min-width: 501px) {
+    // 501 이상
     width: 500px;
     margin: 0 auto;
   }
@@ -177,11 +179,11 @@ const MainpageContainer = styled.section`
 
   // 페이지 2: 인사말
   .mainpage-greetings {
-  // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
-  height: 100%;
-  min-height: ${window.innerHeight}px;
-  // line-height: ${window.innerHeight}px;
-  scroll-snap-align: start;
+    // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
+    height: 100%;
+    min-height: ${window.innerHeight}px;
+    // line-height: ${window.innerHeight}px;
+    scroll-snap-align: start;
     & > .Greetings {
       // .child 안에 .Greetings가 있었어서 여기로 다시 옮김
       height: 100%;
@@ -198,8 +200,8 @@ const MainpageContainer = styled.section`
     justify-items: center;
     & > .info-wrapper {
       & .highlight {
-      font-size: 11px;
-      color: #FFDB58;
+        font-size: 11px;
+        color: #ffdb58;
       }
       align-self: end;
       width: 100%;
@@ -264,7 +266,7 @@ const MainpageContainer = styled.section`
             }
             & > .highlight {
               font-size: 15px;
-              color: #FFDB58;
+              color: #ffdb58;
               margin-bottom: 35px; // 목록 수직 사이 간격 35
             }
           }
@@ -376,7 +378,6 @@ const MainpageContainer = styled.section`
     }
   }
 
-  
   // 페이지 4: 부가 기능
   /* .morefunc-effect-a {
     background-image: url(${Images.temp1});
@@ -510,10 +511,12 @@ const MainpageContainer = styled.section`
   .mainpage-qna {
     // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
     height: 100%;
-    min-height: ${window.innerHeight}px;
+    width: 100%;
+    // min-height: ${window.innerHeight}px;
     // line-height: ${window.innerHeight}px;
-    scroll-snap-align: start;
+    // scroll-snap-align: start;
     & > .QnA {
+      height: 100%;
       min-height: ${window.innerHeight}px;
       // display: flex;
       // align-items: center;
