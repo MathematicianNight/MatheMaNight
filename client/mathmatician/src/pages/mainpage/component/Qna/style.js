@@ -75,14 +75,16 @@ export const QnaContainer = styled.div`
       padding-top: ${window.innerHeight / 7}px;
       transition: all 0.5s;
 
-      @media (max-height: 666px) {
+      @media (max-height: 600px) {
         padding-top: 0px;
+        margin-bottom: 30px;
+        font-size: 22px;
       }
-      // @media (min-height: 621px) and (max-height: 677px) {
-      //   padding-top: ${window.innerHeight / 12}px;
-      //   margin-bottom: 30px;
-      //   font-size: 22px;
-      // }
+      @media (min-height: 601px) and (max-height: 666px) {
+        padding-top: ${window.innerHeight / 20}px;
+        margin-bottom: 30px;
+        font-size: 22px;
+      }
       @media (min-height: 667px) and (max-height: 720px) {
         padding-top: ${window.innerHeight / 15}px;
       }
