@@ -429,7 +429,7 @@ const MainpageContainer = styled.section`
           text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
         }
       }
-      /* @keyframes fadeInDown {
+      @keyframes fadeInDown {
         0% {
             opacity: 0;
             transform: translate3d(0, -30%, 0);
@@ -448,7 +448,7 @@ const MainpageContainer = styled.section`
             opacity: 1;
             transform: translateZ(0);
         }
-      } */
+      }
       & > .morefunc-handy-invitation {        
         text-align: right;
         position: relative;
