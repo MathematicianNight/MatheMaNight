@@ -66,6 +66,26 @@ const LikeContainer = styled.div`
       width: 85px;
       height: 74px;
     }
+    // 나중에 없어질수도.. 일단.. 임시..
+    @media (max-height: 650px) {
+      & > .like-wrapper {
+        & > .like-heart {
+          & > img {
+            width: 40px;
+            margin-left: 35px;
+            right: 35px;
+          }
+          & > span {
+            right: 59px;
+            bottom: 9px;
+            font-size: 11px;
+          }
+        }
+        & > .title {
+          font-size: 11px;
+        }
+      }
+    }
   }
 `;
 
