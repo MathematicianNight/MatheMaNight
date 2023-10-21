@@ -432,7 +432,7 @@ const MainpageContainer = styled.section`
       /* @keyframes fadeInDown {
         0% {
             opacity: 0;
-            transform: translate3d(0, -50%, 0);
+            transform: translate3d(0, -30%, 0);
         }
         to {
             opacity: 1;
@@ -440,9 +440,9 @@ const MainpageContainer = styled.section`
         }
       }
       @keyframes fadeInLeft {
-        from {
+        0% {
             opacity: 0;
-            transform: translate3d(1%, 0, 0);
+            transform: translate3d(2%, 0, 0);
         }
         to {
             opacity: 1;
@@ -452,7 +452,7 @@ const MainpageContainer = styled.section`
       & > .morefunc-handy-invitation {        
         text-align: right;
         position: relative;
-        /* animation: fadeInDown 1s infinite alternate; */
+        animation: fadeInDown 1.2s infinite alternate;
         & > span {
           display: inline-block;
           font-family: 'PyeongChangPeace', sans-serif;
