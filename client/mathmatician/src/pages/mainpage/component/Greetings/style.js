@@ -6,8 +6,8 @@ export const GreetingsContainer = styled.div`
   // min-height: ${window.innerHeight}px;
 
   width: 100%;
-  height: ${window.innerHeight}px;
-  // height: 100%;
+  // height: ${window.innerHeight}px;
+  height: 100%;
 
   .bg-animation-on {
     // width: 100vh;
