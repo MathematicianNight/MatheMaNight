@@ -6,17 +6,20 @@ const path = require('path');
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:3000',
+  'http://localhost:4000',
   'http://localhost:5000',
-  'http://43.201.8.13:5000',
-  'http://43.201.8.13',
-  'https://mathnight.site',
+  'http://13.125.111.190',
+  'http://13.125.111.190:5000',
+  'https://invite.mathnight.site',
 ];
 
 const options = {
-  origin: allowedOrigins, // 접근 권한을 부여하는 도메인
-  credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
-  optionsSuccessStatus: 200, // 응답 상태 200으로 설정
+  // origin: allowedOrigins, // 접근 권한을 부여하는 도메인
+  // credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
+  // optionsSuccessStatus: 200, // 응답 상태 200으로 설정
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
 };
 
 // Middleware
@@ -38,7 +41,7 @@ const port = 4000;
  */
 
 /**
- * @path {GET} http://localhost:4000/
+ * @path {GET} https://api.mathnight.site
  * @description 요청 데이터 값이 없고 반환 값이 있는 GET Method
  */
 app.get('/', (req, res) => {

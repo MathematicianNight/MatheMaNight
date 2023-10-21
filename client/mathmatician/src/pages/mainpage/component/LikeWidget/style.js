@@ -58,6 +58,14 @@ const LikeContainer = styled.div`
       font-weight: 300;
       line-height: normal;
     }
+    & > .unclick {
+      width: 82px;
+      height: 74px;
+    }
+    & > .click {
+      width: 85px;
+      height: 74px;
+    }
   }
 `;
 

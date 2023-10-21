@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
+import { Api } from "../../../utils/api";
 
 const useLikes = ({ setCount }) => {
   const [likeData, setLikeData] = useState(0);
 
   useEffect(() => {
-    // const apiUrl = "http://13.124.51.51:4000/like";
-    const apiUrl = "https://api.mathnight.site/like";
-
-    fetch(apiUrl)
+    fetch(Api.Like)
       .then((response) => response.json())
       .then((data) => {
         setLikeData(data.likeCnt);

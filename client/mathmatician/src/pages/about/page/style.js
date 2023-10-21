@@ -23,21 +23,73 @@ const AboutusContainer = styled.section`
       align-items: center;
       padding: 38px 0 21px 0;
       text-align: center;
+
       & > .frendlogo {
-        padding: 19px 12px 0 0;
-        width: 77%;
-        height: 236px;
+        padding: 19px px 0 0;
+        // width: 77%;
+        width: 270px;
+        height: 214px;
+        // height: 236px;
       }
     }
     & > .aboutus-detail {
+      text-align: left;
+      padding: 10px 45px;
+      font-family: SUITE;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 56px;
+    }
+
+    & > .aboutus-line {
       text-align: center;
+      margin-bottom: 65px;
     }
     & > .aboutus-obj {
-      margin: 71px 0 80px 0;
-      display: flex;
+      margin: 0 0 15px 0;
+      width: 100%;
+      height: 50px;
+      & > .obj1 {
+        width: 130px;
+        height: 40.5px;
+        float: right;
+        padding-right: 11px;
+        position: relative;
+        top: -15px;
+      }
+    }
 
-      display: block;
-      padding-right: 46px;
+    & > .aboutus-our-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 55px;
+      & > .hyelee {
+        width: 206px;
+        height: 256px;
+        padding-right: 30px;
+      }
+      & > .minjeong {
+        width: 259px;
+        height: 256px;
+        flex-shrink: 0;
+      }
+      & > .suhyeon {
+        width: 264px;
+        height: 256px;
+        padding-right: 90px;
+        flex-shrink: 0;
+      }
+      & > .haneul {
+        width: 281.66px;
+        height: 256px;
+        // padding-right: 90px;
+        flex-shrink: 0;
+        margin-bottom: 100px;
+      }
     }
   }
 `;

@@ -8,11 +8,11 @@ const LikeContainer = styled.section`
       transform: translateY(0) scale(1);
     }
     // 50% {
-    //   transform: translateY(-100px) scale(1.2);
+    //   transform: translateY(-150px) scale(1.3);
     //   opacity: 0;
     // }
     100% {
-      transform: translateY(-150px) scale(2);
+      transform: translateY(-250px) scale(1.6);
       opacity: 0;
     }
   }
@@ -116,7 +116,31 @@ const LikeContainer = styled.section`
   .heart9 {
     position: absolute;
     top: 85%;
-    left: 10%;
+    left: 14%;
+    animation: heartAnimation 4s ease infinite;
+  }
+  .heart10 {
+    position: absolute;
+    top: 97%;
+    left: 59%;
+    animation: heartAnimation 4s ease infinite;
+  }
+  .heart11 {
+    position: absolute;
+    top: 110%;
+    left: 32%;
+    animation: heartAnimation 4s ease infinite;
+  }
+  .heart12 {
+    position: absolute;
+    top: 118%;
+    left: 76%;
+    animation: heartAnimation 4s ease infinite;
+  }
+  .heart13 {
+    position: absolute;
+    top: 122%;
+    left: 7%;
     animation: heartAnimation 4s ease infinite;
   }
 `;

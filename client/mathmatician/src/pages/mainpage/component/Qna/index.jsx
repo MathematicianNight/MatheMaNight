@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 
+//style
 import { QnaContainer } from "../Qna/style";
 import { Images } from "../../../../utils/style";
+
+//Hooks
 import useQnaData from "../../hooks/useQnaData";
+import useSearchData from "../../hooks/useSearchData";
+
+// api
+import { Api } from "../../../../utils/api";
+
+// Component
 import QnaCreateModal from "../qnaCreateModal/index";
 import AnswerModal from "../qnaAnswerModal/index";
 import DeleteModal from "../qnaDeleteModal/index";
@@ -10,16 +19,86 @@ import DeleteModal from "../qnaDeleteModal/index";
 const Index = () => {
   //@definition 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
-  const { qnaData, loading, totalpages } = useQnaData(currentPage);
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  const [SearchPage, setSearchPage] = useState(1);
+
+  const [searchstate, setSearchState] = useState(false);
+
   const [search, setSearch] = useState("");
   const [openId, setOpenId] = useState(null);
 
-  const onChange = (e) => {
-    setSearch(e.target.value);
+  const handleSearch = (searchText) => {
+    setSearchState(true);
+    setSearch(searchText);
+    setSearchPage(1); // 검색어가 변경될 때 페이지를 1로 리셋
   };
+  // const { qnaData, loading, totalpages } = useQnaData(currentPage);
+
+  const [qnaData, setQnaData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [totalpages, setTotalPages] = useState(0);
+
+  /**
+   *  @definition qna 데이터 호출
+   * */
+  const getQnaData = () => {
+    const apiUrl = `${Api.QnaGet}${currentPage}`;
+
+    fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTotalPages(Math.ceil(data.result[0].cnt / 7));
+        setQnaData(data.table);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  };
+
+  // @detinition 검색 후 데이터 조정
+  const getSearchData = () => {
+    const apiParams = {
+      result: search,
+      page: SearchPage,
+    };
+    const apiUrl = `${Api.QnaSearch}result=${apiParams.result}&page=${apiParams.page}`;
+
+    fetch(
+      apiUrl,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+      apiParams
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setTotalPages(Math.ceil(data.result[0].cnt / 7));
+        setQnaData(data.table);
+        console.log(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    getQnaData();
+  }, [currentPage]);
+
+  useEffect(() => {
+    getSearchData();
+  }, [search, SearchPage]);
 
   // @definition qna 검색기능 함수
   const filterTitle = qnaData.filter((qna) => {
@@ -136,13 +215,13 @@ const Index = () => {
           <input
             type="text"
             value={search}
-            onChange={onChange}
+            onChange={(e) => handleSearch(e.target.value)}
             placeholder="글 제목, 내용, 해시태그"
             className="qna-searchbar"
           />
         </div>
         <div className="qna-contents-wrapper">
-          {filterTitle.map((qna, index) => (
+          {qnaData.map((qna, index) => (
             <>
               <div key={index} className="qna-content-div">
                 <img
@@ -207,13 +286,23 @@ const Index = () => {
                       &lt;
                     </button>
                   )}
+
                   {group.map((pageNumber) => (
                     <button
                       key={pageNumber}
                       className={`pagination${
-                        currentPage === pageNumber ? "-active" : ""
+                        (searchstate && SearchPage === pageNumber) ||
+                        (!searchstate && currentPage === pageNumber)
+                          ? "-active"
+                          : ""
                       }`}
-                      onClick={() => setCurrentPage(pageNumber)}
+                      onClick={() => {
+                        if (searchstate) {
+                          setSearchPage(pageNumber);
+                        } else {
+                          setCurrentPage(pageNumber);
+                        }
+                      }}
                     >
                       {pageNumber}
                     </button>

@@ -8,22 +8,23 @@ export const QnaContainer = styled.div`
   color: ${Colors.White};
   font-family: "SUITE", sans-serif;
   width: 100%;
-  height: ${window.innerHeight}px;
+  // height: ${window.innerHeight}px;
+  height: 100%;
 
   .bg-animation-on {
+    // width: 100vh;
     background-image: url(${Images.star_qna_group1});
     background-size: cover;
     background-repeat: no-repeat;
-    // background-position: center center;
-    transition: background ease-in-out 0.5s;
-    height: 100%;
+    background-position: center center;
   }
   .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
     background-image: url(${Images.star_qna_group2});
-    background-size: cover;
+    // background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    transition: linear 0.2s;
   }
   @media (max-width: ${maxwidth}px) {
     .qna-wrapper {
@@ -34,41 +35,73 @@ export const QnaContainer = styled.div`
     background-image: url(${Images.star_qna_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    transition: background ease-in-out 0.4s;
+    background-position: center center;
+    // transition: background ease-in-out 0.4s;
   }
   .qna-off {
     background-image: url(${Images.star_qna_group2});
     background-repeat: no-repeat;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    background-position: center center;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    transition: background ease-in-out 0.4s;
+    // transition: background ease-in-out 0.1s;
   }
 
   & > .qna-wrapper {
     padding: 0 34px;
-    height: ${window.innerHeight}px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // height: ${window.innerHeight}px;
+    height: 100%;
+
+    // width: ${window.innerWidth}px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
 
     // @media (max-width: ${maxwidth}px) {
-    //   padding: 0 22px;
+    //   padding-top: ${window.innerHeight % 40}px;
     // }
     // @media (min-width: 500px) {
+    //   margin-top: ${window.innerHeight % 40}px;
     // }
+
     & > .qna-title {
       color: ${Colors.White};
       font-size: 25px;
       font-weight: 400;
       line-height: normal;
       margin-bottom: 45px;
-      // padding-top: ${window.innerHeight / 7}px;
-      @media (max-width: ${maxwidth}px) {
-        // padding-top: ${window.innerHeight / 14}px;
+      padding-top: ${window.innerHeight / 7}px;
+      transition: all 0.5s;
+
+      @media (max-height: 600px) {
+        padding-top: 0px;
         margin-bottom: 30px;
         font-size: 22px;
       }
-      @media (min-width: 500px) {
-        padding-top: 0px;
+      @media (min-height: 601px) and (max-height: 666px) {
+        padding-top: ${window.innerHeight / 20}px;
+        margin-bottom: 30px;
+        font-size: 22px;
+      }
+      @media (min-height: 667px) and (max-height: 720px) {
+        padding-top: ${window.innerHeight / 15}px;
+      }
+      @media (min-height: 721px) and (max-height: 799px) {
+        padding-top: ${window.innerHeight / 9}px;
+      }
+      @media (min-height: 801px) and (max-height: 900px) {
+        padding-top: ${window.innerHeight / 7}px;
+      }
+      @media (min-height: 901px) and (max-height: 1000px) {
+        padding-top: ${window.innerHeight / 6}px;
+      }
+      @media (min-height: 1001px) and (max-height: 1200px) {
+        padding-top: ${window.innerHeight / 5}px;
+      }
+      @media (min-height: 1201px) {
+        padding-top: ${window.innerHeight / 4}px;
       }
     }
     & > .qna-search-wrapper {
@@ -81,6 +114,7 @@ export const QnaContainer = styled.div`
       padding: 0 13px;
       flex-shrink: 0;
       align-items: center;
+
       @media (max-width: ${maxwidth}px) {
         height: 23px;
       }
@@ -101,8 +135,10 @@ export const QnaContainer = styled.div`
       }
     }
     & > .qna-contents-wrapper {
-      margin: 0 11px 9px 11px;
+      margin-bottom: 9px;
+
       & > .qna-content-div {
+        padding: 0 15px;
         height: 56px;
         display: flex;
         flex-direction: row;

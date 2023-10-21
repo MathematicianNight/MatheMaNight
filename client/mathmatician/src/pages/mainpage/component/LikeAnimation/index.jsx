@@ -19,6 +19,10 @@ const LikeModal = () => {
       <img src={Images.likeheart} alt="" className="heart7" />
       <img src={Images.likeheart} alt="" className="heart8" />
       <img src={Images.likeheart} alt="" className="heart9" />
+      <img src={Images.likeheart} alt="" className="heart10" />
+      <img src={Images.likeheart} alt="" className="heart11" />
+      <img src={Images.likeheart} alt="" className="heart12" />
+      <img src={Images.likeheart} alt="" className="heart13" />
     </LikeAnimation>
   );
 };

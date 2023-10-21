@@ -8,7 +8,7 @@ const useQnaData = (currentPage) => {
   const [totalpages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const apiUrl = `${Api.QnaGet}${currentPage}`;
+    const apiUrl = `https://api.mathnight.site/question?page=${currentPage}`;
 
     fetch(apiUrl, {
       method: "GET",
@@ -19,6 +19,7 @@ const useQnaData = (currentPage) => {
       .then((response) => response.json())
       .then((data) => {
         setTotalPages(Math.ceil(data.result[0].cnt / 7));
+        // console.log(data);
         setQnaData(data.table);
         setLoading(false);
       })
