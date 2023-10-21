@@ -2,8 +2,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const fs = require('fs');
-const HTTPS = require('https');
 
 const app = express();
 
@@ -36,28 +34,21 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
-// // 운영 환경일때만 적용
-// if (process.env.NODE_ENV == 'production') {
-//   try {
-//     const option = {
-//       ca: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/fullchain.pem'),
-//       key: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/privkey.pem'),
-//       cert: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/cert.pem'),
-//     };
+// 운영 환경일때만 적용
+if (process.env.NODE_ENV == 'production') {
+  try {
+    console = window.console || {};
+    console.log = function no_console() {}; // console log 막기
 
-//     HTTPS.createServer(option, app).listen(app.get('port'), () => {
-//       console.log('HTTPS 서버가 실행되었습니다. 포트 :: ' + app.get('port'));
-//     });
-//   } catch (err) {
-//     console.log('HTTPS 서버가 실행되지 않습니다.');
-//     console.log(err);
-//   }
-// } else {
-//   app.listen(app.get('port'), () => {
-//     console.log('HTTP 서버가 실행되었습니다. 포트 :: ' + app.get('port'));
-//   });
-// }
-
-app.listen(app.get('port'), () => {
-  console.log('서버가 실행되었습니다. 포트 :: ' + app.get('port'));
-});
+    app.listen(app.get('port'), () => {
+      console.log('서버가 실행되었습니다. 포트 :: ' + app.get('port'));
+    });
+  } catch (err) {
+    console.log('서버가 실행되지 않습니다.');
+    console.log(err);
+  }
+} else if (process.env.NODE_ENV == 'development') {
+  app.listen(app.get('port'), () => {
+    console.log('서버가 실행되었습니다. 포트 :: ' + app.get('port'));
+  });
+}
