@@ -6,7 +6,7 @@ import axios from "axios";
 import { Api } from "../../../../utils/api";
 
 const Index = (props) => {
-  const { handleCloseModal, title, questionindex } = props;
+  const { handleCloseModal, title, questionindex, getQnaData } = props;
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -34,6 +34,7 @@ const Index = (props) => {
       .post(Api.QnaAnswer, questionData)
       .then((response) => {
         console.log(response);
+        getQnaData();
       })
       .catch((error) => {
         console.log(error);
