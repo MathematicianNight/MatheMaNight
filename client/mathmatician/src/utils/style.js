@@ -24,8 +24,6 @@ export const Images = {
   toggle_select: "/assets/images/toggle_select.svg",
   urin_answer: "/assets/images/urin_answer.svg",
   pen_icon: "/assets/images/pen_icon.svg",
-  star_qna_group1: "/assets/images/qna_star_fst.svg",
-  star_qna_group2: "/assets/images/qna_star_sec.svg",
   cancel_button: "/assets/images/cancel_button.svg",
   question_icon: "/assets/images/question.svg",
   speech_icon: "/assets/images/speech.svg",
@@ -44,6 +42,11 @@ export const Images = {
   aboutus_suhyeon: "/assets/images/suhyeon.svg",
   aboutus_sky: "/assets/images/haneul.svg",
   line: "/assets/images/line.svg",
+
+  star_qna_group1: "/assets/images/qna_star_fst.svg",
+  star_qna_group2: "/assets/images/qna_star_sec.svg",
+  star_grtgs_group1: "/assets/images/star_grtgs_group1.svg",
+  star_grtgs_group2: "/assets/images/star_grtgs_group2.svg",
 
   object2: "/assets/images/object2.svg",
   object3: "/assets/images/object3.svg",

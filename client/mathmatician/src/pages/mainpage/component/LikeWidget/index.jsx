@@ -3,6 +3,7 @@ import { Images, Colors } from "../../../../utils/style";
 import LikeContainer from "./style";
 import Likemodal from "../LikeAnimation/index";
 import useLikes from "../../hooks/useLike";
+import { Api } from "../../../../utils/api";
 
 // public/assets 폴더에 heart.svg, heart_bubble.svg, heart_shadow.svg 이미지 저장해두었습니다.
 const LikeWidget = () => {
@@ -14,9 +15,8 @@ const LikeWidget = () => {
   const startLikeAnimation = () => {
     setlikemodalopen(true);
     setCount(count + 1);
-    // fetch("https://api.mathnight.site/like/upcount", {
 
-    fetch("http://13.124.51.51:4000/like/upcount", {
+    fetch(Api.upLike, {
       method: "POST",
     })
       .then((response) => response.json())

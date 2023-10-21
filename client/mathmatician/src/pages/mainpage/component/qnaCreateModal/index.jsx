@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import { CreateModalContainer } from "../qnaCreateModal/style";
 import { Images } from "../../../../utils/style";
 import { Api } from "../../../../utils/api";
 
-const Index = ({ handleCloseModal }) => {
+const Index = ({ handleCloseModal, getQnaData }) => {
   const [text, setText] = useState("");
+  const navigate = useNavigate();
 
   // @definition 입력 값이 25자 이하인 경우에만 상태 업데이트
   const handleChange = (e) => {
@@ -21,7 +23,9 @@ const Index = ({ handleCloseModal }) => {
     axios
       .post(Api.QnaCreate, questionData)
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
+        getQnaData();
+        // window.location.reload();
       })
       .catch((error) => {
         console.error(error);

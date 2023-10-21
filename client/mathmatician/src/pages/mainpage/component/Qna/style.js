@@ -200,7 +200,7 @@ export const QnaContainer = styled.div`
         transition: 0.3s;
         gap: 10.25px;
         @media (max-width: ${maxwidth}px) {
-          padding: 10px 0 14px 0;
+          padding: 10px 15px 14px 15px;
         }
         & > .qna-amswer-img {
           width: 30.478px;

@@ -12,6 +12,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
+      <Route path="/mainpage" element={<MainPage />} />
       <Route path="/oauthkakao" element={<LinkKakaoCalendar />} />
       <Route path="/hellokitty" element={<Hellokitty />} />
       <Route path="/violet" element={<Violet />} />

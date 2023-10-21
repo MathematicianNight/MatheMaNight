@@ -3,14 +3,48 @@ import { Colors, Images } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 export const GreetingsContainer = styled.div`
-  height: 100%;
-  min-height: ${window.innerHeight}px;
+  // min-height: ${window.innerHeight}px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  // height: ${window.innerHeight}px;
+  height: 100%;
+
+  .bg-animation-on {
+    // width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
+    // background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .qna-on {
+    background-image: url(${Images.star_grtgs_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .qna-off {
+    background-image: url(${Images.star_grtgs_group2});
+    background-repeat: no-repeat;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
 
   & > .greetings-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
     text-align: center;
     // text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
     font-family: "SUITE";
@@ -29,7 +63,7 @@ export const GreetingsContainer = styled.div`
     & > img {
     }
     & > .greetings-flower-a {
-      width: 60.958px;
+      // width: 60.958px;
       height: 103.18px;
       position: relative;
       top: ${window.innerHeight / 70 - 10}px;
@@ -39,7 +73,7 @@ export const GreetingsContainer = styled.div`
       }
     }
     & > .greetings-flower-b {
-      width: 60.958px;
+      // width: 60.958px;
       height: 103.18px;
       position: relative;
       bottom: ${window.innerHeight / 25}px;
