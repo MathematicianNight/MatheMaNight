@@ -66,30 +66,58 @@ const LikeContainer = styled.div`
       width: 85px;
       height: 74px;
     }
-    // 나중에 없어질수도.. 일단.. 임시..
-    @media (max-height: 650px) {
-      & > .like-wrapper {
-        & > .like-heart {
-          & > img {
-            width: 40px;
-            margin-left: 35px;
-            right: 35px;
-          }
-          & > span {
-            right: 59px;
-            bottom: 9px;
-            font-size: 11px;
-          }
+  }
+
+
+  // 나중에 없어질수도.. 일단.. 임시..
+  @media (max-height: 725px) {
+    & > .like-wrapper {
+      & > .like-heart {
+        & > img {
+          width: 40px;
+          margin-left: 30px;
         }
-        & > .title {
+        & > span {
+          bottom: 8.5px;
           font-size: 11px;
         }
-        & > .unclick {
-          width: 50%;
+      }
+      & > .title {
+        font-size: 12px;
+      }
+      & > .unclick {
+        width: 65px;
+        height: 57px;
+      }
+      & > .click {
+        width: 68px;
+        height: 57px;
+      }
+    }
+  }
+  @media (max-height: 650px) {
+    & > .like-wrapper {
+      & > .like-heart {
+        & > img {
+          width: 34px;
+          margin-left: 38px;
         }
-        & > .click {
-          width: 50%;
+        & > span {
+          bottom: 8px;
+          right: 55px;
+          font-size: 10px;
         }
+      }
+      & > .title {
+        font-size: 10px;
+      }
+      & > .unclick {
+        width: 54px;
+        height: 46px;
+      }
+      & > .click {
+        width: 57px;
+        height: 46px;
       }
     }
   }
