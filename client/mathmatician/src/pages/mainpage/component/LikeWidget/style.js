@@ -84,6 +84,12 @@ const LikeContainer = styled.div`
         & > .title {
           font-size: 11px;
         }
+        & > .unclick {
+          width: 50%;
+        }
+        & > .click {
+          width: 50%;
+        }
       }
     }
   }
