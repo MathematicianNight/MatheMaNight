@@ -10,8 +10,11 @@ const index = () => {
           <img src={Images.aboutus_logo} alt="" />
           <img src={Images.aboutus_frendLogo} alt="" className="frendlogo" />
         </div>
-        <div className="aboutus-obj">
+        {/* <div className="aboutus-obj">
           <img src={Images.aboutus_object1} alt="" className="obj1" />
+        </div> */}
+        <div className="aboutus-title">
+          <span>청초한 절친</span>
         </div>
         <div className="aboutus-detail">
           '청초한 절친'은 수학인의 밤 초대장 웹사이트를 만들기 위해
@@ -24,11 +27,27 @@ const index = () => {
         <div className="aboutus-line">
           <img src={Images.line} />
         </div>
+        <div className="object-wrapper">
+          <img src={Images.object2} className="object2" />
+          <img src={Images.object3} className="object3" />
+        </div>
         <div className="aboutus-our-wrapper">
           <img src={Images.aboutus_hellokitty} alt="" className="hyelee" />
           <img src={Images.aboutus_minjeong} alt="" className="minjeong" />
           <img src={Images.aboutus_suhyeon} alt="" className="suhyeon" />
           <img src={Images.aboutus_sky} alt="" className="haneul" />
+        </div>
+        <div className="aboutus-more">
+          <img src={Images.object4} className="object4" />
+        </div>
+        <div className="aboutus-title">
+          <span>하고 싶은 말</span>
+        </div>
+        <div className="aboutus-tellmore">
+          <div>혜리 : </div>
+          <div>민정 : </div>
+          <div>수현 : </div>
+          <div>하늘 : </div>
         </div>
       </div>
     </AboutusContainer>
