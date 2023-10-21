@@ -23,22 +23,17 @@ const MainpageContainer = styled.section`
   color: ${Colors.White};
 
   // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
-  /* & > [class^="mainpage"] {
+  .swiper {
     width: 100%;
     height: 100%;
-    scroll-snap-align: start;
-  } */
-  & > .swiper {
-    width: 100%;
-    height: 100%;
-    & .swiper-slide {
+    .swiper-slide {
       width: 100%;
       height: 100%;
+      & > div[class^="mainpage"] {
+        width: 100%;
+        height: 100%;
+      }
     }
-  }
-  div[class^="mainpage"] {
-    width: 100%;
-    height: 100%;
   }
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
@@ -71,11 +66,10 @@ const MainpageContainer = styled.section`
         }
       }
       & > img {
-        width: 150px;
-        /* width: 55%; */
-        /* @media (max-height: 641px) {
+        width: 55%;
+        @media (max-height: 641px) {
           margin: -35px 0 5px 0;
-          width: 45%;
+          width: 35%;
         }
         @media (min-height: 641px) and (max-height: 751px) {
           margin: -6px 0 15px 0;
@@ -87,7 +81,7 @@ const MainpageContainer = styled.section`
         @media (min-height: 851px) {
           margin: 10px 0 35px 0;
           width: 60%;
-        } */
+        }
       }
       & > .invitation-summary {
         width: 298px;
@@ -206,7 +200,7 @@ const MainpageContainer = styled.section`
       margin-bottom: 12%; // info랑 program 사이 간격
       & > h1 {
         width: 80%;
-        margin: 0 auto 30px; // info 밑에 간격 8%
+        margin: 0 auto 30px; // info 밑에 간격
         font-size: 25px;
       }
       & > div {
@@ -243,7 +237,7 @@ const MainpageContainer = styled.section`
       width: 100%;
       & > h1 {
         width: 80%;
-        margin: 0 auto 35px; // info 밑에 간격 8%
+        margin: 0 auto 35px; // info 밑에 간격
         font-size: 25px;
       }
       & > .program-timetable {
@@ -253,7 +247,7 @@ const MainpageContainer = styled.section`
         display: flex;
         & > img {
           height: 100%;
-          margin-top: 6px; // 차트 위에서 쪼끔 떨어뜨리는거
+          margin-top: 6px; // 차트 위에서 떨어뜨리는거
         }
         & > ul {
           padding-left: 30px; // 차트랑 목록 사이 간격
@@ -265,7 +259,7 @@ const MainpageContainer = styled.section`
             & > .highlight {
               font-size: 15px;
               color: #FFDB58;
-              margin-bottom: 35px; // 목록 수직 사이 간격 35
+              margin-bottom: 35px; // 목록 수직 사이 간격
             }
           }
           & > .list-last-item > .highlight {
@@ -376,7 +370,6 @@ const MainpageContainer = styled.section`
     }
   }
 
-  
   // 페이지 4: 부가 기능
   /* .morefunc-effect-a {
     background-image: url(${Images.temp1});
@@ -394,116 +387,208 @@ const MainpageContainer = styled.section`
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     & > .morefunc-wrapper {
-      /* border: 1px solid red; */
-      display: grid;
-      justify-items: center;
-      align-items: center;
-      margin: 64px 0 0; // 페이지 위 여백
       & > .morefunc-description {
-        padding-right: 24px; // 제목 왼쪽 간격 맞추기
         & > h1 {
           font-size: 25px;
           font-weight: 300;
-          margin-bottom: 14px; // 제목 밑에 간격
+          margin-bottom: 14px; // More Functions 아래 여백
         }
         & > p {
           font-size: 11px;
           font-weight: 400;
+          line-height: 12px;
         }
       }
       & > .morefunc-widgets {
-        /* &, & * {border:1px solid red; box-sizing: border-box;} */
         display: grid;
         grid-template-rows: 155px 155px;
         grid-template-columns: 155px 155px;
         place-items: stretch stretch;
         grid-gap: 22px 22px;
         gap: 22px 22px;
-        margin: 28px 0 67px 0; // 위젯 박스 위아래 간격
-        & > .calendar-widget {
-          grid-row: 1 / 2;
-          grid-column: 1 / 2;
-        }
-        & > .like-widget {
-          grid-row: 1 / 2;
-          grid-column: 2 / 3;
-        }
-        & > .map-widget {
-          grid-row: 2 / 3;
-          grid-column: 1 / 3;
-        }
+        margin: 32px 0 77px; // 위젯 위아래 여백
       }
-      /* & > .morefunc-aboutus {
+      & > .morefunc-aboutus {
         text-align: center;
-        margin-bottom: 45px; // 만든사람들하고 간이 초대장 사이 간격
+        margin-bottom: 53px; // 만든 사람들과 간이 초대장 사이 여백
         & > img {
+          width: 150px;
           border-radius: 50%;
         }
-        @keyframes textEffect {
-          0% {text-shadow: 0 0 1px rgba(255, 255, 255, 0.1), 0 0 2px rgba(255, 255, 255, 0.1), 0 0 3px rgba(255, 255, 255, 0.1);}
-          100% {text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);}
-        }
-        & > p {
-          font-size: 20px;
-          margin: 18px 0 0 10px; // 로고랑 만든 사람들 사이 간격
+        & > span {
+          display: block;
+          font-size: 21px;
+          margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
           text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
-          // animation: textEffect 1s ease-in infinite alternate;
         }
       }
-      & > .morefunc-handy-invitation {
-        justify-self: stretch;
+      /* @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, -50%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+      }
+      @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translate3d(1%, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+      } */
+      & > .morefunc-handy-invitation {        
         text-align: right;
         position: relative;
+        /* animation: fadeInDown 1s infinite alternate; */
         & > span {
           display: inline-block;
-          vertical-align: baseline;
           font-family: 'PyeongChangPeace', sans-serif;
           font-size: 15px;
           position: absolute;
-          top: 13px;
-          right: 64px;
+          top: 10px;
+          right: 35px;
         }
         & > img {
           width: 40px;
-          height: 40px;
-          margin-right: 23px;
-          vertical-align: bottom;
+          margin-right: -8px;
+          margin-bottom: -15px;
         }
-      } */
+      }
+      @media (min-height: 900px) {
+        & > .morefunc-widgets {
+          grid-template-rows: 170px 170px;
+          grid-template-columns: 170px 170px;
+          grid-gap: 24px 24px;
+          gap: 24px 24px;
+          margin: 36px 0 87px;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 63px;
+          & > img {
+            width: 170px;
+          }
+          & > span {
+            margin-top: 25px;
+          }
+        }
+      }      
+      @media (max-height: 795px) {
+        & > .morefunc-widgets {
+          grid-template-rows: 140px 140px;
+          grid-template-columns: 140px 140px;
+          grid-gap: 20px 20px;
+          gap: 20px 20px;
+        }
+        & > .morefunc-aboutus {
+          & > img {
+            width: 130px;
+          }
+        }
+      }
+      @media (max-height: 725px) {
+        & > .morefunc-description {
+          & > h1 {
+            font-size: 23px;
+            margin-bottom: 8px;
+          }
+          & > p > span {
+            display: block;
+            font-size: 10px;
+          }
+        }
+        & > .morefunc-widgets {
+          grid-template-rows: 125px 125px;
+          grid-template-columns: 125px 125px;
+          margin: 25px 0 64px;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 40px;
+          & > img {
+            width: 118px;
+          }
+          & > span {
+            font-size: 19px;
+            margin-top: 14px;
+          }
+        }
+        & > .morefunc-handy-invitation {
+          & > img {
+            width: 34px;
+            height: 34px;
+          }
+          & > span {
+            font-size: 13px;
+            top: 10px;
+            right: 28px;
+          }
+        }
+      }
+      @media (max-height: 650px) {
+        & > .morefunc-widgets {
+          grid-template-rows: 110px 110px;
+          grid-template-columns: 110px 110px;
+        }
+        & > .morefunc-aboutus {
+          & > span {
+            font-size: 16px;
+          }
+          & > img {
+            width: 105px;
+          }
+        }
+        & > .morefunc-handy-invitation {
+          & > span {
+            font-size: 11px;
+            top: 12px;
+            right: 26px;
+          }
+        }
+      }
+      @media (max-height: 590px) {
+        & > .morefunc-description > h1 {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+        & > .morefunc-widgets {
+          grid-template-rows: 95px 95px;
+          grid-template-columns: 95px 95px;
+          grid-gap: 16px 16px;
+          gap: 16px 16px;
+          margin: 20px 0 50px 0;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 26px;
+          & > img {
+            width: 85px;
+          }
+          & > span {
+            font-size: 15px;
+            margin-top: 10px;
+          }
+        }
+        & > .morefunc-handy-invitation {
+          & > img {
+            width: 28px;
+          }
+          & > span {
+            font-size: 10px;
+            top: 13px;
+            right: 22px;
+          }
+        }
+      }
     }
-    /* @media (max-width: 330px) {
-      & > .morefunc-wrapper {
-        width: 260px;
-        & > .morefunc-description {
-          & > p {
-            font-size: 10px;
-          }
-        }
-        & > .morefunc-widgets {
-          width: 260px;
-          height: 260px;
-          grid-gap: 18px 18px;
-          gap: 18px 18px;
-        }
-      }
-    } */
-    /* @media (min-width: 330px) and (max-width: 370px) {
-      & > .morefunc-wrapper {
-        width: 290px;
-        & > .morefunc-description {
-          & > p {
-            font-size: 10px;
-          }
-        }
-        & > .morefunc-widgets {
-          width: 290px;
-          height: 290px;
-          grid-gap: 18px 18px;
-          gap: 18px 18px;
-        }
-      }
-    } */
   }
 
   // 페이지 5: 질문과 답변

@@ -23,20 +23,25 @@ import { Images, Colors } from "../../../utils/style";
 import resizeViewportHeight from "../../../utils/resizeViewportHeight";
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
+  const handlenavigate = () => {
+    navigate("/aboutus");
+  };
+
+  useEffect(() => {
+    const code = new URL(window.location.href).searchParams.get('code');
+    if (code !== null) {
+      navigate("/oauthkakao", {state: {code}, replace: true});
+    }
+  });
+
   const message = useGreetings();
 
   const messageLines =
     message && message.length > 0
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
-
-  // 뷰포트의 높이가 달라짐에 따라, vh라는 단위를 css 사용자 정의 속성으로 다시 정의(업데이트)하는 함수
-  // 실제 모바일에서는 필요하지 않을 것이므로 주석 처리
-  // useEffect(() => {
-  //   resizeViewportHeight();
-  //   window.addEventListener("resize", resizeViewportHeight);
-  //   return () => window.removeEventListener("resize", resizeViewportHeight);
-  // }, []);
 
   const [bgEffectToggle, setBgEffectToggle] = useState(false);
   // useEffect(() => {
@@ -54,11 +59,6 @@ const MainPage = () => {
   };
   const closeModal = () => {
     setEnvelopeIconClicked(false);
-  };
-
-  const navigate = useNavigate();
-  const handlenavigate = () => {
-    navigate("/aboutus");
   };
 
   return (
@@ -164,9 +164,6 @@ const MainPage = () => {
 
         <SwiperSlide>
           <div className={`mainpage-morefunc ${bgEffectToggle ? 'morefunc-effect-a' : 'morefunc-effect-b'}`}>
-            {envelopeIconClicked && (
-              <HandyInvitationModal closeModal={closeModal} />
-            )}
             <div className="morefunc-wrapper">
               <div className="morefunc-description">
                 <h1>More Functions</h1>
@@ -176,31 +173,26 @@ const MainPage = () => {
                 </p>
               </div>
               <div className="morefunc-widgets">
-                <div className="calendar-widget">
-                  <CalendarWidget />
-                </div>
-                <div className="like-widget">
-                  <LikeWidget />
-                </div>
-                <div className="map-widget">
-                  <MapWidget />
-                </div>
+                <CalendarWidget />
+                <LikeWidget />
+                <MapWidget />
               </div>
-              {/* <div className="morefunc-aboutus">
+              <div className="morefunc-aboutus">
                 <img
                   src="http://via.placeholder.com/164x164"
                   alt="our team logo image"
                 />
-                <p onClick={handlenavigate}>만든 사람들 &#62;</p>
+                <span onClick={handlenavigate}>만든 사람들 &#62;</span>
               </div>
               <div className="morefunc-handy-invitation">
                 <span>간이 초대장</span>
                 <img
                   src={Images.envelope_icon}
                   alt="envelope icon"
-                  onClick={openModal}
+                  // onClick={openModal}
+                  onClick={() => {alert("not yet ....")}}
                 />
-              </div> */}
+              </div>
             </div>
           </div>
         </SwiperSlide>

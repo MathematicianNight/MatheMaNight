@@ -2,13 +2,15 @@ import styled from "@emotion/styled";
 import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
-const LikeContainer = styled.section`
+const LikeContainer = styled.div`
   &,
   & * {
     box-sizing: border-box;
   }
-  width: 100%;
-  height: 100%;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  /* width: 100%;
+  height: 100%; */
   border-radius: 19px;
   z-index: 3;
   background: ${(props) =>

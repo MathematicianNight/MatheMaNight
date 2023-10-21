@@ -3,7 +3,6 @@ import MapContainer from "./style";
 import { Images, Colors } from "../../../../utils/style";
 
 const openGoogleMap = () => {
-  return;
   setTimeout(() => {
     window.location.href = "https://www.google.com/maps/search/?api=1&query=더블유파티";
   }, 700);
@@ -96,10 +95,6 @@ const MapWidget = () => {
           alt="addr copy button icon"
           onClick={() => {copyClipBoard(invitation_address)}}
         />
-        {/* <div className="addr-copy-button" onClick={() => copyClipBoard(invitation_address)}>
-          <img src={Images.clipboard_icon} alt="clipboard icon image" />
-          <span>복사</span>
-        </div> */}
       </div>
     </MapContainer>
   );
