@@ -2,70 +2,76 @@ import styled from "@emotion/styled";
 import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
-const CalendarContainer = styled.section`
-  /* border: 1px solid aqua; */
+const CalendarContainer = styled.div`
   &,
   & * {
     box-sizing: border-box;
   }
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
   border-radius: 19px;
   font-family: "DM Serif Display", serif;
+  font-weight: 400;
   background-color: ${Colors.White};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   .month {
-    color: ${Colors.PersianRed};
     align-self: flex-start;
-    margin: -7px 0 0px 12px;
+    font-size: 15px;
+    color: ${Colors.PersianRed};
+    margin: 0 0 -1px 13px;
   }
   .day {
+    font-size: 85px;
     color: ${Colors.RawBlack};
   }
   .time {
+    font-size: 30px;
     color: ${Colors.RawGray};
-    margin-top: 1px;
   }
-
-  width: 100%;
-  height: 100%;
-  /* @media (max-width: 321px) {
-    line-height: 37px;
+  @media (max-height: 795px) {
     .month {
-      font-size: 15px;
-    }
-    .day {
-      font-size: 64px;
-    }
-    .time {
-      font-size: 20px;
-    }
-  }
-  @media (min-width: 321px) and (max-width: 391px) {
-    line-height: 48px;
-    .month {
-      font-size: 17px;
+      font-size: 13px;
     }
     .day {
       font-size: 80px;
     }
     .time {
-      font-size: 25px;
+      font-size: 27px;
     }
   }
-  @media (min-width: 391px) {
-    line-height: 57px;
-    .month {
-      font-size: 21px;
-    }
+  @media (max-height: 725px) {
     .day {
-      font-size: 98px;
+      font-size: 73px;
     }
     .time {
-      font-size: 30px;
+      font-size: 23px;
     }
-  } */
+  }
+  @media (max-height: 650px) {
+    .month {
+      font-size: 12px;
+    }
+    .day {
+      font-size: 65px;
+    }
+    .time {
+      font-size: 21px;
+    }
+  }
+  @media (max-height: 590px) {
+    .month {
+      font-size: 10px;
+    }
+    .day {
+      font-size: 58px;
+    }
+    .time {
+      font-size: 16px;
+    }
+  }
 `;
 
 export default CalendarContainer;

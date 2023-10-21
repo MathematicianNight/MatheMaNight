@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import useInvitationSchedule from "../hooks/useInvitationSchedule";
 import { Images, Colors } from "../../../utils/style";
-import LoadingContainer from "./style";
 
 const LinkKakaoCalendar = () => {
+  const navigation = useNavigate();
+  const location = useLocation();
+
   const client_id = "fc15512735978bce526493813fdf1451";
   const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
-  const redirect_uri = "https://invite.mathnight.site/oauthkakao";
-
+  const redirect_uri = "https://invite.mathnight.site";
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
-  const return_uri = "https://invite.mathnight.site";
-
+  const return_uri = "/";
   const invitation_schedule = {
     title: '수학인의 밤',
     time: {
@@ -65,34 +66,39 @@ const LinkKakaoCalendar = () => {
   }
 
   useEffect(() => {
-    const code = new URL(window.location.href).searchParams.get('code');
-    const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${code}&client_secret=${client_secret}`;
-    // const reply = window.confirm("연결 끊기?");
-    // if (reply) {
-    //   const res = fetch(`https://kapi.kakao.com/v1/user/unlink?target_id_type=user_id&target_id=3049210805`, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    //       'Authorization': `KakaoAK 05517d4c256d7502f20b78c021fe520f`
-    //     }
-    //   });
-    //   alert("로그아운 되었습니다.");
-    //   window.location.href = return_uri;
-    //   return;
-    // }
-    try {
-      getToken(token_uri).then(res => {
-        const token = res.access_token;
-        if (token === undefined) {
-          alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 다시 클릭해주세요.");
-          window.location.href = return_uri;
-        }
-        else {
+    try {      
+      if (location.state === null) {
+        alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 다시 클릭해주세요.");
+        // window.location.replace(return_uri);
+        navigation(return_uri, {replace: true});
+        // history.replaceState('/');
+      }
+      else {
+        const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${location.state.code}&client_secret=${client_secret}`;
+        // const reply = window.confirm("연결 끊을거??");
+        // if (reply) {
+        //   const res = fetch(`https://kapi.kakao.com/v1/user/unlink?target_id_type=user_id&target_id=3049210805`, {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+        //       'Authorization': `KakaoAK 05517d4c256d7502f20b78c021fe520f`
+        //     }
+        //   });
+        //   alert("로그아웃 되었습니다.");
+        //   // window.location.replace(return_uri);
+        //   navigation(return_uri, {replace: true});
+        //   // history.replace('/');
+        //   return;
+        // }        
+        getToken(token_uri).then(res => {
+          const token = res.access_token;
           getSchedules(token).then(res => {
             const events = res.events;
             if (events === undefined) {
-              alert("\"톡캘린더 및 일정 생성, 조회, 편집/삭제\" 접근 권한이 필요합니다. 캘린더 위젯을 다시 클릭하여 해당 항목에 동의해주세요.");
-              window.location.href = return_uri;
+              alert("\"톡캘린더 및 일정 생성, 조회, 편집/삭제\" 접근 권한이 필요합니다. 위젯을 다시 클릭하여 항목에 동의해주세요.");
+              // window.location.replace(return_uri);
+              navigation(return_uri, {replace: true});
+              // history.replace('/');
             }
             else {
               const count = [];
@@ -101,26 +107,30 @@ const LinkKakaoCalendar = () => {
               });
               if (count.includes('수학인의 밤')) {
                 alert("해당 시간대에 \"수학인의 밤\" 일정이 이미 존재합니다. 확인해 주세요.");
-                window.location.href = return_uri;
+                // window.location.replace(return_uri);
+                navigation(return_uri, {replace: true});
+                // history.replace('/');
               }
               else {
                 openCalendar(token, invitation_schedule).then(res => {
                   const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
-                  window.location.href = return_uri;
+                  // window.location.replace(return_uri);
+                  navigation(return_uri, {replace: true});
+                  // history.replace('/');
                   if (check) {
-                    window.location.href = "https://calendar.kakao.com/";
+                    window.location.replace("https://calendar.kakao.com/");
                   }      
                 });
               }
             }
           });
-        }
-      });
+        });
+      }
     }
     catch (err) {
       console.log(err);
     }  
-  }, []);
+  });
 }
 
 export default LinkKakaoCalendar;
