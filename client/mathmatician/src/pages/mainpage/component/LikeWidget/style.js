@@ -69,7 +69,7 @@ const LikeContainer = styled.div`
   }
 
 
-  // 임시 반응형 부분...
+  // 나중에 없어질수도.. 일단.. 임시..
   @media (max-height: 725px) {
     & > .like-wrapper {
       & > .like-heart {
