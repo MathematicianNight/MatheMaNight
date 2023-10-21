@@ -74,11 +74,13 @@ const LikeContainer = styled.div`
     & > .like-wrapper {
       & > .like-heart {
         & > img {
-          width: 40px;
+          height: 20px;
+          width: 43px;
           margin-left: 30px;
         }
         & > span {
-          bottom: 8.5px;
+          bottom: 9px;
+          right: 59px;
           font-size: 11px;
         }
       }
@@ -98,8 +100,32 @@ const LikeContainer = styled.div`
   @media (max-height: 650px) {
     & > .like-wrapper {
       & > .like-heart {
+        & > img {        
+          height: 18px;  
+          margin-left: 38px;
+        }
+        & > span {
+          bottom: 8px;
+        }
+      }
+      & > .title {
+        font-size: 10px;
+      }
+      & > .unclick {
+        width: 54px;
+        height: 46px;
+      }
+      & > .click {
+        width: 57px;
+        height: 46px;
+      }
+    }
+  }
+  @media (max-height: 580px) {
+    & > .like-wrapper {
+      & > .like-heart {
         & > img {
-          width: 34px;
+          width: 36px;
           margin-left: 38px;
         }
         & > span {
