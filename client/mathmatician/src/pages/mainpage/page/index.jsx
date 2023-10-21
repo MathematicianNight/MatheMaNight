@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Scrollbar } from 'swiper/modules';
+import { Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 //Hooks
 import useGreetings from "../hooks/useGreetings";
@@ -30,9 +30,9 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    const code = new URL(window.location.href).searchParams.get('code');
+    const code = new URL(window.location.href).searchParams.get("code");
     if (code !== null) {
-      navigate("/oauthkakao", {state: {code}, replace: true});
+      navigate("/oauthkakao", { state: { code }, replace: true });
     }
   });
 
@@ -61,15 +61,27 @@ const MainPage = () => {
     setEnvelopeIconClicked(false);
   };
 
+  const [bgAnimation, setBgAnimation] = useState(false);
+  useEffect(() => {
+    // 1초마다 배경 애니메이션 토글
+    const interval = setInterval(() => {
+      setBgAnimation((prev) => !prev);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <MainpageContainer>
       <Swiper
-        direction={'vertical'}
+        direction={"vertical"}
         scrollbar={{
-          verticalClass: 'swiper-scrollbar-vertical',
-          hide: false
+          verticalClass: "swiper-scrollbar-vertical",
+          hide: false,
         }}
-        verticalClass={'swiper-scrollbar-vertical'}
+        verticalClass={"swiper-scrollbar-vertical"}
         modules={[Scrollbar]}
         // direction={'vertical'}
         // pagination={{
@@ -85,10 +97,7 @@ const MainPage = () => {
                 <span className="welcome-come">-come</span>
                 <span className="welcome-to">to</span>
               </p>
-              <img
-                src={Images.eiffel_tower}
-                alt="eiffer tower image"
-              />
+              <img src={Images.eiffel_tower} alt="eiffer tower image" />
               <div className="invitation-summary">
                 <span className="invitation-running">40th</span>
                 <span className="invitation-title">수학인의 밤</span>
@@ -108,7 +117,11 @@ const MainPage = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="mainpage-details">
+          <div
+            className={`mainpage-details ${
+              bgAnimation ? "info-on" : "info-off"
+            }`}
+          >
             <div className="info-wrapper">
               <h1>Information</h1>
               <div className="info-date">
@@ -122,13 +135,19 @@ const MainPage = () => {
               <div className="info-place">
                 <img src={Images.info_place_head} />
                 <p>
-                  더블유파티<br/>
-                  <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+                  더블유파티
+                  <br />
+                  <span className="highlight">
+                    서울 성북구 동소문로 284 길음 서희 스타힐스
+                  </span>
                 </p>
               </div>
               <p>
                 <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
-                <span><span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!</span>
+                <span>
+                  <span className="highlight">다음 페이지의 부가 기능</span>을
+                  이용해주세요!
+                </span>
               </p>
             </div>
             <div className="program-wrapper">
@@ -163,7 +182,11 @@ const MainPage = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className={`mainpage-morefunc ${bgEffectToggle ? 'morefunc-effect-a' : 'morefunc-effect-b'}`}>
+          <div
+            className={`mainpage-morefunc ${
+              bgEffectToggle ? "morefunc-effect-a" : "morefunc-effect-b"
+            }`}
+          >
             <div className="morefunc-wrapper">
               <div className="morefunc-description">
                 <h1>More Functions</h1>
@@ -190,7 +213,9 @@ const MainPage = () => {
                   src={Images.envelope_icon}
                   alt="envelope icon"
                   // onClick={openModal}
-                  onClick={() => {alert("not yet ....")}}
+                  onClick={() => {
+                    alert("not yet ....");
+                  }}
                 />
               </div>
             </div>

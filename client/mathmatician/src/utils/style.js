@@ -47,6 +47,8 @@ export const Images = {
   star_qna_group2: "/assets/images/qna_star_sec.svg",
   star_grtgs_group1: "/assets/images/star_grtgs_group1.svg",
   star_grtgs_group2: "/assets/images/star_grtgs_group2.svg",
+  star_info_group1: "/assets/images/star_info_group1.svg",
+  star_info_group2: "/assets/images/star_info_group2.svg",
 
   object2: "/assets/images/object2.svg",
   object3: "/assets/images/object3.svg",

@@ -9,27 +9,27 @@ export const GreetingsContainer = styled.div`
   // height: ${window.innerHeight}px;
   height: 100%;
 
-  .bg-animation-on {
+  & > .bg-animation-on {
     // width: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .bg-animation-off {
+  & > .bg-animation-off {
     // width: 100vh;
     // height: 100%;
     // background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .qna-on {
+  & > .qna-on {
     background-image: url(${Images.star_grtgs_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
     background-position: center center;
     // transition: 0.3s;
   }
-  .qna-off {
+  & > .qna-off {
     background-image: url(${Images.star_grtgs_group2});
     background-repeat: no-repeat;
     // position: fixed;

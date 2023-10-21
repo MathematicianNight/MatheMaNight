@@ -185,13 +185,48 @@ const MainpageContainer = styled.section`
     }
   }
 
+  .bg-animation-on {
+    // width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
+    // background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .info-on {
+    background-image: url(${Images.star_info_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .info-off {
+    background-image: url(${Images.star_info_group2});
+    background-repeat: no-repeat;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
+
   // 페이지 3: 일시 및 장소, 프로그램 소개
   .mainpage-details {
     width: 100%;
+    // height: %{window.innerHeight};
     height: 100%;
     box-sizing: border-box;
     display: grid;
     justify-items: center;
+
+    // height: 100%;
+
     & > .info-wrapper {
       & .highlight {
         font-size: 11px;
@@ -260,7 +295,7 @@ const MainpageContainer = styled.section`
             }
             & > .highlight {
               font-size: 15px;
-              color: #FFDB58;
+              color: #ffdb58;
               margin-bottom: 35px; // 목록 수직 사이 간격
             }
           }
@@ -426,36 +461,37 @@ const MainpageContainer = styled.section`
           display: block;
           font-size: 21px;
           margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
+          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8),
+            0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
         }
       }
       @keyframes fadeInDown {
         0% {
-            opacity: 0;
-            transform: translate3d(0, -30%, 0);
+          opacity: 0;
+          transform: translate3d(0, -30%, 0);
         }
         to {
-            opacity: 1;
-            transform: translateZ(0);
+          opacity: 1;
+          transform: translateZ(0);
         }
       }
       @keyframes fadeInLeft {
         0% {
-            opacity: 0;
-            transform: translate3d(2%, 0, 0);
+          opacity: 0;
+          transform: translate3d(2%, 0, 0);
         }
         to {
-            opacity: 1;
-            transform: translateZ(0);
+          opacity: 1;
+          transform: translateZ(0);
         }
       }
-      & > .morefunc-handy-invitation {        
+      & > .morefunc-handy-invitation {
         text-align: right;
         position: relative;
         animation: fadeInDown 1.2s infinite alternate;
         & > span {
           display: inline-block;
-          font-family: 'PyeongChangPeace', sans-serif;
+          font-family: "PyeongChangPeace", sans-serif;
           font-size: 15px;
           position: absolute;
           top: 10px;
@@ -484,7 +520,7 @@ const MainpageContainer = styled.section`
             margin-top: 25px;
           }
         }
-      }      
+      }
       @media (max-height: 795px) {
         & > .morefunc-widgets {
           grid-template-rows: 140px 140px;
