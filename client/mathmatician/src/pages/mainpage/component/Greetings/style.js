@@ -11,7 +11,6 @@ export const GreetingsContainer = styled.div`
 
   .bg-animation-on {
     // width: 100vh;
-    background-image: url(${Images.star_qna_group1});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -19,27 +18,26 @@ export const GreetingsContainer = styled.div`
   .bg-animation-off {
     // width: 100vh;
     // height: 100%;
-    background-image: url(${Images.star_qna_group2});
     // background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
   }
   .qna-on {
-    background-image: url(${Images.star_qna_group1});
+    background-image: url(${Images.star_grtgs_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
     background-position: center center;
-    // transition: background ease-in-out 0.4s;
+    // transition: 0.3s;
   }
   .qna-off {
-    background-image: url(${Images.star_qna_group2});
+    background-image: url(${Images.star_grtgs_group2});
     background-repeat: no-repeat;
     // position: fixed;
     // top: 0;
     // bottom: 0;
     background-position: center center;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    // transition: background ease-in-out 0.1s;
+    // transition: 0.3s;
   }
 
   & > .greetings-wrapper {
