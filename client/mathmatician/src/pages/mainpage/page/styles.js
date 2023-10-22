@@ -3,58 +3,55 @@ import { Images, Colors } from "../../../utils/style";
 import "../../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
-  // 총 5개의 페이지를 담고 있는 부모에 적용하는 스타일
   box-shadow: -5px 0 10px rgba(20, 20, 20, 0.5),
     5px 0 10px rgba(20, 20, 20, 0.5);
-  @media (max-width: 501px) {
-    // 501 미만
+  @media (max-width: 499px) {
+    // 부모가 500 미만 -> only 모바일 세로
     width: 100%;
+    height: 100%;
+    .swiper {
+      width: 100%;
+      height: 100%;
+      .swiper-slide {
+        width: 100%;
+        height: 100%;
+        & > div[class^="mainpage"] {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
-  @media (min-width: 501px) {
-    // 501 이상
+  @media (min-width: 499px) {
+    // 부모가 500 이상 -> 모바일 가로, 태블릿, PC 등
     width: 500px;
+    height: 100%;
     margin: 0 auto;
+    overflow: auto scroll;
+    & > div[class^="mainpage"] {
+      width: 100%;
+      height: auto;
+      min-height: ${window.innerHeight}px;
+    }
   }
-  width: 100%;
-  height: 100%;
   box-sizing: border-box;
-  /* overflow: auto scroll; */
-  /* scroll-snap-type: y proximity; */
   font-family: "SUITE", sans-serif;
   font-size: 11px;
   color: ${Colors.White};
 
-  // 자식으로 들어있는 5개의 페이지에 공통적으로 적용하는 스타일
-  .swiper {
-    width: 100%;
-    height: 100%;
-    .swiper-slide {
-      width: 100%;
-      height: 100%;
-      & > div[class^="mainpage"] {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   .mainpage-home {
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     & > .home-wrapper {
-      width: 90%;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       & > p {
-        width: 298px;
+        width: 310px;
         font-family: "DM Serif Display", sans-serif;
         font-size: 65px;
         font-weight: 400;
@@ -62,31 +59,17 @@ const MainpageContainer = styled.section`
         text-align: left;
         & > span {
           display: block;
-          &.welcome-to {
-            margin: 2px 0 0 6px;
-          }
+        }
+        & > .subtext-to {
+          margin: 2px 0 0 6px;
         }
       }
       & > img {
-        width: 55%;
-        @media (max-height: 641px) {
-          margin: -35px 0 5px 0;
-          width: 35%;
-        }
-        @media (min-height: 641px) and (max-height: 751px) {
-          margin: -6px 0 15px 0;
-          width: 45%;
-        }
-        @media (min-height: 751px) and (max-height: 851px) {
-          width: 55%;
-        }
-        @media (min-height: 851px) {
-          margin: 10px 0 35px 0;
-          width: 60%;
-        }
+        width: 100%;
+        margin: 6% 0 7.5% 0;
       }
       & > .invitation-summary {
-        width: 298px;
+        width: 300px;
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-columns: 1fr 1fr;
@@ -117,9 +100,9 @@ const MainpageContainer = styled.section`
           justify-self: start;
           align-self: start;
           font-family: "SUITE", sans-serif;
-          font-size: 15px;
+          font-size: 15.5px;
           font-weight: 400;
-          margin: 11px 0 0 8px;
+          margin: 11px 0 0 6px;
         }
         & > .invitation-place {
           grid-row: 3 / 4;
@@ -132,10 +115,14 @@ const MainpageContainer = styled.section`
           margin: 11px 8px 0 0;
         }
       }
-      @media (max-width: 325px) {
+      @media (max-height: 735px) {
         & > p {
-          width: 270px;
-          font-size: 58px;
+          width: 280px;
+          font-size: 60px;
+        }
+        & > img {
+          width: 85%;
+          margin: 7% 0 6.5% 0;
         }
         & > .invitation-summary {
           width: 270px;
@@ -144,27 +131,55 @@ const MainpageContainer = styled.section`
           }
         }
       }
-      @media (min-width: 405px) {
+      @media (max-height: 660px) {
         & > p {
-          width: 348px;
-          font-size: 70px;
+          width: 250px;
+          font-size: 55px;
+        }
+        & > img {
+          width: 75%;
+          margin: 7% 0 5.5% 0;
         }
         & > .invitation-summary {
-          width: 348px;
+          width: 240px;
           & > .invitation-running {
-            font-size: 24px;
-            margin: 0 10px 11px 0;
+            font-size: 18px;
+            margin-right: 7px;
           }
           & > .invitation-title {
-            font-size: 70px;
+            font-size: 48px;
           }
           & > .invitation-date {
-            font-size: 19px;
-            margin: 12px 0 0 9px;
+            font-size: 13.5px;
           }
           & > .invitation-place {
-            font-size: 19px;
-            margin: 12px 9px 0 0;
+            font-size: 13px;
+          }
+        }        
+      }
+      @media (max-height: 590px) {
+        & > p {
+          width: 220px;
+          font-size: 48px;
+        }
+        & > img {
+          width: 55%;
+          margin: 5.5% 0 5.5% 0;
+        }
+        & > .invitation-summary {
+          width: 210px;
+          & > .invitation-running {
+            font-size: 15px;
+          }
+          & > .invitation-title {
+            font-size: 42px;
+          }
+          & > .invitation-date {
+            font-size: 11.5px;
+          }
+          & > .invitation-place {
+            font-size: 11px;
+            margin-right: 7px;
           }
         }
       }
@@ -187,8 +202,6 @@ const MainpageContainer = styled.section`
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
   .mainpage-details {
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
     display: grid;
     justify-items: center;
@@ -373,21 +386,7 @@ const MainpageContainer = styled.section`
   }
 
   // 페이지 4: 부가 기능
-  /* .morefunc-effect-a {
-    background-image: url(${Images.temp1});
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all 0.5s ease-in-out;
-  }
-  .morefunc-effect-b {
-    background-image: url(${Images.temp2});
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all 0.5s ease-in-out;
-  } */
   .mainpage-morefunc {
-    width: 100%;
-    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

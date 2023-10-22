@@ -45,7 +45,7 @@ export const Images = {
   aboutus_sky: "/assets/images/haneul.svg",
   line: "/assets/images/line.svg",
 
-  eiffel_tower: "/assets/images/eiffel_tower.svg",
+  ceremony_cake: "/assets/images/ceremony_cake.svg",
   info_date_head: "/assets/images/info_date_head.svg",
   info_time_head: "/assets/images/info_time_head.svg",
   info_place_head: "/assets/images/info_place_head.svg",
