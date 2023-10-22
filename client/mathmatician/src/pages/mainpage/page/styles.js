@@ -210,6 +210,20 @@ const MainpageContainer = styled.section`
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
     // transition: 0.3s;
   }
+  .more-on {
+    background-image: url(${Images.star_more_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .more-off {
+    background-image: url(${Images.star_more_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
   .informations {

@@ -59,11 +59,11 @@ const LikeContainer = styled.section`
       opacity: 1;
     }
     35% {
-      transform: translateY(-180px) translateX(20px) scale(1.2);
+      transform: translateY(-180px) translateX(0px) scale(1.2);
       opacity: 0.6;
     }
     70% {
-      transform: translateY(-360px) translateX(-20px) scale(1.4);
+      transform: translateY(-360px) translateX(20px) scale(1.4);
       // opacity: 0.2;
     }
     100% {

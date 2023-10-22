@@ -42,17 +42,6 @@ const MainPage = () => {
     message && message.length > 0
       ? message.split("\n").filter((line) => line.trim() !== "")
       : [];
-
-  const [bgEffectToggle, setBgEffectToggle] = useState(false);
-  // useEffect(() => {
-  //   const handleBgEffectTogle = setInterval(() => {
-  //     setBgEffectToggle(!bgEffectToggle);
-  //   }, 1200);
-  //   return () => {
-  //     clearInterval(handleBgEffectTogle);
-  //   };
-  // }, []);
-
   const [envelopeIconClicked, setEnvelopeIconClicked] = useState(false);
   const openModal = () => {
     setEnvelopeIconClicked(true);
@@ -186,7 +175,7 @@ const MainPage = () => {
         <SwiperSlide>
           <div
             className={`mainpage-morefunc ${
-              bgEffectToggle ? "morefunc-effect-a" : "morefunc-effect-b"
+              bgAnimation ? "more-on" : "more-off"
             }`}
           >
             <div className="morefunc-wrapper">
