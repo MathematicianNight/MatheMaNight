@@ -8,7 +8,7 @@ const MapContainer = styled.div`
   @media (min-height: 900px) {
     border-radius: 22px;
   }
-  @media (max-width: 590px) {
+  @media (max-height: 590px) {
     border-radius: 13px;
   }
   overflow: hidden;
@@ -40,7 +40,7 @@ const MapContainer = styled.div`
     @media (min-height: 900px) {
       border-radius: 22px;
     }
-    @media (max-width: 590px) {
+    @media (max-height: 590px) {
       border-radius: 13px;
     }
     width: 100%;
