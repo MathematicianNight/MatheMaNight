@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Scrollbar } from 'swiper/modules';
+import { Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 //Hooks
 import useGreetings from "../hooks/useGreetings";
@@ -284,13 +284,19 @@ const MainPage = () => {
                 <div className="info-place">
                   <img src={Images.info_place_head} />
                   <p>
-                    더블유파티<br/>
-                    <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+                    더블유파티
+                    <br />
+                    <span className="highlight">
+                      서울 성북구 동소문로 284 길음 서희 스타힐스
+                    </span>
                   </p>
                 </div>
                 <p>
                   <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
-                  <span><span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!</span>
+                  <span>
+                    <span className="highlight">다음 페이지의 부가 기능</span>을
+                    이용해주세요!
+                  </span>
                 </p>
               </div>
               <div className="program-wrapper">
@@ -355,7 +361,9 @@ const MainPage = () => {
                   src={Images.envelope_icon}
                   alt="envelope icon"
                   // onClick={openModal}
-                  onClick={() => {alert("not yet ....")}}
+                  onClick={() => {
+                    alert("not yet ....");
+                  }}
                 />
               </div>
             </div>

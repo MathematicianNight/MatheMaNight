@@ -195,12 +195,12 @@ export const QnaContainer = styled.div`
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 13px 0 17px 0;
+        padding: 13px 15px 17px 15px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         transition: 0.3s;
         gap: 10.25px;
         @media (max-width: ${maxwidth}px) {
-          padding: 10px 0 14px 0;
+          padding: 10px 15px 14px 15px;
         }
         & > .qna-amswer-img {
           width: 30.478px;

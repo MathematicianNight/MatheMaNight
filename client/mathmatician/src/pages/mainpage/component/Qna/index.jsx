@@ -106,9 +106,7 @@ const Index = () => {
       .replace(" ", "")
       .toLowerCase()
       .includes(search.toLowerCase().replace(" ", ""));
-  });
-
-  // @definition 이미 열려있으면 닫고, 안열려있으면 열고 다른 거 모두
+  }); // @definition 이미 열려있으면 닫고, 안열려있으면 열고 다른 거 모두
   const [questionindex, setQuestionIndex] = useState("");
   const handleToggle = (id) => {
     if (id === openId) {
@@ -142,9 +140,9 @@ const Index = () => {
 
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
   const [fixAnswerModalOpen, setFixModalOpen] = useState(false);
-  const [bgAnimation, setBgAnimation] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
+  const [bgAnimation, setBgAnimation] = useState(false);
   useEffect(() => {
     // 1초마다 배경 애니메이션 토글
     const interval = setInterval(() => {
@@ -155,19 +153,6 @@ const Index = () => {
       clearInterval(interval);
     };
   }, []);
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 5);
-    }
-  };
-
-  // 다음 페이지로 이동
-  const nextPage = () => {
-    if (currentPage + 4 < totalpages) {
-      setCurrentPage(currentPage + 5);
-    }
-  };
 
   const pageGroupSize = 5; // 한 그룹 당 페이지 수
   const pageNumbers = Array.from(
@@ -183,16 +168,24 @@ const Index = () => {
       )
   );
 
+  console.log(qnaData);
+
   const [currentPageGroupIndex, setCurrentPageGroupIndex] = useState(0);
 
   return (
     <QnaContainer>
-      {isModalOpen && <QnaCreateModal handleCloseModal={handleCloseModal} />}
+      {isModalOpen && (
+        <QnaCreateModal
+          handleCloseModal={handleCloseModal}
+          getQnaData={getQnaData}
+        />
+      )}
       {answerModalOpen && (
         <AnswerModal
           handleCloseModal={handleAnswerModalClose}
           title="작성"
           questionindex={questionindex}
+          getQnaData={getQnaData}
         />
       )}
       {fixAnswerModalOpen && (
@@ -200,12 +193,14 @@ const Index = () => {
           handleCloseModal={handleFixAnswerModalClose}
           title="수정"
           questionindex={questionindex}
+          getQnaData={getQnaData}
         />
       )}
       {deleteModalOpen && (
         <DeleteModal
           handleCloseModal={handleDeleteModalClose}
           questionindex={questionindex}
+          getQnaData={getQnaData}
         />
       )}
       <div className={`qna-wrapper ${bgAnimation ? "qna-on" : "qna-off"}`}>

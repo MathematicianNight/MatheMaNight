@@ -5,7 +5,7 @@ import axios from "axios";
 import { Api } from "../../../../utils/api";
 
 const Index = (props) => {
-  const { handleCloseModal, questionindex } = props;
+  const { handleCloseModal, questionindex, getQnaData } = props;
   const [password, setPassword] = useState("");
   console.log(questionindex);
   const deleteAnswer = () => {
@@ -16,6 +16,8 @@ const Index = (props) => {
       .post(Api.QnaDelete, questionData)
       .then((response) => {
         console.log(response);
+        getQnaData();
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

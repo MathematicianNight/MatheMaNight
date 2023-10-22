@@ -188,13 +188,11 @@ const MainpageContainer = styled.section`
 
   // 페이지 2: 인사말
   .mainpage-greetings {
-    // 원래 .child 였던게 .mainpage-greeting로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
     height: 100%;
     min-height: ${window.innerHeight}px;
     // line-height: ${window.innerHeight}px;
     scroll-snap-align: start;
     & > .Greetings {
-      // .child 안에 .Greetings가 있었어서 여기로 다시 옮김
       height: 100%;
       min-height: ${window.innerHeight}px;
     }
@@ -322,7 +320,7 @@ const MainpageContainer = styled.section`
               }
               & > .highlight {
                 font-size: 15px;
-                color: #FFDB58;
+                color: #ffdb58;
                 margin-bottom: 35px; // 목록 수직 사이 간격
               }
             }
@@ -475,36 +473,37 @@ const MainpageContainer = styled.section`
           display: block;
           font-size: 21px;
           margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
+          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8),
+            0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
         }
       }
       @keyframes fadeInDown {
         0% {
-            opacity: 0;
-            transform: translate3d(0, -30%, 0);
+          opacity: 0;
+          transform: translate3d(0, -30%, 0);
         }
         to {
-            opacity: 1;
-            transform: translateZ(0);
+          opacity: 1;
+          transform: translateZ(0);
         }
       }
       @keyframes fadeInLeft {
         0% {
-            opacity: 0;
-            transform: translate3d(2%, 0, 0);
+          opacity: 0;
+          transform: translate3d(2%, 0, 0);
         }
         to {
-            opacity: 1;
-            transform: translateZ(0);
+          opacity: 1;
+          transform: translateZ(0);
         }
       }
-      & > .morefunc-handy-invitation {        
+      & > .morefunc-handy-invitation {
         text-align: right;
         position: relative;
         animation: fadeInDown 1.2s infinite alternate;
         & > span {
           display: inline-block;
-          font-family: 'PyeongChangPeace', sans-serif;
+          font-family: "PyeongChangPeace", sans-serif;
           font-size: 15px;
           position: absolute;
           top: 10px;
@@ -533,7 +532,7 @@ const MainpageContainer = styled.section`
             margin-top: 25px;
           }
         }
-      }      
+      }
       @media (max-height: 795px) {
         & > .morefunc-widgets {
           grid-template-rows: 140px 140px;

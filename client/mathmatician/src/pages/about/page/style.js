@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Colors, Images } from "../../../utils/style";
+import "../../../assets/fonts/fonts.css";
 
 const AboutusContainer = styled.section`
   background-image: url(${Images.aboutus});
@@ -26,11 +27,24 @@ const AboutusContainer = styled.section`
 
       & > .frendlogo {
         padding: 19px px 0 0;
-        // width: 77%;
-        width: 270px;
-        height: 214px;
-        // height: 236px;
+        width: 361px;
+        height: 244.427px;
+
+        @media (max-width: ${370}px) {
+          width: 90%;
+        }
       }
+    }
+    & > .aboutus-title {
+      color: #000;
+
+      text-align: center;
+      font-family: "PyeongChangPeace";
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin-bottom: 14px;
     }
     & > .aboutus-detail {
       text-align: left;
@@ -58,6 +72,18 @@ const AboutusContainer = styled.section`
         padding-right: 11px;
         position: relative;
         top: -15px;
+      }
+    }
+    & > .object-wrapper {
+      max-width: 420px;
+      width: ${window.innerWidth}px;
+      position: absolute;
+      & > .object2 {
+        float: right;
+        padding: 60px 10px 0 0;
+      }
+      & > .object3 {
+        padding: 920px 0 0 10px;
       }
     }
 
@@ -88,8 +114,22 @@ const AboutusContainer = styled.section`
         height: 256px;
         // padding-right: 90px;
         flex-shrink: 0;
-        margin-bottom: 100px;
+        margin-bottom: 70px;
       }
+    }
+    & > .aboutus-more {
+      width: 100%;
+      margin-bottom: 74px;
+      text-align: center;
+      & > .object4 {
+      }
+    }
+    & > .aboutus-tellmore {
+      margin: 34px 45px 100px 45px;
+      font-family: SUITE;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
   }
 `;

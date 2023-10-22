@@ -1,14 +1,10 @@
-// module
+// require lib & framework
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const path = require('path');
-const fs = require('fs');
-const HTTPS = require('https');
 
-const port = 5000;
-
-const app = express();
-
+// CORS 설정: 허용할 도메인 목록을 배열로 정의
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5000',
@@ -17,50 +13,28 @@ const allowedOrigins = [
   'https://api.mathnight.site',
 ];
 
-const cors_options = {
-  // origin: allowedOrigins, // 접근 권한을 부여하는 도메인
-  // credentials: true, // 응답 헤더에 Access-Control-Allow-Credentials 추가
-  // optionsSuccessStatus: 200, // 응답 상태 200으로 설정
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+const corsOptions = {
+  origin: function (origin, callback) {
+    // 요청 도메인이 허용 목록에 있는지 확인
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 };
+app.use(cors(corsOptions));
 
-app.use(cors(cors_options));
-
-// Run server
+// server functions
 app.set('port', process.env.PORT || 5000);
 
 app.use(express.static(path.join(__dirname, '../client/mathmatician/build')));
-
 app.get('/', (req, res) => {
   // 리액트 프로젝트 빌드 파일
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
-// app.get('/loading', (req, res) => {
-//   // 로딩 페이지
-//   return res.redirect('https://invite.mathnigth.site');
-// });
-
-// 운영 환경일때만 적용
-if (process.env.NODE_ENV == 'production') {
-  try {
-    const option = {
-      ca: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/fullchain.pem'),
-      key: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/privkey.pem'),
-      cert: fs.readFileSync('/etc/letsencrypt/live/mathnight.site/cert.pem'),
-    };
-
-    HTTPS.createServer(option, app).listen(port, () => {
-      console.log('HTTPS 서버가 실행되었습니다. 포트 :: ' + port);
-    });
-  } catch (err) {
-    console.log('HTTPS 서버가 실행되지 않습니다.');
-    console.log(err);
-  }
-} else {
-  app.listen(app.get('port'), () => {
-    console.log('HTTP 서버가 실행되었습니다. 포트 :: ' + app.get('port'));
-  });
-}
+app.listen(app.get('port'), () => {
+  console.log('서버가 실행되었습니다. 포트 :: ' + app.get('port'));
+});

@@ -234,8 +234,22 @@ router.post('/create', (req, res) => {
       console.error(err);
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
-      // res.json('success!');
-      return res.redirect('https://invite.mathnight.site');
+      console.log(result);
+
+      const page = 1; // page: page_number, default = 1
+      const pageSize = 7;
+
+      const offset = (page - 1) * pageSize; // offset: page start_data_number
+
+      var checksqls = mysql.format(checksql, [pageSize, offset]);
+      db.query(checksqls, (err, table) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send('데이터 조회 중 오류가 발생했습니다.');
+        } else {
+          res.json(table);
+        }
+      });
     }
   });
 });
