@@ -200,184 +200,234 @@ const MainpageContainer = styled.section`
     }
   }
 
+  .bg-animation-on {
+    // width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .info-on {
+    background-image: url(${Images.star_info_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .info-off {
+    background-image: url(${Images.star_info_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
+  .more-on {
+    background-image: url(${Images.star_more_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .more-off {
+    background-image: url(${Images.star_more_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
+
   // 페이지 3: 일시 및 장소, 프로그램 소개
-  .mainpage-details {
-    box-sizing: border-box;
-    display: grid;
-    justify-items: center;
-    & > .info-wrapper {
-      & .highlight {
-        font-size: 11px;
-        color: #ffdb58;
-      }
-      align-self: end;
+  .informations {
+    height: 100%;
+    min-height: ${window.innerHeight}px;
+
+    & > .mainpage-details {
       width: 100%;
-      margin-bottom: 12%; // info랑 program 사이 간격
-      & > h1 {
-        width: 80%;
-        margin: 0 auto 30px; // info 밑에 간격
-        font-size: 25px;
-      }
-      & > div {
-        border: 1px solid ${Colors.White};
-        box-sizing: border-box;
-        width: 80%;
-        margin: 0 auto 4.5%; // 세 흰색 박스 사이 간격
-        height: 72px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        font-size: 18px;
-        & > img {
-          position: absolute;
-          top: 5px;
-          left: 8px;
+      min-height: ${window.innerHeight}px;
+      box-sizing: border-box;
+      display: grid;
+      justify-items: center;
+
+      & > .info-wrapper {
+        & .highlight {
+          font-size: 11px;
+          color: #ffdb58;
         }
-      }
-      & > p {
-        font-size: 11px;
-        text-align: center;
-        @media (max-width: 315px) {
-          & > span {
-            display: block;
+        align-self: end;
+        width: 100%;
+        margin-bottom: 12%; // info랑 program 사이 간격
+        & > h1 {
+          width: 80%;
+          margin: 0 auto 30px; // info 밑에 간격
+          font-size: 25px;
+        }
+        & > div {
+          border: 1px solid ${Colors.White};
+          box-sizing: border-box;
+          width: 80%;
+          margin: 0 auto 4.5%; // 세 흰색 박스 사이 간격
+          height: 72px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          position: relative;
+          font-size: 18px;
+          & > img {
+            position: absolute;
+            top: 5px;
+            left: 8px;
           }
         }
-      }
-    }
-    & > .program-wrapper {
-      align-self: start;
-      width: 100%;
-      & > h1 {
-        width: 80%;
-        margin: 0 auto 35px; // info 밑에 간격
-        font-size: 25px;
-      }
-      & > .program-timetable {
-        box-sizing: border-box;
-        width: 78%;
-        margin: 0 auto;
-        display: flex;
-        & > img {
-          height: 100%;
-          margin-top: 6px; // 차트 위에서 떨어뜨리는거
-        }
-        & > ul {
-          padding-left: 30px; // 차트랑 목록 사이 간격
-          font-size: 18px;
-          & > li {
+        & > p {
+          font-size: 11px;
+          text-align: center;
+          @media (max-width: 315px) {
             & > span {
               display: block;
             }
-            & > .highlight {
-              font-size: 15px;
-              color: #FFDB58;
-              margin-bottom: 35px; // 목록 수직 사이 간격
-            }
           }
-          & > .list-last-item > .highlight {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-    @media (max-height: 590px) {
-      & > .info-wrapper {
-        & .highlight {
-          font-size: 10px;
-        }
-        margin-bottom: 6%;
-        & > h1 {
-          width: 71%;
-          margin-bottom: 12px;
-          font-size: 20px;
-        }
-        & > div {
-          width: 71%;
-          margin-bottom: 3.5%;
-          height: 54px;
-          font-size: 13px;
-          & > img {
-            width: 25px;
-          }
-        }
-        & > p {
-          font-size: 10px;
         }
       }
       & > .program-wrapper {
+        align-self: start;
+        width: 100%;
         & > h1 {
-          width: 71%;
-          margin-bottom: 15px;
-          font-size: 20px;
+          width: 80%;
+          margin: 0 auto 35px; // info 밑에 간격
+          font-size: 25px;
         }
         & > .program-timetable {
-          width: 68%;
+          box-sizing: border-box;
+          width: 78%;
+          margin: 0 auto;
+          display: flex;
           & > img {
-            height: 152px;
-            margin-top: 3px;
+            height: 100%;
+            margin-top: 6px; // 차트 위에서 떨어뜨리는거
           }
           & > ul {
-            padding-left: 18px;
+            padding-left: 30px; // 차트랑 목록 사이 간격
+            font-size: 18px;
+            & > li {
+              & > span {
+                display: block;
+              }
+              & > .highlight {
+                font-size: 15px;
+                color: #FFDB58;
+                margin-bottom: 35px; // 목록 수직 사이 간격
+              }
+            }
+            & > .list-last-item > .highlight {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      @media (max-height: 590px) {
+        & > .info-wrapper {
+          & .highlight {
+            font-size: 10px;
+          }
+          margin-bottom: 6%;
+          & > h1 {
+            width: 71%;
+            margin-bottom: 12px;
+            font-size: 20px;
+          }
+          & > div {
+            width: 71%;
+            margin-bottom: 3.5%;
+            height: 54px;
             font-size: 13px;
-            & > li > .highlight {
-              font-size: 11px;
-              margin-bottom: 13px;
-            }
-            & > .list-last-item > .highlight {
-              margin-bottom: 0;
+            & > img {
+              width: 25px;
             }
           }
-        }
-      }
-    }
-    @media (min-height: 590px) and (max-height: 770px) {
-      & > .info-wrapper {
-        & .highlight {
-          font-size: 10px;
-        }
-        margin-bottom: 8%;
-        & > h1 {
-          width: 75%;
-          margin-bottom: 16px;
-          font-size: 23px;
-        }
-        & > div {
-          width: 75%;
-          margin-bottom: 4%;
-          height: 62px;
-          font-size: 15px;
-          & > img {
-            width: 30px;
+          & > p {
+            font-size: 10px;
           }
         }
-        & > p {
-          font-size: 10px;
-        }
-      }
-      & > .program-wrapper {
-        & > h1 {
-          width: 75%;
-          margin-bottom: 22px;
-          font-size: 23px;
-        }
-        & > .program-timetable {
-          width: 72%;
-          & > img {
-            height: 200px;
-            margin-top: 5px;
+        & > .program-wrapper {
+          & > h1 {
+            width: 71%;
+            margin-bottom: 15px;
+            font-size: 20px;
           }
-          & > ul {
-            padding-left: 23px;
-            font-size: 16px;
-            & > li > .highlight {
+          & > .program-timetable {
+            width: 68%;
+            & > img {
+              height: 152px;
+              margin-top: 3px;
+            }
+            & > ul {
+              padding-left: 18px;
               font-size: 13px;
-              margin-bottom: 20px;
+              & > li > .highlight {
+                font-size: 11px;
+                margin-bottom: 13px;
+              }
+              & > .list-last-item > .highlight {
+                margin-bottom: 0;
+              }
             }
-            & > .list-last-item > .highlight {
-              margin-bottom: 0;
+          }
+        }
+      }
+      @media (min-height: 590px) and (max-height: 770px) {
+        & > .info-wrapper {
+          & .highlight {
+            font-size: 10px;
+          }
+          margin-bottom: 8%;
+          & > h1 {
+            width: 75%;
+            margin-bottom: 16px;
+            font-size: 23px;
+          }
+          & > div {
+            width: 75%;
+            margin-bottom: 4%;
+            height: 62px;
+            font-size: 15px;
+            & > img {
+              width: 30px;
+            }
+          }
+          & > p {
+            font-size: 10px;
+          }
+        }
+        & > .program-wrapper {
+          & > h1 {
+            width: 75%;
+            margin-bottom: 22px;
+            font-size: 23px;
+          }
+          & > .program-timetable {
+            width: 72%;
+            & > img {
+              height: 200px;
+              margin-top: 5px;
+            }
+            & > ul {
+              padding-left: 23px;
+              font-size: 16px;
+              & > li > .highlight {
+                font-size: 13px;
+                margin-bottom: 20px;
+              }
+              & > .list-last-item > .highlight {
+                margin-bottom: 0;
+              }
             }
           }
         }
