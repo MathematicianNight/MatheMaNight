@@ -51,12 +51,11 @@ export const Images = {
   star_info_group2: "/assets/images/star_info_group2.svg",
   star_more_group1: "/assets/images/star_more_group1.svg",
   star_more_group2: "/assets/images/star_more_group2.svg",
-
   object2: "/assets/images/object2.svg",
   object3: "/assets/images/object3.svg",
   object4: "/assets/images/object4.svg",
 
-  eiffel_tower: "/assets/images/eiffel_tower.svg",
+  ceremony_cake: "/assets/images/ceremony_cake.svg",
   info_date_head: "/assets/images/info_date_head.svg",
   info_time_head: "/assets/images/info_time_head.svg",
   info_place_head: "/assets/images/info_place_head.svg",
