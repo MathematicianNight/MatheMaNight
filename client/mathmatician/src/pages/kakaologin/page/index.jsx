@@ -4,15 +4,15 @@ import useInvitationSchedule from "../hooks/useInvitationSchedule";
 import { Images, Colors } from "../../../utils/style";
 
 const LinkKakaoCalendar = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const client_id = "fc15512735978bce526493813fdf1451";
   const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
+  // const redirect_uri = "http://127.0.0.1:3000";
   const redirect_uri = "https://invite.mathnight.site";
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
-  const return_uri = "/";
   const invitation_schedule = {
     title: '수학인의 밤',
     time: {
@@ -66,39 +66,26 @@ const LinkKakaoCalendar = () => {
   }
 
   useEffect(() => {
-    try {      
-      if (location.state === null) {
+    try {
+      if (location.state === null) { // 어차피 /oauthkakao 입력해서는 못 들어가서 이 예외는 발생 X
         alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 다시 클릭해주세요.");
-        // window.location.replace(return_uri);
-        navigation(return_uri, {replace: true});
-        // history.replaceState('/');
+        window.history.go(-(window.history.length - 1));
       }
       else {
         const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${location.state.code}&client_secret=${client_secret}`;
-        // const reply = window.confirm("연결 끊을거??");
-        // if (reply) {
-        //   const res = fetch(`https://kapi.kakao.com/v1/user/unlink?target_id_type=user_id&target_id=3049210805`, {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-        //       'Authorization': `KakaoAK 05517d4c256d7502f20b78c021fe520f`
-        //     }
-        //   });
-        //   alert("로그아웃 되었습니다.");
-        //   // window.location.replace(return_uri);
-        //   navigation(return_uri, {replace: true});
-        //   // history.replace('/');
-        //   return;
-        // }        
         getToken(token_uri).then(res => {
           const token = res.access_token;
           getSchedules(token).then(res => {
             const events = res.events;
             if (events === undefined) {
-              alert("\"톡캘린더 및 일정 생성, 조회, 편집/삭제\" 접근 권한이 필요합니다. 위젯을 다시 클릭하여 항목에 동의해주세요.");
-              // window.location.replace(return_uri);
-              navigation(return_uri, {replace: true});
-              // history.replace('/');
+              if (sessionStorage.getItem('access') === 'false') {
+                window.history.go(-(window.history.length - 1));
+              }
+              else {
+                alert("\"톡캘린더 및 일정 생성, 조회, 편집/삭제\" 접근 권한이 필요합니다. 위젯을 다시 클릭하여 항목에 동의해주세요.");
+                window.history.go(-(window.history.length - 1));
+                sessionStorage.setItem('access', 'false');  
+              }
             }
             else {
               const count = [];
@@ -106,20 +93,87 @@ const LinkKakaoCalendar = () => {
                 count.push(event.title);
               });
               if (count.includes('수학인의 밤')) {
-                alert("해당 시간대에 \"수학인의 밤\" 일정이 이미 존재합니다. 확인해 주세요.");
-                // window.location.replace(return_uri);
-                navigation(return_uri, {replace: true});
-                // history.replace('/');
+                if (sessionStorage.getItem('BACK') === 'back' && sessionStorage.getItem('AA') === 'aa') {
+                  if (sessionStorage.getItem('FLAG') === 'flag') {
+                    if (sessionStorage.getItem('FLIP') === 'flip') {
+                      alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                      window.history.go(-(window.history.length - 1));
+                    }
+                    else {
+                      window.history.go(-(window.history.length - 1));
+                      if (sessionStorage.getItem('OTHER') === 'other') {
+                        alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                        window.history.go(-(window.history.length - 1));
+                      }
+                      else {
+                        window.history.go(-(window.history.length - 1));
+                        sessionStorage.setItem('OTHER', 'other');                  
+                      }
+                      // sessionStorage.setItem('FLAG', 'flag');                  
+                      sessionStorage.setItem('FLIP', 'flip');                  
+                    }
+                    sessionStorage.removeItem('FLAG');
+                  } 
+                  else {
+                    alert("경고창 O");
+                    window.history.go(-(window.history.length - 1));
+                  }
+
+                  // if (sessionStorage.getItem('STOP') === 'stop') {
+                  //   // alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                  //   window.history.go(-(window.history.length - 1));
+                  // }
+                  // else {
+                  //   window.history.back();
+                  // }
+                  // sessionStorage.setItem('STOP', 'stop');
+                  sessionStorage.setItem('access', 'false');  
+                }
+                if (sessionStorage.getItem('BACK') !== 'back' && sessionStorage.getItem('AA') === 'aa') {
+                  if (sessionStorage.getItem('ADD') === 'add') {
+                    alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                    window.history.go(-(window.history.length - 1));
+                  }
+                  else {
+                    window.history.go(-(window.history.length - 1));
+                    sessionStorage.setItem('ADD', 'add');
+                    // window.history.back();
+                  }
+                  sessionStorage.setItem('access', 'false');  
+                  // sessionStorage.setItem('ADD', 'add');
+                }
+                if (sessionStorage.getItem('BACK') !== 'back' && sessionStorage.getItem('AA') !== 'aa') {
+                  alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                  window.history.go(-(window.history.length - 1));
+                  sessionStorage.setItem('access', 'false');  
+                  // alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                  // if (sessionStorage.getItem('ETC') === 'etc') {
+                  //   alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+                  //   window.history.back();
+                  //   // window.history.go(-(window.history.length - 1));
+                  // }
+                  // else {
+                  //   window.history.back();
+                  // }
+                  // sessionStorage.setItem('access', 'false');  
+                  // sessionStorage.setItem('ETC', 'etc');
+                }
               }
               else {
                 openCalendar(token, invitation_schedule).then(res => {
                   const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
-                  // window.location.replace(return_uri);
-                  navigation(return_uri, {replace: true});
-                  // history.replace('/');
-                  if (check) {
+                  if (!check) {
+                    window.history.go(-(window.history.length - 1));
+                    sessionStorage.setItem('access', 'false');  
+                    sessionStorage.setItem('AA', 'aa');
+                  }
+                  else {
+                    sessionStorage.setItem('access', 'false');  
+                    sessionStorage.setItem('BACK', 'back');
+                    sessionStorage.setItem('AA', 'aa');
+                    sessionStorage.setItem('FLAG', 'flag');
                     window.location.replace("https://calendar.kakao.com/");
-                  }      
+                  }
                 });
               }
             }
@@ -129,8 +183,14 @@ const LinkKakaoCalendar = () => {
     }
     catch (err) {
       console.log(err);
-    }  
-  });
+    }
+  }, []);
+
+  return (
+    <div style={{color: '#fff', fontSize: '25px'}}>
+      로딩중 페이지에용 . . . . .
+    </div>
+  )
 }
 
 export default LinkKakaoCalendar;

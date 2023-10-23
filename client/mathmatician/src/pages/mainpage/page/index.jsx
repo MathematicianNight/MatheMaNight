@@ -40,20 +40,15 @@ const MainPage = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // const code = new URL(window.location.href).searchParams.get('code');
-    // if (code !== null) {
-    //   if (localStorage.getItem('repeat') === 'no') {
-    //     localStorage.removeItem('repeat');
-    //     navigate('/', {replace: true});
-    //   }
-    //   else if (localStorage.getItem('create') === 'no') {
-    //     localStorage.removeItem('create');
-    //     navigate('/', {replace: true});
-    //   }
-    //   else {
-    //     navigate("/oauthkakao", {state: {code}, replace: true});
-    //   }
-    // }
+    const error_description = new URL(window.location.href).searchParams.get('error_description');
+    const code = new URL(window.location.href).searchParams.get('code');
+
+    if (error_description !== null) {
+      window.history.go(-(window.history.length - 1));
+    }
+    if (code !== null) {
+      navigate('/oauthkakao', {state: {code}, replace: true});      
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
