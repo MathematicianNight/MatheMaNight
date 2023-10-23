@@ -38,10 +38,6 @@ const cntUpsql =
  *                      type: integer
  *                      description: "좋아요 수"
  *                      example: 39
- *                    overCnt:
- *                      type: boolean
- *                      description: "999개 이상인지 이하인지에 대한 참거짓"
- *                      example: false
  */
 router.get('/', (req, res) => {
   db.query(cntViewsql, (err, result) => {
