@@ -17,7 +17,7 @@ const Index = (props) => {
       .then((response) => {
         console.log(response);
         getQnaData();
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.log(error);
