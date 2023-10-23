@@ -52,11 +52,11 @@ router.post('/upcount', (req, res) => {
   if (likeCnt < 999) {
     likeCnt++;
     console.log('LikeCnt is upgrade!');
-    return res.redirect('https://invite.mathnight.site');
+    res.json('success!');
   } else {
     overCnt = true;
     console.log('LikeCnt is over');
-    return res.redirect('https://invite.mathnight.site');
+    res.json('success! but LikeCnt is over');
   }
 });
 
