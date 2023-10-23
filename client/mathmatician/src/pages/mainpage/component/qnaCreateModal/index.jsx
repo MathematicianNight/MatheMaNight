@@ -23,7 +23,6 @@ const Index = ({ handleCloseModal, getQnaData }) => {
     axios
       .post(Api.QnaCreate, questionData)
       .then((response) => {
-        console.log(response);
         getQnaData();
         // window.location.reload();
       })

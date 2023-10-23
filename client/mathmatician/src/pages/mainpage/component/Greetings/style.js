@@ -4,7 +4,6 @@ import "../../../../assets/fonts/fonts.css";
 
 export const GreetingsContainer = styled.div`
   // min-height: ${window.innerHeight}px;
-
   width: 100%;
   // height: ${window.innerHeight}px;
   height: 100%;

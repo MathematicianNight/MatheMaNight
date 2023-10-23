@@ -11,13 +11,13 @@ const Index = (props) => {
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
   const [answer, setAnswer] = useState("");
 
-  const handleConfirm = () => {
-    if (password === "1111") {
-      setPasswordCorrect(true);
-    } else {
-      setPasswordCorrect(false);
-    }
-  };
+  // const handleConfirm = () => {
+  //   if (password === "1111") {
+  //     setPasswordCorrect(true);
+  //   } else {
+  //     setPasswordCorrect(false);
+  //   }
+  // };
 
   const handleChange = (e) => {
     if (e.target.value.length <= 120) {
@@ -33,13 +33,25 @@ const Index = (props) => {
     axios
       .post(Api.QnaAnswer, questionData)
       .then((response) => {
-        console.log(response);
         getQnaData();
       })
       .catch((error) => {
         console.log(error);
       });
     handleCloseModal();
+  };
+
+  const passwordCheck = () => {
+    const passwordData = {
+      password: password,
+    };
+    axios.post(Api.Password, passwordData).then((response) => {
+      if (response.data.success) {
+        setPasswordCorrect(true);
+      } else {
+        setPasswordCorrect(false);
+      }
+    });
   };
 
   return (
@@ -63,7 +75,7 @@ const Index = (props) => {
               <div className="button centerborder" onClick={handleCloseModal}>
                 취소
               </div>
-              <div className="button" onClick={handleConfirm}>
+              <div className="button" onClick={passwordCheck}>
                 확인
               </div>
             </div>

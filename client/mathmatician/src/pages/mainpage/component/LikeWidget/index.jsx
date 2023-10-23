@@ -20,9 +20,7 @@ const LikeWidget = () => {
       method: "POST",
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log("잘 전송됨");
-      })
+      .then((data) => {})
       .catch((error) => {
         console.error("Error updating like count:", error);
       });

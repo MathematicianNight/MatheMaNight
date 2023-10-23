@@ -19,7 +19,6 @@ const useQnaData = (currentPage) => {
       .then((response) => response.json())
       .then((data) => {
         setTotalPages(Math.ceil(data.result[0].cnt / 7));
-        // console.log(data);
         setQnaData(data.table);
         setLoading(false);
       })

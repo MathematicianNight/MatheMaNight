@@ -7,7 +7,6 @@ import { Api } from "../../../../utils/api";
 const Index = (props) => {
   const { handleCloseModal, questionindex, getQnaData } = props;
   const [password, setPassword] = useState("");
-  console.log(questionindex);
   const deleteAnswer = () => {
     const questionData = {
       anony_num: questionindex,
@@ -15,7 +14,6 @@ const Index = (props) => {
     axios
       .post(Api.QnaDelete, questionData)
       .then((response) => {
-        console.log(response);
         getQnaData();
         // window.location.reload();
       })
