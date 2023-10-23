@@ -52,6 +52,7 @@ const Index = () => {
       .then((response) => response.json())
       .then((data) => {
         setTotalPages(Math.ceil(data.result[0].cnt / 7));
+        console.log(data.table);
         setQnaData(data.table);
         setLoading(false);
       })
