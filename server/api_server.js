@@ -13,18 +13,11 @@ const allowedOrigins = [
   'https://invite.mathnight.site',
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // 요청 도메인이 허용 목록에 있는지 확인
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+const options = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
-app.use(cors(corsOptions));
 
 // Middleware
 app.use(cors(options));
