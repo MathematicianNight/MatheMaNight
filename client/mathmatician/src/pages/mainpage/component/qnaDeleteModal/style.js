@@ -19,16 +19,16 @@ export const AnswerModalContainer = styled.div`
       transform: translateX(0);
     }
     25% {
-      transform: translateX(-5px);
+      transform: translateX(-8px);
     }
     50% {
-      transform: translateX(5px);
+      transform: translateX(8px);
     }
     75% {
-      transform: translateX(-5px);
+      transform: translateX(-8px);
     }
     100% {
-      transform: translateX(5px);
+      transform: translateX(8px);
     }
   }
 

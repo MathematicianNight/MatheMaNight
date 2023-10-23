@@ -42,9 +42,7 @@ const Index = (props) => {
   return (
     <AnswerModalContainer>
       <div className="ModalContainer">
-        <div
-          className={`modal-content-false ${incorrectPassword ? "shake" : ""}`}
-        >
+        <div className={`modal-content-false `}>
           <div className="modal-content-wrapper">
             <p className="title">질문 삭제하기</p>
             <p className="sub-title">질문을 삭제하시겠습니까?</p>

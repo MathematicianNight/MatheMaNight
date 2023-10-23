@@ -54,17 +54,20 @@ const Index = (props) => {
         setIncorrectPassword(true);
       }
     });
+    setIncorrectPassword(false);
   };
+
+  //   <div
+  //   className={`modal-content-false ${
+  //     incorrectPassword ? "shake" : ""
+  //   }`}
+  // >
 
   return (
     <AnswerModalContainer>
       <div className="ModalContainer">
         {!isPasswordCorrect ? (
-          <div
-            className={`modal-content-false ${
-              incorrectPassword ? "shake" : ""
-            }`}
-          >
+          <div className={`modal-content-false`}>
             <div className="modal-content-wrapper">
               <p className="title">답변 {title}하기</p>
               <p className="sub-title">
