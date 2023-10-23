@@ -10,6 +10,7 @@ const Index = (props) => {
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
   const [answer, setAnswer] = useState("");
+  const [incorrectPassword, setIncorrectPassword] = useState(false); // 추가: 비밀번호가 틀렸는지 여부
 
   // const handleConfirm = () => {
   //   if (password === "1111") {
@@ -50,6 +51,7 @@ const Index = (props) => {
         setPasswordCorrect(true);
       } else {
         setPasswordCorrect(false);
+        setIncorrectPassword(true);
       }
     });
   };
@@ -58,7 +60,11 @@ const Index = (props) => {
     <AnswerModalContainer>
       <div className="ModalContainer">
         {!isPasswordCorrect ? (
-          <div className="modal-content-false">
+          <div
+            className={`modal-content-false ${
+              incorrectPassword ? "shake" : ""
+            }`}
+          >
             <div className="modal-content-wrapper">
               <p className="title">답변 {title}하기</p>
               <p className="sub-title">
@@ -69,6 +75,7 @@ const Index = (props) => {
                 placeholder="비밀번호를 입력해주세요"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className={incorrectPassword ? "shake" : ""}
               />
             </div>
             <div className="button-group">
