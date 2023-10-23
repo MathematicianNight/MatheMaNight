@@ -155,7 +155,7 @@ const MainpageContainer = styled.section`
           & > .invitation-place {
             font-size: 13px;
           }
-        }        
+        }
       }
       @media (max-height: 590px) {
         & > p {
@@ -247,7 +247,8 @@ const MainpageContainer = styled.section`
 
     & > .mainpage-details {
       width: 100%;
-      min-height: ${window.innerHeight}px;
+      height: 100%;
+      // min-height: ${window.innerHeight}px;
       box-sizing: border-box;
       display: grid;
       justify-items: center;
