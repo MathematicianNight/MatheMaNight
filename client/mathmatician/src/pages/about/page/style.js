@@ -81,6 +81,8 @@ const AboutusContainer = styled.section`
       & > .object2 {
         float: right;
         padding: 60px 10px 0 0;
+        // width: 15px;
+        height: 400px;
       }
       & > .object3 {
         padding: 920px 0 0 10px;

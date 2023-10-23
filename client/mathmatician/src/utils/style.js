@@ -51,7 +51,7 @@ export const Images = {
   star_info_group2: "/assets/images/star_info_group2.svg",
   star_more_group1: "/assets/images/star_more_group1.svg",
   star_more_group2: "/assets/images/star_more_group2.svg",
-  object2: "/assets/images/object2.svg",
+  object2: "/assets/images/object2.png",
   object3: "/assets/images/object3.svg",
   object4: "/assets/images/object4.svg",
 
