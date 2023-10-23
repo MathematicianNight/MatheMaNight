@@ -215,13 +215,13 @@ const MainpageContainer = styled.section`
     background-image: url(${Images.star_info_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    background-position: center center;
+    background-position: top center;
     // transition: 0.3s;
   }
   .info-off {
     background-image: url(${Images.star_info_group2});
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
     // transition: 0.3s;
   }
@@ -332,6 +332,7 @@ const MainpageContainer = styled.section`
         }
       }
       @media (max-height: 590px) {
+        height: 100%;
         & > .info-wrapper {
           & .highlight {
             font-size: 10px;
@@ -381,7 +382,7 @@ const MainpageContainer = styled.section`
           }
         }
       }
-      @media (min-height: 590px) and (max-height: 770px) {
+      @media (min-height: 591px) and (max-height: 770px) {
         & > .info-wrapper {
           & .highlight {
             font-size: 10px;
