@@ -8,6 +8,7 @@ const useLikes = ({ setCount }) => {
     fetch(Api.Like)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data[0].likeCnt);
         setLikeData(data[0].likeCnt);
         setCount(data[0].likeCnt);
       })

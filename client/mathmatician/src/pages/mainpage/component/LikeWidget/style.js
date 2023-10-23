@@ -36,7 +36,7 @@ const LikeContainer = styled.div`
       }
       & > span {
         position: relative; /* span을 절대 위치로 설정 */
-        right: 59px;
+        right: 61px;
         bottom: 10px;
         color: #f53a9f;
         font-family: Pretendard;
@@ -67,7 +67,6 @@ const LikeContainer = styled.div`
       height: 74px;
     }
   }
-
 
   // 나중에 없어질수도.. 일단.. 임시..
   @media (max-height: 725px) {
@@ -100,8 +99,8 @@ const LikeContainer = styled.div`
   @media (max-height: 650px) {
     & > .like-wrapper {
       & > .like-heart {
-        & > img {        
-          height: 18px;  
+        & > img {
+          height: 18px;
           margin-left: 38px;
         }
         & > span {
