@@ -56,7 +56,6 @@ app.listen(port, () => {
 // Get handler
 const greeting = require('./routers/greeting.js');
 const like_api = require('./routers/like_api.js');
-const aboutus = require('./routers/aboutus.js');
 const question_api = require('./routers/question_api.js');
 const calendar = require('./routers/calendar.js');
 
@@ -77,14 +76,6 @@ app.use('/greeting', greeting);
  *   description: 좋아요 기능
  */
 app.use('/like', like_api);
-
-/**
- * @swagger
- * tags:
- *   name: AboutUs
- *   description: 만든 사람들
- */
-app.use('/aboutus', aboutus);
 
 /**
  * @swagger
