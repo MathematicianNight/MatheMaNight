@@ -8,8 +8,8 @@ const useLikes = ({ setCount }) => {
     fetch(Api.Like)
       .then((response) => response.json())
       .then((data) => {
-        setLikeData(data.likeCnt);
-        setCount(data.likeCnt);
+        setLikeData(data[0].likeCnt);
+        setCount(data[0].likeCnt);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

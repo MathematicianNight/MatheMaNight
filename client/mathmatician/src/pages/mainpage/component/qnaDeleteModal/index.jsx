@@ -31,7 +31,6 @@ const Index = (props) => {
       .post(Api.QnaDelete, questionData)
       .then((response) => {
         getQnaData();
-        // window.location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +50,7 @@ const Index = (props) => {
               placeholder="비밀번호를 입력해주세요"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={incorrectPassword ? "shake" : ""} // 클래스 추가
+              className={incorrectPassword ? "shake" : ""}
             />
           </div>
           <div className="button-group">
