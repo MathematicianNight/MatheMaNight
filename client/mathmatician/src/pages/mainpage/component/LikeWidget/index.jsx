@@ -9,18 +9,31 @@ import { Api } from "../../../../utils/api";
 const LikeWidget = () => {
   const [on, setOn] = useState(false);
   const [likemodalopen, setlikemodalopen] = useState(false);
-  const [count, setCount] = useState(0);
-  const likeData = useLikes(setCount);
+  const [likeData, setLikeData] = useState(0);
+
+  const getLikeData = () => {
+    fetch(Api.Like)
+      .then((response) => response.json())
+      .then((data) => {
+        setLikeData(data[0].likeCnt);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  getLikeData();
 
   const startLikeAnimation = () => {
     setlikemodalopen(true);
-    setCount(count + 1);
 
     fetch(Api.upLike, {
       method: "POST",
     })
       .then((response) => response.json())
-      .then((data) => {})
+      .then((data) => {
+        getLikeData();
+      })
       .catch((error) => {
         console.error("Error updating like count:", error);
       });
@@ -50,7 +63,7 @@ const LikeWidget = () => {
       <div className="like-wrapper" onClick={startLikeAnimation}>
         <div className="like-heart">
           <img src={Images.heart_bubble} alt="heart bubble image" />
-          <span>{likeData + count}</span>
+          <span>{likeData}</span>
         </div>
         {on ? (
           <img src={Images.clickheart} alt="" className="heart-image click" />
