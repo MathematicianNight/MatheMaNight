@@ -679,8 +679,7 @@ const MainpageContainer = styled.section`
           }
         }
         & > .morefunc-widgets {
-          grid-template-rows: 135
-          px 135px;
+          grid-template-rows: 135px 135px;
           grid-template-columns: 135px 135px;
           grid-gap: 18px 18px;
           gap: 18px 18px;
