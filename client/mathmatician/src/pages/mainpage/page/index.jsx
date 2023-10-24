@@ -95,7 +95,11 @@ const MainPage = () => {
           modules={[Scrollbar]}
         >
           <SwiperSlide>
-            <div className="mainpage-home">
+          <div
+              className={`mainpage-home ${
+                bgAnimation ? "home-on" : "home-off"
+              }`}
+            >
               <div className="home-wrapper">
                 <p>
                   <span className="subtext-wel">Wel</span>
@@ -191,6 +195,7 @@ const MainPage = () => {
                 bgAnimation ? "more-on" : "more-off"
               }`}
             >
+              {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
               <div className="morefunc-wrapper">
                 <div className="morefunc-description">
                   <h1>More Functions</h1>
@@ -206,8 +211,8 @@ const MainPage = () => {
                 </div>
                 <div className="morefunc-aboutus">
                   <img
-                    src="http://via.placeholder.com/164x164"
-                    alt="our team logo image"
+                    src={Images.team_logo}
+                    alt="team logo image"
                   />
                   <span onClick={handlenavigate}>만든 사람들 &#62;</span>
                 </div>
@@ -216,8 +221,7 @@ const MainPage = () => {
                   <img
                     src={Images.envelope_icon}
                     alt="envelope icon"
-                    // onClick={openModal}
-                    onClick={() => {alert("not yet ....")}}
+                    onClick={openModal}
                   />
                 </div>
               </div>
@@ -234,7 +238,11 @@ const MainPage = () => {
         </Swiper> 
           :
         <>
-          <div className="mainpage-home">
+          <div
+            className={`mainpage-home ${
+              bgAnimation ? "home-on" : "home-off"
+            }`}
+          >
             <div className="home-wrapper">
               <p>
                 <span className="subtext-wel">Wel</span>
@@ -330,6 +338,7 @@ const MainPage = () => {
               bgAnimation ? "more-on" : "more-off"
             }`}
           >
+            {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
             <div className="morefunc-wrapper">
               <div className="morefunc-description">
                 <h1>More Functions</h1>
@@ -345,8 +354,8 @@ const MainPage = () => {
               </div>
               <div className="morefunc-aboutus">
                 <img
-                  src="http://via.placeholder.com/164x164"
-                  alt="our team logo image"
+                  src={Images.team_logo}
+                  alt="team logo image"
                 />
                 <span onClick={handlenavigate}>만든 사람들 &#62;</span>
               </div>
@@ -355,10 +364,7 @@ const MainPage = () => {
                 <img
                   src={Images.envelope_icon}
                   alt="envelope icon"
-                  // onClick={openModal}
-                  onClick={() => {
-                    alert("not yet ....");
-                  }}
+                  onClick={openModal}
                 />
               </div>
             </div>

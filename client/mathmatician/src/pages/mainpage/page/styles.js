@@ -41,6 +41,7 @@ const MainpageContainer = styled.section`
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   .mainpage-home {
+    /* min-height: ${window.innerHeight}px; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -65,7 +66,7 @@ const MainpageContainer = styled.section`
         }
       }
       & > img {
-        width: 100%;
+        width: 92%;
         margin: 6% 0 7.5% 0;
       }
       & > .invitation-summary {
@@ -115,39 +116,90 @@ const MainpageContainer = styled.section`
           margin: 11px 8px 0 0;
         }
       }
-      @media (max-height: 735px) {
+      @media (min-width: 385px) {
         & > p {
-          width: 280px;
-          font-size: 60px;
+          width: 330px;
+          font-size: 70px;
+        }
+        & > .invitation-summary {
+          width: 320px;
+          & > .invitation-title {
+            font-size: 65px;
+          }
+        }
+
+      }
+      @media (max-width: 310px) {
+        & > p {
+          width: 260px;
+          font-size: 57px;
         }
         & > img {
-          width: 85%;
+          width: 100%;
+        }
+        & > .invitation-summary {
+          width: 260px;
+          & > .invitation-title {
+            font-size: 52px;
+          }
+        }
+      }
+      @media (max-height: 735px) {
+        & > p {
+          width: 294px;
+          font-size: 62px;
+        }
+        & > img {
+          width: 82%;
           margin: 7% 0 6.5% 0;
         }
         & > .invitation-summary {
-          width: 270px;
+          width: 284px;
           & > .invitation-title {
-            font-size: 54px;
+            font-size: 57px;
+          }
+        }
+        @media (max-width: 365px) {
+          & > p {
+            width: 285px;
+          }
+          & > img {
+            width: 90%;
+          }
+        }
+        @media (max-width: 300px) {
+          & > p {
+            width: 252px;
+            font-size: 55px;
+          }
+          & > img {
+            width: 100%;
+          }
+          & > .invitation-summary {
+            width: 252px;
+            & > .invitation-title {
+              font-size: 50px;
+            }
           }
         }
       }
       @media (max-height: 660px) {
         & > p {
-          width: 250px;
-          font-size: 55px;
+          width: 268px;
+          font-size: 57px;
         }
         & > img {
           width: 75%;
-          margin: 7% 0 5.5% 0;
+          margin: 4% 0 4% 0;
         }
         & > .invitation-summary {
-          width: 240px;
+          width: 258px;
           & > .invitation-running {
             font-size: 18px;
             margin-right: 7px;
           }
           & > .invitation-title {
-            font-size: 48px;
+            font-size: 52px;
           }
           & > .invitation-date {
             font-size: 13.5px;
@@ -155,24 +207,37 @@ const MainpageContainer = styled.section`
           & > .invitation-place {
             font-size: 13px;
           }
-        }        
+        }
+        @media (max-width: 365px) {
+          & > img {
+            width: 85%;
+          }
+        }
+        @media (max-width: 300px) {
+          & > p {
+            width: 254px;
+          }
+          & > img {
+            width: 100%;
+          }
+        }
       }
       @media (max-height: 590px) {
         & > p {
-          width: 220px;
-          font-size: 48px;
+          width: 248px;
+          font-size: 53px;
         }
         & > img {
           width: 55%;
-          margin: 5.5% 0 5.5% 0;
+          margin: 3% 0 2% 0 ;
         }
         & > .invitation-summary {
-          width: 210px;
+          width: 238px;
           & > .invitation-running {
             font-size: 15px;
           }
           & > .invitation-title {
-            font-size: 42px;
+            font-size: 48px;
           }
           & > .invitation-date {
             font-size: 11.5px;
@@ -180,6 +245,19 @@ const MainpageContainer = styled.section`
           & > .invitation-place {
             font-size: 11px;
             margin-right: 7px;
+          }
+        }
+        @media (max-width: 365px) {
+          & > img {
+            width: 60%;
+          }
+        }
+        @media (max-width: 300px) {
+          & > p {
+            width: 238px;
+          }
+          & > img {
+            width: 75%;
           }
         }
       }
@@ -198,6 +276,20 @@ const MainpageContainer = styled.section`
     }
   }
 
+  .home-on {
+    background-image: url(${Images.star_home_group1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .home-off {
+    background-image: url(${Images.star_home_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    // transition: 0.3s;
+  }
   .bg-animation-on {
     // width: 100vh;
     background-size: cover;
@@ -215,13 +307,13 @@ const MainpageContainer = styled.section`
     background-image: url(${Images.star_info_group1});
     background-repeat: no-repeat;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    background-position: center center;
+    background-position: top center;
     // transition: 0.3s;
   }
   .info-off {
     background-image: url(${Images.star_info_group2});
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
     background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
     // transition: 0.3s;
   }
@@ -247,7 +339,8 @@ const MainpageContainer = styled.section`
 
     & > .mainpage-details {
       width: 100%;
-      min-height: ${window.innerHeight}px;
+      height: 100%;
+      // min-height: ${window.innerHeight}px;
       box-sizing: border-box;
       display: grid;
       justify-items: center;
@@ -331,6 +424,7 @@ const MainpageContainer = styled.section`
         }
       }
       @media (max-height: 590px) {
+        height: 100%;
         & > .info-wrapper {
           & .highlight {
             font-size: 10px;
@@ -380,7 +474,7 @@ const MainpageContainer = styled.section`
           }
         }
       }
-      @media (min-height: 590px) and (max-height: 770px) {
+      @media (min-height: 591px) and (max-height: 770px) {
         & > .info-wrapper {
           & .highlight {
             font-size: 10px;
@@ -441,7 +535,12 @@ const MainpageContainer = styled.section`
     justify-content: center;
     align-items: center;
     & > .morefunc-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       & > .morefunc-description {
+        align-self: flex-start;
         & > h1 {
           font-size: 25px;
           font-weight: 300;
@@ -460,21 +559,21 @@ const MainpageContainer = styled.section`
         place-items: stretch stretch;
         grid-gap: 22px 22px;
         gap: 22px 22px;
-        margin: 32px 0 77px; // 위젯 위아래 여백
+        margin: 32px 0 68px; // 위젯 위아래 여백
       }
       & > .morefunc-aboutus {
         text-align: center;
-        margin-bottom: 53px; // 만든 사람들과 간이 초대장 사이 여백
+        margin-bottom: 52px; // 만든 사람들과 간이 초대장 사이 여백
         & > img {
-          width: 150px;
+          width: 135px;
           border-radius: 50%;
         }
         & > span {
           display: block;
           font-size: 21px;
           margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
-          text-shadow: 0 0 2px rgba(255, 255, 255, 0.8),
-            0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8);
+          /* text-shadow: 0 0 2px rgba(255, 255, 255, 0.8),
+            0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8); */
         }
       }
       @keyframes fadeInDown {
@@ -498,6 +597,7 @@ const MainpageContainer = styled.section`
         }
       }
       & > .morefunc-handy-invitation {
+        align-self: stretch;
         text-align: right;
         position: relative;
         animation: fadeInDown 1.2s infinite alternate;
@@ -515,126 +615,173 @@ const MainpageContainer = styled.section`
           margin-bottom: -15px;
         }
       }
-      @media (min-height: 900px) {
+      @media (min-width: 401px) {
         & > .morefunc-widgets {
-          grid-template-rows: 170px 170px;
-          grid-template-columns: 170px 170px;
+          grid-template-rows: 165px 165px;
+          grid-template-columns: 165px 165px;
           grid-gap: 24px 24px;
           gap: 24px 24px;
-          margin: 36px 0 87px;
         }
         & > .morefunc-aboutus {
-          margin-bottom: 63px;
           & > img {
-            width: 170px;
-          }
-          & > span {
-            margin-top: 25px;
+            width: 140px;
           }
         }
       }
-      @media (max-height: 795px) {
+      @media (max-width: 400px) {
         & > .morefunc-widgets {
-          grid-template-rows: 140px 140px;
-          grid-template-columns: 140px 140px;
-          grid-gap: 20px 20px;
-          gap: 20px 20px;
+          grid-template-rows: 150px 150px;
+          grid-template-columns: 150px 150px;
         }
         & > .morefunc-aboutus {
           & > img {
-            width: 130px;
+            width: 140px;
           }
         }
       }
-      @media (max-height: 725px) {
-        & > .morefunc-description {
-          & > h1 {
-            font-size: 23px;
-            margin-bottom: 8px;
-          }
-          & > p > span {
-            display: block;
-            font-size: 10px;
-          }
+      @media (max-width: 355px) {
+        & > .morefunc-description > p > span {
+          display: block;
         }
         & > .morefunc-widgets {
-          grid-template-rows: 125px 125px;
-          grid-template-columns: 125px 125px;
-          margin: 25px 0 64px;
+          grid-template-rows: 135px 135px;
+          grid-template-columns: 135px 135px;
         }
         & > .morefunc-aboutus {
-          margin-bottom: 40px;
           & > img {
-            width: 118px;
-          }
-          & > span {
-            font-size: 19px;
-            margin-top: 14px;
-          }
-        }
-        & > .morefunc-handy-invitation {
-          & > img {
-            width: 34px;
-            height: 34px;
-          }
-          & > span {
-            font-size: 13px;
-            top: 10px;
-            right: 28px;
+            width: 125px;
           }
         }
       }
-      @media (max-height: 650px) {
+      @media (max-width: 315px) {
         & > .morefunc-widgets {
           grid-template-rows: 110px 110px;
           grid-template-columns: 110px 110px;
         }
         & > .morefunc-aboutus {
+          & > img {
+            width: 100px;
+          }
           & > span {
-            font-size: 16px;
+            font-size: 18px;
+          }
+        }
+      }
+
+      @media (max-height: 775px) {
+        & > .morefunc-description {
+          & > h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+          }
+          & > p {
+            font-size: 10px;
+          }
+        }
+        & > .morefunc-widgets {
+          grid-template-rows: 135
+          px 135px;
+          grid-template-columns: 135px 135px;
+          grid-gap: 18px 18px;
+          gap: 18px 18px;
+          margin: 24px 0 56px;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 38px;
+          & > span {
+            font-size: 18px;
+            margin-top: 12px;
           }
           & > img {
-            width: 105px;
+            width: 110px;
           }
         }
         & > .morefunc-handy-invitation {
           & > span {
             font-size: 11px;
             top: 12px;
-            right: 26px;
-          }
-        }
-      }
-      @media (max-height: 590px) {
-        & > .morefunc-description > h1 {
-          font-size: 20px;
-          margin-bottom: 5px;
-        }
-        & > .morefunc-widgets {
-          grid-template-rows: 95px 95px;
-          grid-template-columns: 95px 95px;
-          grid-gap: 16px 16px;
-          gap: 16px 16px;
-          margin: 20px 0 50px 0;
-        }
-        & > .morefunc-aboutus {
-          margin-bottom: 26px;
-          & > img {
-            width: 85px;
-          }
-          & > span {
-            font-size: 15px;
-            margin-top: 10px;
+            right: 27px;
           }
         }
         & > .morefunc-handy-invitation {
           & > img {
-            width: 28px;
+            width: 30px;
           }
           & > span {
             font-size: 10px;
-            top: 13px;
-            right: 22px;
+            top: 8px;
+            right: 23px;
+          }
+        }
+        @media (max-width: 400px) {
+          & > .morefunc-widgets {
+            grid-template-rows: 135px 135px;
+            grid-template-columns: 135px 135px;
+          }
+          & > .morefunc-aboutus {
+            & > img {
+              width: 110px;
+            }
+          }
+        }
+        @media (max-width: 355px) {
+          & > .morefunc-description > p > span {
+            display: block;
+          }
+          & > .morefunc-widgets {
+            grid-template-rows: 125px 125px;
+            grid-template-columns: 125px 125px;
+          }
+          & > .morefunc-aboutus {
+            & > img {
+              width: 100px;
+            }
+          }
+        }
+        @media (max-width: 305px) {
+          & > .morefunc-widgets {
+            grid-template-rows: 110px 110px;
+            grid-template-columns: 110px 110px;
+          }
+        }
+      }
+      @media (max-height: 650px) {
+        & > .morefunc-widgets {
+          grid-template-rows: 125px 125px;
+          grid-template-columns: 125px 125px;
+          margin: 20px 0 45px;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 30px;
+          & > span {
+            font-size: 16px;
+          }
+          & > img {
+            width: 95px;
+          }
+        }
+        @media (max-width: 290px) {
+          & > .morefunc-widgets {
+            grid-template-rows: 115px 115px;
+            grid-template-columns: 115px 115px;
+          }
+        }
+      }
+      @media (max-height: 580px) {
+        & > .morefunc-widgets {
+          grid-template-rows: 100px 100px;
+          grid-template-columns: 100px 100px;
+          grid-gap: 16px 16px;
+          gap: 16px 16px;
+          margin: 15px 0 35px;
+        }
+        & > .morefunc-aboutus {
+          margin-bottom: 20px;
+          & > span {
+            font-size: 16px;
+          }
+          & > img {
+            width: 90px;
           }
         }
       }
