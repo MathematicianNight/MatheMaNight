@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import useInvitationSchedule from "../hooks/useInvitationSchedule";
-import { Images, Colors } from "../../../utils/style";
+import LoadingContainer from "./style";
 
 const LinkKakaoCalendar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const client_id = "fc15512735978bce526493813fdf1451";
-  const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx";
-  // const redirect_uri = "http://127.0.0.1:3000";
+  const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
+  // const redirect_uri = "http://192.168.52.127:3000";
   const redirect_uri = "https://invite.mathnight.site";
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
@@ -73,124 +73,108 @@ const LinkKakaoCalendar = () => {
   useEffect(() => {
     try {
       if (location.state === null) {
-        // 어차피 /oauthkakao 입력해서는 못 들어가서 이 예외는 발생 X
-        alert(
-          "잘못된 접근입니다. More Functions의 캘린더 위젯을 다시 클릭해주세요."
-        );
-        window.history.go(-(window.history.length - 1));
-      } else {
+        alert("잘못된 접근입니다. More Functions의 캘린더 위젯을 다시 클릭해주세요.");
+        // window.history.go(-(window.history.length - 1));
+        navigate("/", {replace: true});
+      }
+      else {
         const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${location.state.code}&client_secret=${client_secret}`;
         getToken(token_uri).then((res) => {
           const token = res.access_token;
           getSchedules(token).then((res) => {
             const events = res.events;
             if (events === undefined) {
-              if (sessionStorage.getItem("access") === "false") {
-                window.history.go(-(window.history.length - 1));
-              } else {
-                alert(
-                  '"톡캘린더 및 일정 생성, 조회, 편집/삭제" 접근 권한이 필요합니다. 위젯을 다시 클릭하여 항목에 동의해주세요.'
-                );
-                window.history.go(-(window.history.length - 1));
-                sessionStorage.setItem("access", "false");
+              if (sessionStorage.getItem('access') === 'false') {
+                // window.history.go(-(window.history.length - 1));
+                navigate("/", {replace: true});
+              }
+              else {
+                alert("[톡캘린더 및 일정 생성, 조회, 편집/삭제] 접근 권한이 필요합니다. 위젯을 다시 클릭하여 동의해주세요.");
+                // window.history.go(-(window.history.length - 1));
+                navigate("/", {replace: true});
+                sessionStorage.setItem('access', 'false');  
               }
             } else {
               const count = [];
               events.map((event) => {
                 count.push(event.title);
               });
-              if (count.includes("수학인의 밤")) {
-                if (
-                  sessionStorage.getItem("BACK") === "back" &&
-                  sessionStorage.getItem("AA") === "aa"
-                ) {
-                  if (sessionStorage.getItem("FLAG") === "flag") {
-                    if (sessionStorage.getItem("FLIP") === "flip") {
-                      alert(
-                        "해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다."
-                      );
-                      window.history.go(-(window.history.length - 1));
-                    } else {
-                      window.history.go(-(window.history.length - 1));
-                      if (sessionStorage.getItem("OTHER") === "other") {
-                        alert(
-                          "해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다."
-                        );
-                        window.history.go(-(window.history.length - 1));
-                      } else {
-                        window.history.go(-(window.history.length - 1));
-                        sessionStorage.setItem("OTHER", "other");
-                      }
-                      // sessionStorage.setItem('FLAG', 'flag');
-                      sessionStorage.setItem("FLIP", "flip");
-                    }
-                    sessionStorage.removeItem("FLAG");
-                  } else {
-                    alert("경고창 O");
-                    window.history.go(-(window.history.length - 1));
-                  }
 
-                  // if (sessionStorage.getItem('STOP') === 'stop') {
-                  //   // alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
-                  //   window.history.go(-(window.history.length - 1));
-                  // }
-                  // else {
-                  //   window.history.back();
-                  // }
-                  // sessionStorage.setItem('STOP', 'stop');
-                  sessionStorage.setItem("access", "false");
-                }
-                if (
-                  sessionStorage.getItem("BACK") !== "back" &&
-                  sessionStorage.getItem("AA") === "aa"
-                ) {
-                  if (sessionStorage.getItem("ADD") === "add") {
-                    alert(
-                      "해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다."
-                    );
+              if (count.includes('수학인의 밤')) {
+                if (sessionStorage.getItem('BACK') === 'back' && sessionStorage.getItem('AA') === 'aa') {
+                  if (sessionStorage.getItem('FLAG') === 'flag') {
+                    if (sessionStorage.getItem('FLIP') === 'flip') {
+                      alert("이미 등록된 일정입니다.");
+                      navigate("/", {replace: true});
+                      window.history.go(-(window.history.length - 1));
+                      sessionStorage.removeItem('FLAG');
+                      sessionStorage.removeItem('FLIP');
+                    }
+                    else {
+                      if (sessionStorage.getItem('OTHER') === 'other' && sessionStorage.getItem('GOOD') !== 'good') {
+                        alert("이미 등록된 일정입니다.");
+                        navigate("/", {replace: true});
+                        window.history.go(-(window.history.length - 1));
+                        sessionStorage.setItem('GOOD', 'good');
+                        sessionStorage.removeItem('OTHER');
+                      }
+                      else if (sessionStorage.getItem('OTHER') === 'other' && sessionStorage.getItem('GOOD') === 'good') {
+                        alert("이미 등록된 일정입니다.");
+                        navigate("/", {replace: true});
+                        window.history.go(-(window.history.length - 1));
+                        sessionStorage.removeItem('GOOD');
+                        sessionStorage.removeItem('OTHER');
+                      }
+                      else {
+                        if (window.history.length === 2) {
+                          alert("이미 등록된 일정입니다.");
+                          navigate("/", {replace: true});
+                          window.history.go(-(window.history.length - 1));
+                        }
+                        else {
+                          navigate("/", {replace: true});
+                          window.history.back();
+                          // window.history.go(-(window.history.length - 1));                           
+                        }
+                      }
+                      sessionStorage.setItem('FLIP', 'flip'); // 이게 첨에만 그렇고 담부턴 안그런거같아..
+                      sessionStorage.removeItem('FLAG');
+                    }
+                  } 
+                  else {
+                    alert("이미 등록된 일정입니다.");
+                    navigate("/", {replace: true});
                     window.history.go(-(window.history.length - 1));
-                  } else {
-                    window.history.go(-(window.history.length - 1));
-                    sessionStorage.setItem("ADD", "add");
-                    // window.history.back();
                   }
-                  sessionStorage.setItem("access", "false");
-                  // sessionStorage.setItem('ADD', 'add');
+                  sessionStorage.setItem('access', 'false');  
                 }
-                if (
-                  sessionStorage.getItem("BACK") !== "back" &&
-                  sessionStorage.getItem("AA") !== "aa"
-                ) {
-                  alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
+
+                if (sessionStorage.getItem('BACK') !== 'back' && sessionStorage.getItem('AA') !== 'aa') {
+                  alert("이미 등록된 일정입니다.");
+                  navigate("/", {replace: true});
                   window.history.go(-(window.history.length - 1));
-                  sessionStorage.setItem("access", "false");
-                  // alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
-                  // if (sessionStorage.getItem('ETC') === 'etc') {
-                  //   alert("해당 시간대에 [수학인의 밤] 일정이 이미 존재합니다.");
-                  //   window.history.back();
-                  //   // window.history.go(-(window.history.length - 1));
-                  // }
-                  // else {
-                  //   window.history.back();
-                  // }
-                  // sessionStorage.setItem('access', 'false');
-                  // sessionStorage.setItem('ETC', 'etc');
+                  sessionStorage.setItem('access', 'false');  
                 }
-              } else {
-                openCalendar(token, invitation_schedule).then((res) => {
-                  const check = window.confirm(
-                    "일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?"
-                  );
+              }
+
+              else {
+                openCalendar(token, invitation_schedule).then(res => {
+                  const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
+                  sessionStorage.setItem('AA', 'aa');
+                  sessionStorage.setItem('BACK', 'back');
+                  sessionStorage.setItem('FLAG', 'flag');
+                  sessionStorage.setItem('access', 'false');  
                   if (!check) {
+                    navigate("/", {replace: true});
                     window.history.go(-(window.history.length - 1));
-                    sessionStorage.setItem("access", "false");
-                    sessionStorage.setItem("AA", "aa");
-                  } else {
-                    sessionStorage.setItem("access", "false");
-                    sessionStorage.setItem("BACK", "back");
-                    sessionStorage.setItem("AA", "aa");
-                    sessionStorage.setItem("FLAG", "flag");
-                    window.location.replace("https://calendar.kakao.com/");
+                    // sessionStorage.setItem('FLIP', 'flip');
+                    sessionStorage.setItem('FIRST', 'first');
+                    sessionStorage.setItem('OTHER', 'other');
+                  }
+                  else {
+                    navigate("/", {replace: true});
+                    // window.history.back();
+                    window.location.href = ("https://calendar.kakao.com/");
                   }
                 });
               }
@@ -204,10 +188,13 @@ const LinkKakaoCalendar = () => {
   }, []);
 
   return (
-    <div style={{ color: "#fff", fontSize: "25px" }}>
-      로딩중 페이지에용 . . . . .
-    </div>
-  );
-};
+    <LoadingContainer>
+      <div className="loading-spinner">
+        <p className="loading-text">Loading...</p>
+        <div className="loading-bar"></div>
+      </div>
+    </LoadingContainer>
+  )
+}
 
 export default LinkKakaoCalendar;

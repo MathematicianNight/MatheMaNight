@@ -5,12 +5,6 @@ import "../../../../assets/fonts/fonts.css";
 const MapContainer = styled.div`
   box-sizing: border-box;
   border-radius: 17px;
-  @media (min-height: 900px) {
-    border-radius: 22px;
-  }
-  @media (max-height: 590px) {
-    border-radius: 13px;
-  }
   overflow: hidden;
   margin: 0 auto;
   position: relative;
@@ -37,12 +31,6 @@ const MapContainer = styled.div`
   }
   & > .here {
     border-radius: 17px; // 260~345이하: 13px / 345이상~425미만: 17 / 425이상: 20 
-    @media (min-height: 900px) {
-      border-radius: 22px;
-    }
-    @media (max-height: 590px) {
-      border-radius: 13px;
-    }
     width: 100%;
     height: 100%;
     position: absolute;
@@ -105,93 +93,290 @@ const MapContainer = styled.div`
     opacity: ${({ isBlurred }) => isBlurred ? 1 : 0};
     transition: opacity 1.4s ease-in-out;
     & > img {
+      display: inline-block;
       pointer-events: ${({ isBlurred }) => isBlurred ? 'auto' : 'none'};
     }
   }
-  @media (min-height: 900px) {
+
+
+  @media (min-width: 401px) {
+    border-radius: 19px;
+    & > .here {
+      border-radius: 19px;
+    }
     & > .map-apps-div {
-      top: 33px;
-      left: 40px;
-      right: 40px;
+      top: 30px;
+      left: 38px;
+      right: 38px;
       & > img {
         width: 68px;
         height: 68px;
       }
     }
     & > .addr-copy-div {
-      bottom: 33px;
-      padding: 0 34px;
+      bottom: 30px;
+      left: 0;
+      right: 0;
       font-size: 14px;
+      padding: 0 28px;
       & > img {
-        width: 44px;
-        margin-bottom: 2px;
+        width: 42px;
+        padding-bottom: 3px;
       }
     }
   }
-  @media (max-height: 795px) {
+  @media (max-width: 400px) {
+    border-radius: 17px;
+    & > .here {
+      border-radius: 17px;
+    }
+    & > .map-apps-div {
+      top: 30px;
+      left: 38px;
+      right: 38px;
+      & > img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    & > .addr-copy-div {
+      padding: 0 33px;
+      & > img {
+        padding-bottom: 2px;
+      }
+    }
+  }
+  @media (max-width: 355px) {
+    border-radius: 15px;
+    & > .here {
+      border-radius: 15px;
+    }
     & > .map-apps-div {
       top: 26px;
-      left: 35px;
-      right: 35px;
+      left: 33px;
+      right: 33px;
       & > img {
-        width: 57px;
-        height: 57px;
+        width: 55px;
+        height: 55px;
       }
     }
     & > .addr-copy-div {
       bottom: 26px;
-      padding: 0 25px;
+      padding: 0 20px;
     }
   }
-  @media (max-height: 725px) {
+
+  @media (max-width: 315px) {
+    border-radius: 13px;
+    & > .here {
+      border-radius: 13px;
+    }
     & > .map-apps-div {
-      top: 23px;
-      left: 30px;
-      right: 30px;
+      top: 14px;
+      left: 28px;
+      right: 28px;
+      & > img {
+        width: 44px;
+        height: 44px;
+      }
+    }
+    & > .addr-copy-div {
+      font-size: 10px;
+      margin-top: 10px;
+      bottom: 14px;
+      flex-direction: column;
+      & > img {
+        padding-top: 2px;
+        width: 30px;
+      }
+    }
+  }
+  @media (max-height: 775px) {
+    border-radius: 15px;
+    & > .here {
+      border-radius: 15px;
+    }
+    & > .map-apps-div {
+      top: 26px;
+      left: 34px;
+      right: 34px;
       & > img {
         width: 52px;
         height: 52px;
       }
     }
     & > .addr-copy-div {
-      /* &, & * {border: 1px solid red; box-sizing: border-box;} */
-      bottom: 23px;
-      font-size: 10px;
-      padding: 0 27px;
+      font-size: 12px;
+      bottom: 26px;
+      padding: 0 18px;
       & > img {
-        width: 30px;
-        margin-bottom: 2px;
+        width: 35px;
+        padding-bottom: 0px;
+      }
+    }
+    @media (max-width: 355px) {
+      border-radius: 13px;
+      & > .here {
+        border-radius: 13px;
+      }
+      & > .map-apps-div {
+        top: 24px;
+        left: 30px;
+        right: 30px;
+        & > img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      & > .addr-copy-div {
+        font-size: 10px;
+        bottom: 24px;
+        padding: 0 28px;
+        & > img {
+          width: 30px;
+          padding-bottom: 2px;
+        }
+      }
+    }
+    @media (max-width: 315px) {
+      & > .map-apps-div {
+        top: 17px;
+      }
+      & > .addr-copy-div {
+        bottom: 17px;
+      }
+    }
+    @media (max-width: 305px) {
+      & > .map-apps-div {
+        top: 13px;
+        left: 25px;
+        right: 25px;
+        & > img {
+          width: 44px;
+          height: 44px;
+        }
+      }
+      & > .addr-copy-div {
+        bottom: 13px;
       }
     }
   }
   @media (max-height: 650px) {
-    & > .map-apps-div {
-      top: 20px;
-      left: 26px;
-      right: 26px;
-      & > img {
-        width: 47px;
-        height: 47px;
+    @media (min-width: 355px) {
+      border-radius: 15px;
+      & > .here {
+        border-radius: 15px;
+      }
+      & > .map-apps-div {
+        top: 25px;
+        left: 30px;
+        right: 30px;
+        & > img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+      & > .addr-copy-div {
+        bottom: 25px;
+        font-size: 10px;
+        padding: 0 27px;
+        & > img {
+          width: 30px;
+          padding-bottom: 2px;
+        }
       }
     }
-    & > .addr-copy-div {
-      bottom: 20px;
-      padding: 0 15px;
+    @media (max-width: 316px) {
+      border-radius: 13px;
+      & > .here {
+        border-radius: 13px;
+      }
+      & > .map-apps-div {
+        top: 24px;
+        left: 32px;
+        right: 32px;
+      }
+      & > .addr-copy-div {
+        bottom: 24px;
+        flex-direction: row;
+        & > img {
+          padding-bottom: 2px;
+        }
+      }
+    }
+    @media (max-width: 306px) {
+      border-radius: 13px;
+      & > .here {
+        border-radius: 13px;
+      }
+      & > .map-apps-div {
+        top: 19px;
+        left: 32px;
+        right: 32px;
+        & > img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+      & > .addr-copy-div {
+        bottom: 19px;
+        flex-direction: row;
+        & > img {
+          padding-bottom: 2px;
+        }
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 290px) {
+      border-radius: 13px;
+      & > .here {
+        border-radius: 13px;
+      }
+      & > .map-apps-div {
+        top: 15px;
+        left: 30px;
+        right: 30px;
+        & > img {
+          width: 44px;
+          height: 44px;
+        }
+      }
+      & > .addr-copy-div {
+        bottom: 15px;
+        flex-direction: row;
+        & > img {
+          padding-bottom: 2px;
+        }
+      }
+
+      & > .addr-copy-div {
+        flex-direction: column;
+      }
     }
   }
-  @media (max-height: 590px) {
+  @media (max-height: 580px) {
+    border-radius: 13px;
+    & > .here {
+      border-radius: 13px;
+    }
     & > .map-apps-div {
-      top: 10px;
-      left: 20px;
-      right: 20px;
+      top: 12px;
+      left: 24px;
+      right: 24px;
       & > img {
         width: 40px;
         height: 40px;
       }
     }
     & > .addr-copy-div {
-      bottom: 10px;
+      font-size: 10px;
+      bottom: 12px;
       flex-direction: column;
+      padding: 0;
+      & > img {
+        padding-top: 2px;
+        width: 30px;
+      }
     }
   }
 
