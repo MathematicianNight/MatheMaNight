@@ -83,7 +83,6 @@ const Index = () => {
       .then((data) => {
         setTotalPages(Math.ceil(data.result[0].cnt / 7));
         setQnaData(data.table);
-        console.log(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -167,8 +166,6 @@ const Index = () => {
         index * pageGroupSize + pageGroupSize
       )
   );
-
-  console.log(qnaData);
 
   const [currentPageGroupIndex, setCurrentPageGroupIndex] = useState(0);
 

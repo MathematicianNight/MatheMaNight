@@ -81,6 +81,8 @@ const AboutusContainer = styled.section`
       & > .object2 {
         float: right;
         padding: 60px 10px 0 0;
+        // width: 15px;
+        height: 400px;
       }
       & > .object3 {
         padding: 920px 0 0 10px;
@@ -94,25 +96,25 @@ const AboutusContainer = styled.section`
       flex-direction: column;
       gap: 55px;
       & > .hyelee {
-        width: 206px;
+        // width: 206px;
         height: 256px;
         padding-right: 30px;
       }
       & > .minjeong {
-        width: 259px;
+        // width: 259px;
         height: 256px;
         flex-shrink: 0;
       }
       & > .suhyeon {
-        width: 264px;
+        // width: 264px;
         height: 256px;
-        padding-right: 90px;
+        padding-right: 40px;
         flex-shrink: 0;
       }
       & > .haneul {
-        width: 281.66px;
+        // width: 281.66px;
         height: 256px;
-        // padding-right: 90px;
+        padding-left: 10px;
         flex-shrink: 0;
         margin-bottom: 70px;
       }

@@ -10,14 +10,15 @@ const Index = (props) => {
   const [password, setPassword] = useState("");
   const [isPasswordCorrect, setPasswordCorrect] = useState(false);
   const [answer, setAnswer] = useState("");
+  const [incorrectPassword, setIncorrectPassword] = useState(false); // 추가: 비밀번호가 틀렸는지 여부
 
-  const handleConfirm = () => {
-    if (password === "1111") {
-      setPasswordCorrect(true);
-    } else {
-      setPasswordCorrect(false);
-    }
-  };
+  // const handleConfirm = () => {
+  //   if (password === "1111") {
+  //     setPasswordCorrect(true);
+  //   } else {
+  //     setPasswordCorrect(false);
+  //   }
+  // };
 
   const handleChange = (e) => {
     if (e.target.value.length <= 120) {
@@ -33,7 +34,6 @@ const Index = (props) => {
     axios
       .post(Api.QnaAnswer, questionData)
       .then((response) => {
-        console.log(response);
         getQnaData();
       })
       .catch((error) => {
@@ -42,11 +42,32 @@ const Index = (props) => {
     handleCloseModal();
   };
 
+  const passwordCheck = () => {
+    const passwordData = {
+      password: password,
+    };
+    axios.post(Api.Password, passwordData).then((response) => {
+      if (response.data.success) {
+        setPasswordCorrect(true);
+      } else {
+        setPasswordCorrect(false);
+        setIncorrectPassword(true);
+      }
+    });
+    setIncorrectPassword(false);
+  };
+
+  //   <div
+  //   className={`modal-content-false ${
+  //     incorrectPassword ? "shake" : ""
+  //   }`}
+  // >
+
   return (
     <AnswerModalContainer>
       <div className="ModalContainer">
         {!isPasswordCorrect ? (
-          <div className="modal-content-false">
+          <div className={`modal-content-false`}>
             <div className="modal-content-wrapper">
               <p className="title">답변 {title}하기</p>
               <p className="sub-title">
@@ -57,13 +78,14 @@ const Index = (props) => {
                 placeholder="비밀번호를 입력해주세요"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className={incorrectPassword ? "shake" : ""}
               />
             </div>
             <div className="button-group">
               <div className="button centerborder" onClick={handleCloseModal}>
                 취소
               </div>
-              <div className="button" onClick={handleConfirm}>
+              <div className="button" onClick={passwordCheck}>
                 확인
               </div>
             </div>

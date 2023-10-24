@@ -4,7 +4,6 @@ import "../../../../assets/fonts/fonts.css";
 
 export const GreetingsContainer = styled.div`
   // min-height: ${window.innerHeight}px;
-
   width: 100%;
   // height: ${window.innerHeight}px;
   height: 100%;
@@ -71,6 +70,9 @@ export const GreetingsContainer = styled.div`
       @media (max-width: 375px) {
         right: 85px;
       }
+      @media (max-height: 590px) {
+        top: ${window.innerHeight / 70 + 10}px;
+      }
     }
     & > .greetings-flower-b {
       // width: 60.958px;
@@ -80,6 +82,9 @@ export const GreetingsContainer = styled.div`
       left: 110px;
       @media (max-width: 375px) {
         left: 80px;
+      }
+      @media (max-height: 590px) {
+        bottom: ${window.innerHeight / 24}px;
       }
     }
     & > li {

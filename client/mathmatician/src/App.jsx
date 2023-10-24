@@ -5,8 +5,6 @@ import "./assets/fonts/fonts.css";
 import MainPage from "./pages/mainpage/page";
 import LinkKakaoCalendar from "./pages/kakaologin/page";
 import About from "./pages/about/page";
-import Hellokitty from "./pages/test/hellokitty";
-import Violet from "./pages/test/violet";
 
 function App() {
   return (
@@ -14,8 +12,6 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/mainpage" element={<MainPage />} />
       <Route path="/oauthkakao" element={<LinkKakaoCalendar />} />
-      <Route path="/hellokitty" element={<Hellokitty />} />
-      <Route path="/violet" element={<Violet />} />
       <Route path="/aboutus" element={<About />} />
     </Routes>
   );

@@ -139,7 +139,6 @@ const LikeContainer = styled.div`
 
   }
 
-
   // 나중에 없어질수도.. 일단.. 임시..
   /* @media (max-height: 725px) {
     & > .like-wrapper {

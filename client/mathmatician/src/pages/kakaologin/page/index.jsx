@@ -14,56 +14,61 @@ const LinkKakaoCalendar = () => {
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
   const invitation_schedule = {
-    title: '수학인의 밤',
+    title: "수학인의 밤",
     time: {
-      start_at: '2023-11-24T09:00:00Z',
-      end_at: '2023-11-24T12:00:00Z',
-      time_zone: 'Asia/Seoul'
+      start_at: "2023-11-24T09:00:00Z",
+      end_at: "2023-11-24T12:00:00Z",
+      time_zone: "Asia/Seoul",
     },
-    description: '소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)',
+    description: "소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)",
     location: {
-      name: '더블유파티',
+      name: "더블유파티",
       location_id: 35643864,
-      address: '서울 성북구 동소문로 284 길음 서희스타힐스'
+      address: "서울 성북구 동소문로 284 길음 서희스타힐스",
     },
-    color: 'ROYAL_BLUE'
+    color: "ROYAL_BLUE",
   };
   // const invitation_schedule = useInvitationSchedule();
-  // console.log(invitation_schedule);
 
   const getToken = async (token_uri) => {
     const res = await fetch(token_uri, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-      }
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+      },
     });
     return res.json();
-  }
+  };
 
   const getSchedules = async (user_token) => {
-    const start_at = '2023-11-24T08:55:00Z';
-    const end_at = '2023-11-24T12:05:00Z';
-    const res = await fetch(`${calendars_uri}?calendar_id=primary&from=${start_at}&to=${end_at}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${user_token}`
+    const start_at = "2023-11-24T08:55:00Z";
+    const end_at = "2023-11-24T12:05:00Z";
+    const res = await fetch(
+      `${calendars_uri}?calendar_id=primary&from=${start_at}&to=${end_at}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${user_token}`,
+        },
       }
-    });
+    );
     return res.json();
-  }
+  };
 
   const openCalendar = async (user_token, user_event) => {
     user_event = encodeURIComponent(JSON.stringify(user_event));
-    const res = await fetch(`${calendar_uri}?calendar_id=primary&event=${user_event}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        'Authorization': `Bearer ${user_token}`
+    const res = await fetch(
+      `${calendar_uri}?calendar_id=primary&event=${user_event}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: `Bearer ${user_token}`,
+        },
       }
-    });
+    );
     return res.json();
-  }
+  };
 
   useEffect(() => {
     try {
@@ -74,9 +79,9 @@ const LinkKakaoCalendar = () => {
       }
       else {
         const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${location.state.code}&client_secret=${client_secret}`;
-        getToken(token_uri).then(res => {
+        getToken(token_uri).then((res) => {
           const token = res.access_token;
-          getSchedules(token).then(res => {
+          getSchedules(token).then((res) => {
             const events = res.events;
             if (events === undefined) {
               if (sessionStorage.getItem('access') === 'false') {
@@ -89,10 +94,9 @@ const LinkKakaoCalendar = () => {
                 navigate("/", {replace: true});
                 sessionStorage.setItem('access', 'false');  
               }
-            }
-            else {
+            } else {
               const count = [];
-              events.map(event => {
+              events.map((event) => {
                 count.push(event.title);
               });
 
@@ -178,8 +182,7 @@ const LinkKakaoCalendar = () => {
           });
         });
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   }, []);

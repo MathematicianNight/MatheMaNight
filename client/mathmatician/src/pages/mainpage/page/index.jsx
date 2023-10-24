@@ -20,7 +20,7 @@ import MainpageContainer from "./styles";
 import { Images, Colors } from "../../../utils/style";
 
 const MainPage = () => {
-  const [isInnerWidthOver500, setIsInnerWidthOver500] = useState('less');
+  const [isInnerWidthOver500, setIsInnerWidthOver500] = useState("less");
   const navigate = useNavigate();
 
   const handlenavigate = () => {
@@ -29,30 +29,31 @@ const MainPage = () => {
 
   const handleResize = () => {
     if (window.innerWidth >= 500) {
-      setIsInnerWidthOver500('over');
-    }
-    else if (window.innerWidth < 500) {
-      setIsInnerWidthOver500('less');
+      setIsInnerWidthOver500("over");
+    } else if (window.innerWidth < 500) {
+      setIsInnerWidthOver500("less");
     }
   };
 
   useEffect(() => {
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    const error_description = new URL(window.location.href).searchParams.get('error_description');
-    const code = new URL(window.location.href).searchParams.get('code');
+    const error_description = new URL(window.location.href).searchParams.get(
+      "error_description"
+    );
+    const code = new URL(window.location.href).searchParams.get("code");
 
     if (error_description !== null) {
       window.history.go(-(window.history.length - 1));
     }
     if (code !== null) {
-      navigate('/oauthkakao', {state: {code}, replace: true});      
+      navigate("/oauthkakao", { state: { code }, replace: true });
     }
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    }
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const message = useGreetings();
@@ -84,14 +85,14 @@ const MainPage = () => {
 
   return (
     <MainpageContainer>
-      {isInnerWidthOver500 === 'less' ? 
+      {isInnerWidthOver500 === "less" ? (
         <Swiper
-          direction={'vertical'}
+          direction={"vertical"}
           scrollbar={{
-            verticalClass: 'swiper-scrollbar-vertical',
-            hide: false
+            verticalClass: "swiper-scrollbar-vertical",
+            hide: false,
           }}
-          verticalClass={'swiper-scrollbar-vertical'}
+          verticalClass={"swiper-scrollbar-vertical"}
           modules={[Scrollbar]}
         >
           <SwiperSlide>
@@ -106,10 +107,7 @@ const MainPage = () => {
                   <span className="subtext-come">-come</span>
                   <span className="subtext-to">to</span>
                 </p>
-                <img
-                  src={Images.ceremony_cake}
-                  alt="ceremony cake image"
-                />
+                <img src={Images.ceremony_cake} alt="ceremony cake image" />
                 <div className="invitation-summary">
                   <span className="invitation-running">40th</span>
                   <span className="invitation-title">수학인의 밤</span>
@@ -148,13 +146,19 @@ const MainPage = () => {
                   <div className="info-place">
                     <img src={Images.info_place_head} />
                     <p>
-                      더블유파티<br/>
-                      <span className="highlight">서울 성북구 동소문로 284 길음 서희 스타힐스</span>
+                      더블유파티
+                      <br />
+                      <span className="highlight">
+                        서울 성북구 동소문로 284 길음 서희 스타힐스
+                      </span>
                     </p>
                   </div>
                   <p>
                     <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
-                    <span><span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!</span>
+                    <span>
+                      <span className="highlight">다음 페이지의 부가 기능</span>
+                      을 이용해주세요!
+                    </span>
                   </p>
                 </div>
                 <div className="program-wrapper">
@@ -235,8 +239,8 @@ const MainPage = () => {
               </div>
             </div>
           </SwiperSlide>
-        </Swiper> 
-          :
+        </Swiper>
+      ) : (
         <>
           <div
             className={`mainpage-home ${
@@ -249,10 +253,7 @@ const MainPage = () => {
                 <span className="subtext-come">-come</span>
                 <span className="subtext-to">to</span>
               </p>
-              <img
-                src={Images.ceremony_cake}
-                alt="ceremony cake image"
-              />
+              <img src={Images.ceremony_cake} alt="ceremony cake image" />
               <div className="invitation-summary">
                 <span className="invitation-running">40th</span>
                 <span className="invitation-title">수학인의 밤</span>
@@ -270,10 +271,10 @@ const MainPage = () => {
 
           <div className="informations">
             <div
-                className={`mainpage-details ${
-                  bgAnimation ? "info-on" : "info-off"
-                }`}
-              >
+              className={`mainpage-details ${
+                bgAnimation ? "info-on" : "info-off"
+              }`}
+            >
               <div className="info-wrapper">
                 <h1>Information</h1>
                 <div className="info-date">
@@ -376,7 +377,7 @@ const MainPage = () => {
             </div>
           </div>
         </>
-      }
+      )}
     </MainpageContainer>
   );
 };

@@ -346,8 +346,7 @@ router.post('/answer', (req, res) => {
         .send('행이 업데이트되지 않았습니다. anony_num을 찾을 수 없습니다.');
     }
 
-    // res.json('success!');
-    return res.redirect('https://invite.mathnight.site');
+    res.json('success!');
   });
 });
 
@@ -382,8 +381,7 @@ router.post('/delete', (req, res) => {
       console.error(err);
       res.status(500).send('데이터 입력 중 오류가 발생했습니다.');
     } else {
-      // res.json('success!');
-      return res.redirect('https://invite.mathnight.site/loading');
+      res.json('success!');
     }
   });
 });

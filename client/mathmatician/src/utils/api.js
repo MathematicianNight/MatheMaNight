@@ -7,4 +7,5 @@ export const Api = {
   QnaSearch: "https://api.mathnight.site/question/search?",
   Like: "https://api.mathnight.site/like",
   upLike: "https://api.mathnight.site/like/upcount",
+  Password: "https://api.mathnight.site/question/authenticate",
 };
