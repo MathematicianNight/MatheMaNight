@@ -25,7 +25,7 @@ export const Images = {
   urin_answer: "/assets/images/urin_answer.svg",
   pen_icon: "/assets/images/pen_icon.svg",
   cancel_button: "/assets/images/cancel_button.svg",
-  question_icon: "/assets/images/question.svg",
+  question_icon: "/assets/images/question.png",
   speech_icon: "/assets/images/speech.svg",
   // clickheart: "/assets/images/clickheart_shadow.svg",
   clickheart: "/assets/images/clickheart_shadow.png",
