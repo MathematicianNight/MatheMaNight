@@ -32,11 +32,11 @@ const LikeContainer = styled.div`
       & > img {
         position: relative;
         margin-left: 15px;
-        right: 35px;
+        right: 33px;
       }
       & > span {
         position: relative; /* span을 절대 위치로 설정 */
-        right: 61px;
+        right: 60px;
         bottom: 10px;
         color: #f53a9f;
         font-family: Pretendard;
