@@ -17,7 +17,7 @@ const CalendarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .month {
+  .month { // 775 이상 400 미만 355 이상
     align-self: flex-start;
     font-size: 15px;
     color: ${Colors.PersianRed};
@@ -26,50 +26,113 @@ const CalendarContainer = styled.div`
   .day {
     font-size: 85px;
     color: ${Colors.RawBlack};
+    margin-bottom: 0px;
   }
   .time {
     font-size: 30px;
     color: ${Colors.RawGray};
   }
-  @media (max-height: 795px) {
+
+  @media (min-height: 775px) and (min-width: 400px) { // 775 이상 400 이상
     .month {
-      font-size: 13px;
+      font-size: 17px;
     }
     .day {
-      font-size: 80px;
+      font-size: 90px;
     }
     .time {
-      font-size: 27px;
+      font-size: 32px;
     }
   }
-  @media (max-height: 725px) {
+  @media (min-height: 775px) and (max-width: 355px) { // 775 이상 355 미만
+    .month {
+      font-size: 14px;
+    }
     .day {
-      font-size: 73px;
+      font-size: 74px;
     }
     .time {
-      font-size: 23px;
+      font-size: 25px;
     }
   }
-  @media (max-height: 650px) {
+  @media (min-height: 775px) and (max-width: 315px) { // 775 이상 315 미만
     .month {
-      font-size: 12px;
+      font-size: 11px;
     }
     .day {
-      font-size: 65px;
+      font-size: 60px;
     }
     .time {
       font-size: 21px;
     }
   }
-  @media (max-height: 590px) {
+
+  @media (max-height: 775px) { // 775 미만 355 이상
     .month {
-      font-size: 10px;
+      font-size: 14px;
     }
     .day {
-      font-size: 58px;
+      font-size: 74px;
     }
     .time {
-      font-size: 16px;
+      font-size: 25px;
+    }
+    @media (max-width: 355px) { // 775 미만 355 미만
+      .month {
+        font-size: 13px;
+      }
+      .day {
+        font-size: 69px;
+      }
+      .time {
+        font-size: 24px;
+      }
+    }
+    @media (max-width: 305px) { // 775 미만 305 미만
+      .month {
+        font-size: 11px;
+      }
+      .day {
+        font-size: 60px;
+      }
+      .time {
+        font-size: 21px;
+      }
+    }
+  }
+
+  @media (max-height: 650px) { // 650 미만 305 이상
+    .month {
+      font-size: 13px;
+    }
+    .day {
+      font-size: 69px;
+    }
+    .time {
+      font-size: 24px;
+    }
+    @media (max-width: 305px) { // 650 미만 305 미만
+      .month {
+        font-size: 11px;
+      }
+      .day {
+        font-size: 60px;
+      }
+      .time {
+        font-size: 21px;
+      }
+    }
+  }
+
+  @media (max-height: 580px) { // 580 미만
+    .month {
+      font-size: 11px;
+    }
+    .day {
+      font-size: 60px;
+    }
+    .time {
+      font-size: 21px;
     }
   }
 `;
