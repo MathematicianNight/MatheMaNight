@@ -3,12 +3,11 @@ import { Images, Colors } from "../../../../utils/style";
 import "../../../../assets/fonts/fonts.css";
 
 const MapContainer = styled.div`
+  /* border: 1px solid red; */ // 775 이상 400 미만 355 이상
   box-sizing: border-box;
   border-radius: 17px;
   overflow: hidden;
-  margin: 0 auto;
   position: relative;
-  width: 100%;
   grid-row: 2 / 3;
   grid-column: 1 / 3;
   justify-self: stretch;
@@ -16,6 +15,11 @@ const MapContainer = styled.div`
   & > .widget-background-image {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     ${({ isBlurred }) =>
       isBlurred
         ? `
@@ -30,13 +34,14 @@ const MapContainer = styled.div`
   `}
   }
   & > .here {
-    border-radius: 17px; // 260~345이하: 13px / 345이상~425미만: 17 / 425이상: 20 
+    border: 3px solid aqua;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
-    overflow: hidden;
+    left: 0;
     opacity: ${({ isBlurred }) => isBlurred ? 1 : 0};
     ${({ isBlurred }) =>
       isBlurred
@@ -52,9 +57,8 @@ const MapContainer = styled.div`
   `}
   }
   & > .map-apps-div {
-    /* & {border: 1px solid red; box-sizing: border-box;} */
     position: absolute;
-    top: 30px;
+    top: 32px;
     left: 38px;
     right: 38px;
     opacity: ${({ isBlurred }) => isBlurred ? 1 : 0};
@@ -62,10 +66,8 @@ const MapContainer = styled.div`
     display: flex;
     justify-content: space-around;
     & > img {
-      /* border-radius: 12px; */    
-      width: 62px;
-      height: 62px;
-      /* margin: 0 10px; */
+      width: 60px;
+      height: 60px;
       pointer-events: ${({ isBlurred }) => isBlurred ? 'auto' : 'none'};
       /* transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out; */
       @keyframes iconEffect {
@@ -80,9 +82,8 @@ const MapContainer = styled.div`
     }
   }
   & > .addr-copy-div {
-    /* &, & * {border: 1px solid aqua;} */
     position: absolute;
-    bottom: 30px;
+    bottom: 32px;
     left: 0;
     right: 0;
     font-size: 12px;
@@ -98,289 +99,197 @@ const MapContainer = styled.div`
     }
   }
 
-
-  @media (min-width: 401px) {
-    border-radius: 19px;
-    & > .here {
-      border-radius: 19px;
-    }
+  @media (min-height: 775px) and (min-width: 400px) { // 775 이상 400 이상
+    // border: 1px solid red;
+    // border-radius: 17px;
     & > .map-apps-div {
-      top: 30px;
-      left: 38px;
-      right: 38px;
+      top: 32px;
+      left: 40px;
+      right: 40px;
       & > img {
-        width: 68px;
-        height: 68px;
+        width: 64px;
+        height: 64px;
       }
     }
     & > .addr-copy-div {
-      bottom: 30px;
-      left: 0;
-      right: 0;
+      // &, & * {border: 1px solid red; box-sizing: border-box;}
+      bottom: 32px;
+      padding: 0 31px;
       font-size: 14px;
-      padding: 0 28px;
       & > img {
-        width: 42px;
-        padding-bottom: 3px;
+        width: 41px;
+        margin-top: -2px;
       }
     }
   }
-  @media (max-width: 400px) {
-    border-radius: 17px;
-    & > .here {
-      border-radius: 17px;
-    }
+  @media (min-height: 775px) and (max-width: 355px) { // 775 이상 355 미만
+    // border: 1px solid red;
+    border-radius: 14px;
     & > .map-apps-div {
-      top: 30px;
-      left: 38px;
-      right: 38px;
-      & > img {
-        width: 60px;
-        height: 60px;
-      }
-    }
-    & > .addr-copy-div {
-      padding: 0 33px;
-      & > img {
-        padding-bottom: 2px;
-      }
-    }
-  }
-  @media (max-width: 355px) {
-    border-radius: 15px;
-    & > .here {
-      border-radius: 15px;
-    }
-    & > .map-apps-div {
-      top: 26px;
-      left: 33px;
-      right: 33px;
-      & > img {
-        width: 55px;
-        height: 55px;
-      }
-    }
-    & > .addr-copy-div {
-      bottom: 26px;
-      padding: 0 20px;
-    }
-  }
-
-  @media (max-width: 315px) {
-    border-radius: 13px;
-    & > .here {
-      border-radius: 13px;
-    }
-    & > .map-apps-div {
-      top: 14px;
-      left: 28px;
-      right: 28px;
-      & > img {
-        width: 44px;
-        height: 44px;
-      }
-    }
-    & > .addr-copy-div {
-      font-size: 10px;
-      margin-top: 10px;
-      bottom: 14px;
-      flex-direction: column;
-      & > img {
-        padding-top: 2px;
-        width: 30px;
-      }
-    }
-  }
-  @media (max-height: 775px) {
-    border-radius: 15px;
-    & > .here {
-      border-radius: 15px;
-    }
-    & > .map-apps-div {
-      top: 26px;
-      left: 34px;
-      right: 34px;
+      top: 27px;
+      left: 36px;
+      right: 36px;
       & > img {
         width: 52px;
         height: 52px;
       }
     }
     & > .addr-copy-div {
-      font-size: 12px;
-      bottom: 26px;
-      padding: 0 18px;
+      // &, & * {border: 1px solid red; box-sizing: border-box;}
+      bottom: 27px;
+      padding: 0 20px;
+    }
+  }
+  @media (min-height: 775px) and (max-width: 315px) { // 775 이상 315 미만
+    // border: 1px solid red;
+    border-radius: 12px;
+    & > .map-apps-div {
+      top: 21px;
+      left: 30px;
+      right: 30px;
       & > img {
-        width: 35px;
-        padding-bottom: 0px;
+        width: 43px;
+        height: 43px;
       }
     }
-    @media (max-width: 355px) {
-      border-radius: 13px;
-      & > .here {
-        border-radius: 13px;
-      }
-      & > .map-apps-div {
-        top: 24px;
-        left: 30px;
-        right: 30px;
-        & > img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-      & > .addr-copy-div {
-        font-size: 10px;
-        bottom: 24px;
-        padding: 0 28px;
-        & > img {
-          width: 30px;
-          padding-bottom: 2px;
-        }
-      }
-    }
-    @media (max-width: 315px) {
-      & > .map-apps-div {
-        top: 17px;
-      }
-      & > .addr-copy-div {
-        bottom: 17px;
-      }
-    }
-    @media (max-width: 305px) {
-      & > .map-apps-div {
-        top: 13px;
-        left: 25px;
-        right: 25px;
-        & > img {
-          width: 44px;
-          height: 44px;
-        }
-      }
-      & > .addr-copy-div {
-        bottom: 13px;
+    & > .addr-copy-div {
+      // &, & * {border: 1px solid red; box-sizing: border-box;}
+      bottom: 21px;
+      padding: 0 16px;
+      font-size: 10px;
+      & > img {
+        width: 31px;
+        margin-top: -2px;
       }
     }
   }
-  @media (max-height: 650px) {
-    @media (min-width: 355px) {
-      border-radius: 15px;
-      & > .here {
-        border-radius: 15px;
+
+  @media (max-height: 775px) { // 775 미만 355 이상
+    // border: 1px solid red;
+    border-radius: 15px;
+    & > .map-apps-div {
+      top: 27px;
+      left: 35px;
+      right: 35px;
+      & > img {
+        width: 52px;
+        height: 52px;
       }
+    }
+    & > .addr-copy-div {
+      // &, & * {border: 1px solid red; box-sizing: border-box;}
+      bottom: 27px;
+      padding: 0 28px;
+      font-size: 11px;
+      & > img {
+        width: 33px;
+        margin-top: -2px;
+      }
+    }
+    @media (max-width: 355px) { // 775 미만 355 미만
+      // border: 1px solid red;
       & > .map-apps-div {
         top: 25px;
-        left: 30px;
-        right: 30px;
+        left: 32px;
+        right: 32px;
         & > img {
           width: 48px;
           height: 48px;
         }
       }
       & > .addr-copy-div {
-        bottom: 25px;
+        // &, & * {border: 1px solid red; box-sizing: border-box;}
+        padding: 0 19px;
+      }
+    }
+    @media (max-width: 305px) { // 775 미만 305 미만
+      // border: 1px solid red;
+      border-radius: 12px;
+      & > .map-apps-div {
+        top: 21px;
+        left: 28px;
+        right: 28px;
+        & > img {
+          width: 43px;
+          height: 43px;
+        }
+      }
+      & > .addr-copy-div {
+        bottom: 21px;
+        padding: 0 14px;
         font-size: 10px;
-        padding: 0 27px;
         & > img {
-          width: 30px;
-          padding-bottom: 2px;
+          width: 31px;
+          margin-top: -2px;
         }
       }
     }
-    @media (max-width: 316px) {
-      border-radius: 13px;
-      & > .here {
-        border-radius: 13px;
-      }
-      & > .map-apps-div {
-        top: 24px;
-        left: 32px;
-        right: 32px;
-      }
-      & > .addr-copy-div {
-        bottom: 24px;
-        flex-direction: row;
-        & > img {
-          padding-bottom: 2px;
-        }
+  }
+
+  @media (max-height: 650px) { // 650 미만 305 이상
+    // border: 1px solid red;
+    border-radius: 13px;
+    & > .map-apps-div {
+      top: 26px;
+      left: 30px;
+      right: 30px;
+      & > img {
+        width: 48px;
+        height: 48px;
       }
     }
-    @media (max-width: 306px) {
-      border-radius: 13px;
-      & > .here {
-        border-radius: 13px;
-      }
-      & > .map-apps-div {
-        top: 19px;
-        left: 32px;
-        right: 32px;
-        & > img {
-          width: 48px;
-          height: 48px;
-        }
-      }
-      & > .addr-copy-div {
-        bottom: 19px;
-        flex-direction: row;
-        & > img {
-          padding-bottom: 2px;
-        }
-        flex-direction: column;
-      }
+    & > .addr-copy-div {
+      // &, & * {border: 1px solid red; box-sizing: border-box;}
+      bottom: 26px;
+      padding: 0 19px;
     }
-    @media (max-width: 290px) {
-      border-radius: 13px;
-      & > .here {
-        border-radius: 13px;
-      }
+    @media (max-width: 305px) { // 650 미만 305 미만
+      // border: 1px solid red;
+      border-radius: 12px;
       & > .map-apps-div {
-        top: 15px;
-        left: 30px;
-        right: 30px;
+        top: 23px;
+        left: 28px;
+        right: 28px;
         & > img {
           width: 44px;
           height: 44px;
         }
       }
       & > .addr-copy-div {
-        bottom: 15px;
-        flex-direction: row;
+        bottom: 23px;
+        padding: 0 18px;
+        font-size: 10px;
         & > img {
-          padding-bottom: 2px;
+          width: 31px;
+          margin-top: -2px;
         }
-      }
-
-      & > .addr-copy-div {
-        flex-direction: column;
       }
     }
   }
-  @media (max-height: 580px) {
-    border-radius: 13px;
-    & > .here {
-      border-radius: 13px;
-    }
+
+  @media (max-height: 580px) { // 580 미만
+    // border: 1px solid red;
+    border-radius: 12px;
     & > .map-apps-div {
-      top: 12px;
-      left: 24px;
-      right: 24px;
+      top: 15px;
+      left: 26px;
+      right: 26px;
       & > img {
         width: 40px;
         height: 40px;
       }
     }
     & > .addr-copy-div {
-      font-size: 10px;
-      bottom: 12px;
-      flex-direction: column;
+      bottom: 15px;
       padding: 0;
+      font-size: 10px;
+      flex-direction: column;
       & > img {
-        padding-top: 2px;
         width: 30px;
+        margin-top: 2px;
       }
     }
   }
-
-
 
 `;
 
