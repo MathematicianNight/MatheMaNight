@@ -534,17 +534,19 @@ const MainpageContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    & > .morefunc-wrapper {
+    & > .morefunc-wrapper { // 775 이상 400 미만 355 이상
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      padding-top: 3%;
       & > .morefunc-description {
         align-self: flex-start;
         & > h1 {
           font-size: 25px;
           font-weight: 300;
-          margin-bottom: 14px; // More Functions 아래 여백
+          margin-bottom: 12px; // More Functions 아래 여백
         }
         & > p {
           font-size: 11px;
@@ -559,7 +561,7 @@ const MainpageContainer = styled.section`
         place-items: stretch stretch;
         grid-gap: 22px 22px;
         gap: 22px 22px;
-        margin: 32px 0 68px; // 위젯 위아래 여백
+        margin: 30px 0 68px; // 위젯 위아래 여백
       }
       & > .morefunc-aboutus {
         text-align: center;
@@ -589,7 +591,7 @@ const MainpageContainer = styled.section`
       @keyframes fadeInLeft {
         0% {
           opacity: 0;
-          transform: translate3d(2%, 0, 0);
+          transform: translate3d(7px, 0, 0);
         }
         to {
           opacity: 1;
@@ -612,48 +614,33 @@ const MainpageContainer = styled.section`
         & > img {
           width: 40px;
           margin-right: -8px;
-          margin-bottom: -15px;
         }
       }
-      @media (min-width: 401px) {
+
+      @media (min-height: 775px) and (min-width: 400px) { // 775 이상 400 이상
         & > .morefunc-widgets {
           grid-template-rows: 165px 165px;
           grid-template-columns: 165px 165px;
           grid-gap: 24px 24px;
           gap: 24px 24px;
         }
-        & > .morefunc-aboutus {
-          & > img {
-            width: 140px;
-          }
+        & > .morefunc-aboutus > img {
+          width: 140px;
         }
       }
-      @media (max-width: 400px) {
-        & > .morefunc-widgets {
-          grid-template-rows: 150px 150px;
-          grid-template-columns: 150px 150px;
-        }
-        & > .morefunc-aboutus {
-          & > img {
-            width: 140px;
-          }
-        }
-      }
-      @media (max-width: 355px) {
-        & > .morefunc-description > p > span {
-          display: block;
-        }
+      @media (min-height: 775px) and (max-width: 355px) { // 775 이상 355 미만
         & > .morefunc-widgets {
           grid-template-rows: 135px 135px;
           grid-template-columns: 135px 135px;
         }
-        & > .morefunc-aboutus {
-          & > img {
-            width: 125px;
-          }
+        & > .morefunc-aboutus > img {
+          width: 125px;
         }
       }
-      @media (max-width: 315px) {
+      @media (min-height: 775px) and (max-width: 315px) { // 775 이상 315 미만
+        & > .morefunc-description > p > span {
+          display: block;
+        }
         & > .morefunc-widgets {
           grid-template-rows: 110px 110px;
           grid-template-columns: 110px 110px;
@@ -664,11 +651,22 @@ const MainpageContainer = styled.section`
           }
           & > span {
             font-size: 18px;
+            margin-top: 14px;
+          }
+        }
+        & > .morefunc-handy-invitation {
+          & > span {
+            font-size: 12px;
+            top: 8px;
+            right: 28px;
+          }
+          & > img {
+            width: 34px;
           }
         }
       }
 
-      @media (max-height: 775px) {
+      @media (max-height: 775px) { // 775 미만 355 이상
         & > .morefunc-description {
           & > h1 {
             font-size: 22px;
@@ -683,104 +681,117 @@ const MainpageContainer = styled.section`
           grid-template-columns: 135px 135px;
           grid-gap: 18px 18px;
           gap: 18px 18px;
-          margin: 24px 0 56px;
+          margin: 24px 0 62px;
         }
         & > .morefunc-aboutus {
-          margin-bottom: 38px;
+          margin-bottom: 46px;
+          & > img {
+            width: 110px;
+          }
           & > span {
             font-size: 18px;
             margin-top: 12px;
           }
-          & > img {
-            width: 110px;
-          }
         }
         & > .morefunc-handy-invitation {
           & > span {
-            font-size: 11px;
-            top: 12px;
-            right: 27px;
-          }
-        }
-        & > .morefunc-handy-invitation {
-          & > img {
-            width: 30px;
-          }
-          & > span {
-            font-size: 10px;
+            font-size: 12px;
             top: 8px;
-            right: 23px;
+            right: 28px;
+          }
+          & > img {
+            width: 34px;
           }
         }
-        @media (max-width: 400px) {
-          & > .morefunc-widgets {
-            grid-template-rows: 135px 135px;
-            grid-template-columns: 135px 135px;
-          }
-          & > .morefunc-aboutus {
-            & > img {
-              width: 110px;
-            }
-          }
-        }
-        @media (max-width: 355px) {
-          & > .morefunc-description > p > span {
-            display: block;
-          }
+        @media (max-width: 355px) { // 775 미만 355 미만
           & > .morefunc-widgets {
             grid-template-rows: 125px 125px;
             grid-template-columns: 125px 125px;
           }
-          & > .morefunc-aboutus {
-            & > img {
-              width: 100px;
-            }
+          & > .morefunc-aboutus > img {
+            width: 100px;
           }
         }
-        @media (max-width: 305px) {
+        @media (max-width: 305px) { // 775 미만 305 미만
+          & > .morefunc-description > p > span {
+            display: block;
+          }
           & > .morefunc-widgets {
             grid-template-rows: 110px 110px;
             grid-template-columns: 110px 110px;
           }
         }
       }
-      @media (max-height: 650px) {
+
+      @media (max-height: 650px) { // 650 미만 305 이상
         & > .morefunc-widgets {
           grid-template-rows: 125px 125px;
           grid-template-columns: 125px 125px;
-          margin: 20px 0 45px;
+          grid-gap: 18px 18px;
+          gap: 18px 18px;
+          margin: 22px 0 50px;
         }
         & > .morefunc-aboutus {
-          margin-bottom: 30px;
+          margin-bottom: 34px;
+          & > img {
+            width: 100px;
+          }
           & > span {
             font-size: 16px;
-          }
-          & > img {
-            width: 95px;
+            margin-top: 10px;
           }
         }
-        @media (max-width: 290px) {
+        @media (max-width: 305px) { // 650 미만 305 미만
           & > .morefunc-widgets {
             grid-template-rows: 115px 115px;
             grid-template-columns: 115px 115px;
           }
+          & > .morefunc-handy-invitation {
+            & > span {
+              font-size: 11px;
+              top: 7px;
+              right: 22px;
+            }
+            & > img {
+              width: 30px;
+            }
+          }
         }
       }
-      @media (max-height: 580px) {
+      @media (max-height: 580px) { // 580 미만
+        & > .morefunc-description {
+          & > h1 {
+            margin-bottom: 4px;
+          }
+          & > p > span {
+            display: block;
+          }
+        }
         & > .morefunc-widgets {
-          grid-template-rows: 100px 100px;
-          grid-template-columns: 100px 100px;
+          grid-template-rows: 105px 105px;
+          grid-template-columns: 105px 105px;
           grid-gap: 16px 16px;
           gap: 16px 16px;
-          margin: 15px 0 35px;
+          margin: 14px 0 37px;
         }
         & > .morefunc-aboutus {
-          margin-bottom: 20px;
+          margin-bottom: 22px;
+          & > img {
+            width: 80px;
+          }
           & > span {
-            font-size: 16px;
+            font-size: 14px;
+            margin-top: 7px;
+          }
+        }
+        & > .morefunc-handy-invitation {
+          & > span {
+            font-size: 10px;
+            top: 7px;
+            right: 20px;
           }
           & > img {
-            width: 90px;
+            width: 27px;
           }
         }
       }
