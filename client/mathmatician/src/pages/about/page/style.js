@@ -26,7 +26,7 @@ const AboutusContainer = styled.section`
       text-align: center;
 
       & > .frendlogo {
-        padding: 19px px 0 0;
+        padding: 19px 0 5px 0;
         width: 361px;
         height: 244.427px;
 
@@ -48,13 +48,13 @@ const AboutusContainer = styled.section`
     }
     & > .aboutus-detail {
       text-align: left;
-      padding: 10px 45px;
+      padding: 10px 45px 0px 45px;
       font-family: SUITE;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 56px;
+      margin-bottom: 50px;
     }
 
     & > .aboutus-line {
@@ -96,25 +96,25 @@ const AboutusContainer = styled.section`
       flex-direction: column;
       gap: 55px;
       & > .hyelee {
-        width: 206px;
+        // width: 206px;
         height: 256px;
         padding-right: 30px;
       }
       & > .minjeong {
-        width: 259px;
+        // width: 259px;
         height: 256px;
         flex-shrink: 0;
       }
       & > .suhyeon {
-        width: 264px;
+        // width: 264px;
         height: 256px;
-        padding-right: 90px;
+        padding-right: 40px;
         flex-shrink: 0;
       }
       & > .haneul {
-        width: 281.66px;
+        // width: 281.66px;
         height: 256px;
-        // padding-right: 90px;
+        padding-left: 10px;
         flex-shrink: 0;
         margin-bottom: 70px;
       }
