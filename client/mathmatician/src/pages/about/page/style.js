@@ -47,7 +47,7 @@ const AboutusContainer = styled.section`
       margin-bottom: 14px;
     }
     & > .aboutus-detail {
-      text-align: left;
+      text-align: justify;
       padding: 10px 45px 0px 45px;
       font-family: SUITE;
       font-size: 12px;
