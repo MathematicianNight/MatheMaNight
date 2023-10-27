@@ -112,7 +112,7 @@ const Index = () => {
       setOpenId(null);
     } else {
       if (qnaData.find((qna) => qna.anony_num === id)?.answer === null) {
-        setAnswerModalOpen(true);
+        // setAnswerModalOpen(true);
         setQuestionIndex(id);
       } else {
         setOpenId(id);
@@ -221,7 +221,7 @@ const Index = () => {
                   alt={`urin_logo_${index}`}
                   className="qna-contents-img"
                   onClick={() => {
-                    setDeleteModalOpen(true);
+                    // setDeleteModalOpen(true);
                     setQuestionIndex(qna.anony_num);
                   }}
                 />
@@ -252,7 +252,7 @@ const Index = () => {
               {openId === qna.anony_num && (
                 <div
                   className="qna-answer"
-                  onClick={() => handleFixAnswerModalClose(qna.anony_num)}
+                  // onClick={() => handleFixAnswerModalClose(qna.anony_num)}
                 >
                   <img
                     src={Images.urin_answer}
