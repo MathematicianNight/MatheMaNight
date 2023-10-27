@@ -189,7 +189,12 @@ const Index = () => {
         />
       )}
       <div className={`qna-wrapper`}>
-        <div className="qna-title">Q&A</div>
+        <div className="qna-title" style={{ marginBottom: "15px" }}>
+          FAQ 관리자 페이지 입니다.{" "}
+        </div>
+        <div style={{ fontSize: "12px", marginBottom: "20px" }}>
+          우린로고 - 삭제 / 답변 클릭 - 답변 수정 / 토글 클릭 - 답변 작성
+        </div>
         <div className="qna-search-wrapper">
           <img src={Images.search_icon} alt="searchImg" />
           <input

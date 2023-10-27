@@ -4,6 +4,9 @@ import "../../../assets/fonts/fonts.css";
 
 const MainpageContainer = styled.section`
   background-image: url(${Images.background_fix});
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   // 페이지 5: 질문과 답변
   .mainpage-qna {
