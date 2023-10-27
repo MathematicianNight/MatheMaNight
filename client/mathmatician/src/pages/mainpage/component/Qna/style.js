@@ -124,13 +124,14 @@ export const QnaContainer = styled.div`
         margin-right: 7px;
       }
       & > .qna-searchbar {
+        font-size: 16px;
         width: 100%;
         color: ${Colors.White};
         background-color: transparent;
         border: none;
         font-family: "SUITE", sans-serif;
         @media (max-width: ${maxwidth}px) {
-          font-size: 12px;
+          font-size: 16px;
         }
       }
     }

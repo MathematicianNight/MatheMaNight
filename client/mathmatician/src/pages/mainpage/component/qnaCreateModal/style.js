@@ -84,6 +84,7 @@ export const CreateModalContainer = styled.div`
       }
 
       .modal-input {
+        font-size: 16px;
         border-radius: 6px;
         border: 1px solid #b3b3b3;
         width: 80%;
@@ -91,6 +92,7 @@ export const CreateModalContainer = styled.div`
         padding: 0 10px;
         margin-bottom: 14px;
         @media (max-width: ${maxwidth}px) {
+          font-size: 16px;
           margin-bottom: 10px;
           font-size: 11px;
           height: 22px;

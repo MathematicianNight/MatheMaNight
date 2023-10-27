@@ -34,7 +34,6 @@ const Index = ({ handleCloseModal, getQnaData }) => {
 
   return (
     <CreateModalContainer>
-      a
       <div className="ModalContainer">
         <div className="modal-close-div" onClick={handleCloseModal}>
           <img
