@@ -35,6 +35,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
+app.use(
+  express.static(path.join(__dirname, '리액트 프로젝트 빌드 디렉토리 루트'))
+);
+app.get('/admin', (req, res) => {
+  // 리액트 프로젝트 빌드 파일
+  res.sendFile(path.join(__dirname, '리액트 프로젝트 빌드 파일 루트'));
+});
+
 app.listen(app.get('port'), () => {
   console.log('서버가 실행되었습니다. 포트 :: ' + app.get('port'));
 });
