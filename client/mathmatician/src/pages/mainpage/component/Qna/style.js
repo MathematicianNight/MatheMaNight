@@ -10,6 +10,7 @@ export const QnaContainer = styled.div`
   width: 100%;
   // height: ${window.innerHeight}px;
   height: 100%;
+  touch-action: pinch-zoom;
 
   .bg-animation-on {
     // width: 100vh;
@@ -124,14 +125,14 @@ export const QnaContainer = styled.div`
         margin-right: 7px;
       }
       & > .qna-searchbar {
-        font-size: 16px;
+        font-size: 12px;
         width: 100%;
         color: ${Colors.White};
         background-color: transparent;
         border: none;
         font-family: "SUITE", sans-serif;
         @media (max-width: ${maxwidth}px) {
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }
