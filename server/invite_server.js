@@ -35,12 +35,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mathmatician/build/index.html'));
 });
 
-app.use(
-  express.static(path.join(__dirname, '리액트 프로젝트 빌드 디렉토리 루트'))
-);
+app.use(express.static(path.join(__dirname, '../admin/build')));
 app.get('/admin', (req, res) => {
   // 리액트 프로젝트 빌드 파일
-  res.sendFile(path.join(__dirname, '리액트 프로젝트 빌드 파일 루트'));
+  res.sendFile(path.join(__dirname, '../admin/build/index.html'));
 });
 
 app.listen(app.get('port'), () => {
