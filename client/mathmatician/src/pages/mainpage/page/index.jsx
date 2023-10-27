@@ -21,6 +21,8 @@ import { Images, Colors } from "../../../utils/style";
 
 const MainPage = () => {
   const [isInnerWidthOver500, setIsInnerWidthOver500] = useState("less");
+  const [prevInnerHeight, setPrevInnerHeight] = useState(window.innerHeight);
+
   const navigate = useNavigate();
 
   const handlenavigate = () => {
@@ -32,6 +34,7 @@ const MainPage = () => {
       setIsInnerWidthOver500("over");
     } else if (window.innerWidth < 500) {
       setIsInnerWidthOver500("less");
+      setPrevInnerHeight(window.innerHeight);
     }
   };
 
@@ -84,7 +87,7 @@ const MainPage = () => {
   }, []);
 
   return (
-    <MainpageContainer>
+    <MainpageContainer prevInnerHeight={prevInnerHeight} >
       {isInnerWidthOver500 === "less" ? (
         <Swiper
           direction={"vertical"}
@@ -127,12 +130,18 @@ const MainPage = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="informations">
+            {/* <div className="informations">
               <div
                 className={`mainpage-details ${
                   bgAnimation ? "info-on" : "info-off"
                 }`}
-              >
+              > */}
+            <div
+              className={`mainpage-details ${
+                bgAnimation ? "details-on" : "details-off"
+              }`}
+            >
+              <div className="details-wrapper">
                 <div className="info-wrapper">
                   <h1>Information</h1>
                   <div className="info-date">
@@ -161,7 +170,7 @@ const MainPage = () => {
                     </span>
                   </p>
                 </div>
-                <div className="program-wrapper">
+                {/* <div className="program-wrapper">
                   <h1>Program</h1>
                   <div className="program-timetable">
                     <img src={Images.content_chart} />
@@ -188,7 +197,7 @@ const MainPage = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>
@@ -199,7 +208,7 @@ const MainPage = () => {
                 bgAnimation ? "more-on" : "more-off"
               }`}
             >
-              {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+              {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} prevInnerHeight={prevInnerHeight} />}
               <div className="morefunc-wrapper">
                 <div className="morefunc-description">
                   <h1>More Functions</h1>
@@ -221,7 +230,7 @@ const MainPage = () => {
                   <span onClick={handlenavigate}>만든 사람들 &#62;</span>
                 </div>
                 <div className="morefunc-handy-invitation">
-                  <span>간이 초대장</span>
+                  <span>간이 초대장 &#62;</span>
                   <img
                     src={Images.envelope_icon}
                     alt="envelope icon"
@@ -303,7 +312,7 @@ const MainPage = () => {
                   </span>
                 </p>
               </div>
-              <div className="program-wrapper">
+              {/* <div className="program-wrapper">
                 <h1>Program</h1>
                 <div className="program-timetable">
                   <img src={Images.content_chart} />
@@ -330,7 +339,7 @@ const MainPage = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -339,7 +348,7 @@ const MainPage = () => {
               bgAnimation ? "more-on" : "more-off"
             }`}
           >
-            {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+            {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} prevInnerHeight={prevInnerHeight} />}
             <div className="morefunc-wrapper">
               <div className="morefunc-description">
                 <h1>More Functions</h1>
@@ -361,7 +370,7 @@ const MainPage = () => {
                 <span onClick={handlenavigate}>만든 사람들 &#62;</span>
               </div>
               <div className="morefunc-handy-invitation">
-                <span>간이 초대장</span>
+                <span>간이 초대장 &#62;</span>
                 <img
                   src={Images.envelope_icon}
                   alt="envelope icon"

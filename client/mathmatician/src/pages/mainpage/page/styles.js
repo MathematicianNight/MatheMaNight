@@ -27,11 +27,10 @@ const MainpageContainer = styled.section`
     width: 500px;
     height: 100%;
     margin: 0 auto;
-    overflow: auto scroll;
-    & > div[class^="mainpage"] {
+    overflow: hidden scroll;
+    & div[class^="mainpage"] {
       width: 100%;
-      height: auto;
-      min-height: ${window.innerHeight}px;
+      height: ${({ prevInnerHeight }) => prevInnerHeight}px;
     }
   }
   box-sizing: border-box;
@@ -41,7 +40,6 @@ const MainpageContainer = styled.section`
 
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   .mainpage-home {
-    /* min-height: ${window.innerHeight}px; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -266,13 +264,23 @@ const MainpageContainer = styled.section`
 
   // 페이지 2: 인사말
   .mainpage-greetings {
-    height: 100%;
-    min-height: ${window.innerHeight}px;
-    // line-height: ${window.innerHeight}px;
-    scroll-snap-align: start;
-    & > .Greetings {
+    @media (max-width: 499px) {
       height: 100%;
       min-height: ${window.innerHeight}px;
+      // line-height: ${window.innerHeight}px;
+      scroll-snap-align: start;
+      & > .Greetings {
+        height: 100%;
+        min-height: ${window.innerHeight}px;
+      }
+    }
+    @media (min-width: 499px) {
+      width: 100%;
+      height: ${({ prevInnerHeight }) => prevInnerHeight}px;
+      & > .Greetings {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -285,6 +293,20 @@ const MainpageContainer = styled.section`
   }
   .home-off {
     background-image: url(${Images.star_home_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    // transition: 0.3s;
+  }
+  .details-on {
+    background-image: url(${Images.star_details_group1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .details-off {
+    background-image: url(${Images.star_details_group2});
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -303,10 +325,10 @@ const MainpageContainer = styled.section`
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .info-on {
+  /* .info-on {
     background-image: url(${Images.star_info_group1});
     background-repeat: no-repeat;
-    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-size: cover;
     background-position: top center;
     // transition: 0.3s;
   }
@@ -314,9 +336,9 @@ const MainpageContainer = styled.section`
     background-image: url(${Images.star_info_group2});
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-size: cover;
     // transition: 0.3s;
-  }
+  } */
   .more-on {
     background-image: url(${Images.star_more_group1});
     background-repeat: no-repeat;
@@ -333,35 +355,38 @@ const MainpageContainer = styled.section`
   }
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
-  .informations {
-    height: 100%;
-    min-height: ${window.innerHeight}px;
-
-    & > .mainpage-details {
+  .mainpage-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > .details-wrapper { // 775 이상 400 미만 355 이상
       width: 100%;
       height: 100%;
-      // min-height: ${window.innerHeight}px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       box-sizing: border-box;
-      display: grid;
-      justify-items: center;
-
+      padding: 20px 0; // info와 program 사이 간격
+      /* & > div {border: 3px solid red; box-sizing: border-box;} */
       & > .info-wrapper {
         & .highlight {
           font-size: 11px;
           color: #ffdb58;
         }
-        align-self: end;
         width: 100%;
-        margin-bottom: 12%; // info랑 program 사이 간격
         & > h1 {
-          width: 80%;
-          margin: 0 auto 30px; // info 밑에 간격
+          width: 85%;
+          margin: 0 auto;
+          /* border:1px solid red; */
+          margin-bottom: 25px; // Information 밑에 안격
           font-size: 25px;
         }
         & > div {
+          width: 85%;
           border: 1px solid ${Colors.White};
           box-sizing: border-box;
-          width: 80%;
           margin: 0 auto 4.5%; // 세 흰색 박스 사이 간격
           height: 72px;
           display: flex;
@@ -378,6 +403,7 @@ const MainpageContainer = styled.section`
           }
         }
         & > p {
+          width: 100%;
           font-size: 11px;
           text-align: center;
           @media (max-width: 315px) {
@@ -388,16 +414,13 @@ const MainpageContainer = styled.section`
         }
       }
       & > .program-wrapper {
-        align-self: start;
-        width: 100%;
+        width: 85%;
         & > h1 {
-          width: 80%;
           margin: 0 auto 35px; // info 밑에 간격
           font-size: 25px;
         }
         & > .program-timetable {
           box-sizing: border-box;
-          width: 78%;
           margin: 0 auto;
           display: flex;
           & > img {
@@ -423,6 +446,7 @@ const MainpageContainer = styled.section`
           }
         }
       }
+
       @media (max-height: 590px) {
         height: 100%;
         & > .info-wrapper {
@@ -534,6 +558,7 @@ const MainpageContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     & > .morefunc-wrapper { // 775 이상 400 미만 355 이상
       display: flex;
       flex-direction: column;
@@ -578,42 +603,28 @@ const MainpageContainer = styled.section`
             0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8); */
         }
       }
-      @keyframes fadeInDown {
-        0% {
-          opacity: 0;
-          transform: translate3d(0, -30%, 0);
-        }
-        to {
-          opacity: 1;
-          transform: translateZ(0);
-        }
-      }
       @keyframes fadeInLeft {
-        0% {
-          opacity: 0;
-          transform: translate3d(7px, 0, 0);
-        }
-        to {
-          opacity: 1;
-          transform: translateZ(0);
-        }
+        0% {transform: translate3d(5px, 0, 0);}
+        to {transform: translateZ(0);}
       }
       & > .morefunc-handy-invitation {
         align-self: stretch;
         text-align: right;
         position: relative;
-        animation: fadeInDown 1.2s infinite alternate;
         & > span {
           display: inline-block;
           font-family: "PyeongChangPeace", sans-serif;
           font-size: 15px;
           position: absolute;
-          top: 10px;
+          top: 15px;
           right: 35px;
+          animation: fadeInLeft 0.8s infinite alternate;
+          margin-right: 3px;
         }
         & > img {
           width: 40px;
           margin-right: -8px;
+          margin-top: 1px;
         }
       }
 
@@ -758,6 +769,7 @@ const MainpageContainer = styled.section`
           }
         }
       }
+
       @media (max-height: 580px) { // 580 미만
         & > .morefunc-description {
           & > h1 {
@@ -800,18 +812,28 @@ const MainpageContainer = styled.section`
 
   // 페이지 5: 질문과 답변
   .mainpage-qna {
-    // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
-    height: 100%;
-    width: 100%;
-    // min-height: ${window.innerHeight}px;
-    // line-height: ${window.innerHeight}px;
-    // scroll-snap-align: start;
-    & > .QnA {
+    @media (max-width: 499px) {
+      // 원래 .child 였던게 .mainpage-qna로 바뀌었고, 거기 들어갔던 css 일단 그대로 다시 옮김
       height: 100%;
-      min-height: ${window.innerHeight}px;
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
+      width: 100%;
+      // min-height: ${window.innerHeight}px;
+      // line-height: ${window.innerHeight}px;
+      // scroll-snap-align: start;
+      & > .QnA {
+        height: 100%;
+        min-height: ${window.innerHeight}px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+      }
+    }
+    @media (min-width: 499px) {
+      width: 100%;
+      height: ${({ prevInnerHeight }) => prevInnerHeight}px;
+      & > .QnA {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 `;
