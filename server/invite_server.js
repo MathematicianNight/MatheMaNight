@@ -37,8 +37,12 @@ app.get('/', (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../admin/build')));
 app.get('/admin', (req, res) => {
-  // 리액트 프로젝트 빌드 파일
-  res.sendFile(path.join(__dirname, '../admin/build/index.html'));
+  try {
+    // 리액트 프로젝트 빌드 파일
+    res.sendFile(path.join(__dirname, '../admin/build/index.html'));
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.listen(app.get('port'), () => {
