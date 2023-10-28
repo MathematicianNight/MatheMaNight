@@ -38,6 +38,76 @@ const MainpageContainer = styled.section`
   font-size: 11px;
   color: ${Colors.White};
 
+  .home-on {
+    background-image: url(${Images.star_home_group1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .home-off {
+    background-image: url(${Images.star_home_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    // transition: 0.3s;
+  }
+  .details-on {
+    background-image: url(${Images.star_details_group1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    // transition: 0.3s;
+  }
+  .details-off {
+    background-image: url(${Images.star_details_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    // transition: 0.3s;
+  }
+  /* .info-on {
+    background-image: url(${Images.star_info_group1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    // transition: 0.3s;
+  }
+  .info-off {
+    background-image: url(${Images.star_info_group2});
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    // transition: 0.3s;
+  } */
+  .more-on {
+    background-image: url(${Images.star_more_group1});
+    background-repeat: no-repeat;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    background-position: center center;
+    // transition: 0.3s;
+  }
+  .more-off {
+    background-image: url(${Images.star_more_group2});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+    // transition: 0.3s;
+  }
+  .bg-animation-on {
+    // width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .bg-animation-off {
+    // width: 100vh;
+    // height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
   // 페이지 1: 로고, 제목 등이 있는 첫 화면
   .mainpage-home {
     box-sizing: border-box;
@@ -282,76 +352,6 @@ const MainpageContainer = styled.section`
         height: 100%;
       }
     }
-  }
-
-  .home-on {
-    background-image: url(${Images.star_home_group1});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    // transition: 0.3s;
-  }
-  .home-off {
-    background-image: url(${Images.star_home_group2});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    // transition: 0.3s;
-  }
-  .details-on {
-    background-image: url(${Images.star_details_group1});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    // transition: 0.3s;
-  }
-  .details-off {
-    background-image: url(${Images.star_details_group2});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    // transition: 0.3s;
-  }
-  .bg-animation-on {
-    // width: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  .bg-animation-off {
-    // width: 100vh;
-    // height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  /* .info-on {
-    background-image: url(${Images.star_info_group1});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-    // transition: 0.3s;
-  }
-  .info-off {
-    background-image: url(${Images.star_info_group2});
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    // transition: 0.3s;
-  } */
-  .more-on {
-    background-image: url(${Images.star_more_group1});
-    background-repeat: no-repeat;
-    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    background-position: center center;
-    // transition: 0.3s;
-  }
-  .more-off {
-    background-image: url(${Images.star_more_group2});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
-    // transition: 0.3s;
   }
 
   // 페이지 3: 일시 및 장소, 프로그램 소개
@@ -618,8 +618,8 @@ const MainpageContainer = styled.section`
           position: absolute;
           top: 15px;
           right: 35px;
-          animation: fadeInLeft 0.8s infinite alternate;
-          margin-right: 3px;
+          animation: fadeInLeft 0.7s infinite alternate ease-out;
+          margin-right: 2px;
         }
         & > img {
           width: 40px;

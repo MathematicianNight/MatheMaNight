@@ -66,7 +66,8 @@ const ModalContainer = styled.div`
   }
   @media (min-width: 500px) {
     width: 500px;
-    height: ${({ prevInnerHeight }) => prevInnerHeight}px;
+    /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
+    height: 100%;
   }
   & > .modal-wrapper {
     width: 85%;

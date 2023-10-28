@@ -278,12 +278,18 @@ const MainPage = () => {
             </div>
           </div>
 
-          <div className="informations">
+          {/* <div className="informations">
             <div
               className={`mainpage-details ${
                 bgAnimation ? "info-on" : "info-off"
               }`}
-            >
+            > */}
+          <div
+            className={`mainpage-details ${
+              bgAnimation ? "details-on" : "details-off"
+            }`}
+          >
+            <div className="details-wrapper">
               <div className="info-wrapper">
                 <h1>Information</h1>
                 <div className="info-date">
