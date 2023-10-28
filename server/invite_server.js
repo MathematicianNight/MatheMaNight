@@ -42,6 +42,8 @@ app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../admin/build/index.html'));
   } catch (err) {
     console.log(err);
+    // 클라이언트에게 에러 응답을 보냅니다.
+    res.status(500).send('Internal Server Error'); // 500은 서버 오류 상태 코드입니다.
   }
 });
 
