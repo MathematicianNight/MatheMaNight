@@ -9,7 +9,7 @@ router.use(express.json()); // for parsing application/json
 router.use(express.urlencoded({ extended: true })); // for parsing
 
 // 학생회 비밀번호
-const SECRET_PASSWORD = '1111';
+const SECRET_PASSWORD = '991225';
 
 const db = mysql.createConnection({
   host: conf.host,
