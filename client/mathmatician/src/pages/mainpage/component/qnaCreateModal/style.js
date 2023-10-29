@@ -5,7 +5,7 @@ import "../../../../assets/fonts/fonts.css";
 const maxwidth = "375";
 
 export const CreateModalContainer = styled.div`
-  position: fixed;
+  position: fixed; // 기존의 css
   top: 0;
   left: 0;
   width: 100%;
@@ -15,6 +15,13 @@ export const CreateModalContainer = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 999;
+  @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   .bold {
     font-weight: 700;

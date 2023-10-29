@@ -3,8 +3,9 @@ import CalendarContainer from "./style";
 
 const CalendarWidget = () => {
   const client_id = "fc15512735978bce526493813fdf1451";
-  // const redirect_uri = "http://192.168.52.127:3000";
-  const redirect_uri = "https://invite.mathnight.site";
+  // const redirect_uri = "http://192.168.45.121:3000";
+  // const redirect_uri = "https://invite.mathnight.site";
+  const redirect_uri = "http://13.124.51.51:4000";
   const scope = "talk_calendar";
   const login_uri = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}`;
 

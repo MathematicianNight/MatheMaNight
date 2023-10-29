@@ -9,8 +9,8 @@ const LinkKakaoCalendar = () => {
 
   const client_id = "fc15512735978bce526493813fdf1451";
   const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
-  // const redirect_uri = "http://192.168.52.127:3000";
-  const redirect_uri = "https://invite.mathnight.site";
+  const redirect_uri = "http://192.168.52.127:3000";
+  // const redirect_uri = "https://invite.mathnight.site";
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
   const invitation_schedule = {
