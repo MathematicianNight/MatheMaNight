@@ -13,7 +13,7 @@ export const QnaContainer = styled.div`
     height: 100%;
     touch-action: pinch-zoom;
   }
-  @media (max-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
+  @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
     color: ${Colors.White};
     font-family: "SUITE", sans-serif;
     width: 100%;
