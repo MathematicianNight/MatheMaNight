@@ -1,0 +1,8 @@
+<svg width="8" height="212" viewBox="0 0 8 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4" cy="4" r="4" fill="white"/>
+<circle cx="4" cy="55" r="4" fill="white"/>
+<circle cx="4" cy="106" r="4" fill="white"/>
+<circle cx="4" cy="157" r="4" fill="white"/>
+<circle cx="4" cy="208" r="4" fill="white"/>
+<path d="M4 8V208" stroke="white"/>
+</svg>

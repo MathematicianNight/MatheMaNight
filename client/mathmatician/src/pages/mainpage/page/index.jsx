@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
@@ -21,7 +21,10 @@ import { Images, Colors } from "../../../utils/style";
 
 const MainPage = () => {
   const [isInnerWidthOver500, setIsInnerWidthOver500] = useState("less");
+  const [prevInnerHeight, setPrevInnerHeight] = useState(window.innerHeight);
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handlenavigate = () => {
     navigate("/aboutus");
@@ -32,6 +35,7 @@ const MainPage = () => {
       setIsInnerWidthOver500("over");
     } else if (window.innerWidth < 500) {
       setIsInnerWidthOver500("less");
+      setPrevInnerHeight(window.innerHeight);
     }
   };
 
@@ -43,9 +47,9 @@ const MainPage = () => {
       "error_description"
     );
     const code = new URL(window.location.href).searchParams.get("code");
-
     if (error_description !== null) {
-      window.history.go(-(window.history.length - 1));
+      // window.history.go(-(window.history.length - 1));
+      navigate("/");
     }
     if (code !== null) {
       navigate("/oauthkakao", { state: { code }, replace: true });
@@ -84,7 +88,7 @@ const MainPage = () => {
   }, []);
 
   return (
-    <MainpageContainer>
+    <MainpageContainer prevInnerHeight={prevInnerHeight} >
       {isInnerWidthOver500 === "less" ? (
         <Swiper
           direction={"vertical"}
@@ -127,12 +131,18 @@ const MainPage = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="informations">
+            {/* <div className="informations">
               <div
                 className={`mainpage-details ${
                   bgAnimation ? "info-on" : "info-off"
                 }`}
-              >
+              > */}
+            <div
+              className={`mainpage-details ${
+                bgAnimation ? "details-on" : "details-off"
+              }`}
+            >
+              <div className="details-wrapper">
                 <div className="info-wrapper">
                   <h1>Information</h1>
                   <div className="info-date">
@@ -156,16 +166,47 @@ const MainPage = () => {
                   <p>
                     <span>* 자세한 정보를 알고 싶으신 분은&nbsp;</span>
                     <span>
-                      <span className="highlight">다음 페이지의 부가 기능</span>
-                      을 이용해주세요!
+                      <span className="highlight">다음 페이지의 부가 기능</span>을 이용해주세요!
                     </span>
                   </p>
                 </div>
                 <div className="program-wrapper">
                   <h1>Program</h1>
                   <div className="program-timetable">
-                    <img src={Images.content_chart} />
-                    <ul>
+                    <div className="item-time-div">
+                      <span className="time1">18:00</span>
+                      <span className="time2">18:10</span>
+                      <span className="time3">18:45</span>
+                      <span className="time4">19:45</span>
+                      <span className="time5 last-item">20:30</span>
+                    </div>
+                    <img className="chart1"src={Images.content_chart} alt="content chart image" />
+                    <img className="chart2" src={Images.content_chart2} alt="content chart image" />
+                    <img className="chart3" src={Images.content_chart3} alt="content chart image" />
+                    <img className="chart4" src={Images.content_chart4} alt="content chart image" />
+                    <div className="item-div">
+                      <p className="item1">
+                        <span>개회식</span>
+                        <span className="highlight">openning ceremony</span>
+                      </p>
+                      <p className="item2">
+                        <span>1부</span>
+                        <span className="highlight">part 1</span>
+                      </p>
+                      <p className="item3">
+                        <span>저녁 식사</span>
+                        <span className="highlight">dinner</span>
+                      </p>
+                      <p className="item4">
+                        <span>2부</span>
+                        <span className="highlight">part 2</span>
+                      </p>
+                      <p className="item5">
+                        <span>폐회식</span>
+                        <span className="highlight">closing ceremony</span>
+                      </p>
+                    </div>
+                    {/* <ul className="timetable-item-title">
                       <li>
                         <span>식사</span>
                         <span className="highlight">dinner</span>
@@ -186,7 +227,7 @@ const MainPage = () => {
                         <span>폐회식</span>
                         <span className="highlight">closing ceremony</span>
                       </li>
-                    </ul>
+                    </ul> */}
                   </div>
                 </div>
               </div>
@@ -199,7 +240,7 @@ const MainPage = () => {
                 bgAnimation ? "more-on" : "more-off"
               }`}
             >
-              {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+              {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} prevInnerHeight={prevInnerHeight} />}
               <div className="morefunc-wrapper">
                 <div className="morefunc-description">
                   <h1>More Functions</h1>
@@ -221,7 +262,7 @@ const MainPage = () => {
                   <span onClick={handlenavigate}>만든 사람들 &#62;</span>
                 </div>
                 <div className="morefunc-handy-invitation">
-                  <span>간이 초대장</span>
+                  <span>간이 초대장 &#62;</span>
                   <img
                     src={Images.envelope_icon}
                     alt="envelope icon"
@@ -269,12 +310,18 @@ const MainPage = () => {
             </div>
           </div>
 
-          <div className="informations">
+          {/* <div className="informations">
             <div
               className={`mainpage-details ${
                 bgAnimation ? "info-on" : "info-off"
               }`}
-            >
+            > */}
+          <div
+            className={`mainpage-details ${
+              bgAnimation ? "details-on" : "details-off"
+            }`}
+          >
+            <div className="details-wrapper">
               <div className="info-wrapper">
                 <h1>Information</h1>
                 <div className="info-date">
@@ -303,7 +350,7 @@ const MainPage = () => {
                   </span>
                 </p>
               </div>
-              <div className="program-wrapper">
+              {/* <div className="program-wrapper">
                 <h1>Program</h1>
                 <div className="program-timetable">
                   <img src={Images.content_chart} />
@@ -330,7 +377,7 @@ const MainPage = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -339,7 +386,7 @@ const MainPage = () => {
               bgAnimation ? "more-on" : "more-off"
             }`}
           >
-            {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} />}
+            {envelopeIconClicked && <HandyInvitationModal closeModal={closeModal} prevInnerHeight={prevInnerHeight} />}
             <div className="morefunc-wrapper">
               <div className="morefunc-description">
                 <h1>More Functions</h1>
@@ -361,7 +408,7 @@ const MainPage = () => {
                 <span onClick={handlenavigate}>만든 사람들 &#62;</span>
               </div>
               <div className="morefunc-handy-invitation">
-                <span>간이 초대장</span>
+                <span>간이 초대장 &#62;</span>
                 <img
                   src={Images.envelope_icon}
                   alt="envelope icon"
