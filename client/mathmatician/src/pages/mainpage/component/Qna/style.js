@@ -10,7 +10,12 @@ export const QnaContainer = styled.div`
   width: 100%;
   // height: ${window.innerHeight}px;
   height: 100%;
-  touch-action: pinch-zoom;
+  @media (max-width: 499px) { // 기존의 css
+    touch-action: pinch-zoom;
+  }
+  @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
+    touch-action: auto;
+  }
 
   .bg-animation-on {
     // width: 100vh;
