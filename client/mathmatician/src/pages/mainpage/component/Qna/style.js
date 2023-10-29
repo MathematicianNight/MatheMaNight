@@ -5,21 +5,12 @@ import "../../../../assets/fonts/fonts.css";
 const maxwidth = "375";
 
 export const QnaContainer = styled.div`
-  @media (max-width: 499px) { // 기존의 css를 그대로 옮김
-    color: ${Colors.White};
-    font-family: "SUITE", sans-serif;
-    width: 100%;
-    // height: ${window.innerHeight}px;
-    height: 100%;
-    touch-action: pinch-zoom;
-  }
-  @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
-    color: ${Colors.White};
-    font-family: "SUITE", sans-serif;
-    width: 100%;
-    height: ${({ prevInnerHeight }) => prevInnerHeight}px;
-    touch-action: pinch-zoom;
-  }
+  color: ${Colors.White};
+  font-family: "SUITE", sans-serif;
+  width: 100%;
+  // height: ${window.innerHeight}px;
+  height: 100%;
+  touch-action: pinch-zoom;
 
   .bg-animation-on {
     // width: 100vh;
