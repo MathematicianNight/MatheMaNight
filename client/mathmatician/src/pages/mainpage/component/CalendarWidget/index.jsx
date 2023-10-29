@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import CalendarContainer from "./style";
 
 const CalendarWidget = () => {
-  const client_id = "fc15512735978bce526493813fdf1451";
-  // const redirect_uri = "http://192.168.45.121:3000";
-  const redirect_uri = "https://invite.mathnight.site";
-  // const redirect_uri = "http://13.124.51.51:4000";
+  const client_id = process.env.REACT_APP_REST_API_KEY;
+  const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
   const scope = "talk_calendar";
   const login_uri = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}`;
 
@@ -16,7 +14,7 @@ const CalendarWidget = () => {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    //       'Authorization': `KakaoAK 05517d4c256d7502f20b78c021fe520f`
+    //       'Authorization': `KakaoAK ${process.env.REACT_APP_ADMIN_KEY}`
     //     }
     //   });
     //   alert("로그아웃 되었습니다.");

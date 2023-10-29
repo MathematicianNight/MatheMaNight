@@ -7,10 +7,9 @@ const LinkKakaoCalendar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const client_id = "fc15512735978bce526493813fdf1451";
-  const client_secret = "3KWoa8WKOtLIL50ke3j6ps9tnaFL6cZx"; 
-  // const redirect_uri = "http://192.168.52.127:3000";
-  const redirect_uri = "https://invite.mathnight.site";
+  const client_id = process.env.REACT_APP_REST_API_KEY;
+  const client_secret = process.env.REACT_APP_CLIENT_SECRET;
+  const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
   const calendar_uri = "https://kapi.kakao.com/v2/api/calendar/create/event";
   const calendars_uri = "https://kapi.kakao.com/v2/api/calendar/events";
   const invitation_schedule = {
@@ -20,7 +19,7 @@ const LinkKakaoCalendar = () => {
       end_at: "2023-11-24T12:00:00Z",
       time_zone: "Asia/Seoul",
     },
-    description: "소중한 시간을 빌리는 만큼 좋은 행사로 찾아뵙겠습니다 :-)",
+    description: "제40회 수학인의 밤에 참석해주셔서 감사합니다 :)",
     location: {
       name: "더블유파티",
       location_id: 35643864,
@@ -82,19 +81,19 @@ const LinkKakaoCalendar = () => {
         getToken(token_uri).then((res) => {
           const token = res.access_token;
           getSchedules(token).then((res) => {
-            const events = res.events;
-            if (events === undefined) {
+            if (res.code !== undefined) { // -402
               if (sessionStorage.getItem('access') === 'false') {
                 // window.history.go(-(window.history.length - 1));
                 navigate("/", {replace: true});
               }
               else {
                 alert("[톡캘린더 및 일정 생성, 조회, 편집/삭제] 접근 권한이 필요합니다. 위젯을 다시 클릭하여 동의해주세요.");
-                // window.history.go(-(window.history.length - 1));
                 navigate("/", {replace: true});
                 sessionStorage.setItem('access', 'false');  
               }
-            } else {
+            }
+            else {
+              const events = res.events;
               const count = [];
               events.map((event) => {
                 count.push(event.title);
@@ -137,7 +136,7 @@ const LinkKakaoCalendar = () => {
                           // window.history.go(-(window.history.length - 1));                           
                         }
                       }
-                      sessionStorage.setItem('FLIP', 'flip'); // 이게 첨에만 그렇고 담부턴 안그런거같아..
+                      sessionStorage.setItem('FLIP', 'flip');
                       sessionStorage.removeItem('FLAG');
                     }
                   } 
@@ -194,7 +193,7 @@ const LinkKakaoCalendar = () => {
         <div className="loading-bar"></div>
       </div>
     </LoadingContainer>
-  )
+  );
 }
 
 export default LinkKakaoCalendar;
