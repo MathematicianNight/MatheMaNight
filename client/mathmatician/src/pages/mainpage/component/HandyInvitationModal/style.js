@@ -25,7 +25,7 @@ const ModalContainer = styled.div`
     height: auto;
     margin: 0 auto;
     box-sizing: border-box;
-    border: 2px solid ${Colors.White};
+    border: 1px solid ${Colors.White};
     border-radius: 15px;
     /* box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); */
     text-align: right;
