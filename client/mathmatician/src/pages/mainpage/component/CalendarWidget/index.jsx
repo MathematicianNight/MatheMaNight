@@ -23,7 +23,7 @@ const CalendarWidget = () => {
 
     // const reply = window.confirm("연결 끊기??");
     // if (reply) {
-    //   const res = fetch(`https://kapi.kakao.com/v1/user/unlink?target_id_type=user_id&target_id=3049210805`, {
+    //   const res = fetch(`https://kapi.kakao.com/v1/user/unlink?target_id_type=user_id&target_id=-1`, {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
@@ -33,8 +33,11 @@ const CalendarWidget = () => {
     //   alert("로그아웃 되었습니다.");
     // }
 
-    window.location.href = login_uri;
-    sessionStorage.removeItem('OPEN');
+    const reply = window.confirm("일정을 등록하시겠습니까? 이미 등록된 일정의 경우 재등록됩니다.");
+    if (reply) {
+      window.location.href = login_uri;
+      sessionStorage.removeItem('OPEN');  
+    }
   }
 
   return (
