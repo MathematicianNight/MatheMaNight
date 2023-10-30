@@ -208,7 +208,7 @@ const Index = () => {
             type="text"
             value={search}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder="글 제목, 내용, 해시태그"
+            placeholder="검색어를 입력해주세요."
             className="qna-searchbar"
           />
         </div>
