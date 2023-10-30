@@ -80,105 +80,35 @@ const LinkKakaoCalendar = () => {
         const token_uri = `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${client_id}&redirect_uri=${redirect_uri}&code=${location.state.code}&client_secret=${client_secret}`;
         getToken(token_uri).then((res) => {
           const token = res.access_token;
-          getSchedules(token).then((res) => {
-            if (res.code !== undefined) { // -402
-              if (sessionStorage.getItem('access') === 'false') {
-                // window.history.go(-(window.history.length - 1));
-                navigate("/", {replace: true});
-              }
-              else {
+          if (sessionStorage.getItem('OPEN') === 'open') {
+            navigate("/", {replace: true});
+            // window.history.back();
+            // sessionStorage.removeItem('OPEN');
+          }
+          else {
+            openCalendar(token, invitation_schedule).then((res) => {
+              if (res.code !== undefined) {
                 alert("[톡캘린더 및 일정 생성, 조회, 편집/삭제] 접근 권한이 필요합니다. 위젯을 다시 클릭하여 동의해주세요.");
                 navigate("/", {replace: true});
-                sessionStorage.setItem('access', 'false');  
+                // sessionStorage.setItem('AGREE', 'agree');
               }
-            }
-            else {
-              const events = res.events;
-              const count = [];
-              events.map((event) => {
-                count.push(event.title);
-              });
-
-              if (count.includes('수학인의 밤')) {
-                if (sessionStorage.getItem('BACK') === 'back' && sessionStorage.getItem('AA') === 'aa') {
-                  if (sessionStorage.getItem('FLAG') === 'flag') {
-                    if (sessionStorage.getItem('FLIP') === 'flip') {
-                      alert("이미 등록된 일정입니다.");
-                      navigate("/", {replace: true});
-                      window.history.go(-(window.history.length - 1));
-                      sessionStorage.removeItem('FLAG');
-                      sessionStorage.removeItem('FLIP');
-                    }
-                    else {
-                      if (sessionStorage.getItem('OTHER') === 'other' && sessionStorage.getItem('GOOD') !== 'good') {
-                        alert("이미 등록된 일정입니다.");
-                        navigate("/", {replace: true});
-                        window.history.go(-(window.history.length - 1));
-                        sessionStorage.setItem('GOOD', 'good');
-                        sessionStorage.removeItem('OTHER');
-                      }
-                      else if (sessionStorage.getItem('OTHER') === 'other' && sessionStorage.getItem('GOOD') === 'good') {
-                        alert("이미 등록된 일정입니다.");
-                        navigate("/", {replace: true});
-                        window.history.go(-(window.history.length - 1));
-                        sessionStorage.removeItem('GOOD');
-                        sessionStorage.removeItem('OTHER');
-                      }
-                      else {
-                        if (window.history.length === 2) {
-                          alert("이미 등록된 일정입니다.");
-                          navigate("/", {replace: true});
-                          window.history.go(-(window.history.length - 1));
-                        }
-                        else {
-                          navigate("/", {replace: true});
-                          window.history.back();
-                          // window.history.go(-(window.history.length - 1));                           
-                        }
-                      }
-                      sessionStorage.setItem('FLIP', 'flip');
-                      sessionStorage.removeItem('FLAG');
-                    }
-                  } 
-                  else {
-                    alert("이미 등록된 일정입니다.");
-                    navigate("/", {replace: true});
-                    window.history.go(-(window.history.length - 1));
-                  }
-                  sessionStorage.setItem('access', 'false');  
-                }
-
-                if (sessionStorage.getItem('BACK') !== 'back' && sessionStorage.getItem('AA') !== 'aa') {
-                  alert("이미 등록된 일정입니다.");
-                  navigate("/", {replace: true});
-                  window.history.go(-(window.history.length - 1));
-                  sessionStorage.setItem('access', 'false');  
-                }
-              }
-
               else {
-                openCalendar(token, invitation_schedule).then(res => {
-                  const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
-                  sessionStorage.setItem('AA', 'aa');
-                  sessionStorage.setItem('BACK', 'back');
-                  sessionStorage.setItem('FLAG', 'flag');
-                  sessionStorage.setItem('access', 'false');  
-                  if (!check) {
-                    navigate("/", {replace: true});
-                    window.history.go(-(window.history.length - 1));
-                    // sessionStorage.setItem('FLIP', 'flip');
-                    sessionStorage.setItem('FIRST', 'first');
-                    sessionStorage.setItem('OTHER', 'other');
-                  }
-                  else {
-                    navigate("/", {replace: true});
-                    // window.history.back();
-                    window.location.href = ("https://calendar.kakao.com/");
-                  }
-                });
+                const check = window.confirm("일정이 등록되었습니다. 카카오톡을 열어 확인하시겠습니까?");
+                // sessionStorage.setItem('AGREE', 'agree');
+                if (!check) {
+                  // window.history.back();
+                  navigate("/", {replace: true});
+                  // sessionStorage.setItem('BACK', 'back');
+                  sessionStorage.setItem('OPEN', 'open');
+                }
+                else {
+                  navigate("/", {replace: true});
+                  window.location.href = ("https://calendar.kakao.com/");
+                  sessionStorage.setItem('OPEN', 'open');
+                }  
               }
-            }
-          });
+            });  
+          }
         });
       }
     } catch (err) {
