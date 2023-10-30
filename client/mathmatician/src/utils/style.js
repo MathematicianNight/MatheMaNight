@@ -17,7 +17,7 @@ export const Colors = {
 export const Images = {
   flower_above: "/assets/images/flower_above.svg",
   flower_bellow: "/assets/images/flower_bellow.svg",
-  background_fix: "/assets/images/background_gra.svg",
+  background_fix: "/assets/images/background_gra.png",
   urin_logo: "/assets/images/Urin_logo.png",
   search_icon: "/assets/images/search.svg",
   toggle_icon: "/assets/images/toggle.svg",
@@ -42,7 +42,7 @@ export const Images = {
   aboutus_suhyeon: "/assets/images/suhyeon.png",
   aboutus_sky: "/assets/images/haneul.png",
   line: "/assets/images/line.svg",
-  back: "/assets/images/back.svg",
+  back: "/assets/images/Back.svg",
 
   star_home_group1: "/assets/images/star_home_group1.svg",
   star_home_group2: "/assets/images/star_home_group2.svg",
