@@ -8,8 +8,6 @@ const AboutusContainer = styled.section`
   background-size: cover;
   background-position: center top; // 이미지를 상단에 위치시킴
   overflow: auto;
-  // width: 100%;
-  // height: 2641px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +15,10 @@ const AboutusContainer = styled.section`
 
   & > .aboutus-wrapper {
     max-width: 420px;
+
+    & > .backbutton {
+      padding: 20px 0 0 22px;
+    }
 
     & > .aboutus-logo {
       display: flex;

@@ -1,11 +1,23 @@
 import { useState, useEffect } from "react";
-import { Images, Colors } from "../../../utils/style";
+import { useNavigate } from "react-router-dom";
+
+import { Images } from "../../../utils/style";
 import AboutusContainer from "./style";
 
-const index = () => {
+const Index = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <AboutusContainer>
       <div className="aboutus-wrapper">
+        <div className="backbutton" onClick={goBack}>
+          <img src={Images.back} alt="" />
+        </div>
+
         <div className="aboutus-logo">
           <img src={Images.aboutus_logo} alt="" />
           <img src={Images.aboutus_frendLogo} alt="" className="frendlogo" />
@@ -55,4 +67,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

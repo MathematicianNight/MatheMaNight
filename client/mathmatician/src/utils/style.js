@@ -42,6 +42,7 @@ export const Images = {
   aboutus_suhyeon: "/assets/images/suhyeon.png",
   aboutus_sky: "/assets/images/haneul.png",
   line: "/assets/images/line.svg",
+  back: "/assets/images/back.svg",
 
   star_home_group1: "/assets/images/star_home_group1.svg",
   star_home_group2: "/assets/images/star_home_group2.svg",
