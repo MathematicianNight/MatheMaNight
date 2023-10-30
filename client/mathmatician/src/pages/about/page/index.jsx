@@ -57,10 +57,43 @@ const Index = () => {
           <span>하고 싶은 말</span>
         </div>
         <div className="aboutus-tellmore">
-          <div>혜리 : </div>
-          <div>민정 : </div>
-          <div>수현 : </div>
-          <div>하늘 : </div>
+          <div className="tellme">
+            <span style={{ minWidth: "30px" }}>혜리 :</span>
+            <span>
+              세상 모든 핸드폰이 나한테 있었으면 좋겠다는 생각....만 천 번쯤
+              했던 것 같아요 ㅎㅎ 모든 핸드폰에서 알맞게 보여주기란 참 쉽지
+              않음을 체감하면서,,, 이렇게 프로젝트의 마침표를 찍었네요 ㅎㅎ
+              방문해주셔서 감사하고 다가올 수학인의 밤 행사도 재밌게 즐겨주세요
+              :-)
+            </span>
+          </div>
+          <div className="tellme">
+            <div style={{ minWidth: "30px" }}>민정 : </div>
+            <div>
+              <span>˗ˋˏ슈밤ˎˊ˗</span>프로젝트 너무 재밌었어요.. 앗.. 아니 슈밤이
+              아니라 수밤이에요. ㅎㅎ 열심히 만들었으니 좋아요도 한 번씩 눌러
+              주세요 ت 그리고 청초한 절친 모두 너무 고생했어 ♥
+            </div>
+          </div>
+          <div className="tellme">
+            <div style={{ minWidth: "30px" }}>수현 : </div>
+            <div>
+              사람들이 절 볼 때마다 한 마디씩 하더라고요. "너 휴학생 맞아?" 네..
+              저 휴학생 맞아요... 휴학생인데 학교 와서 열심히 만들었어요. 많이
+              구경해주세요! 이제 진짜로 휴학을 해볼게요★
+            </div>
+          </div>
+          <div className="tellme">
+            <div style={{ minWidth: "30px" }}>하늘 : </div>
+            <div>
+              수학과인데 왜 디자인을 맡았냐고요? 디자인에 관심이 좀 있었는데
+              이번에 기회가 돼서 참여하게 됐어요! UX/UI 디자인은 이번이 처음이니
+              너그러이 봐주세요..! 또 저희 팀 개발자들이 정말 열일 했으니{" "}
+              <span>많</span>은<span>관</span>심을 갖고 구경해 주시길{" "}
+              <span>부</span>탁드려요! 누르고 싶게 생겼다~ 싶은 것들은 대부분
+              기능이 있을 테니 마음껏 눌러 보세요!!
+            </div>
+          </div>
         </div>
       </div>
     </AboutusContainer>

@@ -129,11 +129,24 @@ const AboutusContainer = styled.section`
       }
     }
     & > .aboutus-tellmore {
-      margin: 34px 45px 100px 45px;
+      margin: 34px 41px 100px 41px;
       font-family: SUITE;
       display: flex;
       flex-direction: column;
       gap: 30px;
+      text-align: justify;
+      font-family: SUITE;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      & > .tellme {
+        display: flex;
+        flex-direction: row;
+        & > div > span {
+          color: ${Colors.White};
+        }
+      }
     }
   }
 `;
