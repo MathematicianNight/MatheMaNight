@@ -17,7 +17,6 @@ const Index = () => {
         <div className="backbutton" onClick={goBack}>
           <img src={Images.back} alt="" />
         </div>
-
         <div className="aboutus-logo">
           <img src={Images.aboutus_logo} alt="" />
           <img src={Images.aboutus_frendLogo} alt="" className="frendlogo" />

@@ -4,14 +4,13 @@ import "../../../assets/fonts/fonts.css";
 
 const AboutusContainer = styled.section`
   background-image: url(${Images.aboutus});
-  // background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top; // 이미지를 상단에 위치시킴
+  background-position: center top;
   overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  // min-height: 100vh;
 
   & > .aboutus-wrapper {
     max-width: 420px;
