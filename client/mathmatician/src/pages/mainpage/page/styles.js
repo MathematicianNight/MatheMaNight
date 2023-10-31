@@ -9,15 +9,19 @@ const MainpageContainer = styled.section`
     // 부모가 500 미만 -> only 모바일 세로
     width: 100%;
     height: 100%;
+    min-height: ${window.innerHeight}px;
     .swiper {
       width: 100%;
       height: 100%;
+      min-height: ${window.innerHeight}px;
       .swiper-slide {
         width: 100%;
         height: 100%;
+        min-height: ${window.innerHeight}px;
         & > div[class^="mainpage"] {
           width: 100%;
           height: 100%;
+          min-height: ${window.innerHeight}px;
         }
       }
     }
