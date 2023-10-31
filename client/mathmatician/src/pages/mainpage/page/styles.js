@@ -30,6 +30,7 @@ const MainpageContainer = styled.section`
     // 부모가 500 이상 -> 모바일 가로, 태블릿, PC 등
     width: 500px;
     height: 100%;
+    min-height: ${window.innerHeight}px;
     margin: 0 auto;
     overflow: hidden scroll;
     & div[class^="mainpage"] {
