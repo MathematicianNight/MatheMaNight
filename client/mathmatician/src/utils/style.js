@@ -33,7 +33,7 @@ export const Images = {
   smile: `${process.env.PUBLIC_URL}/assets/images/smile.svg`,
   smileplus: `${process.env.PUBLIC_URL}/assets/images/smileplus.svg`,
   likeheart: `${process.env.PUBLIC_URL}/assets/images/likeheart.svg`,
-  aboutus: `${process.env.PUBLIC_URL}/assets/images/Aboutus-background.svg`,
+  aboutus: `${process.env.PUBLIC_URL}/assets/images/Aboutus-background.png`,
   aboutus_logo: `${process.env.PUBLIC_URL}/assets/images/ico-aboutus-logo.svg`,
   aboutus_frendLogo: `${process.env.PUBLIC_URL}/assets/images/aboutus_main_logo.svg`,
   aboutus_object1: `${process.env.PUBLIC_URL}/assets/images/ico-aboutus-object1.svg`,
