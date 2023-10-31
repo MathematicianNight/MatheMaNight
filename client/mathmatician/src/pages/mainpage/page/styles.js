@@ -34,7 +34,7 @@ const MainpageContainer = styled.section`
     overflow: hidden scroll;
     & div[class^="mainpage"] {
       width: 100%;
-      height: 700px;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
       /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
     }
@@ -351,7 +351,7 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
-      height: 700px;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
       /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       & > .Greetings {
@@ -989,7 +989,7 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
-      height: 700px;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
       /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       position: relative;
