@@ -9,15 +9,19 @@ const MainpageContainer = styled.section`
     // 부모가 500 미만 -> only 모바일 세로
     width: 100%;
     height: 100%;
+    min-height: ${window.innerHeight}px;
     .swiper {
       width: 100%;
       height: 100%;
+      min-height: ${window.innerHeight}px;
       .swiper-slide {
         width: 100%;
         height: 100%;
+        min-height: ${window.innerHeight}px;
         & > div[class^="mainpage"] {
           width: 100%;
           height: 100%;
+          min-height: ${window.innerHeight}px;
         }
       }
     }
@@ -26,12 +30,14 @@ const MainpageContainer = styled.section`
     // 부모가 500 이상 -> 모바일 가로, 태블릿, PC 등
     width: 500px;
     height: 100%;
+    min-height: ${window.innerHeight}px;
     margin: 0 auto;
     overflow: hidden scroll;
     & div[class^="mainpage"] {
       width: 100%;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
     }
   }
   box-sizing: border-box;
@@ -346,8 +352,9 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       & > .Greetings {
         width: 100%;
         height: 100%;
@@ -754,8 +761,8 @@ const MainpageContainer = styled.section`
           display: block;
           font-size: 21px;
           margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
-          /* text-shadow: 0 0 2px rgba(255, 255, 255, 0.8),
-            0 0 3px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8); */
+          text-shadow: 0 0 2px rgba(255, 255, 255, 0.7),
+            0 0 3px rgba(255, 255, 255, 0.7), 0 0 4px rgba(255, 255, 255, 0.5);        
         }
       }
       @keyframes fadeInLeft {
@@ -771,8 +778,8 @@ const MainpageContainer = styled.section`
           font-family: "PyeongChangPeace", sans-serif;
           font-size: 15px;
           position: absolute;
-          top: 15px;
-          right: 35px;
+          top: 9px;
+          right: 34px;
           animation: fadeInLeft 0.7s infinite alternate ease-out;
           margin-right: 2px;
         }
@@ -915,8 +922,8 @@ const MainpageContainer = styled.section`
           & > .morefunc-handy-invitation {
             & > span {
               font-size: 11px;
-              top: 7px;
-              right: 22px;
+              top: 8px;
+              right: 24px;
             }
             & > img {
               width: 30px;
@@ -955,7 +962,7 @@ const MainpageContainer = styled.section`
           & > span {
             font-size: 10px;
             top: 7px;
-            right: 20px;
+            right: 22px;
           }
           & > img {
             width: 27px;
@@ -983,8 +990,9 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
+      height: 600px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       position: relative;
       & > .QnA {
         width: 100%;
