@@ -16,7 +16,7 @@ const LinkKakaoCalendar = () => {
     title: "수학인의 밤",
     time: {
       start_at: "2023-11-24T09:00:00Z",
-      end_at: "2023-11-24T12:00:00Z",
+      end_at: "2023-11-24T11:30:00Z",
       time_zone: "Asia/Seoul",
     },
     description: "제40회 수학인의 밤에 참석해주셔서 감사합니다 :)",
