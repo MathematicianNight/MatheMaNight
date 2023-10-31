@@ -21,7 +21,7 @@ import { Images, Colors } from "../../../utils/style";
 
 const MainPage = () => {
   const [isInnerWidthOver500, setIsInnerWidthOver500] = useState("less");
-  // const [prevInnerHeight, setPrevInnerHeight] = useState(window.innerHeight);
+  const [prevInnerHeight, setPrevInnerHeight] = useState(window.innerHeight);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,7 +35,7 @@ const MainPage = () => {
       setIsInnerWidthOver500("over");
     } else if (window.innerWidth < 500) {
       setIsInnerWidthOver500("less");
-      // setPrevInnerHeight(window.innerHeight);
+      setPrevInnerHeight(window.innerHeight);
     }
   };
 
@@ -88,7 +88,7 @@ const MainPage = () => {
   }, []);
 
   return (
-    <MainpageContainer>
+    <MainpageContainer prevInnerHeight={prevInnerHeight} >
       {isInnerWidthOver500 === "less" ? (
         <Swiper
           direction={"vertical"}
