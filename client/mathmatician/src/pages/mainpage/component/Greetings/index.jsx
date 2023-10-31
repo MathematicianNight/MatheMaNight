@@ -4,7 +4,7 @@ import { GreetingsContainer } from "./style";
 import { Images } from "../../../../utils/style";
 
 const Index = ({ message }) => {
-  const specialIndices = [2, 4, 7, 9];
+  const specialIndices = [2, 4, 7, 10];
 
   const [bgAnimation, setBgAnimation] = useState(false);
   useEffect(() => {

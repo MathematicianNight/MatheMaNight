@@ -757,7 +757,7 @@ const MainpageContainer = styled.section`
           font-size: 21px;
           margin: 18px 0 0 10px; // 로고와 만든 사람들 사이 여백
           text-shadow: 0 0 2px rgba(255, 255, 255, 0.7),
-            0 0 3px rgba(255, 255, 255, 0.6), 0 0 4px rgba(245, 245, 245, 0.4), 0 0 5px rgba(245, 245, 245, 0.3);        
+            0 0 3px rgba(255, 255, 255, 0.7), 0 0 4px rgba(255, 255, 255, 0.5);        
         }
       }
       @keyframes fadeInLeft {
