@@ -9,19 +9,15 @@ const MainpageContainer = styled.section`
     // 부모가 500 미만 -> only 모바일 세로
     width: 100%;
     height: 100%;
-    min-height: ${window.innerHeight}px;
     .swiper {
       width: 100%;
       height: 100%;
-      min-height: ${window.innerHeight}px;
       .swiper-slide {
         width: 100%;
         height: 100%;
-        min-height: ${window.innerHeight}px;
         & > div[class^="mainpage"] {
           width: 100%;
           height: 100%;
-          min-height: ${window.innerHeight}px;
         }
       }
     }
@@ -30,7 +26,6 @@ const MainpageContainer = styled.section`
     // 부모가 500 이상 -> 모바일 가로, 태블릿, PC 등
     width: 500px;
     height: 100%;
-    min-height: ${window.innerHeight}px;
     margin: 0 auto;
     overflow: hidden scroll;
     & div[class^="mainpage"] {
