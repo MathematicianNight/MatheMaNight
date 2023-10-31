@@ -30,8 +30,9 @@ const MainpageContainer = styled.section`
     overflow: hidden scroll;
     & div[class^="mainpage"] {
       width: 100%;
+      height: 700px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
     }
   }
   box-sizing: border-box;
@@ -346,8 +347,9 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
+      height: 700px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       & > .Greetings {
         width: 100%;
         height: 100%;
@@ -771,8 +773,8 @@ const MainpageContainer = styled.section`
           font-family: "PyeongChangPeace", sans-serif;
           font-size: 15px;
           position: absolute;
-          top: 15px;
-          right: 35px;
+          top: 9px;
+          right: 34px;
           animation: fadeInLeft 0.7s infinite alternate ease-out;
           margin-right: 2px;
         }
@@ -915,8 +917,8 @@ const MainpageContainer = styled.section`
           & > .morefunc-handy-invitation {
             & > span {
               font-size: 11px;
-              top: 7px;
-              right: 22px;
+              top: 8px;
+              right: 24px;
             }
             & > img {
               width: 30px;
@@ -955,7 +957,7 @@ const MainpageContainer = styled.section`
           & > span {
             font-size: 10px;
             top: 7px;
-            right: 20px;
+            right: 22px;
           }
           & > img {
             width: 27px;
@@ -983,8 +985,9 @@ const MainpageContainer = styled.section`
     }
     @media (min-width: 499px) { // 추가적으로 모바일 세로를 벗어났을 때(window.innerWidth >= 500)의 처리
       width: 100%;
+      height: 700px;
       /* height: ${({ prevInnerHeight }) => prevInnerHeight}px; */
-      height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px;
+      /* height: ${({ prevInnerHeight }) => prevInnerHeight >= 479 ? prevInnerHeight : 600}px; */
       position: relative;
       & > .QnA {
         width: 100%;
